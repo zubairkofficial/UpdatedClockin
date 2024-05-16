@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+body {
+  margin: 0;
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
+*{
+  font-family: "Montserrat", sans-serif;
+}
+.backimage{
+  background: url('/public/assets/org.png');
+  background-repeat: no-repeat
+}
+.bg-orangelinewithicons{
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: 40% top;
+}
+.carousel-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 16px;
+  padding: 20px;
+}
+
+.carousel-card {
+  flex: 0 0 auto;
+  width: 300px;  
+  scroll-snap-align: start;
+  background: #2C3131;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.controls button {
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: orange;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.controls button:disabled {
+  background-color: grey;
+}
+
+.dot-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.dot-controls span {
+  display: inline-block;
+}
+/* Additional CSS for positioning and styling dots */
+
+/* General styles for pagination bullets */
+.swiper-pagination-bullet {
+  background: gray !important; /* Default bullet color */
+  opacity: 1 !important; /* Make sure dots are always opaque */
+  width: 8px !important; /* Specify size to ensure visibility */
+  height: 8px !important; /* Specify size to ensure visibility */
+  margin: 0 4px !important; /* Add some horizontal spacing */
+}
+
+/* Styles for the active pagination bullet */
+.swiper-pagination-bullet-active {
+  background: #FF7A50 !important; /* Active bullet background, bright orange */
+  width: 8px !important;
+  height: 8px !important;
+}
+
+/* Adjusting the position of the pagination itself */
+.swiper-pagination {
+  position: relative !important; /* If setting to 'relative' directly in CSS */
+  margin-top: 30px !important; /* Adjust this value to position the pagination as needed */
+}
+
