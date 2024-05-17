@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import JustHeader from '../download/JustHeader'
 import FaqsCards from './FaqsCards';
+import Header from '../../layouts/Header';
+import { ThemeContext } from '../../layouts/ThemeContext';
 
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -19,20 +21,21 @@ const SearchBar = () => {
     }
   };
 
+  const { isLightMode } = useContext(ThemeContext);
   return (
     <>
-      <div className='bg-footerBg bg-cover bg-center bg-no-repeat h-auto w-full'>
-        <JustHeader />
+      <div className='bg-footerBg bg-cover bg-center bg-no-repeat h-auto w-full'  style={{ backgroundImage: `url(${isLightMode ? 'assets/bg1.png' : 'assets/bg2.png'})` }}>
+        <Header />
         <div className='py-5 mt-10'>
-          <h2 className='text-white font-semibold text-3xl pt-8 text-center'>How Can We Help You?</h2>
+          <h2 className='text-text font-semibold text-3xl pt-8 text-center'>How Can We Help You?</h2>
         </div>
         {/* seacrh input field */}
         <div className='flex items-center justify-center pb-8'>
         <div className=" px-4 flex justify-center items-center w-[45%] rounded-full" style={{ height: '5rem' }}>
-          <div className="flex items-center bg-[#464B4B] rounded-full overflow-hidden flex-grow">
+          <div className="flex items-center bg-inputcolor rounded-full overflow-hidden flex-grow">
             <input
               type="text"
-              className="p-3 pl-8 text-gray-300 focus:outline-none w-[100%] bg-[#464B4B]"
+              className="p-3 pl-8 text-gray-300 focus:outline-none w-[100%] bg-inputcolor"
               placeholder="Search"
               value={searchQuery}
               onChange={handleInputChange}

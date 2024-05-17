@@ -12,9 +12,9 @@ import FeatureCard6 from './FeatureCard6';
 
 const Hero = () => {
     return (
-        <section className='bg-[#2C3131] '>
+        <section className='bg-pinkbackground '>
             <div>
-                <h2 className='text-white font-bold text-center py-8 sm:py-10 md:py-12 lg:py-16 text-4xl'>
+                <h2 className='text-text font-bold text-center py-8 sm:py-10 md:py-12 lg:py-16 text-4xl'>
                     Our Application Features
                 </h2>
             </div>
@@ -31,8 +31,8 @@ const Hero = () => {
 
             <div className='flex flex-col lg:flex-row justify-between items-center px-8 md:px-16 lg:px-[160px] py-8'>
                 <div className='text-center lg:text-left'>
-                    <h2 className='text-white font-bold text-4xl mb-4 lg:mb-8'>Why we are the <span className='text-[#FF7A50]'>best</span> & <br /> customers choose us</h2>
-                    <p className='text-gray-400 mb-4 md:mb-8'>
+                    <h2 className='text-text font-bold text-4xl mb-4 lg:mb-8'>Why we are the <span className='text-[#FF7A50]'>best</span> & <br /> customers choose us</h2>
+                    <p className='text-text mb-4 md:mb-8'>
                         Efficiency personalized. Clients choose us for seamless <br />time
                         tracking and unparalleled results.
                     </p>

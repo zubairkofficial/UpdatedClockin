@@ -78,7 +78,7 @@ const items = [
 
 const App = () => {
   return (
-    <div className="bg-[#222626] pb-12 pt-3">
+    <div className="bg-pinkbackground pb-12 pt-3">
                  <div className=''>
                  <h2 className='text-center text-orange-600 text-2xl pt-12 font-semibold'>Our Achievements From Clients</h2>
                  <p className='text-center text-gray-400 pt-6 text-lg'>Optimized productivity, streamlined tasks and improved 

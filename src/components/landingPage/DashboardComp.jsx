@@ -4,7 +4,7 @@ import React from 'react'
 const DashboardComp = () => {
     return (
         <>
-            <div className='h-full bg-[#2C3131] py-16 pt-7 pr-14  bg-orangelinewithicons bg-cover'>
+            <div className='h-full bg-pinkbackground py-16 pt-7 pr-14  bg-orangelinewithicons bg-cover'>
                 {/* dashboard 1 */}
                 <div className=' '>
                   
@@ -13,7 +13,7 @@ const DashboardComp = () => {
                             <img src="assets/dashboard 1.png" alt='dashboard one' className='w-[70] h-auto ml-[5rem] z-10' />
                         </div>
                         <div className='w-full md:w-1/2 pl-12 pb-32 '>
-                            <h2 className='text-white font-bold text-3xl'>Reclaim Countless hours
+                            <h2 className='text-text font-bold text-3xl'>Reclaim Countless hours
                                 with efficient time tracking.</h2>
                             <p className='text-gray-400 pt-6'><span className='text-[#F2754E]'>Clockin's</span> intuitive UI and user-centric time tracking
                                 enabled companies to slash timesheet admin by 80%.</p>
@@ -23,7 +23,7 @@ const DashboardComp = () => {
                 {/* dashboard 2 */}
                 <div className='flex flex-wrap justify-between items-center px-4 mt-[5rem] '>
                     <div className='w-full md:w-1/2 pl-[5rem]'>
-                        <h2 className='text-white font-bold text-3xl'>Efficiently oversee <br /> your list of employees.</h2>
+                        <h2 className='text-text font-bold text-3xl'>Efficiently oversee <br /> your list of employees.</h2>
                         <p className='text-gray-400 pt-6'>Simplify employee management: track attendance,<br />tasks, and schdeules seamlessly.</p>
                     </div>
                     <div className='w-full md:w-1/2 pl-12 pb-32'>
@@ -36,7 +36,7 @@ const DashboardComp = () => {
                         <img src="assets/dashboard 3.png" alt='dashboard one' className='w-[70] h-auto ml-[5rem] ' />
                     </div>
                     <div className='w-full md:w-1/2 pl-12 pb-32'>
-                        <h2 className='text-white font-bold text-3xl'>Efficiently Task Handling</h2>
+                        <h2 className='text-text font-bold text-3xl'>Efficiently Task Handling</h2>
                         <p className='text-gray-400 pt-6'>Experience seamless task management that enhances productivity. Our platform empowers you to effortlessly create, assign, and track tasks, ensuring efficient collaboration and goal achievement.</p>
                     </div>
                 </div>

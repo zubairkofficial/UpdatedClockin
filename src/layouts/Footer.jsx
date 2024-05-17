@@ -1,33 +1,35 @@
 
-import React from "react";
+import React, { useContext } from "react";
 import { SocialIcon } from "react-social-icons";
 import { Typography } from "@material-tailwind/react";
 
+import { ThemeContext } from '../layouts/ThemeContext';
 const Footer = () => {
+  const { isLightMode } = useContext(ThemeContext);
   const currentYear = new Date().getFullYear();
   return (
     <>
-      <div className="flex flex-wrap justify-around items-center py-12 px-8 bg-footerBg bg-cover bg-center bg-no-repeat h-auto w-full">
+      <div className="flex flex-wrap justify-around items-center py-12 px-8 bg-cover bg-center bg-no-repeat h-auto w-full" style={{ backgroundImage: `url(${isLightMode ? 'assets/bg1.png' : 'assets/bg2.png'})` }}>
         <div className="flex flex-col items-center mb-6 md:mb-0">
           <a href="/">
-            <img src="assets/logo.png" alt="Logo" className="h-12 mb-6 " />
+            <img src={isLightMode ? 'assets/logo.png' : 'assets/blacklogo.png'}  alt="Logo" className="h-12 mb-6 " />
           </a>
         </div>
-        <div className="flex flex-col gap-y-4 text-white">
+        <div className="flex flex-col gap-y-4 text-text">
           <a href="privacy"><h2 className="font-bold text-orange-500">Privacy</h2></a>
           <h3 className="text-[#ADB1B1]">Torquatos nostros?</h3>
           <h3 className="text-[#ADB1B1]">Certe, inquam</h3>
           <h3 className="text-[#ADB1B1]">Torquatos nostros?</h3>
           <h3 className="text-[#ADB1B1]">Certe, inquam</h3>
         </div>
-        <div className="flex flex-col gap-y-4 text-white">
+        <div className="flex flex-col gap-y-4 text-text">
           <a href="terms&conditions"><h2 className="font-bold text-orange-500">Terms & Conditions</h2></a>
           <h3 className="text-[#ADB1B1]">Torquatos nostros?</h3>
           <h3 className="text-[#ADB1B1]">Certe, inquam</h3>
           <h3 className="text-[#ADB1B1]">Torquatos nostros?</h3>
           <h3 className="text-[#ADB1B1]">Certe, inquam</h3>
         </div>
-        <div className="flex flex-col gap-y-4 text-white">
+        <div className="flex flex-col gap-y-4 text-text">
           <a href="contact"><h2 className="font-bold text-orange-500">Contact</h2></a>
           <h3 className="text-[#ADB1B1]">Torquatos nostros?</h3>
           <h3 className="text-[#ADB1B1]">Certe, inquam</h3>
@@ -39,7 +41,7 @@ const Footer = () => {
           <form className="flex items-center w-full">
             <div className="relative w-full flex">
               <input
-                className="rounded-l-full px-5 p-2 bg-[#464B4B] text-white text-sm"
+                className="rounded-l-full px-5 p-2 bg-inputcolor text-white text-sm"
                 type="email"
                 placeholder="Your email here"
               />
@@ -59,7 +61,7 @@ const Footer = () => {
         </div>
         <hr className="w-full border-t-1 border-[#4747476b] mt-20" /> <br />
           <div className="flex justify-between pt-20">
-            <p className="text-[#ADB1B1] font-thin" style={{fontSize:"0.8rem"}}>Designed by ClockIn. All
+            <p className={`${isLightMode ? 'text-[#ffffff]' : 'text-[#242424]'} font-thin`} style={{fontSize:"0.8rem"}}>Designed by ClockIn. All
             Rights Reserved. </p>
             {/* <ul className="flex justify-between">
               <li>lorem ipsum</li>

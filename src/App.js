@@ -6,7 +6,7 @@ import Hero from "./components/landingPage/Hero";
 import Scaling from "./components/download/Scaling";
 import Header from "./layouts/Header";
 import SearchBar from "./components/FAQs/SearchBar.jsx";
-
+import { ThemeProvider } from '../src/layouts/ThemeContext.js';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -37,11 +37,13 @@ const router = createBrowserRouter([
 
 function App() {
   return (
+    <ThemeProvider>
     <div className="App">
       <Layout>
        <RouterProvider router={router} />
       </Layout>
     </div>
+    </ThemeProvider> 
   );
 }
 

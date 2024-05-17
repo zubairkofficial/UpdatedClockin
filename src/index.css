@@ -2,6 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* theme.css */
+/* :root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --primary-color: #FF7A50;
+  --secondary-color: #464B4B;
+  --hover-color: #orange-700;
+}
+
+[data-theme="dark"] {
+  --background-color: #1A1C1C;
+  --text-color: #ffffff;
+  --primary-color: #FF7A50;
+  --secondary-color: #464B4B;
+  --hover-color: #FF4500;
+} */
+:root {
+  --background-color: #222626;
+  --pinkbackground-color: #2C3131;
+  --inputcolor-color : #464B4B;
+  --lightpink-color : #222626;
+  --imagebgcolor-color : #464B4B;
+  --subsbgcolor-color : #1A1C1C;
+  --substextcolor : #FF7A50;
+  --secondsubsbgcolor-color : #464B4B;
+  --secondsubstextcolor-color : #5A5C5E;
+  --text-color: #ffffff;
+  --primary-color: #FF7A50;
+  --secondary-color: #464B4B;
+  --hover-color: #FF4500;
+  /* Add other variables as needed */
+}
+
+[data-theme="dark"] {
+  --background-color: #ffffff;
+  --pinkbackground-color: #FFF5F1;
+  --inputcolor-color : #EAEAEA;
+  --lightpink-color : #FFF9F8;
+  --imagebgcolor-color : #F8F5F4;
+  --text-color: #000000;
+  --primary-color: #FF7A50;
+  --secondary-color: #464B4B;
+  --hover-color: #orange-700;
+  --subsbgcolor-color : #FF8B42;
+  --substextcolor : #fff8f6;
+  --secondsubsbgcolor-color : #EAEAEA;
+  --secondsubstextcolor-color : #5A5C5E;
+  /* Add other variables as needed */
+}
 body {
   margin: 0;
   /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,6 +59,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 /* code {
@@ -18,6 +69,7 @@ body {
 } */
 *{
   font-family: "Montserrat", sans-serif;
+  transition: 0.1s;
 }
 .backimage{
   background: url('/public/assets/org.png');

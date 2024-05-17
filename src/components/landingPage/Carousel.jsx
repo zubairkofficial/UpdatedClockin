@@ -106,7 +106,7 @@ export default function Carousel() {
       >
       <div className=' ' >
         <SwiperSlide style={{position:'relative'}}>
-          <div className=" max-w-sm rounded-lg shadow-lg bg-[#2C3131] p-2">
+          <div className=" max-w-sm rounded-lg shadow-lg bg-background p-2">
             <img
               className="pl-8 pt-2"
               src="assets/cyberify 10 1.png"
@@ -132,7 +132,7 @@ export default function Carousel() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className=" max-w-sm rounded-lg  shadow-lg bg-[#2C3131] p-2">
+          <div className=" max-w-sm rounded-lg  shadow-lg bg-background p-2">
             <img
               className="pl-8 pt-2"
               src="assets/cyberify 10 1.png"
@@ -158,7 +158,7 @@ export default function Carousel() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className=" max-w-sm rounded-lg  shadow-lg bg-[#2C3131] p-2">
+          <div className=" max-w-sm rounded-lg  shadow-lg bg-background p-2">
             <img
               className="pl-8 pt-2"
               src="assets/cyberify 10 1.png"
@@ -184,7 +184,7 @@ export default function Carousel() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className=" max-w-sm rounded-lg  shadow-lg bg-[#2C3131] p-2">
+          <div className=" max-w-sm rounded-lg  shadow-lg bg-background p-2">
             <img
               className="pl-8 pt-2"
               src="assets/cyberify 10 1.png"
@@ -210,7 +210,7 @@ export default function Carousel() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className=" max-w-sm rounded-lg  shadow-lg bg-[#2C3131] p-2">
+          <div className=" max-w-sm rounded-lg  shadow-lg bg-background p-2">
             <img
               className="pl-8 pt-2"
               src="assets/cyberify 10 1.png"
@@ -236,7 +236,7 @@ export default function Carousel() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className=" max-w-sm rounded-lg  shadow-lg bg-[#2C3131] p-2">
+          <div className=" max-w-sm rounded-lg  shadow-lg bg-background p-2">
             <img
               className="pl-8 pt-2"
               src="assets/cyberify 10 1.png"

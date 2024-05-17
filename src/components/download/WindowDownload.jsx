@@ -11,7 +11,7 @@ const WindowDownload = () => {
         <>
             <div className="   w-96 p-4 mb-4">
                 <h2 className='text-[#FF7A50] text-2xl font-bold'>For Windows</h2>
-                <p className="text-sm mb-2 mt-3 text-white">
+                <p className="text-sm mb-2 mt-3 text-text">
                     On a website, locate the desired software, click the download button, choose a version compatible with your Windows system, and complete the download process.
                 </p>
                 <div className="relative pt-2">
@@ -37,7 +37,7 @@ const WindowDownload = () => {
 
             <div className="   w-96 p-4 mb-4">
                 <h2 className='text-[#FF7A50] text-2xl font-bold'>For Mac</h2>
-                <p className="text-sm mb-2 mt-3 text-white">
+                <p className="text-sm mb-2 mt-3 text-text">
                     On a website, locate the desired software, click the download button, choose a version compatible with your Windows system, and complete the download process.
                 </p>
                 <div className="relative pt-2">
@@ -63,7 +63,7 @@ const WindowDownload = () => {
 
             <div className="   w-96 p-4 mb-4">
                 <h2 className='text-[#FF7A50] text-2xl font-bold'>For Linux</h2>
-                <p className="text-sm mb-2 mt-3 text-white">
+                <p className="text-sm mb-2 mt-3 text-text">
                     On a website, locate the desired software, click the download button, choose a version compatible with your Windows system, and complete the download process.
                 </p>
                 <div className="relative pt-2">

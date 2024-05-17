@@ -1,18 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import JustHeader from './JustHeader'
 // import laptopmockup from 'assets/laptopmockup.png'
 import WindowDownload from './WindowDownload'
 import Plan from '../landingPage/Plan'
 import Footer from '../../layouts/Footer'
+import Header from '../../layouts/Header'
+import { ThemeContext } from '../../layouts/ThemeContext';
 
 const Scaling = () => {
+    const { isLightMode } = useContext(ThemeContext);
     return (
         <>
-            <div className='bg-footerBg bg-cover '>
+            <div className='bg-cover bg-no-repeat bg-center '  style={{ backgroundImage: `url(${isLightMode ? 'assets/bg1.png' : 'assets/bg2.png'})` }}>
                 <div>
-                    <JustHeader />
+                    <Header />
                 </div>
-                <div className='text-white text-center pt-[5rem]'>
+                <div className='text-text text-center pt-[5rem]'>
                     <h3 className='font-semibold text-3xl'>Scaling Your Team</h3>
                     <h2 className='font-bold text-7xl pt-2'>With Clockin</h2>
                 </div>
