@@ -31,7 +31,7 @@ const Scaling = () => {
             </div>
             <div className=''>
                 <Plan />
-                {/* <Footer /> */}
+                <Footer />
             </div>
         </>
     )

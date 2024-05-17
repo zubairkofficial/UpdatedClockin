@@ -3,8 +3,8 @@ import { ThemeContext } from '../../layouts/ThemeContext';
 const PlanCard = ({ isSubscription }) => {
     const { isLightMode } = useContext(ThemeContext);
     return (
-        <div className='flex py-12 bg-background'>
-            <div className="bg-pinkbackground rounded-tr-3xl rounded-bl-3xl rounded-tl-none rounded-br-none p-6 max-w-sm w-1/3 mx-auto text-white shadow-xl flex flex-col items-center">
+        <div className='lg:flex py-12 bg-background sm:block '>
+            <div className="bg-pinkbackground rounded-tr-3xl rounded-bl-3xl rounded-tl-none rounded-br-none p-6 max-w-sm lg:w-1/3 sm:w-full mx-auto text-white shadow-xl flex flex-col items-center">
                 <h3 className={`${isLightMode ? 'text-[#ffffff]' : 'text-[#FF8B42]'} font-semibold m-5`}>Basic</h3>
                 <p className="text-3xl font-bold mb-8 text-[#FF8B42]">$49.00</p>
                 <hr className="border-[#81818146] w-full border-t-1 mb-6" />
@@ -55,7 +55,7 @@ const PlanCard = ({ isSubscription }) => {
                 <p className="text-gray-400 text-xs text-center">Lorem Ipsum is simply dummy text</p>
             </div>
             {/* card 2 */}
-            <div className="relative bg-pinkbackground rounded-tr-3xl rounded-bl-3xl rounded-tl-none rounded-br-none p-6 max-w-sm w-1/3 mx-auto text-white shadow-xl flex flex-col items-center">
+            <div className="relative bg-pinkbackground rounded-tr-3xl rounded-bl-3xl rounded-tl-none rounded-br-none p-6 max-w-sm lg:w-1/3 sm:w-full mx-auto text-white shadow-xl flex flex-col items-center">
                 <div className="absolute top-6 left-9 transform -translate-x-1/2 -translate-y-1/2 bg-[#FF8B42] text-white px-5 py-1 rounded-tr-3xl rounded-br-3xl font-semibold shadow-md">
                     Best
                 </div>
@@ -111,7 +111,7 @@ const PlanCard = ({ isSubscription }) => {
 
 
             {/* card 3 */}
-            <div className="bg-pinkbackground rounded-tr-3xl rounded-bl-3xl rounded-tl-none rounded-br-none p-6 max-w-sm w-1/3 mx-auto text-white shadow-xl flex flex-col items-center">
+            <div className="bg-pinkbackground rounded-tr-3xl rounded-bl-3xl rounded-tl-none rounded-br-none p-6 max-w-sm lg:w-1/3 sm:w-full mx-auto text-white shadow-xl flex flex-col items-center">
                 <h3 className={`${isLightMode ? 'text-[#ffffff]' : 'text-[#FF8B42]'} text-[#FF8B42] font-semibold m-5`}>Premium</h3>
                 <p className="text-3xl font-bold mb-8 text-[#FF8B42]">$99.00</p>
                 <hr className="border-[#81818146] w-full border-t-1 mb-6" />

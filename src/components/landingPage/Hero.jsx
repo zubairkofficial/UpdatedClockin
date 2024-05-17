@@ -9,6 +9,7 @@ import FeatureCard3 from './FeatureCard3';
 import FeatureCard4 from './FeatureCard4';
 import FeatureCard5 from './FeatureCard5';
 import FeatureCard6 from './FeatureCard6';
+import Footer from '../../layouts/Footer';
 
 const Hero = () => {
     return (
@@ -18,18 +19,18 @@ const Hero = () => {
                     Our Application Features
                 </h2>
             </div>
-            <div className='flex '>
+            <div className='lg:flex md:block container mx-auto '>
                 <FeatureCard1 />
                 <FeatureCard2 />
                 <FeatureCard3 />
             </div>
-            <div className='flex py-12'>
+            <div className='lg:flex md:block py-12 container mx-auto'>
                 <FeatureCard4 />
                 <FeatureCard5 />
                 <FeatureCard6 />
             </div>
 
-            <div className='flex flex-col lg:flex-row justify-between items-center px-8 md:px-16 lg:px-[160px] py-8'>
+            <div className='flex flex-col lg:flex-row justify-between items-center px-8 md:px-16 lg:px-[160px] py-8 container mx-auto'>
                 <div className='text-center lg:text-left'>
                     <h2 className='text-text font-bold text-4xl mb-4 lg:mb-8'>Why we are the <span className='text-[#FF7A50]'>best</span> & <br /> customers choose us</h2>
                     <p className='text-text mb-4 md:mb-8'>
@@ -47,6 +48,7 @@ const Hero = () => {
             <DashboardComp />
             <Plan />
             <Achievements />
+            <Footer/>
         </section>
 
     )

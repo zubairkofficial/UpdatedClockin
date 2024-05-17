@@ -13,6 +13,7 @@ import {
 } from "react-router-dom";
 import Layout from "./Layout";
 import ContactUS from "./components/support/ContactUS.jsx";
+import Coming from "./components/comingsoon/Coming.jsx";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/download",
     element: <Scaling />
+  },
+  {
+    path: "/coming",
+    element: <Coming />
   },
   {
     path: "/FAQs",

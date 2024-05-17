@@ -9,7 +9,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
     <>
-      <div className="flex flex-wrap justify-around items-center py-12 px-8 bg-cover bg-center bg-no-repeat h-auto w-full" style={{ backgroundImage: `url(${isLightMode ? 'assets/bg1.png' : 'assets/bg2.png'})` }}>
+      <div className="lg:flex sm:block flex-wrap justify-around items-center py-12 px-8 bg-cover bg-center bg-no-repeat h-auto w-full" style={{ backgroundImage: `url(${isLightMode ? 'assets/bg1.png' : 'assets/bg2.png'})` }}>
         <div className="flex flex-col items-center mb-6 md:mb-0">
           <a href="/">
             <img src={isLightMode ? 'assets/logo.png' : 'assets/blacklogo.png'}  alt="Logo" className="h-12 mb-6 " />

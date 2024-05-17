@@ -5,7 +5,7 @@ function FaqsCards() {
     return (
         <div className='bg-pinkbackground py-12'>
             {/* first row */}
-            <div className='flex items-stretch justify-center gap-x-9 p-8'>
+            <div className='lg:flex items-stretch justify-center gap-x-9 p-8 sm:block'>
                 <div className="max-w-xs w-full rounded-3xl overflow-hidden shadow-lg bg-pinkbackground flex flex-col">
                     <div className="w-20 h-20 bg-imagebgcolor rounded-full ml-6 mt-6 flex-shrink-0">
                         <img className='px-4 py-4' src="assets/activity-tracker.png" />
@@ -70,7 +70,7 @@ function FaqsCards() {
 
 
             {/* second row */}
-            <div className='flex items-stretch justify-center gap-x-9 p-8'>
+            <div className='lg:flex items-stretch justify-center gap-x-9 p-8 sm:block'>
                 <div className="max-w-xs w-full rounded-3xl overflow-hidden shadow-lg bg-pinkbackground flex flex-col">
                     <div className="w-20 h-20 bg-imagebgcolor rounded-full ml-6 mt-6 flex-shrink-0">
                         <img className='px-4 py-4' src="assets/activity-tracker.png" />
@@ -134,7 +134,7 @@ function FaqsCards() {
             </div>
 
             {/* third row */}
-            <div className='flex items-stretch justify-center gap-x-9 p-8'>
+            <div className='lg:flex items-stretch justify-center gap-x-9 p-8 sm:block'>
                 <div className="max-w-xs w-full rounded-3xl overflow-hidden shadow-lg bg-pinkbackground flex flex-col">
                     <div className="w-20 h-20 bg-imagebgcolor rounded-full ml-6 mt-6 flex-shrink-0">
                         <img className='px-4 py-4' src="assets/activity-tracker.png" />

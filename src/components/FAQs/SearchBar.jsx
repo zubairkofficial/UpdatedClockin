@@ -3,6 +3,7 @@ import JustHeader from '../download/JustHeader'
 import FaqsCards from './FaqsCards';
 import Header from '../../layouts/Header';
 import { ThemeContext } from '../../layouts/ThemeContext';
+import Footer from '../../layouts/Footer';
 
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -31,7 +32,7 @@ const SearchBar = () => {
         </div>
         {/* seacrh input field */}
         <div className='flex items-center justify-center pb-8'>
-        <div className=" px-4 flex justify-center items-center w-[45%] rounded-full" style={{ height: '5rem' }}>
+        <div className=" px-4 flex justify-center items-center w-[80%] lg:w-[45%] rounded-full" style={{ height: '5rem' }}>
           <div className="flex items-center bg-inputcolor rounded-full overflow-hidden flex-grow">
             <input
               type="text"
@@ -55,6 +56,7 @@ const SearchBar = () => {
       </div>
       <div>
         <FaqsCards />
+        <Footer/>
       </div>
     </>
   );

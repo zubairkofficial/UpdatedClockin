@@ -91,7 +91,24 @@ export default function Carousel() {
 
     <Swiper
         modules={[Navigation, Pagination, Scrollbar]}
-        slidesPerView={3}
+        // slidesPerView={3}
+        breakpoints={{
+        // when window width is >= 320px
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 10,
+        },
+        // when window width is >= 640px
+        640: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        // when window width is >= 1024px
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+      }}
         spaceBetween={30}
         navigation
         pagination={{
@@ -106,7 +123,7 @@ export default function Carousel() {
       >
       <div className=' ' >
         <SwiperSlide style={{position:'relative'}}>
-          <div className=" max-w-sm rounded-lg shadow-lg bg-background p-2">
+          <div className=" lg:max-w-sm sm:w-full rounded-lg shadow-lg bg-background p-2">
             <img
               className="pl-8 pt-2"
               src="assets/cyberify 10 1.png"
@@ -132,7 +149,7 @@ export default function Carousel() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className=" max-w-sm rounded-lg  shadow-lg bg-background p-2">
+          <div className=" lg:max-w-sm sm:w-full rounded-lg  shadow-lg bg-background p-2">
             <img
               className="pl-8 pt-2"
               src="assets/cyberify 10 1.png"
@@ -158,7 +175,7 @@ export default function Carousel() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className=" max-w-sm rounded-lg  shadow-lg bg-background p-2">
+          <div className=" lg:max-w-sm sm:w-full rounded-lg  shadow-lg bg-background p-2">
             <img
               className="pl-8 pt-2"
               src="assets/cyberify 10 1.png"
@@ -184,7 +201,7 @@ export default function Carousel() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className=" max-w-sm rounded-lg  shadow-lg bg-background p-2">
+          <div className=" lg:max-w-sm sm:w-full rounded-lg  shadow-lg bg-background p-2">
             <img
               className="pl-8 pt-2"
               src="assets/cyberify 10 1.png"
@@ -210,7 +227,7 @@ export default function Carousel() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className=" max-w-sm rounded-lg  shadow-lg bg-background p-2">
+          <div className=" lg:max-w-sm sm:w-full rounded-lg  shadow-lg bg-background p-2">
             <img
               className="pl-8 pt-2"
               src="assets/cyberify 10 1.png"
@@ -236,7 +253,7 @@ export default function Carousel() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className=" max-w-sm rounded-lg  shadow-lg bg-background p-2">
+          <div className=" lg:max-w-sm sm:w-full rounded-lg  shadow-lg bg-background p-2">
             <img
               className="pl-8 pt-2"
               src="assets/cyberify 10 1.png"
