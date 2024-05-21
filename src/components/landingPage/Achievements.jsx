@@ -25,7 +25,7 @@
 //                         </div>
 //                     </div>
 //                 </div>
-                
+
 //                 <div className=" max-w-sm rounded-lg overflow-hidden shadow-lg bg-[#2C3131] p-2">
 //                     <img className="pl-8 pt-2" src="assets/cyberify 10 1.png" alt="cyberify" />
 //                     <div className="px-6 py-4">
@@ -39,7 +39,7 @@
 //                         </div>
 //                     </div>
 //                 </div>
-                
+
 //                 <div className=" max-w-sm rounded-lg overflow-hidden shadow-lg bg-[#2C3131] p-2">
 //                     <img className="pl-8 pt-2" src="assets/cyberify 10 1.png" alt="cyberify" />
 //                     <div className="px-6 py-4">
@@ -53,7 +53,7 @@
 //                         </div>
 //                     </div>
 //                 </div>
-                
+
 //             </div>
 //             <div>
 //              <Carousel />
@@ -79,11 +79,11 @@ const items = [
 const App = () => {
   return (
     <div className="bg-pinkbackground pb-12 pt-3">
-                 <div className=''>
-                 <h2 className='text-center text-orange-600 text-2xl pt-12 font-semibold'>Our Achievements From Clients</h2>
-                 <p className='text-center text-gray-400 pt-6 text-lg'>Optimized productivity, streamlined tasks and improved 
-                     efficiency with our innovative<br /> time tracker software.</p>
-             </div>
+      <div className=''>
+        <h2 className='text-center text-orange-600 text-2xl pt-12 font-semibold'>Our Achievements From Clients</h2>
+        <p className='text-center text-gray-400 pt-6 text-lg'>Optimized productivity, streamlined tasks and improved
+          efficiency with our innovative<br /> time tracker software.</p>
+      </div>
       <Carousel items={items} />
     </div>
   );

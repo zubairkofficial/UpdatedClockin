@@ -14,11 +14,11 @@ const Stats = () => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-lightpink py-16 ">
             <div className=''>
-                <img src={isLightMode ? 'assets/card1.png' : 'assets/card1 1.png'} alt='card1' className='pl-[90px]' />
-                <img src={isLightMode ? 'assets/progessCard.png' : 'assets/card2 1.png'} alt='progesscard' className='pl-[90px]' />
+                <img src={isLightMode ? 'assets/card1.png' : 'assets/card1 1.png'} alt='card1' className='lg:pl-[90px] sm:pl[30px]' />
+                <img src={isLightMode ? 'assets/progessCard.png' : 'assets/card2 1.png'} alt='progesscard' className='lg:pl-[90px] sm:pl-[30px]' />
             </div>
 
-            <div className='card bg-pinkbackground text-text p-4 rounded-[30px]'>
+            <div className='card bg-pinkbackground text-text p-4 rounded-[30px] m-4'>
                 <div className="mb-4 flex justify-center items-center">
                     <div className="relative">
                         <svg width="320" height="320">
@@ -53,21 +53,21 @@ const Stats = () => {
                 </div>
             </div>
 
-            <div>
-                <div className="lg:pl-8 md:pl-8 mt-16 mr-16 pr-14 sm:pl-5">
-                    <h2 className="text-2xl text-text font-bold">Pinpoint <br/> Proof <span className='text-[#FF7A50]'>Reporting</span></h2>
-                    <div className="mt-4">
-                        <p className="text-[#FF7A50] font-semibold">1. Project Overview</p>
-                        <p className="text-gray-300">Efficient time tracking solution for streamlined productivity and insights.</p>
-                    </div>
-                    <div className="mt-4">
-                        <p className="text-[#FF7A50] font-semibold">2. Business Activities</p>
-                        <p className="text-gray-300">Time logging, analytics, reports, invoicing, project management, team collaboration.</p>
-                    </div>
-                    <div className="mt-4">
-                        <p className="text-[#FF7A50] font-semibold">3. Export PDF, CVS & Excel</p>
-                        <p className="text-gray-300">PDF, CSV & Excel export for comprehensive time data sharing.</p>
-                    </div>
+            <div className="sm:pl-5 sm:pr-15 lg:pl-16 md:pl-12 lg:pr-14 md:pr-10 mt-16 lg:mr-16 md:mr-12 sm:mr-5 p-[5%]">
+
+
+                <h2 className="text-2xl text-text font-bold">Pinpoint <br /> Proof <span className='text-[#FF7A50]'>Reporting</span></h2>
+                <div className="mt-4">
+                    <p className="text-[#FF7A50] font-semibold">1. Project Overview</p>
+                    <p className="text-gray-300">Efficient time tracking solution for streamlined productivity and insights.</p>
+                </div>
+                <div className="mt-4">
+                    <p className="text-[#FF7A50] font-semibold">2. Business Activities</p>
+                    <p className="text-gray-300">Time logging, analytics, reports, invoicing, project management, team collaboration.</p>
+                </div>
+                <div className="mt-4">
+                    <p className="text-[#FF7A50] font-semibold">3. Export PDF, CVS & Excel</p>
+                    <p className="text-gray-300">PDF, CSV & Excel export for comprehensive time data sharing.</p>
                 </div>
             </div>
         </div>

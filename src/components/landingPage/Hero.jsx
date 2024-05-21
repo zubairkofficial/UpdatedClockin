@@ -15,24 +15,22 @@ const Hero = () => {
     return (
         <section className='bg-pinkbackground '>
             <div>
-                <h2 className='text-text font-bold text-center py-8 sm:py-10 md:py-12 lg:py-16 text-4xl'>
+                <h2 className='text-text font-bold text-center py-8 sm:py-10 md:py-12 lg:py-16 text-xl lg:text-4xl'>
                     Our Application Features
                 </h2>
             </div>
-            <div className='lg:flex md:block container mx-auto '>
-                <FeatureCard1 />
-                <FeatureCard2 />
-                <FeatureCard3 />
-            </div>
-            <div className='lg:flex md:block py-12 container mx-auto'>
-                <FeatureCard4 />
-                <FeatureCard5 />
-                <FeatureCard6 />
-            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <FeatureCard1 />
+    <FeatureCard2 />
+    <FeatureCard3 />
+    <FeatureCard4 />
+    <FeatureCard5 />
+    <FeatureCard6 />
+  </div>
 
             <div className='flex flex-col lg:flex-row justify-between items-center px-8 md:px-16 lg:px-[160px] py-8 container mx-auto'>
-                <div className='text-center lg:text-left'>
-                    <h2 className='text-text font-bold text-4xl mb-4 lg:mb-8'>Why we are the <span className='text-[#FF7A50]'>best</span> & <br /> customers choose us</h2>
+                <div className='text-center lg:text-left lg:order-1 order-2'>
+                    <h2 className='text-text font-bold lg:text-4xl text-2xl mb-4 lg:mb-8'>Why we are the <span className='text-[#FF7A50]'>best</span> & <br /> customers choose us</h2>
                     <p className='text-text mb-4 md:mb-8'>
                         Efficiency personalized. Clients choose us for seamless <br />time
                         tracking and unparalleled results.
@@ -41,7 +39,7 @@ const Hero = () => {
                         Learn More
                     </button>
                 </div>
-                <img src="assets/f7.png" alt='whyus' className='mt-8 lg:mt-0 max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg' />
+                <img src="assets/f7.png" alt='whyus' className='mt-8 lg:mt-0 max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg lg:order-2 order-1' />
             </div>
 
             <Stats />
