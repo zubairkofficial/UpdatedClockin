@@ -4,7 +4,7 @@ const FeatureCard4 = () => {
     return (
         <div>
             <div>
-                <div className='px-8 md:px-12 lg:px-16 xl:px-20 py-8'>
+                <div className='px-3 md:px-12 lg:px-16 xl:px-20 py-2'>
                     <a href='employeesManagement' className='block  md:text-left'>
                         <img className='bg-[#FF7A50] hover:bg-orange-700 px-3 py-2 rounded-lg transition duration-300  md:mx-0' src="assets/f4.png" alt='management' />
                         <h2 className='font-bold text-text py-4'>Notes</h2>

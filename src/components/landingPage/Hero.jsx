@@ -20,13 +20,13 @@ const Hero = () => {
                 </h2>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-    <FeatureCard1 />
-    <FeatureCard2 />
-    <FeatureCard3 />
-    <FeatureCard4 />
-    <FeatureCard5 />
-    <FeatureCard6 />
-  </div>
+                <FeatureCard1 />
+                <FeatureCard2 />
+                <FeatureCard3 />
+                <FeatureCard4 />
+                <FeatureCard5 />
+                <FeatureCard6 />
+            </div>
 
             <div className='flex flex-col lg:flex-row justify-between items-center px-8 md:px-16 lg:px-[160px] py-8 container mx-auto'>
                 <div className='text-center lg:text-left lg:order-1 order-2'>
@@ -46,7 +46,7 @@ const Hero = () => {
             <DashboardComp />
             <Plan />
             <Achievements />
-            <Footer/>
+            <Footer />
         </section>
 
     )

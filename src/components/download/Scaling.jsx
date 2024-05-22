@@ -11,26 +11,45 @@ const Scaling = () => {
     const { isLightMode } = useContext(ThemeContext);
     return (
         <>
-            <div className='bg-cover bg-no-repeat bg-center '  style={{ backgroundImage: `url(${isLightMode ? 'assets/bg1.png' : 'assets/bg2.png'})` }}>
-                <div>
+            <div className='bg-footerBg bg-cover bg-center bg-no-repeat h-auto w-full '  style={{ backgroundImage: `url(${isLightMode ? 'assets/bg1.png' : 'assets/bg2.png'})` }}>
                     <Header />
-                </div>
                 <div className='text-text text-center pt-[5rem]'>
-                    <h3 className='font-semibold text-3xl'>Scaling Your Team</h3>
-                    <h2 className='font-bold text-7xl pt-2'>With Clockin</h2>
+                    <h3 className='font-semibold lg:text-3xl text-2xl'>Scaling Your Team</h3>
+                    <h2 className='font-bold lg:text-7xl text-5xl pt-2'>With Clockin</h2>
                 </div>
-                <div className='flex justify-center items-center'>
+                <div className='hidden lg:flex justify-center items-center'>
                     <div className='w-1/2	'>
-                        <img className='max-w-none' src="assets/laptopmockup.png" alt='laptopMockup' />
+                        <img className='max-w-none hidden lg:block' src="assets/laptopmockup.png" alt='laptopMockup' />
+                        <img className='max-w-none block lg:hidden' src="assets/downloadsection.png" alt='laptopMockup' />
 
                     </div>
-                    <div className=' w-1/2 pl-[110px]'>
+                    <div className='hidden lg:block w-1/2 pl-[110px]'>
                         <WindowDownload />
                     </div>
                 </div>
+                <div className='block lg:hidden'>
+                        <img className='max-w-none block lg:hidden ' src={isLightMode ? 'assets/downloadsection.png' : 'assets/lightdownload.png'} alt='laptopMockup' />
+                </div>
             </div>
+                <div className='block lg:hidden bg-background text-text text-center py-10 px-10'>
+                    <h1>Download Software For</h1>
+                    <div className='flex justify-around'>
+                        <div className='block align-items-center text-center py-5'>
+                            <img src={isLightMode ? 'assets/windowslogo.png ' : 'assets/lightwindows.png '} className=' my-1 align-items-center pl-[25%]'/>
+                            <p className='text-xs text-gray-500'>Windows</p>
+                        </div>
+                        <div className='block align-items-center text-center py-5'>
+                            <img src={isLightMode ? 'assets/applelogo.png ' : 'assets/lightapple.png '} className=' my-1 align-items-center pl-[25%]'/>
+                            <p className='text-xs text-gray-500'>Mac</p>
+                        </div>
+                        <div className='block align-items-center text-center py-5'>
+                            <img src={isLightMode ? 'assets/linuxlogo.png ' : 'assets/lightlinux.png ' }className=' my-1 align-items-center pl-[25%]'/>
+                            <p className='text-xs text-gray-500'>Linux</p>
+                        </div>
+                    </div>
+                </div>
             <div className=''>
-                <Plan />
+                <Plan className='hidden lg:block' />
                 <Footer />
             </div>
         </>

@@ -7,7 +7,7 @@ const DashboardComp = () => {
             <div className='h-full bg-pinkbackground py-16 pt-7 pr-0 lg:pr-14 bg-orangelinewithicons bg-cover bgimage'>
                 {/* dashboard 1 */}
                 <div className=' '>
-                  
+
                     <div className='flex flex-wrap justify-between items-center px-4 mt-[5rem]'>
                         <div className='w-full md:w-1/2'>
                             <img src="assets/dashboard 1.png" alt='dashboard one' className='w-[70] h-auto lg:ml-[5rem] sm:ml-0 z-10' />
@@ -40,16 +40,27 @@ const DashboardComp = () => {
                         <p className='text-gray-400 pt-6'>Experience seamless task management that enhances productivity. Our platform empowers you to effortlessly create, assign, and track tasks, ensuring efficient collaboration and goal achievement.</p>
                     </div>
                 </div>
-                <div className='relative w-full h-full bg-cover backimage bg-center lg:mt-40 mt-10 lg:ml-16 ml-3 '>
+                {/* <div className='relative w-full h-full bg-cover backimage bg-center lg:mt-40 mt-10 lg:ml-16 ml-3 '>
                     <h1 className="text-white lg:text-5xl text-xl pb-[2rem] font-bold lg:pt-[7rem] pt-[1rem] pl-[4rem] ">Try Clockin today!</h1>
                     <p className="text-white lg:text-3xl text-sm pb-[4rem] pl-[4rem]">Uncover Your Productivity Potential with <br /> Discover Time Tracking Software.</p>
-                    <ul className="block  pb-[3rem] pl-[4rem] font-bold text-white">
+                    <ul className="flex  pb-[3rem] pl-[4rem] font-bold text-white">
                         <li className="mr-[1rem]"><i class="fa-solid fa-circle-check text-[#00BA00] pr-[1rem]" ></i>Accurately billing</li>
                         <li className="mr-[1rem]"><i class="fa-solid fa-circle-check text-[#00BA00] pr-[1rem]"></i>Project profitability</li>
                         <li className="mr-[1rem]"><i class="fa-solid fa-circle-check text-[#00BA00] pr-[1rem]"></i>Strict anti-surveillance policy</li>
                         <li className="mr-[1rem]"><i class="fa-solid fa-circle-check text-[#00BA00] pr-[1rem]"></i>Trusted by 5000+ businesses globally</li>
                     </ul>
+                </div> */}
+                <div className='relative w-full h-full bg-cover backimage bg-center lg:mt-40 mt-10 lg:ml-16 ml-0'>
+                    <h1 className="text-white lg:text-5xl text-xl pb-8 font-bold lg:pt-28 pt-14 pl-16">Try Clockin today!</h1>
+                    <p className="text-white lg:text-3xl text-sm pb-16 pl-16">Uncover Your Productivity Potential with <br /> Discover Time Tracking Software.</p>
+                    <ul className="flex flex-wrap pb-12 pl-16 font-bold text-white">
+                        <li className="mr-4 mb-2 flex items-center"><i className="fa-solid fa-circle-check text-[#00BA00] pr-2"></i>Accurately billing</li>
+                        <li className="mr-4 mb-2 flex items-center"><i className="fa-solid fa-circle-check text-[#00BA00] pr-2"></i>Project profitability</li>
+                        <li className="mr-4 mb-2 flex items-center"><i className="fa-solid fa-circle-check text-[#00BA00] pr-2"></i>Strict anti-surveillance policy</li>
+                        <li className="mr-4 mb-2 flex items-center"><i className="fa-solid fa-circle-check text-[#00BA00] pr-2"></i>Trusted by 5000+ businesses globally</li>
+                    </ul>
                 </div>
+
             </div>
         </>
     )

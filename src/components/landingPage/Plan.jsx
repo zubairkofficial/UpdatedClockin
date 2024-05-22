@@ -54,12 +54,12 @@ import React, { useContext, useState } from 'react';
 import PlanCard from './PlanCard';
 import { ThemeContext } from '../../layouts/ThemeContext';
 
-const Plan = () => {
+const Plan = ({ className }) => {
   const [isSubscription, setIsSubscription] = useState(true);
   const { isLightMode } = useContext(ThemeContext);
   return (
-    <div className=''>
-      <div className='bg-pinkbackground'>
+    <div className={`${className}`}>
+      <div className={`bg-pinkbackground`}>
         <h2 className='text-center text-[#FF8B42] text-2xl pt-12 font-semibold'>Pick the perfect Plan</h2>
         <p className='text-center text-gray-400 pt-6'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex rem accusantium
           adipisci<br />nemo et nihil, tenetur explicabo at, veritatis incidunt quos ut<br />velit nam? Voluptas id natus dolor ad accusamus.</p>

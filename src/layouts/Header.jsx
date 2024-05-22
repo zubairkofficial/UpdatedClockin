@@ -13,12 +13,12 @@ const Header = () => {
         <div className='flex'>
           <div className="lg:hidden flex items-center">
             <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-text focus:outline-none">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg className="w-6 h-6" fill="none" stroke="#FF7A50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isMenuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16m-7 6h7'}></path>
               </svg>
             </button>
           </div>
-          <a href="/"><img src={isLightMode ? 'assets/logo.png' : 'assets/blacklogo.png'} alt="Logo" className="h-5 lg:h-12 lg:mb-0" /></a>
+          <a href="/"><img src={isLightMode ? 'assets/logo.png' : 'assets/blacklogo.png'} alt="Logo" className="h-5 lg:h-12 lg:mb-0 ml-4 lg:ml-0" /></a>
         </div>
         <nav className="hidden lg:flex">
           <ul className="flex space-x-4 lg:space-x-16 pr-20">
@@ -86,7 +86,8 @@ const Header = () => {
               </svg>
             </button>
             <nav className="mt-16">
-              <ul className="flex flex-col space-y-4 px-6">
+              <a href="/"><img src={isLightMode ? 'assets/logo.png' : 'assets/blacklogo.png'} alt="Logo" className="h-5 lg:h-12 lg:mb-0 ml-4 lg:ml-0 pl-5" /></a>
+              <ul className="flex flex-col space-y-5 px-10 pt-8">
                 <li>
                   <NavLink
                     to="/"

@@ -3,7 +3,7 @@ import React from 'react'
 const AskQuestionForm = () => {
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-pinkbackground ">
-            <div className="w-full max-w-[85%] bg-pinkbackground p-8 rounded-xl shadow-2xl"  style={{marginTop:"-15%"}}>
+            <div className="w-full max-w-[85%] bg-pinkbackground lg:p-8 p-4 rounded-xl shadow-2xl mt-[-25%] lg:mt-[-15%]" >
                 <div className='p-6'>
                     <h2 className='text-text text-2xl'>Ask your Question</h2>
                     <p className='text-gray-500 py-2 text-sm'>We will send an email to you with in 24 hours.</p>
@@ -19,7 +19,7 @@ const AskQuestionForm = () => {
                     </div>
                 </div>
 
-                <div className="mb-6 px-3">
+                <div className=" w-full mb-6 ">
                 <label className='text-text font-semibold pl-4 pt-6'>How we can help?</label>
                     <textarea placeholder="Write here..." className="appearance-none block w-full bg-inputcolor text-text rounded-3xl py-3 px-4 leading-tight focus:outline-none focus:bg-inputcolor h-[40vh] mt-5"></textarea>
                 </div>

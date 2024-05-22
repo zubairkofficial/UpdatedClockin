@@ -89,19 +89,15 @@ export default function Carousel() {
       <div className="mt-16 flex gap-x-12 items-center justify-center m-5 lg:ml-6 sm:mx-5  ">
         <Swiper
           modules={[Navigation, Pagination, Scrollbar]}
-          // slidesPerView={3}
           breakpoints={{
-            // when window width is >= 320px
             320: {
               slidesPerView: 2,
               spaceBetween: 10,
             },
-            // when window width is >= 640px
             640: {
               slidesPerView: 2,
               spaceBetween: 20,
             },
-            // when window width is >= 1024px
             1024: {
               slidesPerView: 3,
               spaceBetween: 30,
@@ -121,13 +117,13 @@ export default function Carousel() {
         >
           <div className=' ' >
             <SwiperSlide style={{ position: 'relative' }}>
-              <div className=" lg:max-w-sm sm:w-full rounded-lg shadow-lg bg-background p-2">
+              <div className=" lg:max-w-sm sm:w-full rounded-lg shadow-lg bg-background lg:p-2 p-0">
                 <img
-                  className="pl-8 pt-2"
+                  className="lg:pl-8 pl-2 pt-2"
                   src="assets/cyberify 10 1.png"
                   alt="cyberify"
                 />
-                <div className="px-6 py-4">
+                <div className="lg:px-6 px-2 lg:py-4 py-1">
                   <p className="text-gray-400 text-base">
                     “Game-changer! This time tracker software transformed how we
                     work, enhancing accuracy and project management. A must-have for
@@ -135,7 +131,7 @@ export default function Carousel() {
                   </p>
                   <div className="pt-5 flex items-start justify-start">
                     <img
-                      class="inline-block h-12 w-12 rounded-full ring-2 ring-white"
+                      class="inline-block lg:h-12 h-8 lg:w-12 w-8 rounded-full ring-2 ring-white"
                       src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                       alt=""
                     />
@@ -147,13 +143,13 @@ export default function Carousel() {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className=" lg:max-w-sm sm:w-full rounded-lg  shadow-lg bg-background p-2">
+            <div className=" lg:max-w-sm sm:w-full rounded-lg shadow-lg bg-background lg:p-2 p-0">
                 <img
-                  className="pl-8 pt-2"
+                  className="lg:pl-8 pl-2 pt-2"
                   src="assets/cyberify 10 1.png"
                   alt="cyberify"
                 />
-                <div className="px-6 py-4">
+                <div className="lg:px-6 px-2 lg:py-4 py-1">
                   <p className="text-gray-400 text-base">
                     “Game-changer! This time tracker software transformed how we
                     work, enhancing accuracy and project management. A must-have for
@@ -161,7 +157,7 @@ export default function Carousel() {
                   </p>
                   <div className="pt-5 flex items-start justify-start">
                     <img
-                      class="inline-block h-12 w-12 rounded-full ring-2 ring-white"
+                      class="inline-block lg:h-12 h-8 lg:w-12 w-8 rounded-full ring-2 ring-white"
                       src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                       alt=""
                     />
@@ -173,13 +169,13 @@ export default function Carousel() {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className=" lg:max-w-sm sm:w-full rounded-lg  shadow-lg bg-background p-2">
+            <div className=" lg:max-w-sm sm:w-full rounded-lg shadow-lg bg-background lg:p-2 p-0">
                 <img
-                  className="pl-8 pt-2"
+                  className="lg:pl-8 pl-2 pt-2"
                   src="assets/cyberify 10 1.png"
                   alt="cyberify"
                 />
-                <div className="px-6 py-4">
+                <div className="lg:px-6 px-2 lg:py-4 py-1">
                   <p className="text-gray-400 text-base">
                     “Game-changer! This time tracker software transformed how we
                     work, enhancing accuracy and project management. A must-have for
@@ -187,7 +183,7 @@ export default function Carousel() {
                   </p>
                   <div className="pt-5 flex items-start justify-start">
                     <img
-                      class="inline-block h-12 w-12 rounded-full ring-2 ring-white"
+                      class="inline-block lg:h-12 h-8 lg:w-12 w-8 rounded-full ring-2 ring-white"
                       src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                       alt=""
                     />
@@ -199,13 +195,13 @@ export default function Carousel() {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className=" lg:max-w-sm sm:w-full rounded-lg  shadow-lg bg-background p-2">
+            <div className=" lg:max-w-sm sm:w-full rounded-lg shadow-lg bg-background lg:p-2 p-0">
                 <img
-                  className="pl-8 pt-2"
+                  className="lg:pl-8 pl-2 pt-2"
                   src="assets/cyberify 10 1.png"
                   alt="cyberify"
                 />
-                <div className="px-6 py-4">
+                <div className="lg:px-6 px-2 lg:py-4 py-1">
                   <p className="text-gray-400 text-base">
                     “Game-changer! This time tracker software transformed how we
                     work, enhancing accuracy and project management. A must-have for
@@ -213,7 +209,7 @@ export default function Carousel() {
                   </p>
                   <div className="pt-5 flex items-start justify-start">
                     <img
-                      class="inline-block h-12 w-12 rounded-full ring-2 ring-white"
+                      class="inline-block lg:h-12 h-8 lg:w-12 w-8 rounded-full ring-2 ring-white"
                       src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                       alt=""
                     />
@@ -225,13 +221,13 @@ export default function Carousel() {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className=" lg:max-w-sm sm:w-full rounded-lg  shadow-lg bg-background p-2">
+            <div className=" lg:max-w-sm sm:w-full rounded-lg shadow-lg bg-background lg:p-2 p-0">
                 <img
-                  className="pl-8 pt-2"
+                  className="lg:pl-8 pl-2 pt-2"
                   src="assets/cyberify 10 1.png"
                   alt="cyberify"
                 />
-                <div className="px-6 py-4">
+                <div className="lg:px-6 px-2 lg:py-4 py-1">
                   <p className="text-gray-400 text-base">
                     “Game-changer! This time tracker software transformed how we
                     work, enhancing accuracy and project management. A must-have for
@@ -239,7 +235,7 @@ export default function Carousel() {
                   </p>
                   <div className="pt-5 flex items-start justify-start">
                     <img
-                      class="inline-block h-12 w-12 rounded-full ring-2 ring-white"
+                      class="inline-block lg:h-12 h-8 lg:w-12 w-8 rounded-full ring-2 ring-white"
                       src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                       alt=""
                     />
@@ -251,13 +247,13 @@ export default function Carousel() {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className=" lg:max-w-sm sm:w-full rounded-lg  shadow-lg bg-background p-2">
+            <div className=" lg:max-w-sm sm:w-full rounded-lg shadow-lg bg-background lg:p-2 p-0">
                 <img
-                  className="pl-8 pt-2"
+                  className="lg:pl-8 pl-2 pt-2"
                   src="assets/cyberify 10 1.png"
                   alt="cyberify"
                 />
-                <div className="px-6 py-4">
+                <div className="lg:px-6 px-2 lg:py-4 py-1">
                   <p className="text-gray-400 text-base">
                     “Game-changer! This time tracker software transformed how we
                     work, enhancing accuracy and project management. A must-have for
@@ -265,7 +261,7 @@ export default function Carousel() {
                   </p>
                   <div className="pt-5 flex items-start justify-start">
                     <img
-                      class="inline-block h-12 w-12 rounded-full ring-2 ring-white"
+                      class="inline-block lg:h-12 h-8 lg:w-12 w-8 rounded-full ring-2 ring-white"
                       src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                       alt=""
                     />

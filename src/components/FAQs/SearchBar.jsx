@@ -25,7 +25,7 @@ const SearchBar = () => {
   const { isLightMode } = useContext(ThemeContext);
   return (
     <>
-      <div className='bg-footerBg bg-cover bg-center bg-no-repeat h-auto w-full'  style={{ backgroundImage: `url(${isLightMode ? 'assets/bg1.png' : 'assets/bg2.png'})` }}>
+      <div className='bg-cover bg-center bg-no-repeat h-auto w-full'  style={{ backgroundImage: `url(${isLightMode ? 'assets/bg1.png' : 'assets/bg2.png'})` }}>
         <Header />
         <div className='py-5 mt-10'>
           <h2 className='text-text font-semibold text-3xl pt-8 text-center'>How Can We Help You?</h2>
