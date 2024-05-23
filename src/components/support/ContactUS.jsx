@@ -17,12 +17,12 @@ const ContactUS = () => {
             Contact Us
           </h2>
         </div>
+      </div>
 
         <div>
           <AskQuestionForm />
           <Footer/>
-        </div>
-      </div>
+        </div> 
     </div>
   )
 }

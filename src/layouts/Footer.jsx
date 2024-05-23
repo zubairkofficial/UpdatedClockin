@@ -10,7 +10,8 @@ const Footer = () => {
   const [showNewsletter, setShowNewsletter] = useState(false);
 
   return (
-    <div className="py-12 px-8 bg-cover bg-center bg-no-repeat h-auto w-full" style={{ backgroundImage: `url(${isLightMode ? 'assets/bg1.png' : 'assets/bg2.png'})` }}>
+    <>
+    <div className="py-12 px-8 bg-cover bg-center bg-no-repeat h-auto w-full bg-pinkbackground" style={{ backgroundImage: `url(${isLightMode ? 'assets/bg1.png' : 'assets/bg2.png'})` }}>
       <div className="lg:flex lg:justify-around lg:items-center">
         <div className="flex flex-col items-center mb-6 md:mb-0">
           <a href="/">
@@ -145,6 +146,7 @@ const Footer = () => {
         </p>
       </div>
     </div>
+    </>
   );
 }
 

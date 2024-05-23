@@ -86,12 +86,12 @@ import 'swiper/css/pagination';
 export default function Carousel() {
   return (
     <>
-      <div className="mt-16 flex gap-x-12 items-center justify-center m-5 lg:ml-6 sm:mx-5  ">
+      <div className="mt-16 flex gap-x-12 items-center justify-center m-5 lg:ml-6 sm:mx-5 ">
         <Swiper
           modules={[Navigation, Pagination, Scrollbar]}
           breakpoints={{
             320: {
-              slidesPerView: 2,
+              slidesPerView: 1,
               spaceBetween: 10,
             },
             640: {
@@ -117,25 +117,25 @@ export default function Carousel() {
         >
           <div className=' ' >
             <SwiperSlide style={{ position: 'relative' }}>
-              <div className=" lg:max-w-sm sm:w-full rounded-lg shadow-lg bg-background lg:p-2 p-0">
+              <div className=" lg:max-w-sm sm:w-full mx-5 rounded-lg shadow-lg bg-background lg:p-2 p-1">
                 <img
                   className="lg:pl-8 pl-2 pt-2"
                   src="assets/cyberify 10 1.png"
                   alt="cyberify"
                 />
                 <div className="lg:px-6 px-2 lg:py-4 py-1">
-                  <p className="text-gray-400 text-base">
+                  <p className="text-gray-400 lg:text-base text-sm">
                     “Game-changer! This time tracker software transformed how we
                     work, enhancing accuracy and project management. A must-have for
                     businesses.”
                   </p>
                   <div className="pt-5 flex items-start justify-start">
                     <img
-                      class="inline-block lg:h-12 h-8 lg:w-12 w-8 rounded-full ring-2 ring-white"
+                      class="inline-block lg:h-12 h-6 lg:w-12 w-6 rounded-full ring-2 ring-white"
                       src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                       alt=""
                     />
-                    <span className="text-white pl-4 py-2 font-bold">
+                    <span className="text-white pl-4 lg:py-2 py-0 font-bold ">
                       Saad Naeem
                     </span>
                   </div>
@@ -143,25 +143,25 @@ export default function Carousel() {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-            <div className=" lg:max-w-sm sm:w-full rounded-lg shadow-lg bg-background lg:p-2 p-0">
+            <div className="mx-5 lg:max-w-sm sm:w-full rounded-lg shadow-lg bg-background lg:p-2 p-1">
                 <img
                   className="lg:pl-8 pl-2 pt-2"
                   src="assets/cyberify 10 1.png"
                   alt="cyberify"
                 />
                 <div className="lg:px-6 px-2 lg:py-4 py-1">
-                  <p className="text-gray-400 text-base">
+                  <p className="text-gray-400 lg:text-base text-sm">
                     “Game-changer! This time tracker software transformed how we
                     work, enhancing accuracy and project management. A must-have for
                     businesses.”
                   </p>
                   <div className="pt-5 flex items-start justify-start">
                     <img
-                      class="inline-block lg:h-12 h-8 lg:w-12 w-8 rounded-full ring-2 ring-white"
+                      class="inline-block lg:h-12 h-6 lg:w-12 w-6 rounded-full ring-2 ring-white"
                       src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                       alt=""
                     />
-                    <span className="text-white pl-4 py-2 font-bold">
+                    <span className="text-white pl-4 lg:py-2 py-0 font-bold ">
                       Saad Naeem
                     </span>
                   </div>
@@ -169,25 +169,25 @@ export default function Carousel() {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-            <div className=" lg:max-w-sm sm:w-full rounded-lg shadow-lg bg-background lg:p-2 p-0">
+            <div className="mx-5 lg:max-w-sm sm:w-full rounded-lg shadow-lg bg-background lg:p-2 p-1">
                 <img
                   className="lg:pl-8 pl-2 pt-2"
                   src="assets/cyberify 10 1.png"
                   alt="cyberify"
                 />
                 <div className="lg:px-6 px-2 lg:py-4 py-1">
-                  <p className="text-gray-400 text-base">
+                  <p className="text-gray-400 lg:text-base text-sm">
                     “Game-changer! This time tracker software transformed how we
                     work, enhancing accuracy and project management. A must-have for
                     businesses.”
                   </p>
                   <div className="pt-5 flex items-start justify-start">
                     <img
-                      class="inline-block lg:h-12 h-8 lg:w-12 w-8 rounded-full ring-2 ring-white"
+                      class="inline-block lg:h-12 h-6 lg:w-12 w-6 rounded-full ring-2 ring-white"
                       src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                       alt=""
                     />
-                    <span className="text-white pl-4 py-2 font-bold">
+                    <span className="text-white pl-4 lg:py-2 py-0 font-bold ">
                       Saad Naeem
                     </span>
                   </div>
@@ -195,25 +195,25 @@ export default function Carousel() {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-            <div className=" lg:max-w-sm sm:w-full rounded-lg shadow-lg bg-background lg:p-2 p-0">
+            <div className="mx-5 lg:max-w-sm sm:w-full rounded-lg shadow-lg bg-background lg:p-2 p-1">
                 <img
                   className="lg:pl-8 pl-2 pt-2"
                   src="assets/cyberify 10 1.png"
                   alt="cyberify"
                 />
                 <div className="lg:px-6 px-2 lg:py-4 py-1">
-                  <p className="text-gray-400 text-base">
+                  <p className="text-gray-400 lg:text-base text-sm">
                     “Game-changer! This time tracker software transformed how we
                     work, enhancing accuracy and project management. A must-have for
                     businesses.”
                   </p>
                   <div className="pt-5 flex items-start justify-start">
                     <img
-                      class="inline-block lg:h-12 h-8 lg:w-12 w-8 rounded-full ring-2 ring-white"
+                      class="inline-block lg:h-12 h-6 lg:w-12 w-6 rounded-full ring-2 ring-white"
                       src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                       alt=""
                     />
-                    <span className="text-white pl-4 py-2 font-bold">
+                    <span className="text-white pl-4 lg:py-2 py-0 font-bold ">
                       Saad Naeem
                     </span>
                   </div>
@@ -221,25 +221,25 @@ export default function Carousel() {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-            <div className=" lg:max-w-sm sm:w-full rounded-lg shadow-lg bg-background lg:p-2 p-0">
+            <div className="mx-5 lg:max-w-sm sm:w-full rounded-lg shadow-lg bg-background lg:p-2 p-1">
                 <img
                   className="lg:pl-8 pl-2 pt-2"
                   src="assets/cyberify 10 1.png"
                   alt="cyberify"
                 />
                 <div className="lg:px-6 px-2 lg:py-4 py-1">
-                  <p className="text-gray-400 text-base">
+                  <p className="text-gray-400 lg:text-base text-sm">
                     “Game-changer! This time tracker software transformed how we
                     work, enhancing accuracy and project management. A must-have for
                     businesses.”
                   </p>
                   <div className="pt-5 flex items-start justify-start">
                     <img
-                      class="inline-block lg:h-12 h-8 lg:w-12 w-8 rounded-full ring-2 ring-white"
+                      class="inline-block lg:h-12 h-6 lg:w-12 w-6 rounded-full ring-2 ring-white"
                       src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                       alt=""
                     />
-                    <span className="text-white pl-4 py-2 font-bold">
+                    <span className="text-white pl-4 lg:py-2 py-0 font-bold ">
                       Saad Naeem
                     </span>
                   </div>
@@ -247,25 +247,25 @@ export default function Carousel() {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-            <div className=" lg:max-w-sm sm:w-full rounded-lg shadow-lg bg-background lg:p-2 p-0">
+            <div className="mx-5 lg:max-w-sm sm:w-full rounded-lg shadow-lg bg-background lg:p-2 p-1">
                 <img
                   className="lg:pl-8 pl-2 pt-2"
                   src="assets/cyberify 10 1.png"
                   alt="cyberify"
                 />
                 <div className="lg:px-6 px-2 lg:py-4 py-1">
-                  <p className="text-gray-400 text-base">
+                  <p className="text-gray-400 lg:text-base text-sm">
                     “Game-changer! This time tracker software transformed how we
                     work, enhancing accuracy and project management. A must-have for
                     businesses.”
                   </p>
                   <div className="pt-5 flex items-start justify-start">
                     <img
-                      class="inline-block lg:h-12 h-8 lg:w-12 w-8 rounded-full ring-2 ring-white"
+                      class="inline-block lg:h-12 h-6 lg:w-12 w-6 rounded-full ring-2 ring-white"
                       src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                       alt=""
                     />
-                    <span className="text-white pl-4 py-2 font-bold">
+                    <span className="text-white pl-4 lg:py-2 py-0 font-bold ">
                       Saad Naeem
                     </span>
                   </div>

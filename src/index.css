@@ -30,6 +30,7 @@
   --secondsubstextcolor-color : #5A5C5E;
   --text-color: #ffffff;
   --primary-color: #FF7A50;
+  --faqbg-color: #2C3131;
   --secondary-color: #464B4B;
   --hover-color: #FF4500;
   /* Add other variables as needed */
@@ -43,6 +44,7 @@
   --imagebgcolor-color : #F8F5F4;
   --text-color: #000000;
   --primary-color: #FF7A50;
+  --faqbg-color: #FFF9F8;
   --secondary-color: #464B4B;
   --hover-color: #orange-700;
   --subsbgcolor-color : #FF8B42;
@@ -73,7 +75,9 @@ body {
 }
 .backimage{
   background: url('/public/assets/org.png');
-  background-repeat: no-repeat
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 .bg-orangelinewithicons{
   background-size: 60%;

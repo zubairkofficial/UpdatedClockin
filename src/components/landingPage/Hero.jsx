@@ -10,23 +10,95 @@ import FeatureCard4 from './FeatureCard4';
 import FeatureCard5 from './FeatureCard5';
 import FeatureCard6 from './FeatureCard6';
 import Footer from '../../layouts/Footer';
-
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
 const Hero = () => {
     return (
-        <section className='bg-pinkbackground '>
-            <div>
+        <section className='bg-pinkbackground mt-8'>
+            <div className='container mx-auto'>
                 <h2 className='text-text font-bold text-center py-8 sm:py-10 md:py-12 lg:py-16 text-xl lg:text-4xl'>
                     Our Application Features
                 </h2>
+            <Swiper
+                modules={[Navigation, Pagination, Scrollbar]}
+                breakpoints={{
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                    },
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    },
+                }}
+                spaceBetween={30}
+                navigation
+                pagination={{
+                    clickable: true,
+                    renderBullet: (index, className) => {
+                        return `<span class="${className} mx-1 rounded-full cursor-pointer transition duration-150 ease-in-out h-3 w-3 mt-10 ${index === 0 ? 'bg-[#FF7A50]' : 'bg-gray-500'}"></span>`;
+                    },
+                }}
+                scrollbar={{ draggable: true }}
+                className="mySwiper"
+                style={{ position: 'relative' }}
+            >
+                <SwiperSlide>
+                    <FeatureCard1 />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <FeatureCard2 />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <FeatureCard3 />
+                </SwiperSlide>
+                </Swiper>
+                <Swiper
+                modules={[Navigation, Pagination, Scrollbar]}
+                breakpoints={{
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                    },
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    },
+                }}
+                spaceBetween={30}
+                navigation
+                pagination={{
+                    clickable: true,
+                    renderBullet: (index, className) => {
+                        return `<span class="${className} mx-1 rounded-full cursor-pointer transition duration-150 ease-in-out h-3 w-3 mt-10 ${index === 0 ? 'bg-[#FF7A50]' : 'bg-gray-500'}"></span>`;
+                    },
+                }}
+                scrollbar={{ draggable: true }}
+                className="mySwiper"
+                style={{ position: 'relative' }}
+            >
+                <SwiperSlide>
+                    <FeatureCard4 />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <FeatureCard5 />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <FeatureCard6 />
+                </SwiperSlide>
+            </Swiper>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <FeatureCard1 />
-                <FeatureCard2 />
-                <FeatureCard3 />
-                <FeatureCard4 />
-                <FeatureCard5 />
-                <FeatureCard6 />
-            </div>
+
 
             <div className='flex flex-col lg:flex-row justify-between items-center px-8 md:px-16 lg:px-[160px] py-8 container mx-auto'>
                 <div className='text-center lg:text-left lg:order-1 order-2'>

@@ -24,6 +24,7 @@ module.exports = {
         secondsubstextcolor: 'var(--secondsubstextcolor-color)',
         lightpink: 'var(--lightpink-color)',
         text: 'var(--text-color)',
+        faqbg: 'var(--faqbg-color)',
         primary: 'var(--primary-color)',
         secondary: 'var(--secondary-color)',
         hover: 'var(--hover-color)',

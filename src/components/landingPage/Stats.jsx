@@ -26,13 +26,13 @@ const Stats = () => {
     const { isLightMode } = useContext(ThemeContext);
     return (
         // <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-lightpink py-16 ">
-        <div className="lg:flex block justify-around bg-lightpink py-16 ">
+        <div className="lg:flex block justify-around bg-lightpink py-16 container mx-auto rounded-xl w-full ">
             <div className='flex justify-around'>
                 <div className='block'>
                     <img src={isLightMode ? 'assets/card1.png' : 'assets/card1 1.png'} alt='card1' className='w-full lg:pl-[90px] sm:pl[0px]' />
                     <img src={isLightMode ? 'assets/progessCard.png' : 'assets/card2 1.png'} alt='progesscard' className='lg:pl-[90px] sm:pl-[0px]' />
                 </div>
-                <div className='card bg-pinkbackground text-text p-4 rounded-[30px] lg:m-4 m-1'>
+                <div className='card bg-pinkbackground text-text p-4 rounded-[30px] lg:m-4 m-1 mr-4 lg:mr-0'>
                     <div className="mb-4 flex justify-center items-center">
                         <div className="relative">
                             {/* <svg width="320" height="320"> */}
@@ -71,7 +71,7 @@ const Stats = () => {
             </div>
 
 
-            <div className="sm:pl-5 sm:pr-15 lg:pl-16 md:pl-12 lg:pr-14 md:pr-10 mt-16 lg:mr-16 md:mr-12 sm:mr-5 p-[5%]">
+            <div className="sm:pl-5 sm:pr-15 lg:pl-16 md:pl-12 lg:pr-14 md:pr-10 mt-16 lg:mr-16 md:mr-12 sm:mr-5 p-[5%] w-[100%] lg:w-[40%]">
 
 
                 <h2 className="text-2xl text-text font-bold">Pinpoint <br /> Proof <span className='text-[#FF7A50]'>Reporting</span></h2>

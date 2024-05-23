@@ -61,14 +61,14 @@ const Plan = ({ className }) => {
     <div className={`${className}`}>
       <div className={`bg-pinkbackground`}>
         <h2 className='text-center text-[#FF8B42] text-2xl pt-12 font-semibold'>Pick the perfect Plan</h2>
-        <p className='text-center text-gray-400 pt-6'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex rem accusantium
+        <p className='text-center text-gray-400 pt-6 p-5'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex rem accusantium
           adipisci<br />nemo et nihil, tenetur explicabo at, veritatis incidunt quos ut<br />velit nam? Voluptas id natus dolor ad accusamus.</p>
       </div>
       {/* switch buttons */}
       <div className='flex justify-center pt-12 pb-8 bg-pinkbackground'>
-        <div className='flex items-center '>
+        <div className='flex items-center p-5'>
           <button
-            className={`transition-all duration-300 ease-in-out
+            className={`transition-all duration-300 ease-in-out text-sm lg:text-base
               ${isSubscription ? 'px-10 py-5 font-bold rounded-full' : 'px-8 py-3 bg-secondsubsbgcolor text-secondsubstextcolor font-bold rounded-full'}
             `}
             onClick={() => setIsSubscription(true)}
@@ -81,7 +81,7 @@ const Plan = ({ className }) => {
             Subscription
           </button>
           <button
-            className={`transition-all duration-300 ease-in-out
+            className={`transition-all duration-300 ease-in-out text-sm lg:text-base
               ${isSubscription ? 'px-8 py-3 font-bold rounded-full bg-secondsubsbgcolor text-secondsubstextcolor' : 'px-10 py-5 font-bold rounded-full'}
             `}
             style={{

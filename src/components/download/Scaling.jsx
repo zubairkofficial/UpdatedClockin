@@ -27,7 +27,7 @@ const Scaling = () => {
                         <WindowDownload />
                     </div>
                 </div>
-                <div className='block lg:hidden'>
+                <div className='flex justify-center lg:hidden '>
                         <img className='max-w-none block lg:hidden ' src={isLightMode ? 'assets/downloadsection.png' : 'assets/lightdownload.png'} alt='laptopMockup' />
                 </div>
             </div>
