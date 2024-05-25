@@ -14,13 +14,17 @@ import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import AnimatedText from '../../layouts/AnimatedText';
 const Hero = () => {
     return (
         <section className='bg-pinkbackground mt-8'>
             <div className='container mx-auto'>
+            <AnimatedText>
                 <h2 className='text-text font-bold text-center py-8 sm:py-10 md:py-12 lg:py-16 text-xl lg:text-4xl'>
                     Our Application Features
                 </h2>
+                </AnimatedText>
+                <AnimatedText>
             <Swiper
                 modules={[Navigation, Pagination, Scrollbar]}
                 breakpoints={{
@@ -59,6 +63,8 @@ const Hero = () => {
                     <FeatureCard3 />
                 </SwiperSlide>
                 </Swiper>
+                </AnimatedText>
+                <AnimatedText>
                 <Swiper
                 modules={[Navigation, Pagination, Scrollbar]}
                 breakpoints={{
@@ -97,9 +103,10 @@ const Hero = () => {
                     <FeatureCard6 />
                 </SwiperSlide>
             </Swiper>
+            </AnimatedText>
             </div>
 
-
+            <AnimatedText>
             <div className='flex flex-col lg:flex-row justify-between items-center px-8 md:px-16 lg:px-[160px] py-8 container mx-auto'>
                 <div className='text-center lg:text-left lg:order-1 order-2'>
                     <h2 className='text-text font-bold lg:text-4xl text-2xl mb-4 lg:mb-8'>Why we are the <span className='text-[#FF7A50]'>best</span> & <br /> customers choose us</h2>
@@ -113,11 +120,17 @@ const Hero = () => {
                 </div>
                 <img src="assets/f7.png" alt='whyus' className='mt-8 lg:mt-0 max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg lg:order-2 order-1' />
             </div>
-
+            </AnimatedText>
+            <AnimatedText>
             <Stats />
+            </AnimatedText>
             <DashboardComp />
+            <AnimatedText>
             <Plan />
+            </AnimatedText>
+            <AnimatedText>
             <Achievements />
+            </AnimatedText>
             <Footer />
         </section>
 

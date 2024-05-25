@@ -8,7 +8,6 @@ const Header = () => {
 
   return (
     <div className="container mx-auto px-4 pt-8 lg:pt-16">
-
       <div className="flex justify-between items-center">
         <div className='flex'>
           <div className="lg:hidden flex items-center">
@@ -80,7 +79,7 @@ const Header = () => {
       {isMenuOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden" onClick={() => setIsMenuOpen(false)}>
           <div className="fixed left-0 top-0 w-80 h-full bg-background text-text shadow-lg z-50" onClick={(e) => e.stopPropagation()}>
-            <button onClick={() => setIsMenuOpen(false)} className="absolute top-4 right-4 text-text focus:outline-none">
+            <button onClick={() => setIsMenuOpen(false)} className="absolute top-14 right-5 text-text focus:outline-none">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
               </svg>

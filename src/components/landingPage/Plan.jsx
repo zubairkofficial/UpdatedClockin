@@ -53,6 +53,7 @@
 import React, { useContext, useState } from 'react';
 import PlanCard from './PlanCard';
 import { ThemeContext } from '../../layouts/ThemeContext';
+import AnimatedText from '../../layouts/AnimatedText';
 
 const Plan = ({ className }) => {
   const [isSubscription, setIsSubscription] = useState(true);
@@ -68,7 +69,7 @@ const Plan = ({ className }) => {
       <div className='flex justify-center pt-12 pb-8 bg-pinkbackground'>
         <div className='flex items-center p-5'>
           <button
-            className={`transition-all duration-300 ease-in-out text-sm lg:text-base
+            className={`transition-all duration-300 ease-in-out text-xs lg:text-base
               ${isSubscription ? 'px-10 py-5 font-bold rounded-full' : 'px-8 py-3 bg-secondsubsbgcolor text-secondsubstextcolor font-bold rounded-full'}
             `}
             onClick={() => setIsSubscription(true)}
@@ -81,7 +82,7 @@ const Plan = ({ className }) => {
             Subscription
           </button>
           <button
-            className={`transition-all duration-300 ease-in-out text-sm lg:text-base
+            className={`transition-all duration-300 ease-in-out text-xs lg:text-base
               ${isSubscription ? 'px-8 py-3 font-bold rounded-full bg-secondsubsbgcolor text-secondsubstextcolor' : 'px-10 py-5 font-bold rounded-full'}
             `}
             style={{
@@ -96,7 +97,9 @@ const Plan = ({ className }) => {
           </button>
         </div>
       </div>
+      <AnimatedText>
       <PlanCard isSubscription={isSubscription} />
+      </AnimatedText>
     </div>
   );
 }

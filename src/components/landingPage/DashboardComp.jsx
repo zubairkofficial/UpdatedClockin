@@ -1,4 +1,5 @@
 import React from 'react'
+import AnimatedText from '../../layouts/AnimatedText';
 
 
 const DashboardComp = () => {
@@ -6,6 +7,7 @@ const DashboardComp = () => {
         <>
             <div className='h-full bg-pinkbackground py-16 pt-7 pr-0 lg:pr-14 bg-orangelinewithicons bg-cover bgimage container mx-auto '>
                 {/* dashboard 1 */}
+                <AnimatedText>
                 <div className='mt-0 2xl:mt-[10rem] '>
 
                     <div className='flex flex-wrap justify-between items-center px-4 mt-[5rem]'>
@@ -20,6 +22,8 @@ const DashboardComp = () => {
                         </div>
                     </div>
                 </div>
+                </AnimatedText>
+                <AnimatedText>
                 {/* dashboard 2 */}
                 <div className='flex flex-wrap justify-between items-center px-4  lg:mt-[5rem] mt-[0.5rem] '>
                     <div className='w-full md:w-1/2 lg:pl-[5rem] sm:pl-0 lg:order-1 order-2 text-center lg:text-left'>
@@ -31,6 +35,8 @@ const DashboardComp = () => {
 
                     </div>
                 </div>
+                </AnimatedText>
+                <AnimatedText>
                 <div className='flex flex-wrap justify-between items-center px-4 lg:mt-[5rem] mt-[0.5rem] lg:pt-[2rem] pt-[0.5rem] 2xl:mt-[12rem] '>
                     <div className='w-full md:w-1/2'>
                         <img src="assets/dashboard 3.png" alt='dashboard one' className='w-[70] h-auto lg:ml-[5rem] sm:ml-0' />
@@ -40,18 +46,10 @@ const DashboardComp = () => {
                         <p className='text-gray-400 pt-6'>Experience seamless task management that enhances productivity. Our platform empowers you to effortlessly create, assign, and track tasks, ensuring efficient collaboration and goal achievement.</p>
                     </div>
                 </div>
-                {/* <div className='relative w-full h-full bg-cover backimage bg-center lg:mt-40 mt-10 lg:ml-16 ml-3 '>
-                    <h1 className="text-white lg:text-5xl text-xl pb-[2rem] font-bold lg:pt-[7rem] pt-[1rem] pl-[4rem] ">Try Clockin today!</h1>
-                    <p className="text-white lg:text-3xl text-sm pb-[4rem] pl-[4rem]">Uncover Your Productivity Potential with <br /> Discover Time Tracking Software.</p>
-                    <ul className="flex  pb-[3rem] pl-[4rem] font-bold text-white">
-                        <li className="mr-[1rem]"><i class="fa-solid fa-circle-check text-[#00BA00] pr-[1rem]" ></i>Accurately billing</li>
-                        <li className="mr-[1rem]"><i class="fa-solid fa-circle-check text-[#00BA00] pr-[1rem]"></i>Project profitability</li>
-                        <li className="mr-[1rem]"><i class="fa-solid fa-circle-check text-[#00BA00] pr-[1rem]"></i>Strict anti-surveillance policy</li>
-                        <li className="mr-[1rem]"><i class="fa-solid fa-circle-check text-[#00BA00] pr-[1rem]"></i>Trusted by 5000+ businesses globally</li>
-                    </ul>
-                </div> */}
+                </AnimatedText>
+                <AnimatedText>
                 <div className="w-full h-auto ">
-                    <div className="relative bg-cover bg-center backimage lg:mt-40 mt-10 lg:ml-16 ml-4 lg:py-28 py-14 lg:px-16 px-4 mx-2 lg:m-0" style={{ borderRadius: '35px' }} >
+                    <div className="relative bg-cover bg-center backimage lg:mt-40 mt-10 lg:ml-16 ml-4 mr-4 lg:py-28 py-14 lg:px-16 px-4 mx-2 lg:m-0" style={{ borderRadius: '35px' }} >
                         <h1 className="text-white lg:text-5xl text-xl pb-8 font-bold">Try Clockin today!</h1>
                         <p className="text-white lg:text-3xl text-sm pb-16">
                             Uncover Your Productivity Potential with <br /> Discover Time Tracking Software.
@@ -72,7 +70,7 @@ const DashboardComp = () => {
                         </ul>
                     </div>
                 </div>
-
+</AnimatedText>
 
 
             </div>
