@@ -32,7 +32,7 @@ function FaqsCards() {
                     className="mySwiper"
                     style={{ position: 'relative', margin: '2%', padding: '1%' }}
                 >
-                    <SwiperSlide className="flex">
+                    <SwiperSlide className="flex myslide">
                         <div className="max-w-xs w-full rounded-3xl overflow-hidden shadow-xl bg-faqbg card">
                             <div className="w-20 h-20 bg-imagebgcolor rounded-full ml-6 mt-6 flex-shrink-0">
                                 <img className='px-4 py-4' src="assets/activity-tracker.png" alt="activity-tracker" />
@@ -47,7 +47,7 @@ function FaqsCards() {
                             </div>
                         </div>
                     </SwiperSlide>
-                    <SwiperSlide className="flex">
+                    <SwiperSlide className="flex myslide">
                         <div className="max-w-xs w-full rounded-3xl overflow-hidden shadow-xl bg-faqbg card">
                             <div className="w-20 h-20 bg-imagebgcolor rounded-full ml-6 mt-6 flex-shrink-0">
                                 <img className='px-4 py-4' src="assets/clockin activity.png" alt="clockin-activity" />
@@ -64,7 +64,7 @@ function FaqsCards() {
                             </div>
                         </div>
                     </SwiperSlide>
-                    <SwiperSlide className="flex">
+                    <SwiperSlide className="flex myslide">
                         <div className="max-w-xs w-full rounded-3xl overflow-hidden shadow-xl bg-faqbg card">
                             <div className="w-20 h-20 bg-imagebgcolor rounded-full ml-6 mt-6 flex-shrink-0">
                                 <img className='px-4 py-4' src="assets/clockin work.png" alt="clockin-work" />
@@ -82,7 +82,7 @@ function FaqsCards() {
                             </div>
                         </div>
                     </SwiperSlide>
-                    <SwiperSlide className="flex">
+                    <SwiperSlide className="flex myslide">
                         <div className="max-w-xs w-full rounded-3xl overflow-hidden shadow-xl bg-faqbg card">
                             <div className="w-20 h-20 bg-imagebgcolor rounded-full ml-6 mt-6 flex-shrink-0">
                                 <img className='px-4 py-4' src="assets/activity-tracker.png" alt="activity-tracker" />
@@ -123,7 +123,7 @@ function FaqsCards() {
                     style={{ position: 'relative', margin: '2%', padding: '1%' }}
                 >
                     <div className='lg:flex items-stretch justify-center gap-x-9 p-8 sm:block  bg-black'>
-                        <SwiperSlide className="flex">
+                        <SwiperSlide className="flex myslide">
                             <div className="max-w-xs w-full rounded-3xl overflow-hidden shadow-xl bg-faqbg flex flex-col min-h-full">
                                 <div className="w-20 h-20 bg-imagebgcolor rounded-full ml-6 mt-6 flex-shrink-0">
                                     <img className='px-4 py-4' src="assets/activity-tracker.png" />
@@ -138,7 +138,7 @@ function FaqsCards() {
                                 </div>
                             </div>
                         </SwiperSlide>
-                        <SwiperSlide className="flex">
+                        <SwiperSlide className="flex myslide">
                             <div className="max-w-xs w-full rounded-3xl overflow-hidden shadow-xl bg-faqbg flex flex-col min-h-full">
                                 <div className="w-20 h-20 bg-imagebgcolor rounded-full ml-6 mt-6 flex-shrink-0">
                                     <img className='px-4 py-4' src="assets/clockin activity.png" />
@@ -155,7 +155,7 @@ function FaqsCards() {
                                 </div>
                             </div>
                         </SwiperSlide>
-                        <SwiperSlide className="flex">
+                        <SwiperSlide className="flex myslide">
                             <div className="max-w-xs w-full rounded-3xl overflow-hidden shadow-xl bg-faqbg flex flex-col min-h-full">
                                 <div className="w-20 h-20 bg-imagebgcolor rounded-full ml-6 mt-6 flex-shrink-0">
                                     <img className='px-4 py-4' src="assets/clockin work.png" />
@@ -173,7 +173,7 @@ function FaqsCards() {
                                 </div>
                             </div>
                         </SwiperSlide>
-                        <SwiperSlide className="flex">
+                        <SwiperSlide className="flex myslide">
                             <div className="max-w-xs w-full rounded-3xl overflow-hidden shadow-xl bg-faqbg flex flex-col min-h-full">
                                 <div className="w-20 h-20 bg-imagebgcolor rounded-full ml-6 mt-6 flex-shrink-0">
                                     <img className='px-4 py-4' src="assets/activity-tracker.png" />

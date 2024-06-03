@@ -182,6 +182,7 @@ body {
   background:var(--g1),var(--g1),var(--g1), var(--g2),var(--g2),var(--g2);
   background-size: 25px 25px;
   background-repeat: no-repeat;
+  /* background-color: var(--background-color); */
   animation: l7 1.5s infinite;
 }
 @keyframes l7 {
@@ -191,7 +192,17 @@ body {
   75%  {background-position:100% 0   ,0 0   ,0    100% }
   100% {background-position:100% 100%,0 0   ,0    100% }
 }
-.swiper-slide {
-  /* display: flex !important; */
+.myslide {
+  display: flex !important;
   height: auto !important;
+}
+
+.swiper-slide {
+  display: flex !important;
+}
+@media(max-width:500px){
+  
+.swiper-slide {
+  display: block !important ;
+}
 }

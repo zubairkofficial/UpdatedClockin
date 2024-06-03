@@ -12,7 +12,6 @@ const FeatureCard1 = () => {
                     </p>
                 </a>
             </div>
-
         </div>
     )
 }
