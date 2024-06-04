@@ -15,6 +15,7 @@ import Coming from "./components/comingsoon/Coming.jsx";
 import Login from "./Admin/Auth/Login.jsx";
 import Signup from "./Admin/Auth/Signup.jsx";
 import Dashboard from "./Admin/Screens/Dashboard.jsx";
+import ProtectedRoute from "./auth/ProtectedRoute.js";
 
 const router = createBrowserRouter([
   {
@@ -47,7 +48,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin/dashboard",
-    element: <Dashboard />,
+    element: <ProtectedRoute element={<Dashboard />} />,
   },
 ]);
 

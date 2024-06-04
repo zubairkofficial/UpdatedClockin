@@ -20,7 +20,7 @@ const Header = () => {
           <a href="/"><img src={isLightMode ? 'assets/logo.png' : 'assets/blacklogo.png'} alt="Logo" className="h-5 lg:h-12 lg:mb-0 ml-4 lg:ml-0" /></a>
         </div>
         <nav className="hidden lg:flex">
-          <ul className="flex space-x-4 lg:space-x-16 pr-20">
+          <ul className="flex space-x-4 lg:space-x-16 pr-8">
             <li>
               <NavLink
                 to="/"
@@ -52,6 +52,14 @@ const Header = () => {
                 className={({ isActive }) => isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'}
               >
                 Support
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/news"
+                className={({ isActive }) => isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'}
+              >
+                News & Article
               </NavLink>
             </li>
           </ul>

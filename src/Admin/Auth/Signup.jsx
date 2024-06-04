@@ -80,15 +80,8 @@ function Signup() {
                                 <input type="password" placeholder="Confirm Password" name="password_confirmation" autocomplete="off" class="form-control bg-transparent" value={password_confirmation} onChange={(e) => setConfirmPassword(e.target.value)} />
                             </div>
 
-                            <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
-                                <div></div>
-
-                                <a href="reset-password.html" class="link-primary">
-                                    Forgot Password ?
-                                </a>
-                            </div>
                             <div class="d-grid mb-10">
-                                <button type="submit" id="kt_sign_in_submit" class="btn btn-primary">
+                                <button type="submit" id="kt_sign_in_submit" class="btn" style={{background:"#222626",color:"white", padding:"1rem",borderRadius:'5px'}}>
 
                                     <span class="indicator-label">
                                         Sign In</span>

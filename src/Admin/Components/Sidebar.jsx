@@ -27,6 +27,7 @@ function Sidebar() {
               alt="Logo"
               src="/assets/logo.png"
               class="h-35px app-sidebar-logo-default"
+              style={{marginTop: "7%"}}
             />
 
             <img
@@ -82,9 +83,9 @@ function Sidebar() {
                 >
                   <span class="menu-link">
                     <span class="menu-icon">
-                    <i class="fa-solid fa-user"></i>
+                    <i class="fa-sharp fa-regular fa-browser"></i>
                     </span>
-                    <span class="menu-title">User Profile</span>
+                    <span class="menu-title">Home Page</span>
                     {/* <span class="menu-arrow"></span> */}
                   </span>
                 </div>
