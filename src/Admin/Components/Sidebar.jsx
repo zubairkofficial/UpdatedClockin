@@ -1,11 +1,12 @@
 import React from "react";
 import HelmetWrapper from "../../Config/HelmetWrapper";
+import { Link, NavLink } from "react-router-dom";
 function Sidebar() {
   const handleLogout = () => {
-    localStorage.removeItem('user')
-    localStorage.removeItem('token')
-    window.location.href = '/admin/login'
-  }
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    window.location.href = "/admin/login";
+  };
   return (
     <>
       <HelmetWrapper />
@@ -27,7 +28,7 @@ function Sidebar() {
               alt="Logo"
               src="/assets/logo.png"
               class="h-35px app-sidebar-logo-default"
-              style={{marginTop: "7%"}}
+              style={{ marginTop: "7%" }}
             />
 
             <img
@@ -36,7 +37,6 @@ function Sidebar() {
               class="h-20px app-sidebar-logo-minimize"
             />
           </a>
-
         </div>
         <div class="app-sidebar-menu overflow-hidden flex-column-fluid">
           <div id="kt_app_sidebar_menu_wrapper" class="app-sidebar-wrapper">
@@ -64,10 +64,18 @@ function Sidebar() {
                 >
                   <span class="menu-link">
                     <span class="menu-icon">
-                    <i class="fa-solid fa-house"></i>
+                      <i class="fa-solid fa-house"></i>
                     </span>
-                    <span class="menu-title">Dashboard</span>
-                    {/* <span class="menu-arrow"></span> */}
+                    <span class="menu-title">
+                      <NavLink
+                        to="/admin/dashboard"
+                        className={({ isActive }) =>
+                          isActive ? "menu-link" : "menu-link"
+                        }
+                      >
+                        Dashboard
+                      </NavLink>
+                    </span>
                   </span>
                 </div>
                 <div class="menu-item pt-5">
@@ -83,13 +91,22 @@ function Sidebar() {
                 >
                   <span class="menu-link">
                     <span class="menu-icon">
-                    <i class="fa-sharp fa-regular fa-browser"></i>
+                      <i class="fa-sharp fa-regular fa-browser"></i>
                     </span>
-                    <span class="menu-title">Home Page</span>
-                    {/* <span class="menu-arrow"></span> */}
+                    <span class="menu-title">
+                      <NavLink
+                        to="/admin/home"
+                        className={(isActive) =>
+                          isActive ? "menu-link" : "menu-link"
+                        }
+                      >
+                        {" "}
+                        Home Page{" "}
+                      </NavLink>
+                    </span>
                   </span>
                 </div>
-                <div class="menu-item pt-5">
+                {/* <div class="menu-item pt-5">
                   <div class="menu-content">
                     <span class="menu-heading fw-bold text-uppercase fs-7">
                       Apps
@@ -97,20 +114,20 @@ function Sidebar() {
                   </div>
                 </div>
                 <div class="menu-item">
-                  <a class="menu-link" href="../apps/calendar.html">
+                  <a class="menu-link" href="/admin/home">
                     <span class="menu-icon">
-                    <i class="fa-regular fa-calendar-days"></i>
+                      <i class="fa-regular fa-calendar-days"></i>
                     </span>
                     <span class="menu-title">Calendar</span>
                   </a>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
         </div>
         <div
           class="app-sidebar-footer flex-column-auto pt-2 pb-6 px-6"
-          id="kt_app_sidebar_footer" 
+          id="kt_app_sidebar_footer"
         >
           <button
             class="btn btn-flex flex-center btn-custom btn-primary overflow-hidden text-nowrap px-0 h-40px w-100"

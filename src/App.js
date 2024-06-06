@@ -16,6 +16,8 @@ import Login from "./Admin/Auth/Login.jsx";
 import Signup from "./Admin/Auth/Signup.jsx";
 import Dashboard from "./Admin/Screens/Dashboard.jsx";
 import ProtectedRoute from "./auth/ProtectedRoute.js";
+import News from "./components/News/News.jsx";
+import HomeScreen from "./Admin/Screens/HomeScreen.jsx";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +37,10 @@ const router = createBrowserRouter([
     element: <SearchBar />,
   },
   {
+    path: "/news",
+    element: <News />,
+  },
+  {
     path: "/support",
     element: <ContactUS />,
   },
@@ -49,6 +55,10 @@ const router = createBrowserRouter([
   {
     path: "/admin/dashboard",
     element: <ProtectedRoute element={<Dashboard />} />,
+  },
+  {
+    path: "/admin/home",
+    element: <ProtectedRoute element={<HomeScreen />} />,
   },
 ]);
 
