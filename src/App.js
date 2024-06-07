@@ -8,6 +8,7 @@ import Header from "./layouts/Header";
 import Loader from "./layouts/Loader.js";
 import SearchBar from "./components/FAQs/SearchBar.jsx";
 import { ThemeProvider } from "../src/layouts/ThemeContext.js";
+import { ImageProvider } from '../src/layouts/ImageContext.js';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./Layout";
 import ContactUS from "./components/support/ContactUS.jsx";
@@ -72,24 +73,26 @@ function App() {
   });
 
   return (
-    <ThemeProvider>
-      <div>
-        <div class="d-flex flex-column flex-root app-root" id="kt_app_root">
-          <div
-            class="app-page  flex-column flex-column-fluid "
-            id="kt_app_page"
-          >
-            {loading ? (
-              <Loader />
-            ) : (
-              <Layout>
-                <RouterProvider router={router} />
-              </Layout>
-            )}
+    <ImageProvider>
+      <ThemeProvider>
+        <div>
+          <div class="d-flex flex-column flex-root app-root" id="kt_app_root">
+            <div
+              class="app-page  flex-column flex-column-fluid "
+              id="kt_app_page"
+            >
+              {loading ? (
+                <Loader />
+              ) : (
+                <Layout>
+                  <RouterProvider router={router} />
+                </Layout>
+              )}
+            </div>
           </div>
         </div>
-      </div>
-    </ThemeProvider>
+      </ThemeProvider>
+    </ImageProvider>
   );
 }
 
