@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import JustHeader from './JustHeader'
 // import laptopmockup from 'assets/laptopmockup.png'
 import WindowDownload from './WindowDownload'
@@ -7,9 +7,27 @@ import Footer from '../../layouts/Footer'
 import Header from '../../layouts/Header'
 import { ThemeContext } from '../../layouts/ThemeContext';
 import AnimatedText from '../../layouts/AnimatedText'
+import axios from 'axios'
+import Helpers from '../../Config/Helpers'
 
 const Scaling = () => {
     const { isLightMode } = useContext(ThemeContext);
+    const [currentImages, setCurrentImages] = useState({ 'download-1': '' });
+    const fetchImage = async (section, id) => {
+        try {
+            const mode = section === 'download' ? (isLightMode ? 'dark' : 'light') : 'dark';
+            const response = await axios.get(`${Helpers.apiUrl}get-image/${section}-${id}/${mode}`);
+            const imageUrl = response.data.image_url;
+            setCurrentImages(prev => ({ ...prev, [`${section}-${id}`]: imageUrl }));
+            console.log(response);
+        } catch (error) {
+            console.log('error in fetching data', error);
+        }
+    };
+
+    useEffect(() => {
+        fetchImage('download', '1');
+    }, [isLightMode]);
     return (
         <>
             <div className='bg-footerBg bg-cover bg-center bg-no-repeat h-auto w-full ' style={{ backgroundImage: `url(${isLightMode ? 'assets/bg1.png' : 'assets/bg2.png'})` }}>
@@ -23,7 +41,7 @@ const Scaling = () => {
 
                 <div className='hidden lg:flex justify-center items-center container mx-auto'>
                     <div className='w-1/2'>
-                        <img className='max-w-none hidden lg:block' src="assets/laptopmockup.png" alt='laptopMockup' />
+                        <img className='max-w-none hidden lg:block' src={`${Helpers.basePath}${currentImages[`download-1`]}`} alt='laptopMockup' />
                         <img className='max-w-none block lg:hidden' src="assets/downloadsection.png" alt='laptopMockup' />
 
                     </div>

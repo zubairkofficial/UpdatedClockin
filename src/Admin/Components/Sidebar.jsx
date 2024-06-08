@@ -81,7 +81,7 @@ function Sidebar() {
                 <div class="menu-item pt-5">
                   <div class="menu-content">
                     <span class="menu-heading fw-bold text-uppercase fs-7">
-                      Pages
+                      Images
                     </span>
                   </div>
                 </div>
@@ -101,7 +101,57 @@ function Sidebar() {
                         }
                       >
                         {" "}
-                        Home Page{" "}
+                        Home Screen{" "}
+                      </NavLink>
+                    </span>
+                  </span>
+                </div>
+                <div
+                  data-kt-menu-trigger="click"
+                  class="menu-item menu-accordion"
+                >
+                  <span class="menu-link">
+                    <span class="menu-icon">
+                      <i class="fa-sharp fa-regular fa-browser"></i>
+                    </span>
+                    <span class="menu-title">
+                      <NavLink
+                        to="/admin/download"
+                        className={(isActive) =>
+                          isActive ? "menu-link" : "menu-link"
+                        }
+                      >
+                        {" "}
+                        Download Screen{" "}
+                      </NavLink>
+                    </span>
+                  </span>
+                </div>
+                
+                <div class="menu-item pt-5">
+                  <div class="menu-content">
+                    <span class="menu-heading fw-bold text-uppercase fs-7">
+                      Home Page Section
+                    </span>
+                  </div>
+                </div>
+                <div
+                  data-kt-menu-trigger="click"
+                  class="menu-item menu-accordion"
+                >
+                  <span class="menu-link">
+                    <span class="menu-icon">
+                      <i class="fa-sharp fa-regular fa-browser"></i>
+                    </span>
+                    <span class="menu-title">
+                      <NavLink
+                        to="/admin/feature"
+                        className={(isActive) =>
+                          isActive ? "menu-link" : "menu-link"
+                        }
+                      >
+                        {" "}
+                        Features{" "}
                       </NavLink>
                     </span>
                   </span>

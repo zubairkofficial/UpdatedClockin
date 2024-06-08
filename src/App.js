@@ -19,6 +19,8 @@ import Dashboard from "./Admin/Screens/Dashboard.jsx";
 import ProtectedRoute from "./auth/ProtectedRoute.js";
 import News from "./components/News/News.jsx";
 import HomeScreen from "./Admin/Screens/HomeScreen.jsx";
+import DownloadScreen from "./Admin/Screens/DownloadScreen.jsx";
+import FeatureSection from "./Admin/Screens/Sections/FeatureSection.js";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +62,14 @@ const router = createBrowserRouter([
   {
     path: "/admin/home",
     element: <ProtectedRoute element={<HomeScreen />} />,
+  },
+  {
+    path: "/admin/download",
+    element: <ProtectedRoute element={<DownloadScreen />} />,
+  },
+  {
+    path: "/admin/feature",
+    element: <ProtectedRoute element={<FeatureSection />} />,
   },
 ]);
 

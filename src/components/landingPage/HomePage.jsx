@@ -8,22 +8,27 @@ import axios from "axios";
 import Helpers from "../../Config/Helpers";
 const HomePage = ({ background, heading, subheading }) => {
   const { isLightMode } = useContext(ThemeContext);
-  const [currentImages, setCurrentImages] = useState({ 'hero-1': '', 'hero-2': '','section-1': '' });
-  const fetchImage = async (id) => {
+  const [currentImages, setCurrentImages] = useState({ 'hero-1': '', 'hero-2': '', 'second-1': '', 'third-1': '', 'third-2': '', 'third-3': '' });
+  const fetchImage = async (section, id) => {
     try {
-        const response = await axios.get(`${Helpers.apiUrl}get-image/hero-${id}/${isLightMode ? 'dark' : 'light'}`);
-        const imageUrl = response.data.image_url;
-        setCurrentImages(prev => ({ ...prev, [`hero-${id}`]: imageUrl }));
-        console.log(response);
+      const mode = section === 'hero' ? (isLightMode ? 'dark' : 'light') : 'dark';
+      const response = await axios.get(`${Helpers.apiUrl}get-image/${section}-${id}/${mode}`);
+      const imageUrl = response.data.image_url;
+      setCurrentImages(prev => ({ ...prev, [`${section}-${id}`]: imageUrl }));
+      console.log(response);
     } catch (error) {
-        console.log('error in fetching data');
+      console.log('error in fetching data', error);
     }
-};
+  };
 
-useEffect(() => {
-    fetchImage('1');
-    fetchImage('2');
-}, [isLightMode]);
+  useEffect(() => {
+    fetchImage('hero', '1');
+    fetchImage('hero', '2');
+    fetchImage('second', '1');
+    fetchImage('third', '1');
+    fetchImage('third', '2');
+    fetchImage('third', '3');
+  }, [isLightMode]);
   return (
     <>
       <div
@@ -35,15 +40,15 @@ useEffect(() => {
           <div className="flex flex-col lg:flex-row items-center lg:items-start">
             <div className="lg:w-1/2 w-full lg:order-2 order-1 mt-8 lg:mt-0 flex justify-center">
               <AnimatedText>
-              {['2'].map(id => (
-                <div  key={id}>
-                <img 
-                  src={`${Helpers.basePath}${currentImages[`hero-${id}`]}` || ( isLightMode ? 'assets/clock-illustration.png' : 'assets/whiteclock.png')}
-                  alt="Clock Illustration"
-                  className="lg:static max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg ml-[6%] lg:ml-[0]"
-                />
-                </div>
-              ))}
+                {['2'].map(id => (
+                  <div key={id}>
+                    <img
+                      src={`${Helpers.basePath}${currentImages[`hero-${id}`]}` || (isLightMode ? 'assets/clock-illustration.png' : 'assets/whiteclock.png')}
+                      alt="Clock Illustration"
+                      className="lg:static max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg ml-[6%] lg:ml-[0]"
+                    />
+                  </div>
+                ))}
               </AnimatedText>
             </div>
             <div className="lg:w-1/2 w-full lg:pl-16 sm:pl-0 lg:pt-9 lg:order-1 order-2 text-center lg:text-left">
@@ -64,7 +69,10 @@ useEffect(() => {
             </div>
           </div>
         </div>
-        <Hero  currentImages={currentImages}/>
+        <Hero secondImage={currentImages['second-1']}
+          thirdImage1={currentImages['third-1']}
+          thirdImage2={currentImages['third-2']}
+          thirdImage3={currentImages['third-3']} />
       </div>
     </>
 

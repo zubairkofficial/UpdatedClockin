@@ -6,7 +6,7 @@ import { ThemeContext } from './ThemeContext';
 import axios from 'axios';
 import Helpers from '../Config/Helpers';
 
-const Header = ({logourl}) => {
+const Header = ({ logourl }) => {
   const { isLightMode, setIsLightMode } = useContext(ThemeContext);
   const [currentImages, setCurrentImages] = useState({ 'hero-1': '', 'hero-2': '' });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,20 +14,20 @@ const Header = ({logourl}) => {
 
   const fetchImage = async (id) => {
     try {
-        const response = await axios.get(`${Helpers.apiUrl}get-image/hero-${id}/${isLightMode ? 'dark' : 'light'}`);
-        const imageUrl = response.data.image_url;
-        setCurrentImages(prev => ({ ...prev, [`hero-${id}`]: imageUrl }));
-        // updateImage(`hero-${id}`, imageUrl); 
-        console.log(response);
+      const response = await axios.get(`${Helpers.apiUrl}get-image/hero-${id}/${isLightMode ? 'dark' : 'light'}`);
+      const imageUrl = response.data.image_url;
+      setCurrentImages(prev => ({ ...prev, [`hero-${id}`]: imageUrl }));
+      // updateImage(`hero-${id}`, imageUrl); 
+      console.log(response);
     } catch (error) {
-        console.log('error in fetching data');
+      console.log('error in fetching data');
     }
-};
+  };
 
-useEffect(() => {
+  useEffect(() => {
     fetchImage('1');
     fetchImage('2');
-}, [isLightMode]);
+  }, [isLightMode]);
 
 
   return (
@@ -42,10 +42,10 @@ useEffect(() => {
             </button>
           </div>
           {['1'].map(id => (
-          <a href="/">
-            <img src={`${Helpers.basePath}${currentImages[`hero-${id}`]}` || (isLightMode ? 'assets/logo.png' : 'assets/blacklogo.png')} alt="Logo" className="h-5 lg:h-12 lg:mb-0 ml-4 lg:ml-0" />
-          </a>
-        ))}
+            <a href="/">
+              <img src={`${Helpers.basePath}${currentImages[`hero-${id}`]}` || (isLightMode ? 'assets/logo.png' : 'assets/blacklogo.png')} alt="Logo" className="h-5 lg:h-12 lg:mb-0 ml-4 lg:ml-0" />
+            </a>
+          ))}
         </div>
         <nav className="hidden lg:flex">
           <ul className="flex space-x-4 lg:space-x-16 pr-8">

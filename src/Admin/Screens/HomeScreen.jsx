@@ -1,15 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Sidebar from '../Components/Sidebar'
 import { ThemeContext } from './../../layouts/ThemeContext.js';
-import Header1 from './../../layouts/Header.jsx'
-import Header2 from '../Components/Header.jsx'
-import { useImages } from '../../layouts/ImageContext.js';
 import Helpers from '../../Config/Helpers';
 import axios from 'axios';
 import SecondSection from './Sections/SecondSection.js';
+import ThirdSection from './Sections/ThirdSection.js';
+import FooterSection from './Sections/FooterSection.js';
+import DownloadSection from './Sections/DownloadSection.js';
+import DownloadScreen from './DownloadScreen.jsx';
 const HomeScreen = () => {
     const { isLightMode, setIsLightMode } = useContext(ThemeContext);
-    const [currentImages, setCurrentImages] = useState({ 'hero-1': '', 'hero-2': '', 'second-1': '', 'second-2': '' });
+    const [currentImages, setCurrentImages] = useState({ 'hero-1': '', 'hero-2': '', 'second-1': '', 'second-2': '' ,'third-1' : '' , 'third-2' : '','third-3' : '' ,'footer-1' : '','download-1' : ''});
 
     const handleImageChange = async (e, section, id) => {
         const selectedImage = e.target.files[0];
@@ -21,7 +22,7 @@ const HomeScreen = () => {
     const handleUpdate = async (image, section, id) => {
         const formData = new FormData();
         formData.append('image_path', image);
-        formData.append('mode', section.startsWith('second') ? 'dark' : (isLightMode ? 'light' : 'dark'));
+        formData.append('mode', section.startsWith('second') ? 'dark' : (isLightMode ? 'dark' : 'light'));
         formData.append('section', `${section}-${id}`);
         try {
             const response = await axios.post(`${Helpers.apiUrl}upload-image`, formData, {
@@ -29,7 +30,6 @@ const HomeScreen = () => {
                     'Content-Type': 'multipart/form-data'
                 }
             });
-            console.log(response);
             Helpers.toast("success", "Updated Successfully");
             fetchImage(section, id);
         } catch (error) {
@@ -39,11 +39,10 @@ const HomeScreen = () => {
 
     const fetchImage = async (section, id) => {
         try {
-            const mode = section.startsWith('second') ? 'dark' : (isLightMode ? 'light' : 'dark');
+            const mode = section.startsWith('second') ? 'dark' : (isLightMode ? 'dark' : 'light');
             const response = await axios.get(`${Helpers.apiUrl}get-image/${section}-${id}/${mode}`);
             const imageUrl = response.data.image_url;
             setCurrentImages(prev => ({ ...prev, [`${section}-${id}`]: imageUrl }));
-            console.log(response);
         } catch (error) {
             console.log('error in fetching data');
         }
@@ -54,11 +53,15 @@ const HomeScreen = () => {
         fetchImage('hero', '2');
         fetchImage('second', '1');
         fetchImage('second', '2');
+        fetchImage('third', '1');
+        fetchImage('third', '2');
+        fetchImage('third', '3');
+        fetchImage('footer', '1');
+        fetchImage('download' , '1');
     }, [isLightMode]);
 
     return (
         <>
-            {/* <Header2 logo="assets/logo.png" logourl={currentImages['hero-1']} /> */}
             <div id="kt_app_wrapper" className="app-wrapper flex-column flex-row-fluid">
                 <Sidebar />
                 <h1 className="font-bold ml-10 my-5">Hero Section</h1>
@@ -104,6 +107,12 @@ const HomeScreen = () => {
                 </div>
                 <h1 className="font-bold ml-10 my-5">Second Section</h1>
                 <SecondSection handleImageChange={handleImageChange} currentImages={currentImages} />
+                <h1 className="font-bold ml-10 my-5">Third Section</h1>
+                <ThirdSection handleImageChange={handleImageChange} currentImages={currentImages} />
+                <h1 className="font-bold ml-10 my-5">Footer Section</h1>
+                <FooterSection handleImageChange={handleImageChange} currentImages={currentImages} />
+                {/* <h1 className="font-bold ml-10 my-5">Download Section</h1> */}
+                {/* <DownloadScreen handleImageChange={handleImageChange} currentImages={currentImages} /> */}
             </div>
         </>
     );
