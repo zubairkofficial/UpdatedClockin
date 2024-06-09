@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Stats from "./Stats";
 import DashboardComp from "./DashboardComp";
 import Plan from "./Plan";
@@ -11,12 +11,13 @@ import "swiper/css/pagination";
 import AnimatedText from "../../layouts/AnimatedText";
 import FeatureCard from "./FeatureCard";
 import Helpers from "../../Config/Helpers";
+import axios from "axios";
 const Hero = ({ secondImage, thirdImage1, thirdImage2, thirdImage3 }) => {
     const [feature, setFeatures] = useState([])
     const getFeatures = async () => {
         try {
             const response = await axios.get(`${Helpers.apiUrl}getfeature`);
-            console.log(response);
+            console.log('response', response);
             setFeatures(response.data.data);
         } catch (error) {
             console.log("error in fetching data", error);
@@ -26,52 +27,8 @@ const Hero = ({ secondImage, thirdImage1, thirdImage2, thirdImage3 }) => {
     useEffect(() => {
         getFeatures();
     }, []);
-    const features1 = [
-        {
-            href: "employeesManagement",
-            imgSrc: "assets/f1.png",
-            title: "Employees Management",
-            description:
-                "Efficiently organize and track employees' activities with our seamless employees management feature. Streamline productivity today!",
-        },
-        {
-            href: "employeesManagement",
-            imgSrc: "assets/f2.png",
-            title: "Time Tracker",
-            description:
-                "Track time effortlessly. Optimize projects, enhance productivity with our user-friendly Time Tracker feature. Try it now!",
-        },
-        {
-            href: "employeesManagement",
-            imgSrc: "assets/f3.png",
-            title: "Task Management",
-            description:
-                "Simplify tasks. Achieve goals. Utilize our Task Management tool for seamless project coordination. Elevate productivity instantly!",
-        },
-    ];
-    const features2 = [
-        {
-            href: "employeesManagement",
-            imgSrc: "assets/f4.png",
-            title: "Notes",
-            description:
-                "Capture insights swiftly. Integrate Notes feature for contextual details. Elevate project tracking and collaboration effortlessly. Try it now!",
-        },
-        {
-            href: "employeesManagement",
-            imgSrc: "assets/f5.png",
-            title: "24/7 Support",
-            description:
-                "Get assistance anytime. Our 24/7 Support ensures seamless software experience. Stay productive with uninterrupted help. Connect with us!",
-        },
-        {
-            href: "employeesManagement",
-            imgSrc: "assets/f6.png",
-            title: "Multi Packages",
-            description:
-                "Choose flexibility. Opt for our Multi Packages feature. Tailor time tracking to you needs. Efficient and customizable. Try now!",
-        },
-    ];
+    const chunkedFeatures = Helpers.chunkArray(feature, 3);
+
     return (
         <section className="bg-pinkbackground mt-8">
             <div className="container mx-auto">
@@ -82,88 +39,49 @@ const Hero = ({ secondImage, thirdImage1, thirdImage2, thirdImage3 }) => {
                 </AnimatedText>
                 <div>
                     <AnimatedText>
-                        <Swiper
-                            modules={[Navigation, Pagination, Scrollbar]}
-                            breakpoints={{
-                                320: {
-                                    slidesPerView: 1,
-                                    spaceBetween: 10,
-                                },
-                                640: {
-                                    slidesPerView: 2,
-                                    spaceBetween: 20,
-                                },
-                                1024: {
-                                    slidesPerView: 3,
-                                    spaceBetween: 30,
-                                },
-                            }}
-                            spaceBetween={30}
-                            navigation
-                            pagination={{
-                                clickable: true,
-                                renderBullet: (index, className) => {
-                                    return `<span class="${className} mx-1 rounded-full cursor-pointer transition duration-150 ease-in-out h-3 w-3 mt-10 ${index === 0 ? "bg-[#FF7A50]" : "bg-gray-500"
-                                        }"></span>`;
-                                },
-                            }}
-                            scrollbar={{ draggable: true }}
-                            className="mySwiper"
-                            style={{ position: "relative" }}
-                        >
-                            {features1.map((feature, index) => (
-                                <SwiperSlide>
-                                    <FeatureCard
-                                        key={index}
-                                        href={feature.href}
-                                        imgSrc={feature.imgSrc}
-                                        title={feature.title}
-                                        description={feature.description}
-                                    />
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
-                        <Swiper
-                            modules={[Navigation, Pagination, Scrollbar]}
-                            breakpoints={{
-                                320: {
-                                    slidesPerView: 1,
-                                    spaceBetween: 10,
-                                },
-                                640: {
-                                    slidesPerView: 2,
-                                    spaceBetween: 20,
-                                },
-                                1024: {
-                                    slidesPerView: 3,
-                                    spaceBetween: 30,
-                                },
-                            }}
-                            spaceBetween={30}
-                            navigation
-                            pagination={{
-                                clickable: true,
-                                renderBullet: (index, className) => {
-                                    return `<span class="${className} mx-1 rounded-full cursor-pointer transition duration-150 ease-in-out h-3 w-3 mt-10 ${index === 0 ? "bg-[#FF7A50]" : "bg-gray-500"
-                                        }"></span>`;
-                                },
-                            }}
-                            scrollbar={{ draggable: true }}
-                            className="mySwiper"
-                            style={{ position: "relative" }}
-                        >
-                            {features2.map((feature, index) => (
-                                <SwiperSlide>
-                                    <FeatureCard
-                                        key={index}
-                                        href={feature.href}
-                                        imgSrc={feature.imgSrc}
-                                        title={feature.title}
-                                        description={feature.description}
-                                    />
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
+                        {chunkedFeatures.map((featureChunk, chunkIndex) => (
+                            <Swiper
+                                key={chunkIndex}
+                                modules={[Navigation, Pagination, Scrollbar]}
+                                breakpoints={{
+                                    320: {
+                                        slidesPerView: 1,
+                                        spaceBetween: 10,
+                                    },
+                                    640: {
+                                        slidesPerView: 2,
+                                        spaceBetween: 20,
+                                    },
+                                    1024: {
+                                        slidesPerView: 3,
+                                        spaceBetween: 30,
+                                    },
+                                }}
+                                spaceBetween={30}
+                                navigation
+                                pagination={{
+                                    clickable: true,
+                                    renderBullet: (index, className) => {
+                                        return `<span class="${className} mx-1 rounded-full cursor-pointer transition duration-150 ease-in-out h-3 w-3 mt-10 ${index === 0 ? "bg-[#FF7A50]" : "bg-gray-500"
+                                            }"></span>`;
+                                    },
+                                }}
+                                scrollbar={{ draggable: true }}
+                                className="mySwiper"
+                                style={{ position: "relative" }}
+                            >
+                                {featureChunk.map((feature, index) => (
+                                    <SwiperSlide key={index}>
+                                        <FeatureCard
+                                            href={feature.href}
+                                            imgSrc={`${Helpers.basePath}/storage/${feature.image}`}
+                                            title={feature.heading}
+                                            description={feature.paragraph}
+                                        />
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
+                        ))}
                     </AnimatedText>
                 </div>
             </div>

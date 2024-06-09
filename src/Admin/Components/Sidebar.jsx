@@ -156,6 +156,48 @@ function Sidebar() {
                     </span>
                   </span>
                 </div>
+                <div
+                  data-kt-menu-trigger="click"
+                  class="menu-item menu-accordion"
+                >
+                  <span class="menu-link">
+                    <span class="menu-icon">
+                      <i class="fa-sharp fa-regular fa-browser"></i>
+                    </span>
+                    <span class="menu-title">
+                      <NavLink
+                        to="/admin/achievements"
+                        className={(isActive) =>
+                          isActive ? "menu-link" : "menu-link"
+                        }
+                      >
+                        {" "}
+                        Achievement{" "}
+                      </NavLink>
+                    </span>
+                  </span>
+                </div>
+                <div
+                  data-kt-menu-trigger="click"
+                  class="menu-item menu-accordion"
+                >
+                  <span class="menu-link">
+                    <span class="menu-icon">
+                      <i class="fa-sharp fa-regular fa-browser"></i>
+                    </span>
+                    <span class="menu-title">
+                      <NavLink
+                        to="/admin/plans"
+                        className={(isActive) =>
+                          isActive ? "menu-link" : "menu-link"
+                        }
+                      >
+                        {" "}
+                        Plans{" "}
+                      </NavLink>
+                    </span>
+                  </span>
+                </div>
                 {/* <div class="menu-item pt-5">
                   <div class="menu-content">
                     <span class="menu-heading fw-bold text-uppercase fs-7">

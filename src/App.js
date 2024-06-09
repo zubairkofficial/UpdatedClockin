@@ -21,6 +21,8 @@ import News from "./components/News/News.jsx";
 import HomeScreen from "./Admin/Screens/HomeScreen.jsx";
 import DownloadScreen from "./Admin/Screens/DownloadScreen.jsx";
 import FeatureSection from "./Admin/Screens/Sections/FeatureSection.js";
+import AchievementSection from "./Admin/Screens/Sections/AchievementSection.js";
+import PlanSection from "./Admin/Screens/Sections/PlanSection.js";
 
 const router = createBrowserRouter([
   {
@@ -70,6 +72,14 @@ const router = createBrowserRouter([
   {
     path: "/admin/feature",
     element: <ProtectedRoute element={<FeatureSection />} />,
+  },
+  {
+    path: "/admin/achievements",
+    element: <ProtectedRoute element={<AchievementSection />} />,
+  },
+  {
+    path: "/admin/plans",
+    element: <ProtectedRoute element={<PlanSection />} />,
   },
 ]);
 
