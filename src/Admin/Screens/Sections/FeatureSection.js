@@ -18,7 +18,6 @@ function FeatureSection() {
     const getFeatures = async () => {
         try {
             const response = await axios.get(`${Helpers.apiUrl}getfeature`);
-            console.log(response);
             setFeatures(response.data.data);
         } catch (error) {
             console.log("error in fetching data", error);
@@ -49,7 +48,6 @@ function FeatureSection() {
             const response = await axios.post(`${Helpers.apiUrl}addfeature`, form, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
-            console.log(response);
             getFeatures(); 
             setListSection(true); 
         } catch (error) {
@@ -90,7 +88,6 @@ function FeatureSection() {
             const response = await axios.post(`${Helpers.apiUrl}updatefeature/${currentFeatureId}`, form, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
-            console.log(response);
             getFeatures();
             setUpdateMode(false);
             setListSection(true); 
@@ -114,7 +111,7 @@ function FeatureSection() {
                                 </button>
                             </div>
                         </div>
-                        <div className="card-body py-3">
+                        <div className="card-body py-3 m-5 rounded bg-gray-100">
                             <div className="table-responsive">
                                 <table className="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
                                     <thead>
@@ -176,7 +173,7 @@ function FeatureSection() {
                                 </button>
                             </div>
                         </div>
-                        <div className="card-body py-3">
+                        <div className="card-body py-3 m-5 rounded bg-gray-100">
                             <form onSubmit={updateMode ? handleUpdate : handleSubmit}>
                                 <div className="mb-3">
                                     <label htmlFor="heading" className="form-label">Heading</label>

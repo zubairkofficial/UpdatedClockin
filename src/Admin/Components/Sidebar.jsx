@@ -198,6 +198,65 @@ function Sidebar() {
                     </span>
                   </span>
                 </div>
+
+                <div class="menu-item pt-5">
+                  <div class="menu-content">
+                    <span class="menu-heading fw-bold text-uppercase fs-7">
+                      FAQ Page Section
+                    </span>
+                  </div>
+                </div>
+                <div
+                  data-kt-menu-trigger="click"
+                  class="menu-item menu-accordion"
+                >
+                  <span class="menu-link">
+                    <span class="menu-icon">
+                      <i class="fa-sharp fa-regular fa-browser"></i>
+                    </span>
+                    <span class="menu-title">
+                      <NavLink
+                        to="/admin/faqs"
+                        className={(isActive) =>
+                          isActive ? "menu-link" : "menu-link"
+                        }
+                      >
+                        {" "}
+                        FAQS{" "}
+                      </NavLink>
+                    </span>
+                  </span>
+                </div>
+
+                
+                <div class="menu-item pt-5">
+                  <div class="menu-content">
+                    <span class="menu-heading fw-bold text-uppercase fs-7">
+                      News & Article Section
+                    </span>
+                  </div>
+                </div>
+                <div
+                  data-kt-menu-trigger="click"
+                  class="menu-item menu-accordion"
+                >
+                  <span class="menu-link">
+                    <span class="menu-icon">
+                      <i class="fa-sharp fa-regular fa-browser"></i>
+                    </span>
+                    <span class="menu-title">
+                      <NavLink
+                        to="/admin/news"
+                        className={(isActive) =>
+                          isActive ? "menu-link" : "menu-link"
+                        }
+                      >
+                        {" "}
+                        News & Article{" "}
+                      </NavLink>
+                    </span>
+                  </span>
+                </div>
                 {/* <div class="menu-item pt-5">
                   <div class="menu-content">
                     <span class="menu-heading fw-bold text-uppercase fs-7">

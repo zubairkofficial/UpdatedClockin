@@ -15,7 +15,6 @@ const HomePage = ({ background, heading, subheading }) => {
       const response = await axios.get(`${Helpers.apiUrl}get-image/${section}-${id}/${mode}`);
       const imageUrl = response.data.image_url;
       setCurrentImages(prev => ({ ...prev, [`${section}-${id}`]: imageUrl }));
-      console.log(response);
     } catch (error) {
       console.log('error in fetching data', error);
     }

@@ -18,7 +18,6 @@ const Footer = () => {
       const imageUrl = response.data.image_url;
       setCurrentImages(prev => ({ ...prev, [`footer-${id}`]: imageUrl }));
       // updateImage(`hero-${id}`, imageUrl); 
-      console.log('footer',response);
     } catch (error) {
       console.log('error in fetching data');
     }

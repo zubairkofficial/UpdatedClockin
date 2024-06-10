@@ -18,7 +18,6 @@ function AchievementSection() {
     const getAchievements = async () => {
         try {
             const response = await axios.get(`${Helpers.apiUrl}achievements/show`);
-            // console.log(response);
             setAchievement(response.data.data);
         } catch (error) {
             console.log("error in fetching data", error);
@@ -53,7 +52,6 @@ function AchievementSection() {
             const response = await axios.post(`${Helpers.apiUrl}achievements/store`, form, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
-            console.log(response);
             Helpers.toast("success","Added Successfuly")
             getAchievements(); 
             setListSection(true); 
@@ -99,7 +97,6 @@ function AchievementSection() {
             const response = await axios.post(`${Helpers.apiUrl}achievements/update/${currentAchievementId}`, form, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
-            console.log(response);
             Helpers.toast("success","Updated Successfuly")
             getAchievements();
             setUpdateMode(false);

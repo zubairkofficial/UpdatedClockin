@@ -58,6 +58,7 @@ import AnimatedText from '../../layouts/AnimatedText';
 const Plan = ({ className }) => {
   const [isSubscription, setIsSubscription] = useState(true);
   const { isLightMode } = useContext(ThemeContext);
+  const selectedPlanType = isSubscription ? 'subscription' : 'one_time_payment';
   return (
     <div className={`${className}`}>
       <div className={`bg-pinkbackground`}>

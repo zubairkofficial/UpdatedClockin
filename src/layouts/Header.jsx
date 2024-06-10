@@ -18,7 +18,6 @@ const Header = ({ logourl }) => {
       const imageUrl = response.data.image_url;
       setCurrentImages(prev => ({ ...prev, [`hero-${id}`]: imageUrl }));
       // updateImage(`hero-${id}`, imageUrl); 
-      console.log(response);
     } catch (error) {
       console.log('error in fetching data');
     }

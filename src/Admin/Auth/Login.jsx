@@ -15,8 +15,6 @@ function Login() {
                 email,
                 password,
             });
-            console.log('Login successfully');
-            console.log(response)
             Helpers.setItem('user', response.data.user, true);
             Helpers.setItem('token', response.data.token);
             Helpers.toast("success", 'Login Successful')
