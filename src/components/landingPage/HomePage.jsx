@@ -54,7 +54,7 @@ const HomePage = ({ background, heading, subheading }) => {
               <AnimatedText>
                 <p className="lg:text-lg sm:text-l text-text dark:text-gray-700 mb-2">Here's the app for you</p>
                 <h1 className="text-[2.5rem] lg:text-[4rem] font-bold text-text leading-tight mb-12 lg:mb-0">
-                  Track Time, <br /> Maximize <br /> Productivity
+                  Track Time, Maximize Productivity
                 </h1>
               </AnimatedText>
               <AnimatedText>

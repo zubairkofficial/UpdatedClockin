@@ -202,6 +202,35 @@ function Sidebar() {
                 <div class="menu-item pt-5">
                   <div class="menu-content">
                     <span class="menu-heading fw-bold text-uppercase fs-7">
+                      Home Page Content
+                    </span>
+                  </div>
+                </div>
+                <div
+                  data-kt-menu-trigger="click"
+                  class="menu-item menu-accordion"
+                >
+                  <span class="menu-link">
+                    <span class="menu-icon">
+                      <i class="fa-sharp fa-regular fa-browser"></i>
+                    </span>
+                    <span class="menu-title">
+                      <NavLink
+                        to="/admin/content"
+                        className={(isActive) =>
+                          isActive ? "menu-link" : "menu-link"
+                        }
+                      >
+                        {" "}
+                        Hero Section{" "}
+                      </NavLink>
+                    </span>
+                  </span>
+                </div>
+
+                <div class="menu-item pt-5">
+                  <div class="menu-content">
+                    <span class="menu-heading fw-bold text-uppercase fs-7">
                       FAQ Page Section
                     </span>
                   </div>
@@ -253,6 +282,35 @@ function Sidebar() {
                       >
                         {" "}
                         News & Article{" "}
+                      </NavLink>
+                    </span>
+                  </span>
+                </div>
+
+                <div class="menu-item pt-5">
+                  <div class="menu-content">
+                    <span class="menu-heading fw-bold text-uppercase fs-7">
+                      Support Section
+                    </span>
+                  </div>
+                </div>
+                <div
+                  data-kt-menu-trigger="click"
+                  class="menu-item menu-accordion"
+                >
+                  <span class="menu-link">
+                    <span class="menu-icon">
+                      <i class="fa-sharp fa-regular fa-browser"></i>
+                    </span>
+                    <span class="menu-title">
+                      <NavLink
+                        to="/admin/"
+                        className={(isActive) =>
+                          isActive ? "menu-link" : "menu-link"
+                        }
+                      >
+                        {" "}
+                        Contact Us{" "}
                       </NavLink>
                     </span>
                   </span>

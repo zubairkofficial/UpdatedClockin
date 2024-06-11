@@ -26,6 +26,8 @@ import AchievementSection from "./Admin/Screens/Sections/AchievementSection.js";
 import PlanSection from "./Admin/Screens/Sections/PlanSection.js";
 import NewsPageSection from "./Admin/Screens/NewsPage/NewsPageSection.js";
 import NewsDetail from "./components/News/NewsDetail.jsx";
+import SupportSection from "./Admin/Screens/Support/SupportSection.js";
+import HomePageContent from "./Admin/Screens/Content/HomePageContent.js";
 
 const router = createBrowserRouter([
   {
@@ -100,6 +102,14 @@ const router = createBrowserRouter([
   {
     path: "/admin/news",
     element: <ProtectedRoute element={<NewsPageSection />}/>,
+  },
+  {
+    path: "/admin/support",
+    element: <ProtectedRoute element={<SupportSection />}/>,
+  },
+  {
+    path: "/admin/content",
+    element: <ProtectedRoute element={<HomePageContent />}/>,
   },
 ]);
 

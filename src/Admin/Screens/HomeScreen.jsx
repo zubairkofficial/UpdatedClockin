@@ -111,8 +111,6 @@ const HomeScreen = () => {
                 <ThirdSection handleImageChange={handleImageChange} currentImages={currentImages} />
                 <h1 className="font-bold ml-10 my-5">Footer Section</h1>
                 <FooterSection handleImageChange={handleImageChange} currentImages={currentImages} />
-                {/* <h1 className="font-bold ml-10 my-5">Download Section</h1> */}
-                {/* <DownloadScreen handleImageChange={handleImageChange} currentImages={currentImages} /> */}
             </div>
         </>
     );
