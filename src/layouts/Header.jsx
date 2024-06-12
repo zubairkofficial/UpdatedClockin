@@ -42,7 +42,7 @@ const Header = ({ logourl }) => {
           </div>
           {['1'].map(id => (
             <a href="/">
-              <img src={`${Helpers.basePath}${currentImages[`hero-${id}`]}` || (isLightMode ? 'assets/logo.png' : 'assets/blacklogo.png')} alt="Logo" className="h-5 lg:h-12 lg:mb-0 ml-4 lg:ml-0" />
+              <img src={`${Helpers.basePath}${currentImages[`hero-${id}`]}` ? (isLightMode ? 'assets/logo.png' : 'assets/blacklogo.png') : ''} alt="Logo" className="h-5 lg:h-12 lg:mb-0 ml-4 lg:ml-0" />
             </a>
           ))}
         </div>

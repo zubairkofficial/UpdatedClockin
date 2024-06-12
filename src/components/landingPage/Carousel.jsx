@@ -56,11 +56,11 @@ export default function Carousel({achievements}) {
                   </p>
                   <div className="pt-5 flex items-start justify-start">
                     <img
-                      class="inline-block lg:h-12 h-6 lg:w-12 w-6 rounded-full ring-2 ring-white"
+                      class="inline-block lg:h-12 h-6 lg:w-12 w-6 rounded-full ring-2 ring-pinkbackground"
                       src={`${Helpers.basePath}/storage/${achievement.user_image}`}
                       alt=""
                     />
-                    <span className="text-white pl-4 lg:py-2 py-0 font-bold ">
+                    <span className="text-text pl-4 lg:py-2 py-0 font-bold ">
                       {achievement.user_name}
                     </span>
                   </div>

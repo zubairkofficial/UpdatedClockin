@@ -10,7 +10,8 @@ function FeatureSection() {
     const [formData, setFormData] = useState({
         heading: '',
         paragraph: '',
-        image: null
+        image: null,
+        imageUrl: ''
     });
     const [updateMode, setUpdateMode] = useState(false);
     const [currentFeatureId, setCurrentFeatureId] = useState(null);
@@ -48,8 +49,8 @@ function FeatureSection() {
             const response = await axios.post(`${Helpers.apiUrl}addfeature`, form, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
-            getFeatures(); 
-            setListSection(true); 
+            getFeatures();
+            setListSection(true);
         } catch (error) {
             console.log("error in adding feature", error);
         }
@@ -58,7 +59,7 @@ function FeatureSection() {
     const handleDelete = async (id) => {
         try {
             await axios.get(`${Helpers.apiUrl}deletefeature/${id}`);
-            getFeatures(); 
+            getFeatures();
         } catch (error) {
             console.log("error in deleting feature", error);
         }
@@ -68,7 +69,8 @@ function FeatureSection() {
         setFormData({
             heading: feature.heading,
             paragraph: feature.paragraph,
-            image: null 
+            image: null,
+            imageUrl: feature.image,
         });
         setCurrentFeatureId(feature.id);
         setUpdateMode(true);
@@ -90,10 +92,17 @@ function FeatureSection() {
             });
             getFeatures();
             setUpdateMode(false);
-            setListSection(true); 
+            setListSection(true);
         } catch (error) {
             console.log("error in updating feature", error);
         }
+    };
+    const resetForm = () => {
+        setFormData({
+            heading: '',
+            paragraph: '',
+            image: null,
+        });
     };
     return (
         <div>
@@ -106,7 +115,7 @@ function FeatureSection() {
                                 <span className="card-label fw-bold fs-3 mb-1">Application Features</span>
                             </h3>
                             <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a feature">
-                                <button className="btn btn-sm btn-light btn-active-primary" onClick={() => { setListSection(false); setUpdateMode(false); }}>
+                                <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => { setListSection(false); resetForm(); setUpdateMode(false); }}>
                                     <i className="fa-light fa-plus"></i> New Feature
                                 </button>
                             </div>
@@ -168,7 +177,7 @@ function FeatureSection() {
                                 <span className="card-label fw-bold fs-3 mb-1">{updateMode ? 'Update Feature' : 'Add New Feature'}</span>
                             </h3>
                             <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to go back">
-                                <button className="btn btn-sm btn-light btn-active-primary" onClick={() => setListSection(true)}>
+                                <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => setListSection(true)}>
                                     <i className="fa fa-arrow-left"></i> Back
                                 </button>
                             </div>
@@ -176,7 +185,7 @@ function FeatureSection() {
                         <div className="card-body py-3 m-5 rounded bg-gray-100">
                             <form onSubmit={updateMode ? handleUpdate : handleSubmit}>
                                 <div className="mb-3">
-                                    <label htmlFor="heading" className="form-label">Heading</label>
+                                    <label htmlFor="heading" className="form-label">Title</label>
                                     <input
                                         type="text"
                                         className="form-control"
@@ -184,11 +193,12 @@ function FeatureSection() {
                                         name="heading"
                                         value={formData.heading}
                                         onChange={handleInputChange}
+                                        placeholder='Enter Title'
                                         required
                                     />
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="paragraph" className="form-label">Paragraph</label>
+                                    <label htmlFor="paragraph" className="form-label">Description</label>
                                     <textarea
                                         className="form-control"
                                         id="paragraph"
@@ -196,6 +206,7 @@ function FeatureSection() {
                                         rows="3"
                                         value={formData.paragraph}
                                         onChange={handleInputChange}
+                                        placeholder='Enter Description'
                                         required
                                     ></textarea>
                                 </div>
@@ -207,10 +218,20 @@ function FeatureSection() {
                                         id="image"
                                         name="image"
                                         onChange={handleImageChange}
-                                        required={!updateMode} // Make it required only in add mode
+                                        required={!updateMode}
                                     />
+                                    {formData.imageUrl && (
+                                        <div className='bg-background w-20 rounded m-3 p-3' >
+                                            <img src={`${Helpers.basePath}/storage/${formData.imageUrl}`} alt="Preview" style={{ width: '80px', height: '80px' }} />
+                                            <input
+                                                type="hidden"
+                                                name="existingImage"
+                                                value={`${Helpers.basePath}/storage/${formData.imageUrl}`} 
+                                            />
+                                        </div>
+                                    )}
                                 </div>
-                                <button type="submit" className="btn btn-primary">Submit</button>
+                                <button type="submit" className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300">Submit</button>
                             </form>
                         </div>
                     </div>

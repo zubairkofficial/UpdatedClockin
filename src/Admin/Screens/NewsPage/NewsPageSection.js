@@ -110,7 +110,7 @@ function NewsPageSection() {
                 <span className="card-label fw-bold fs-3 mb-1">Application news</span>
               </h3>
               <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a News">
-                <button className="btn btn-sm btn-light hover:text-orange-500" onClick={() => { setListSection(false); setUpdateMode(false); }}>
+                <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => { setListSection(false); setUpdateMode(false); }}>
                   <i className="fa-light fa-plus"></i> New news
                 </button>
               </div>
@@ -182,12 +182,12 @@ function NewsPageSection() {
                 <span className="card-label fw-bold fs-3 mb-1">{updateMode ? 'Update News' : 'Add New News'}</span>
               </h3>
               <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to go back">
-                <button className="btn btn-sm btn-light btn-active-primary" onClick={() => setListSection(true)}>
+                <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => setListSection(true)}>
                   <i className="fa fa-arrow-left"></i> Back
                 </button>
               </div>
             </div>
-            <div className="card-body py-3">
+            <div className="card-body py-3 m-5 rounded bg-gray-100">
               <form onSubmit={updateMode ? handleUpdate : handleSubmit}>
                 <div className="mb-3">
                   <label htmlFor="heading" className="form-label">Title</label>
@@ -236,7 +236,7 @@ function NewsPageSection() {
                     required={!updateMode} // Make it required only in add mode
                   />
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300">Submit</button>
               </form>
             </div>
           </div>

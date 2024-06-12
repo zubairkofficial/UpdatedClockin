@@ -12,7 +12,7 @@ import AnimatedText from "../../layouts/AnimatedText";
 import FeatureCard from "./FeatureCard";
 import Helpers from "../../Config/Helpers";
 import axios from "axios";
-const Hero = ({ secondImage, thirdImage1, thirdImage2, thirdImage3 }) => {
+const Hero = ({ secondImage, thirdImage1, thirdImage2, thirdImage3 ,secondcontent1,secondcontent2,secondcontent3 ,thirdcontent1 , thirdcontent2 ,fourthcontent1 ,fourthcontent2 ,fifthcontent1 ,fifthcontent2}) => {
     const [feature, setFeatures] = useState([])
     const getFeatures = async () => {
         try {
@@ -90,19 +90,17 @@ const Hero = ({ secondImage, thirdImage1, thirdImage2, thirdImage3 }) => {
                 <div className="flex flex-col lg:flex-row justify-between items-center px-8 md:px-16 lg:px-[160px] py-8 container mx-auto">
                     <div className="text-center lg:text-left lg:order-1 order-2">
                         <h2 className="text-text font-bold lg:text-4xl text-2xl mb-4 lg:mb-8">
-                            Why we are the <span className="text-[#FF7A50]">best</span> &{" "}
-                            <br /> customers choose us
+                            {secondcontent1 || "Why we are the best & customers choose us"}
                         </h2>
                         <p className="text-text mb-4 md:mb-8">
-                            Efficiency personalized. Clients choose us for seamless <br />
-                            time tracking and unparalleled results.
+                        {secondcontent2 || "Efficiency personalized. Clients choose us for seamless time tracking and unparalleled results."}
                         </p>
                         <button className="mt-4 md:mt-8 lg:mt-12 bg-[#FF7A50] hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-xl transition duration-300">
-                            Learn More
-                        </button>
+                        {secondcontent3 || "Learn more"}                      
+                         </button>
                     </div>
                     <img
-                        src={`${Helpers.basePath}${secondImage}`}
+                        src={`${Helpers.basePath}${secondImage}` ? '/assets/f7.png' : ''}
                         alt="whyus"
                         className="mt-8 lg:mt-0 max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg lg:order-2 order-1"
                     />
@@ -115,6 +113,12 @@ const Hero = ({ secondImage, thirdImage1, thirdImage2, thirdImage3 }) => {
                 thirdImage1={thirdImage1}
                 thirdImage2={thirdImage2}
                 thirdImage3={thirdImage3}
+                thirdcontent1={thirdcontent1}
+                thirdcontent2={thirdcontent2}
+                fourthcontent1={fourthcontent1}
+                fourthcontent2={fourthcontent2}
+                fifthcontent1={fifthcontent1}
+                fifthcontent2={fifthcontent2}
             />
             <AnimatedText>
                 <Plan />

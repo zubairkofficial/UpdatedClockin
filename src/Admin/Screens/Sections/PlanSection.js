@@ -127,12 +127,12 @@ const PlanSection = () => {
                                 <span className="card-label fw-bold fs-3 mb-1">Plans</span>
                             </h3>
                             <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a Plan">
-                                <button className="btn btn-sm btn-light btn-active-primary" onClick={() => { resetForm(); setListSection(false); }}>
+                                <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => { resetForm(); setListSection(false); }}>
                                     <i className="fa-light fa-plus"></i> New Plan
                                 </button>
                             </div>
                         </div>
-                        <div className="card-body py-3">
+                        <div className="card-body py-3 m-3 rounded bg-gray-100">
                             <div className="table-responsive">
                                 <table className="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
                                     <thead>
@@ -184,12 +184,12 @@ const PlanSection = () => {
                                 <span className="card-label fw-bold fs-3 mb-1">{isEditing ? 'Update Plan' : 'Add New Plan'}</span>
                             </h3>
                             <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to go back">
-                                <button className="btn btn-sm btn-light btn-active-primary" onClick={() => setListSection(true)}>
+                                <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => setListSection(true)}>
                                     <i className="fa fa-arrow-left"></i> Back
                                 </button>
                             </div>
                         </div>
-                        <div className="card-body py-3">
+                        <div className="card-body py-3 m-5 bg-gray-100 rounded">
                             <form onSubmit={handleSubmit}>
                                 <div className="mb-3">
                                     <label htmlFor="plan_type" className="form-label">Plan Type</label>
@@ -310,7 +310,7 @@ const PlanSection = () => {
                                         onChange={handleChange}
                                     />
                                 </div>
-                                <button type="submit" className="btn btn-primary">{isEditing ? 'Update Plan' : 'Add Plan'}</button>
+                                <button type="submit" className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300">{isEditing ? 'Update Plan' : 'Add Plan'}</button>
                             </form>
                         </div>
                     </div>

@@ -23,23 +23,20 @@ function SupportSection() {
                             <span className="card-label fw-bold fs-3 mb-1">Questions</span>
                         </h3>
                     </div>
-                    <div className="card-body py-3">
+                    <div className="card-body py-3 rounded m-5 bg-gray-100">
                         <div className="table-responsive">
                             <table className="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
                                 <thead>
                                     <tr className="fw-bold text-muted">
+                                        <th className="min-w-50px">Image</th>
                                         <th className="min-w-150px">Subject</th>
                                         <th className="min-w-150px">Email</th>
-                                        <th className="min-w-150px">Help</th>
-                                        <th className="min-w-150px">Image</th>
+                                        <th className="min-w-250px">Help</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {questions.map(question => (
                                         <tr key={question.id}>
-                                            <td>{question.subject}</td>
-                                            <td>{question.email}</td>
-                                            <td>{question.help}</td>
                                             <td>
                                                 <div className="d-flex align-items-center">
                                                     <div className="symbol symbol-45px me-5 bg-pinkbackground p-2">
@@ -47,6 +44,9 @@ function SupportSection() {
                                                     </div>
                                                 </div>
                                             </td>
+                                            <td>{question.subject}</td>
+                                            <td>{question.email}</td>
+                                            <td>{question.help}</td>
                                         </tr>
                                     ))}
                                 </tbody>

@@ -40,7 +40,7 @@ const Scaling = () => {
 
                 <div className='hidden lg:flex justify-center items-center container mx-auto'>
                     <div className='w-1/2'>
-                        <img className='max-w-none hidden lg:block' src={`${Helpers.basePath}${currentImages[`download-1`]}`} alt='laptopMockup' />
+                        <img className='max-w-none hidden lg:block' src={`${Helpers.basePath}${currentImages[`download-1`]}` ? '/assets/laptopmockup.png' : ''} alt='laptopMockup' />
                         <img className='max-w-none block lg:hidden' src="assets/downloadsection.png" alt='laptopMockup' />
 
                     </div>

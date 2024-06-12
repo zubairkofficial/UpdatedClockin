@@ -20,7 +20,7 @@ function EditModal({ isOpen, onClose, section, content, handleChange, handleSubm
                         Cancel
                     </button>
                     <button
-                        className="bg-blue-500 text-white py-2 px-4 rounded"
+                        className="bg-[#FF7A50] text-white py-2 px-4 rounded"
                         onClick={() => handleSubmit(content, section)}
                     >
                         Save

@@ -10,7 +10,9 @@ function AchievementSection() {
         review: '',
         user_name: '',
         brand_logo: null,
-        user_image: null
+        brand_preview : '',
+        user_image: null,
+        user_preview: '',
     });
     const [updateMode, setUpdateMode] = useState(false);
     const [currentAchievementId, setCurrentAchievementId] = useState(null);
@@ -22,6 +24,15 @@ function AchievementSection() {
         } catch (error) {
             console.log("error in fetching data", error);
         }
+    };
+    const resetForm = () => {
+        setFormData({
+            review: '',
+            user_name: '',
+            brand_logo: null,
+            user_image: null,
+        });
+        setCurrentAchievementId(null);
     };
 
     useEffect(() => {
@@ -75,7 +86,8 @@ function AchievementSection() {
             brand_logo: null,
             review: achievement.review,
             user_name: achievement.user_name,
-            user_image: null 
+            user_image: null ,
+            
         });
         setCurrentAchievementId(achievement.id);
         setUpdateMode(true);
@@ -116,17 +128,17 @@ function AchievementSection() {
                                 <span className="card-label fw-bold fs-3 mb-1">Our Achievements</span>
                             </h3>
                             <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a Achievements">
-                                <button className="btn btn-sm btn-light btn-active-primary" onClick={() => { setListSection(false); setUpdateMode(false); }}>
+                                <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => { setListSection(false); setUpdateMode(false); }}>
                                     <i className="fa-light fa-plus"></i> New Achievements
                                 </button>
                             </div>
                         </div>
-                        <div className="card-body py-3">
+                        <div className="card-body py-3 m-5 rounded bg-gray-100">
                             <div className="table-responsive">
                                 <table className="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
                                     <thead>
                                         <tr className="fw-bold text-muted">
-                                            <th className="min-w-70px">Brand Logo</th>
+                                            <th className="min-w-100px">Brand Logo</th>
                                             <th className="min-w-150px">Review</th>
                                             <th className="min-w-150px">User Image</th>
                                             <th className="min-w-150px">User Name</th>
@@ -180,12 +192,12 @@ function AchievementSection() {
                                 <span className="card-label fw-bold fs-3 mb-1">{updateMode ? 'Update Achievement' : 'Add New Achievement'}</span>
                             </h3>
                             <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to go back">
-                                <button className="btn btn-sm btn-light btn-active-primary" onClick={() => setListSection(true)}>
+                                <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => setListSection(true)}>
                                     <i className="fa fa-arrow-left"></i> Back
                                 </button>
                             </div>
                         </div>
-                        <div className="card-body py-3">
+                        <div className="card-body py-3 m-5 rounded bg-gray-100">
                             <form onSubmit={updateMode ? handleUpdate : handleSubmit}>
                                 <div className="mb-3">
                                     <label htmlFor="heading" className="form-label">Brand Logo</label>
@@ -233,7 +245,7 @@ function AchievementSection() {
                                         required={!updateMode} // Make it required only in add mode
                                     />
                                 </div>
-                                <button type="submit" className="btn btn-primary">Submit</button>
+                                <button type="submit" className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300">Submit</button>
                             </form>
                         </div>
                     </div>
