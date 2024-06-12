@@ -8,6 +8,7 @@ import axios from "axios";
 import Helpers from "../../Config/Helpers";
 const HomePage = ({ background, heading, subheading }) => {
   const { isLightMode } = useContext(ThemeContext);
+  const [content , setContent] = useState([])
   const [currentImages, setCurrentImages] = useState({ 'hero-1': '', 'hero-2': '', 'second-1': '', 'third-1': '', 'third-2': '', 'third-3': '' });
   const fetchImage = async (section, id) => {
     try {
@@ -20,6 +21,16 @@ const HomePage = ({ background, heading, subheading }) => {
     }
   };
 
+  const fetchContent = async (section ,id) => {
+    try {
+      const response = await axios.get(`${Helpers.apiUrl}content/show/${section}-${id}`)
+      setContent(response.data.data)
+      console.log('response',response.data.data.content)
+    } catch (error) {
+      console.log('error in fetching data', error)
+    }
+  }
+
   useEffect(() => {
     fetchImage('hero', '1');
     fetchImage('hero', '2');
@@ -27,6 +38,7 @@ const HomePage = ({ background, heading, subheading }) => {
     fetchImage('third', '1');
     fetchImage('third', '2');
     fetchImage('third', '3');
+    fetchContent('hero','1')
   }, [isLightMode]);
   return (
     <>
@@ -56,7 +68,7 @@ const HomePage = ({ background, heading, subheading }) => {
                 <h1 className="text-[2.5rem] lg:text-[4rem] font-bold text-text leading-tight mb-12 lg:mb-0">
                   Track Time, Maximize Productivity
                 </h1>
-              </AnimatedText>
+              </AnimatedText>                 
               <AnimatedText>
                 <div className="mt-4 flex-col lg:flex-row gap-4 lg:block hidden">
                   <button className="bg-primary hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300">Try it free</button>

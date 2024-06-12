@@ -135,7 +135,7 @@ function FeatureSection() {
                                                 <td>
                                                     <a href="#" className="text-gray-900 fw-bold text-hover-primary d-block fs-6">{feature.heading}</a>
                                                 </td>
-                                                <td className="text-end">
+                                                <td className="">
                                                     <div className="d-flex flex-column w-100 me-2">
                                                         <div className="d-flex flex-start mb-2">
                                                             <span className="text-muted me-2 fs-7 fw-bold">

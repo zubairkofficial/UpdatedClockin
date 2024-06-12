@@ -304,7 +304,7 @@ function Sidebar() {
                     </span>
                     <span class="menu-title">
                       <NavLink
-                        to="/admin/"
+                        to="/admin/support"
                         className={(isActive) =>
                           isActive ? "menu-link" : "menu-link"
                         }
