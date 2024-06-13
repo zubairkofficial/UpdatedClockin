@@ -34,7 +34,7 @@ const PlanSection = () => {
         const { name, value, type, checked } = e.target;
         setFormData({
             ...formData,
-            [name]: type === 'checkbox' ? (checked ? '1' : '0') : value 
+            [name]: type === 'checkbox' ? (checked ? '1' : '0') : value
         });
     };
 
@@ -306,7 +306,7 @@ const PlanSection = () => {
                                         type="checkbox"
                                         id="offline_mode"
                                         name="offline_mode"
-                                        checked={formData.offline_mode} 
+                                        checked={formData.offline_mode}
                                         onChange={handleChange}
                                     />
                                 </div>

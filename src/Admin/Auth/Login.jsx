@@ -22,6 +22,7 @@ function Login() {
             setLoading(false)
         } catch (error) {
             setLoading(false)
+            Helpers.toast("error",error.response.data.error)
             console.error('Error logging in:', error);
         }
     };
@@ -69,7 +70,7 @@ function Login() {
                                         <button type="submit" id="kt_sign_in_submit" class="btn" style={{ background: "#222626", color: "white", padding: "1rem", borderRadius: '5px' }}>
 
                                             <span class="indicator-label">
-                                                {isloading ? 'Please wait ...' : 'Sign In'}</span>
+                                                {isloading ? 'Please    wait ...' : 'Sign In'}</span>
 
                                         </button>
                                     </div>

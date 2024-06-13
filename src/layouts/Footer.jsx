@@ -11,6 +11,20 @@ const Footer = () => {
   const [showTerms, setShowTerms] = useState(false);
   const [showContact, setShowContact] = useState(false);
   const [showNewsletter, setShowNewsletter] = useState(false);
+  const [footer, setFooter] = useState([]);
+
+  useEffect(() => {
+    fetchFooter();
+  }, []);
+
+  const fetchFooter = async () => {
+    try {
+      const response = await axios.get(`${Helpers.apiUrl}footer/show`);
+      setFooter(response.data.data);
+    } catch (error) {
+      console.error('Error fetching footer', error);
+    }
+  };
 
   const fetchImage = async (id) => {
     try {
@@ -33,37 +47,24 @@ const Footer = () => {
       <div className="py-12 px-8 bg-cover bg-center bg-no-repeat h-auto w-full bg-pinkbackground" style={{ backgroundImage: `url(${isLightMode ? 'assets/bg1.png' : 'assets/bg2.png'})` }}>
         <div className="lg:flex lg:justify-around lg:items-center">
           <div className="flex flex-col items-center mb-6 md:mb-0">
-          {['1'].map(id => (
-            <a href="/">
-              <img src={`${Helpers.basePath}${currentImages[`footer-${id}`]}` || (isLightMode ? 'assets/logo.png' : 'assets/blacklogo.png')} alt="Logo" className="h-12 mb-6 " />
-            </a>
-          ))}
+            {['1'].map(id => (
+              <a href="/">
+                <img src={`${Helpers.basePath}${currentImages[`footer-${id}`]}` || (isLightMode ? 'assets/logo.png' : 'assets/blacklogo.png')} alt="Logo" className="h-12 mb-6 " />
+              </a>
+            ))}
           </div>
           {/* Privacy Section */}
-          <div className="flex flex-col gap-y-4 text-text">
-            <a href="privacy"><h2 className="font-bold text-[#FF7A50] hidden lg:block">Privacy</h2></a>
-            <h3 className="text-[#ADB1B1] hidden lg:block">Torquatos nostros?</h3>
-            <h3 className="text-[#ADB1B1] hidden lg:block">Certe, inquam</h3>
-            <h3 className="text-[#ADB1B1] hidden lg:block">Torquatos nostros?</h3>
-            <h3 className="text-[#ADB1B1] hidden lg:block">Certe, inquam</h3>
-          </div>
-          {/* Terms & Conditions Section */}
-          <div className="flex flex-col gap-y-4 text-text">
-            <a href="terms&conditions"><h2 className="font-bold text-[#FF7A50] hidden lg:block">Terms & Conditions</h2></a>
-            <h3 className="text-[#ADB1B1] hidden lg:block">Torquatos nostros?</h3>
-            <h3 className="text-[#ADB1B1] hidden lg:block">Certe, inquam</h3>
-            <h3 className="text-[#ADB1B1] hidden lg:block">Torquatos nostros?</h3>
-            <h3 className="text-[#ADB1B1] hidden lg:block">Certe, inquam</h3>
-          </div>
-          {/* Contact Section */}
-          <div className="flex flex-col gap-y-4 text-text ">
-            <a href="contact"><h2 className="font-bold text-[#FF7A50] hidden lg:block">Contact</h2></a>
-            <h3 className="text-[#ADB1B1] hidden lg:block">Torquatos nostros?</h3>
-            <h3 className="text-[#ADB1B1] hidden lg:block">Certe, inquam</h3>
-            <h3 className="text-[#ADB1B1] hidden lg:block">Torquatos nostros?</h3>
-            <h3 className="text-[#ADB1B1] hidden lg:block">Certe, inquam</h3>
-          </div>
-          {/* Newsletter Section */}
+          {footer.map(footer => (
+
+            <div className="flex flex-col gap-y-4 text-text">
+              <a href="privacy"><h2 className="font-bold text-[#FF7A50] hidden lg:block">{footer.menu}</h2></a>
+              {JSON.parse(footer.submenu).map((item, index) => (
+                <div key={index} className="flex items-center mb-2">
+                  <h3 className="text-[#ADB1B1] hidden lg:block">{item.name}</h3>
+                </div>
+              ))}
+            </div>
+          ))}
           <div className="flex flex-col text-white">
             <a href="newsletter"><h2 className="font-bold text-[#FF7A50] pb-6 hidden lg:block">Newsletter</h2></a>
             <form className="flex items-center w-full">

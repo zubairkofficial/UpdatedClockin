@@ -28,6 +28,7 @@ import NewsPageSection from "./Admin/Screens/NewsPage/NewsPageSection.js";
 import NewsDetail from "./components/News/NewsDetail.jsx";
 import SupportSection from "./Admin/Screens/Support/SupportSection.js";
 import HomePageContent from "./Admin/Screens/Content/HomePageContent.js";
+import FooterSection from "./Admin/Screens/Content/FooterSection.js";
 
 const router = createBrowserRouter([
   {
@@ -110,6 +111,10 @@ const router = createBrowserRouter([
   {
     path: "/admin/content",
     element: <ProtectedRoute element={<HomePageContent />}/>,
+  },
+  {
+    path: "/admin/footer",
+    element: <ProtectedRoute element={<FooterSection />}/>,
   },
 ]);
 
