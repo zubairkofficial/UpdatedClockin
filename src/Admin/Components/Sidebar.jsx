@@ -127,7 +127,7 @@ function Sidebar() {
                     </span>
                   </span>
                 </div>
-                
+
                 <div class="menu-item pt-5">
                   <div class="menu-content">
                     <span class="menu-heading fw-bold text-uppercase fs-7">
@@ -222,11 +222,35 @@ function Sidebar() {
                         }
                       >
                         {" "}
-                        Hero Section{" "}
+                        Home Page{" "}
                       </NavLink>
                     </span>
                   </span>
                 </div>
+
+
+                <div
+                  data-kt-menu-trigger="click"
+                  class="menu-item menu-accordion"
+                >
+                  <span class="menu-link">
+                    <span class="menu-icon">
+                      <i class="fa-sharp fa-regular fa-browser"></i>
+                    </span>
+                    <span class="menu-title">
+                      <NavLink
+                        to="/admin/stat"
+                        className={(isActive) =>
+                          isActive ? "menu-link" : "menu-link"
+                        }
+                      >
+                        {" "}
+                        Stat Section{" "}
+                      </NavLink>
+                    </span>
+                  </span>
+                </div>
+
 
                 <div
                   data-kt-menu-trigger="click"
@@ -249,6 +273,36 @@ function Sidebar() {
                     </span>
                   </span>
                 </div>
+
+                <div class="menu-item pt-5">
+                  <div class="menu-content">
+                    <span class="menu-heading fw-bold text-uppercase fs-7">
+                      Download Page Section
+                    </span>
+                  </div>
+                </div>
+                <div
+                  data-kt-menu-trigger="click"
+                  class="menu-item menu-accordion"
+                >
+                  <span class="menu-link">
+                    <span class="menu-icon">
+                      <i class="fa-sharp fa-regular fa-browser"></i>
+                    </span>
+                    <span class="menu-title">
+                      <NavLink
+                        to="/admin/downloadsection"
+                        className={(isActive) =>
+                          isActive ? "menu-link" : "menu-link"
+                        }
+                      >
+                        {" "}
+                        Download Section{" "}
+                      </NavLink>
+                    </span>
+                  </span>
+                </div>
+
                 <div class="menu-item pt-5">
                   <div class="menu-content">
                     <span class="menu-heading fw-bold text-uppercase fs-7">
@@ -278,7 +332,7 @@ function Sidebar() {
                   </span>
                 </div>
 
-                
+
                 <div class="menu-item pt-5">
                   <div class="menu-content">
                     <span class="menu-heading fw-bold text-uppercase fs-7">

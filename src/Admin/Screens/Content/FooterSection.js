@@ -69,7 +69,7 @@ function FooterSection() {
             fetchFooter();
             resetForm();
             setListSection(true);
-            Helpers.toast("success", 'Plan Saved Successfully');
+            Helpers.toast("success", 'Footer Saved Successfully');
         } catch (error) {
             console.error('Error saving plan', error);
         }
@@ -89,7 +89,7 @@ function FooterSection() {
         try {
             await axios.get(`${Helpers.apiUrl}footer/delete/${id}`);
             fetchFooter();
-            alert('Plan deleted successfully');
+            Helpers.toast("success",'Footer deleted successfully');
         } catch (error) {
             console.error('Error deleting plan', error);
         }

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AnimatedText from "../../layouts/AnimatedText";
 import Helpers from "../../Config/Helpers";
+import axios from "axios";
 
 const DashboardComp = ({
   thirdImage1,
@@ -8,6 +9,7 @@ const DashboardComp = ({
   thirdImage3,
   currentContent,
 }) => {
+ 
   return (
     <>
       <div className="h-full bg-pinkbackground py-16 pt-7 pr-0 lg:pr-14 bg-orangelinewithicons bg-cover bgimage container mx-auto ">
@@ -89,6 +91,7 @@ const DashboardComp = ({
         </AnimatedText>
         <AnimatedText>
           <div className="w-full h-auto ">
+          
             <div
               className="relative bg-cover bg-center backimage lg:mt-40 mt-10 lg:ml-16 ml-4 mr-4 lg:py-28 py-14 lg:px-16 px-4 mx-2 lg:m-0"
               style={{ borderRadius: "35px" }}

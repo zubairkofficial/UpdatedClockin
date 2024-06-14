@@ -29,6 +29,8 @@ import NewsDetail from "./components/News/NewsDetail.jsx";
 import SupportSection from "./Admin/Screens/Support/SupportSection.js";
 import HomePageContent from "./Admin/Screens/Content/HomePageContent.js";
 import FooterSection from "./Admin/Screens/Content/FooterSection.js";
+import StatSectionContent from "./Admin/Screens/Content/StatSectionContent.js";
+import DownloadPageContent from "./Admin/Screens/Content/DownloadPageContent.js";
 
 const router = createBrowserRouter([
   {
@@ -115,6 +117,14 @@ const router = createBrowserRouter([
   {
     path: "/admin/footer",
     element: <ProtectedRoute element={<FooterSection />}/>,
+  },
+  {
+    path: "/admin/stat",
+    element: <ProtectedRoute element={<StatSectionContent />}/>,
+  },
+  {
+    path: "/admin/downloadsection",
+    element: <ProtectedRoute element={<DownloadPageContent />}/>,
   },
 ]);
 
