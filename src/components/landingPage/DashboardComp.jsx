@@ -23,7 +23,7 @@ const DashboardComp = ({
                   src={
                     thirdImage1
                       ? `${Helpers.basePath}${thirdImage1}`
-                      : "/assets/f7.png"
+                      : "/assets/dashboard 1.png"
                   }
                   alt="dashboard one"
                   className="w-[70] h-auto lg:ml-[5rem] sm:ml-0 z-10"
@@ -58,7 +58,7 @@ const DashboardComp = ({
                 src={
                   thirdImage2
                     ? `${Helpers.basePath}${thirdImage2}`
-                    : "/assets/f7.png"
+                    : "/assets/dashboard 2.png"
                 }
                 alt="dashboard one"
                 className="w-[70] h-auto lg:mr-[5rem] sm:mr-0"
@@ -73,7 +73,7 @@ const DashboardComp = ({
                 src={
                   thirdImage3
                     ? `${Helpers.basePath}${thirdImage3}`
-                    : "/assets/f7.png"
+                    : "/assets/dashboard 3.png"
                 }
                 alt="dashboard one"
                 className="w-[70] h-auto lg:ml-[5rem] sm:ml-0"

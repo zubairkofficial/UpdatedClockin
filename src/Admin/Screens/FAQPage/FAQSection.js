@@ -9,7 +9,8 @@ function FAQSection() {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
-    image: null
+    image: null,
+    imageUrl: '',
   });
   const [updateMode, setUpdateMode] = useState(false);
   const [currentFeatureId, setCurrentFaqId] = useState(null);
@@ -68,7 +69,8 @@ function FAQSection() {
     setFormData({
       title: faq.title,
       description: faq.description,
-      image: null
+      image: null,
+      imageUrl: faq.image,
     });
     setCurrentFaqId(faq.id);
     setUpdateMode(true);
@@ -95,6 +97,13 @@ function FAQSection() {
       console.log("error in updating faq", error);
     }
   };
+  const resetForm = () => {
+    setFormData({
+      heading: '',
+      paragraph: '',
+      image: null,
+    });
+  };
   return (
     <div>
       <div id="kt_app_wrapper" className="app-wrapper flex-column flex-row-fluid">
@@ -106,7 +115,7 @@ function FAQSection() {
                 <span className="card-label fw-bold fs-3 mb-1">Application faqs</span>
               </h3>
               <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a faq">
-                <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => { setListSection(false); setUpdateMode(false); }}>
+                <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => { setListSection(false); setUpdateMode(false); resetForm() }}>
                   <i className="fa-light fa-plus"></i> New FAQS
                 </button>
               </div>
@@ -185,6 +194,7 @@ function FAQSection() {
                     value={formData.title}
                     onChange={handleInputChange}
                     required
+                    placeholder='Enter Heading'
                   />
                 </div>
                 <div className="mb-3">
@@ -197,6 +207,7 @@ function FAQSection() {
                     value={formData.description}
                     onChange={handleInputChange}
                     required
+                    placeholder='Enter paragraph'
                   ></textarea>
                 </div>
                 <div className="mb-3">
@@ -209,6 +220,16 @@ function FAQSection() {
                     onChange={handleImageChange}
                     required={!updateMode} // Make it required only in add mode
                   />
+                  {formData.imageUrl && (
+                    <div className='bg-background w-20 rounded m-3 p-3' >
+                      <img src={`${Helpers.basePath}/storage/${formData.imageUrl}`} alt="Preview" style={{ width: '80px', height: '80px' }} />
+                      <input
+                        type="hidden"
+                        name="existingImage"
+                        value={`${Helpers.basePath}/storage/${formData.imageUrl}`}
+                      />
+                    </div>
+                  )}
                 </div>
                 <button type="submit" className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300">Submit</button>
               </form>

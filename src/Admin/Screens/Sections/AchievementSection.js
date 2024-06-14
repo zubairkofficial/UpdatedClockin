@@ -87,7 +87,8 @@ function AchievementSection() {
             review: achievement.review,
             user_name: achievement.user_name,
             user_image: null ,
-            
+            brand_preview :achievement.brand_logo,
+            user_preview : achievement.user_image,
         });
         setCurrentAchievementId(achievement.id);
         setUpdateMode(true);
@@ -117,6 +118,7 @@ function AchievementSection() {
             console.log("error in updating Achievement", error);
         }
     };
+    
     return (
         <div>
             <div id="kt_app_wrapper" className="app-wrapper flex-column flex-row-fluid">
@@ -128,7 +130,7 @@ function AchievementSection() {
                                 <span className="card-label fw-bold fs-3 mb-1">Our Achievements</span>
                             </h3>
                             <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a Achievements">
-                                <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => { setListSection(false); setUpdateMode(false); }}>
+                                <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => { setListSection(false); setUpdateMode(false); resetForm() }}>
                                     <i className="fa-light fa-plus"></i> New Achievements
                                 </button>
                             </div>
@@ -209,6 +211,16 @@ function AchievementSection() {
                                         onChange={handleImageChange}
                                         required={!updateMode} // Make it required only in add mode
                                     />
+                                    {formData.brand_preview && (
+                                        <div className='bg-background w-20 rounded m-3 p-3' >
+                                            <img src={`${Helpers.basePath}/storage/${formData.brand_preview}`} alt="Preview" style={{ width: '80px', height: '80px' }} />
+                                            <input
+                                                type="hidden"
+                                                name="existingImage"
+                                                value={`${Helpers.basePath}/storage/${formData.brand_preview}`} 
+                                            />
+                                        </div>
+                                    )}
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="paragraph" className="form-label">Review</label>
@@ -219,6 +231,7 @@ function AchievementSection() {
                                         rows="3"
                                         value={formData.review}
                                         onChange={handleInputChange}
+                                        placeholder='Enter Review'
                                         required
                                     ></textarea>
                                 </div>
@@ -231,6 +244,7 @@ function AchievementSection() {
                                         name="user_name"
                                         value={formData.user_name}
                                         onChange={handleInputChange}
+                                        placeholder='Enter User Name'
                                         required
                                     />
                                 </div>
@@ -244,6 +258,16 @@ function AchievementSection() {
                                         onChange={handleImageChange1}
                                         required={!updateMode} // Make it required only in add mode
                                     />
+                                    {formData.user_preview && (
+                                        <div className='bg-background w-20 rounded m-3 p-3' >
+                                            <img src={`${Helpers.basePath}/storage/${formData.user_preview}`} alt="Preview" style={{ width: '80px', height: '80px' }} />
+                                            <input
+                                                type="hidden"
+                                                name="existingImage"
+                                                value={`${Helpers.basePath}/storage/${formData.user_preview}`} 
+                                            />
+                                        </div>
+                                    )}
                                 </div>
                                 <button type="submit" className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300">Submit</button>
                             </form>

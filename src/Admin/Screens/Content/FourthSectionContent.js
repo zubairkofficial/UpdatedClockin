@@ -11,7 +11,7 @@ function FourthSectionContent({currentContent , defaultContent,openModal}) {
                             className="p-5 bg-gray-300 rounded-xl shadow-sm relative flex flex-1 mt-5"
                         >
                             <h1 className="w-100 font-bold text-black mt-2">
-                               {currentContent[`fourth-${id}`] || defaultContent[0] }
+                               {currentContent[`fourth-${id}`] || "Efficiently oversee your list of employees." }
                             </h1>
                             <button
                                 className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
@@ -27,7 +27,7 @@ function FourthSectionContent({currentContent , defaultContent,openModal}) {
                             className="p-5 bg-gray-300 rounded-xl shadow-sm relative flex flex-1 mt-5"
                         >
                             <p className="w-100  text-black mt-2">
-                               {currentContent[`fourth-${id}`] || defaultContent[1] }
+                               {currentContent[`fourth-${id}`] || "Simplify employee management: track attendance, tasks, and schdeules seamlessly." }
                             </p>
                             <button
                                 className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"

@@ -5,13 +5,14 @@ import axios from 'axios'
 import Helpers from '../../../Config/Helpers'
 
 function NewsPageSection() {
-    const [news, setnews] = useState([]);
+  const [news, setnews] = useState([]);
   const [listSection, setListSection] = useState(true);
   const [formData, setFormData] = useState({
     title: '',
     description: '',
     slug: '',
-    image: null
+    image: null,
+    imageUrl: '',
   });
   const [updateMode, setUpdateMode] = useState(false);
   const [currentNewsId, setCurrentNewsId] = useState(null);
@@ -71,7 +72,8 @@ function NewsPageSection() {
       title: news.title,
       slug: news.slug,
       description: news.description,
-      image: null
+      image: null,
+      imageUrl: news.image,
     });
     setCurrentNewsId(news.id);
     setUpdateMode(true);
@@ -99,6 +101,15 @@ function NewsPageSection() {
       console.log("error in updating news", error);
     }
   };
+
+  const resetForm = () => {
+    setFormData({
+      title: '',
+      slug: '',
+      description: '',
+      image: null,
+    });
+  };
   return (
     <div>
       <div id="kt_app_wrapper" className="app-wrapper flex-column flex-row-fluid">
@@ -110,7 +121,7 @@ function NewsPageSection() {
                 <span className="card-label fw-bold fs-3 mb-1">Application news</span>
               </h3>
               <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a News">
-                <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => { setListSection(false); setUpdateMode(false); }}>
+                <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => { setListSection(false); setUpdateMode(false); resetForm() }}>
                   <i className="fa-light fa-plus"></i> New news
                 </button>
               </div>
@@ -199,6 +210,7 @@ function NewsPageSection() {
                     value={formData.title}
                     onChange={handleInputChange}
                     required
+                    placeholder='Enter title'
                   />
                 </div>
                 <div className="mb-3">
@@ -210,6 +222,7 @@ function NewsPageSection() {
                     name="slug"
                     value={formData.slug}
                     onChange={handleInputChange}
+                    placeholder='Enter Slug'
                     required
                   />
                 </div>
@@ -222,6 +235,7 @@ function NewsPageSection() {
                     rows="3"
                     value={formData.description}
                     onChange={handleInputChange}
+                    placeholder='Enter Description'
                     required
                   ></textarea>
                 </div>
@@ -235,6 +249,16 @@ function NewsPageSection() {
                     onChange={handleImageChange}
                     required={!updateMode} // Make it required only in add mode
                   />
+                  {formData.imageUrl && (
+                    <div className='bg-background w-20 rounded m-3 p-3' >
+                      <img src={`${Helpers.basePath}/storage/${formData.imageUrl}`} alt="Preview" style={{ width: '80px', height: '80px' }} />
+                      <input
+                        type="hidden"
+                        name="existingImage"
+                        value={`${Helpers.basePath}/storage/${formData.imageUrl}`}
+                      />
+                    </div>
+                  )}
                 </div>
                 <button type="submit" className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300">Submit</button>
               </form>

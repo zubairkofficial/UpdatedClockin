@@ -11,7 +11,7 @@ function PlanSectionContent({ currentContent, defaultContent, openModal }) {
                             className="p-5 bg-gray-300 rounded-xl shadow-sm relative flex flex-1 mt-5"
                         >
                             <h1 className="w-100 font-bold text-black mt-2">
-                                {currentContent[`plan-${id}`] || defaultContent[0]}
+                                {currentContent[`plan-${id}`] || "Pick the perfect Plan"}
                             </h1>
                             <button
                                 className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
@@ -27,7 +27,7 @@ function PlanSectionContent({ currentContent, defaultContent, openModal }) {
                             className="p-5 bg-gray-300 rounded-xl shadow-sm relative flex flex-1 mt-5"
                         >
                             <p className="w-100  text-black mt-2">
-                                {currentContent[`plan-${id}`] || defaultContent[1]}
+                                {currentContent[`plan-${id}`] || "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex rem accusantium adipiscinemo et nihil, tenetur explicabo at, veritatis incidunt quos utvelit nam? Voluptas id natus dolor ad accusamus."}
                             </p>
                             <button
                                 className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"

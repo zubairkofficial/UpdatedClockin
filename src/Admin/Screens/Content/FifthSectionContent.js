@@ -11,7 +11,7 @@ function FifthSectionContent({currentContent , defaultContent,openModal}) {
                             className="p-5 bg-gray-300 rounded-xl shadow-sm relative flex flex-1 mt-5"
                         >
                             <h1 className="w-100 font-bold text-black mt-2">
-                               {currentContent[`fifth-${id}`] || defaultContent[0] }
+                               {currentContent[`fifth-${id}`] || "Efficiently Task Handling" }
                             </h1>
                             <button
                                 className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
@@ -27,7 +27,7 @@ function FifthSectionContent({currentContent , defaultContent,openModal}) {
                             className="p-5 bg-gray-300 rounded-xl shadow-sm relative flex flex-1 mt-5"
                         >
                             <p className="w-100  text-black mt-2">
-                               {currentContent[`fifth-${id}`] || defaultContent[1] }
+                               {currentContent[`fifth-${id}`] || "Experience seamless task management that enhances productivity. Our platform empowers you to effortlessly create, assign, and track tasks, ensuring efficient collaboration and goal achievement." }
                             </p>
                             <button
                                 className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
