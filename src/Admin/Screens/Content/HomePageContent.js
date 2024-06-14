@@ -7,6 +7,8 @@ import SecondSectionContent from "./SecondSectionContent";
 import ThirdSectionContent from "./ThirdSectionContent";
 import FourthSectionContent from "./FourthSectionContent";
 import FifthSectionContent from "./FifthSectionContent";
+import SixthPageContent from "./SixthPageContent";
+import PlanSectionContent from "./PlanSectionContent";
 function HomePageContent() {
     const [currentContent, setCurrentContent] = useState({
         "hero-1": "",
@@ -21,6 +23,10 @@ function HomePageContent() {
         "fourth-2": "",
         "fifth-1": "",
         "fifth-2": "",
+        "sixth-1": "",
+        "sixth-2": "",
+        "plan-1": "",
+        "plan-2": "",
     });
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentSection, setCurrentSection] = useState("");
@@ -56,6 +62,10 @@ function HomePageContent() {
             "fourth-2",
             "fifth-1",
             "fifth-2",
+            "sixth-1",
+            "sixth-2",
+            "plan-1",
+            "plan-2",
         ];
         try {
             const fetchedContent = {};
@@ -102,6 +112,10 @@ function HomePageContent() {
         'fourth-2': 'Simplify employee management: track attendance, tasks, and schdeules seamlessly.',
         'fifth-1': 'Efficiently Task Handling',
         'fifth-2': 'Experience seamless task management that enhances productivity. Our platform empowers you to effortlessly create, assign, and track tasks, ensuring efficient collaboration and goal achievement.',
+        'sixth-1': 'Try Clockin today!',
+        'sixth-2': 'Uncover Your Productivity Potential with Discover Time Tracking Software.',
+        'plan-1': 'Pick the perfect Plan',
+        'plan-2': 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex rem accusantium adipiscinemo et nihil, tenetur explicabo at, veritatis incidunt quos utvelit nam? Voluptas id natus dolor ad accusamus.',
     };
 
     return (
@@ -184,6 +198,16 @@ function HomePageContent() {
             <FifthSectionContent currentContent={currentContent} defaultContent={[
                 defaultContent['fifth-1'],
                 defaultContent['fifth-2'],
+            ]} openModal={openModal} />
+            <h1 className="font-bold ml-10 my-5">Sixth Section</h1>
+            <SixthPageContent currentContent={currentContent} defaultContent={[
+                defaultContent['sixth-1'],
+                defaultContent['sixth-2'],
+            ]} openModal={openModal} />
+            <h1 className="font-bold ml-10 my-5">Plan Section</h1>
+            <PlanSectionContent currentContent={currentContent} defaultContent={[
+                defaultContent['plan-1'],
+                defaultContent['plan-2'],
             ]} openModal={openModal} />
             <EditModal
                 isOpen={isModalOpen}

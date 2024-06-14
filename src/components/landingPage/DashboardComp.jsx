@@ -97,11 +97,10 @@ const DashboardComp = ({
               style={{ borderRadius: "35px" }}
             >
               <h1 className="text-white lg:text-5xl text-xl pb-8 font-bold">
-                Try Clockin today!
+                {currentContent["sixth-1" || "Try Clockin today!"]}
               </h1>
               <p className="text-white lg:text-3xl text-sm pb-16">
-                Uncover Your Productivity Potential with <br /> Discover Time
-                Tracking Software.
+                {currentContent["sixth-2"] || "Uncover Your Productivity Potential with Discover Time Tracking Software."}
               </p>
               <ul className="flex flex-wrap font-bold text-white">
                 <li className="mr-4 mb-2 flex items-center">

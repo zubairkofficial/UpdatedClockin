@@ -55,16 +55,15 @@ import PlanCard from './PlanCard';
 import { ThemeContext } from '../../layouts/ThemeContext';
 import AnimatedText from '../../layouts/AnimatedText';
 
-const Plan = ({ className }) => {
+const Plan = ({ className , currentContent}) => {
   const [isSubscription, setIsSubscription] = useState(true);
   const { isLightMode } = useContext(ThemeContext);
   const selectedPlanType = isSubscription ? 'subscription' : 'one_time_payment';
   return (
     <div className={`${className}`}>
       <div className={`bg-pinkbackground`}>
-        <h2 className='text-center text-[#FF8B42] text-2xl pt-12 font-semibold'>Pick the perfect Plan</h2>
-        <p className='text-center text-gray-400 pt-6 p-5'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex rem accusantium
-          adipisci<br />nemo et nihil, tenetur explicabo at, veritatis incidunt quos ut<br />velit nam? Voluptas id natus dolor ad accusamus.</p>
+        <h2 className='text-center text-[#FF8B42] text-2xl pt-12 font-semibold'>{currentContent["plan-1"] || "Pick the perfect Plan"}</h2>
+        <p className='text-center text-gray-400 pt-6 p-5 justify-center'>{currentContent["plan-2"] || "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex rem accusantium adipisci nemo et nihil, tenetur explicabo at, veritatis incidunt quos utvelit nam? Voluptas id natus dolor ad accusamus."}</p>
       </div>
       {/* switch buttons */}
       <div className='flex justify-center pt-12 pb-8 bg-pinkbackground'>

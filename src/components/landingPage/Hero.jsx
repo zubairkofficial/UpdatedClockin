@@ -117,7 +117,7 @@ const Hero = ({ secondImage, thirdImage1, thirdImage2, thirdImage3 ,currentConte
                 currentContent={currentContent}
             />
             <AnimatedText>
-                <Plan />
+                <Plan currentContent={currentContent}/>
             </AnimatedText>
             <AnimatedText>
                 <Achievements />

@@ -6,7 +6,9 @@ import { ThemeContext } from "../../layouts/ThemeContext";
 import AnimatedText from "../../layouts/AnimatedText";
 import axios from "axios";
 import Helpers from "../../Config/Helpers";
+import Loader from "../../layouts/Loader";
 const HomePage = ({ background, heading, subheading }) => {
+  const [loading, setLoading] = useState(false);
   const { isLightMode } = useContext(ThemeContext);
   const [currentImages, setCurrentImages] = useState({
     "hero-1": "",
@@ -31,6 +33,7 @@ const HomePage = ({ background, heading, subheading }) => {
     "fifth-2": "",
   });
   const fetchImage = async (section, id) => {
+    setLoading(true)
     try {
       const mode =
         section === "hero" ? (isLightMode ? "dark" : "light") : "dark";
@@ -40,7 +43,9 @@ const HomePage = ({ background, heading, subheading }) => {
       console.log("ref", response);
       const imageUrl = response.data.image_url;
       setCurrentImages((prev) => ({ ...prev, [`${section}-${id}`]: imageUrl }));
+      setLoading(false)
     } catch (error) {
+      setLoading(false)
       console.log("error in fetching data", error);
     }
   };
@@ -58,8 +63,13 @@ const HomePage = ({ background, heading, subheading }) => {
       "fourth-2",
       "fifth-1",
       "fifth-2",
+      "sixth-1",
+      "sixth-2",
+      "plan-1",
+      "plan-2",
     ];
     try {
+      setLoading(true)
       const fetchedContent = {};
       await Promise.all(
         sections.map(async (section) => {
@@ -72,7 +82,9 @@ const HomePage = ({ background, heading, subheading }) => {
         })
       );
       setCurrentContent(fetchedContent);
+      setLoading(false)
     } catch (error) {
+      setLoading(false)
       console.log("Error in fetching data", error);
     }
   };
@@ -88,6 +100,9 @@ const HomePage = ({ background, heading, subheading }) => {
   }, [isLightMode]);
   return (
     <>
+     {loading ? (
+                <Loader />
+              ) : (
       <div
         className="bg-cover bg-center bg-no-repeat h-screen w-full relative"
         style={{
@@ -149,6 +164,7 @@ const HomePage = ({ background, heading, subheading }) => {
           currentContent={currentContent}
         />
       </div>
+    )}
     </>
   );
 };

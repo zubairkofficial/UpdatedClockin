@@ -31,6 +31,8 @@ import HomePageContent from "./Admin/Screens/Content/HomePageContent.js";
 import FooterSection from "./Admin/Screens/Content/FooterSection.js";
 import StatSectionContent from "./Admin/Screens/Content/StatSectionContent.js";
 import DownloadPageContent from "./Admin/Screens/Content/DownloadPageContent.js";
+import Helpers from "./Config/Helpers.js";
+import axios from "axios";
 
 const router = createBrowserRouter([
   {
@@ -57,7 +59,7 @@ const router = createBrowserRouter([
     path: "/news/:slug",
     element: <NewsDetail />,
   },
-  
+
   {
     path: "/support",
     element: <ContactUS />,
@@ -96,46 +98,57 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin/faqs",
-    element: <ProtectedRoute element={<FAQSection />}/>,
+    element: <ProtectedRoute element={<FAQSection />} />,
   },
   {
     path: "/admin/faqs",
-    element: <ProtectedRoute element={<FAQSection />}/>,
+    element: <ProtectedRoute element={<FAQSection />} />,
   },
   {
     path: "/admin/news",
-    element: <ProtectedRoute element={<NewsPageSection />}/>,
+    element: <ProtectedRoute element={<NewsPageSection />} />,
   },
   {
     path: "/admin/support",
-    element: <ProtectedRoute element={<SupportSection />}/>,
+    element: <ProtectedRoute element={<SupportSection />} />,
   },
   {
     path: "/admin/content",
-    element: <ProtectedRoute element={<HomePageContent />}/>,
+    element: <ProtectedRoute element={<HomePageContent />} />,
   },
   {
     path: "/admin/footer",
-    element: <ProtectedRoute element={<FooterSection />}/>,
+    element: <ProtectedRoute element={<FooterSection />} />,
   },
   {
     path: "/admin/stat",
-    element: <ProtectedRoute element={<StatSectionContent />}/>,
+    element: <ProtectedRoute element={<StatSectionContent />} />,
   },
   {
     path: "/admin/downloadsection",
-    element: <ProtectedRoute element={<DownloadPageContent />}/>,
+    element: <ProtectedRoute element={<DownloadPageContent />} />,
   },
 ]);
 
 function App() {
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-    return () => clearTimeout(timer);
-  });
+  // const [loading, setLoading] = useState(true);
+  // const fetchData = async () => {
+  //   try {
+  //     const promises = [
+  //       axios.get(`${Helpers.apiUrl}plans/show`),
+  //       axios.get(`${Helpers.apiUrl}achievements/show`),
+  //       axios.get(`${Helpers.apiUrl}getfeature`),
+  //     ];
+  //     await Promise.all(promises);
+  //     setLoading(false);
+  //   } catch (error) {
+  //     console.error('Error fetching data', error);
+  //     setLoading(false);
+  //   }
+  // };
+  // useEffect(() => {
+  //   // fetchData()
+  // }, []);
 
   return (
     <ImageProvider>
@@ -146,13 +159,13 @@ function App() {
               class="app-page  flex-column flex-column-fluid "
               id="kt_app_page"
             >
-              {loading ? (
-                <Loader />
-              ) : (
+              {/* {loading ? ( */}
+                {/* <Loader /> */}
+              {/* ) : ( */}
                 <Layout>
                   <RouterProvider router={router} />
                 </Layout>
-              )}
+              {/* )} */}
             </div>
           </div>
         </div>
