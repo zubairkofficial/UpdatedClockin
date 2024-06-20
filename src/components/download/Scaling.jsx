@@ -13,6 +13,10 @@ import Helpers from '../../Config/Helpers'
 const Scaling = () => {
     const { isLightMode } = useContext(ThemeContext);
     const [currentImages, setCurrentImages] = useState({ 'download-1': '' });
+    const [currentContent, setCurrentContent] = useState({
+      "plan-1": "",
+      "plan-2": "",
+    });
     const fetchImage = async (section, id) => {
         try {
             const mode = section === 'download' ? (isLightMode ? 'dark' : 'light') : 'dark';
@@ -23,8 +27,31 @@ const Scaling = () => {
             console.log('error in fetching data', error);
         }
     };
-
+    const fetchContent = async () => {
+        const sections = [
+          "plan-1",
+          "plan-2",
+        ];
+        try {
+          const fetchedContent = {};
+          await Promise.all(
+            sections.map(async (section) => {
+              const response = await axios.get(
+                `${Helpers.apiUrl}content/show/${section}`
+              );
+              if (response.data.data) {
+                fetchedContent[section] = response.data.data.content;
+              }
+            })
+          );
+          setCurrentContent(fetchedContent);
+        } catch (error) {
+          console.log("Error in fetching data", error);
+        }
+      };
+    
     useEffect(() => {
+        fetchContent();
         fetchImage('download', '1');
     }, [isLightMode]);
     return (
@@ -72,7 +99,7 @@ const Scaling = () => {
                 </div>
             </div>
             <div className=''>
-                <Plan className='hidden lg:block' />
+                <Plan className='hidden lg:block' currentContent={currentContent}/>
                 <Footer />
             </div>
         </>

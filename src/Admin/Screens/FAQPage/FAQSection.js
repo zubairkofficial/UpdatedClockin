@@ -3,6 +3,8 @@ import Sidebar from '../../Components/Sidebar'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Helpers from '../../../Config/Helpers'
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 function FAQSection() {
   const [faqs, setfaqs] = useState([]);
   const [listSection, setListSection] = useState(true);
@@ -56,6 +58,7 @@ function FAQSection() {
     }
   };
 
+
   const handleDelete = async (id) => {
     try {
       await axios.get(`${Helpers.apiUrl}faqs/delete/${id}`);
@@ -65,6 +68,40 @@ function FAQSection() {
     }
   };
 
+  const MySwal = withReactContent(Swal);
+
+
+  const deleteFaq = (id) => {
+    MySwal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "No, cancel!",
+      reverseButtons: true,
+      customClass: {
+        confirmButton: "btn btn-success",
+        cancelButton: "btn btn-primary"
+      },
+      buttonsStyling: false
+    }).then((result) => {
+      if (result.isConfirmed) {
+        handleDelete(id);
+        MySwal.fire({
+          title: "Deleted!",
+          text: "Your data has been deleted.",
+          icon: "success"
+        });
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        MySwal.fire({
+          title: "Cancelled",
+          text: "Your data is safe :)",
+          icon: "error"
+        });
+      }
+    });
+  };
   const handleEdit = (faq) => {
     setFormData({
       title: faq.title,
@@ -158,7 +195,7 @@ function FAQSection() {
                             <button onClick={() => handleEdit(faq)} className="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
                               <i className="fa-light fa-pencil"></i>
                             </button>
-                            <button onClick={() => handleDelete(faq.id)} className="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+                            <button onClick={() => deleteFaq(faq.id)} className="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
                               <i className="fa-light fa-trash"></i>
                             </button>
                           </div>
