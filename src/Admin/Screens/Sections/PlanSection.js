@@ -165,7 +165,7 @@ const PlanSection = () => {
                 ) : (
                     <div>
                         {listSection ? (
-                            <div className="card mb-5 mb-xl-8 bg-slate-200">
+                            <div className="card mb-5 mb-xl-8 bg-slate-200" style={{marginTop:"-4%" }}>
                                 <div className="card-header border-0 pt-5">
                                     <h3 className="card-title align-items-start flex-column">
                                         <span className="card-label fw-bold fs-3 mb-1">Plans</span>
@@ -330,7 +330,7 @@ const PlanSection = () => {
                                                     <button
                                                         type="button"
                                                         onClick={() => removeFeature(index)}
-                                                        className="bg-red-500 text-white p-2 rounded"
+                                                        className="bg-orange-500 text-white p-2 rounded"
                                                     >
                                                         Remove
                                                     </button>
@@ -339,14 +339,15 @@ const PlanSection = () => {
                                             <button
                                                 type="button"
                                                 onClick={addFeature}
-                                                className="bg-blue-500 text-white p-2 rounded"
+                                                className="bg-orange-500 text-white p-2 rounded"
                                             >
                                                 Add Feature
                                             </button>
                                         </div>
                                         <div className="mb-3">
-                                            <label htmlFor="offline_mode" className="form-label">Offline Mode</label>
+                                            <label htmlFor="offline_mode" className="form-label mr-5">Offline Mode</label>
                                             <input
+                                            className='pl-5'
                                                 type="checkbox"
                                                 id="offline_mode"
                                                 name="offline_mode"

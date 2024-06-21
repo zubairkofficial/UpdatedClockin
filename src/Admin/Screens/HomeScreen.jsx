@@ -73,7 +73,8 @@ const HomeScreen = () => {
                     <Loader />
                 ) : (
 
-                    <div>
+                    <div style={{marginTop:"-4%" }}>
+                        <div className='d-flex align-items-center justify-between'>
                         <h1 className="font-bold ml-10 my-5">Hero Section</h1>
                         <div className="lg:block ml-[35%] lg:mr-[13%] md:mr-[20%]">
                             <div className="relative p-4">
@@ -92,6 +93,7 @@ const HomeScreen = () => {
                                     Dark {isLightMode ? 'Mode' : ''}
                                 </button>
                             </div>
+                        </div>
                         </div>
                         <div className="flex justify-start m-10">
                             <div className="flex flex-wrap gap-5">

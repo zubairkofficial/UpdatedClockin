@@ -62,7 +62,7 @@ function DownloadScreen() {
                     <Loader/>
                 ):(
 
-                <div>
+                <div style={{marginTop:"-4%" }}>
                 <h1 className="font-bold ml-10 my-5">Download Section</h1>
                 <div className="flex justify-start m-10">
                     <div className="flex flex-wrap gap-5">

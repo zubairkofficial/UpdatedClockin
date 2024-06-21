@@ -63,9 +63,6 @@ function Sidebar() {
                   class="menu-item here show menu-accordion"
                 >
                   <span class="menu-link">
-                    <span class="menu-icon">
-                      <i class="fa-solid fa-house"></i>
-                    </span>
                     <span class="menu-title">
                       <NavLink
                         to="/admin/dashboard"
@@ -73,6 +70,7 @@ function Sidebar() {
                           isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
                         }
                       >
+                        <i class="fa-solid fa-house pr-5"></i>
                         Dashboard
                       </NavLink>
                     </span>
@@ -90,18 +88,17 @@ function Sidebar() {
                   class="menu-item here show menu-accordion"
                 >
                   <span class="menu-link">
-                    <span class="menu-icon">
-                      <i class="fa-sharp fa-regular fa-browser"></i>
-                    </span>
                     <span class="menu-title">
                       <NavLink
                         to="/admin/home"
-                        className={(isActive) =>
-                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
+                        className={({ isActive }) =>
+                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-white hover:text-primary'
                         }
                       >
+                        <i className="fa-sharp fa-regular fa-browser pr-5"></i>
                         Home Screen
                       </NavLink>
+
                     </span>
                   </span>
                 </div>
@@ -110,17 +107,14 @@ function Sidebar() {
                   class="menu-item here show menu-accordion"
                 >
                   <span class="menu-link">
-                    <span class="menu-icon">
-                      <i class="fa-light fa-download"></i>
-                    </span>
                     <span class="menu-title">
                       <NavLink
                         to="/admin/download"
-                        className={(isActive) =>
-                          isActive ?  'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
+                        className={({ isActive }) =>
+                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
                         }
                       >
-                        {" "}
+                        <i class="fa-light fa-download pr-5"></i>
                         Download Screen{" "}
                       </NavLink>
                     </span>
@@ -139,17 +133,14 @@ function Sidebar() {
                   class="menu-item menu-accordion here show"
                 >
                   <span class="menu-link">
-                    <span class="menu-icon">
-                      <i class="fa-solid fa-shield-check"></i>
-                    </span>
                     <span class="menu-title">
                       <NavLink
                         to="/admin/feature"
-                        className={(isActive) =>
+                        className={({ isActive }) =>
                           isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
                         }
                       >
-                        {" "}
+                        <i class="fa-solid fa-shield-check pr-5"></i>
                         Features{" "}
                       </NavLink>
                     </span>
@@ -160,17 +151,14 @@ function Sidebar() {
                   class="menu-item menu-accordion here show"
                 >
                   <span class="menu-link">
-                    <span class="menu-icon">
-                      <i class="fa-solid fa-badge-check"></i>
-                    </span>
                     <span class="menu-title">
                       <NavLink
                         to="/admin/achievements"
-                        className={(isActive) =>
-                          isActive ?  'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
+                        className={({ isActive }) =>
+                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
                         }
                       >
-                        {" "}
+                        <i class="fa-solid fa-badge-check pr-5"></i>
                         Achievement{" "}
                       </NavLink>
                     </span>
@@ -181,17 +169,14 @@ function Sidebar() {
                   class="menu-item menu-accordion here show"
                 >
                   <span class="menu-link">
-                    <span class="menu-icon">
-                      <i class="fa-solid fa-circle-dollar"></i>
-                    </span>
                     <span class="menu-title">
                       <NavLink
                         to="/admin/plans"
-                        className={(isActive) =>
-                          isActive ?  'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
+                        className={({ isActive }) =>
+                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
                         }
                       >
-                        {" "}
+                        <i class="fa-solid fa-circle-dollar pr-5"></i>
                         Plans{" "}
                       </NavLink>
                     </span>
@@ -210,17 +195,14 @@ function Sidebar() {
                   class="menu-item menu-accordion here show"
                 >
                   <span class="menu-link">
-                    <span class="menu-icon">
-                      <i class="fa-solid fa-house-blank"></i>
-                    </span>
                     <span class="menu-title">
                       <NavLink
                         to="/admin/content"
-                        className={(isActive) =>
-                          isActive ?  'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
+                        className={({ isActive }) =>
+                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
                         }
                       >
-                        {" "}
+                        <i class="fa-solid fa-house-blank pr-5"></i>
                         Home Page{" "}
                       </NavLink>
                     </span>
@@ -233,17 +215,14 @@ function Sidebar() {
                   class="menu-item menu-accordion here show"
                 >
                   <span class="menu-link">
-                    <span class="menu-icon">
-                      <i class="fa-sharp fa-solid fa-chart-simple"></i>
-                    </span>
                     <span class="menu-title">
                       <NavLink
                         to="/admin/stat"
-                        className={(isActive) =>
-                          isActive ?  'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
+                        className={({ isActive }) =>
+                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
                         }
                       >
-                        {" "}
+                        <i class="fa-sharp fa-solid fa-chart-simple pr-5"></i>
                         Stat Section{" "}
                       </NavLink>
                     </span>
@@ -256,17 +235,14 @@ function Sidebar() {
                   class="menu-item menu-accordion here show"
                 >
                   <span class="menu-link">
-                    <span class="menu-icon">
-                      <i class="fa-duotone fa-link-simple"></i>
-                    </span>
                     <span class="menu-title">
                       <NavLink
                         to="/admin/footer"
-                        className={(isActive) =>
-                          isActive ?  'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
+                        className={({ isActive }) =>
+                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
                         }
                       >
-                        {" "}
+                        <i class="fa-duotone fa-link-simple pr-5"></i>
                         Footer Section{" "}
                       </NavLink>
                     </span>
@@ -285,17 +261,14 @@ function Sidebar() {
                   class="menu-item menu-accordion here show"
                 >
                   <span class="menu-link">
-                    <span class="menu-icon">
-                      <i class="fa-light fa-download"></i>
-                    </span>
                     <span class="menu-title">
                       <NavLink
                         to="/admin/downloadsection"
-                        className={(isActive) =>
-                          isActive ?  'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
+                        className={({ isActive }) =>
+                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
                         }
                       >
-                        {" "}
+                        <i class="fa-light fa-download pr-5"></i>
                         Download Section{" "}
                       </NavLink>
                     </span>
@@ -314,17 +287,14 @@ function Sidebar() {
                   class="menu-item menu-accordion here show"
                 >
                   <span class="menu-link">
-                    <span class="menu-icon">
-                      <i class="fa-solid fa-square-question"></i>
-                    </span>
                     <span class="menu-title">
                       <NavLink
                         to="/admin/faqs"
-                        className={(isActive) =>
-                          isActive ?  'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
+                        className={({ isActive }) =>
+                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
                         }
                       >
-                        {" "}
+                        <i class="fa-solid fa-square-question pr-5"></i>
                         FAQS{" "}
                       </NavLink>
                     </span>
@@ -342,17 +312,14 @@ function Sidebar() {
                   class="menu-item menu-accordion here show"
                 >
                   <span class="menu-link">
-                    <span class="menu-icon">
-                      <i class="fa-sharp fa-solid fa-newspaper"></i>
-                    </span>
                     <span class="menu-title">
                       <NavLink
                         to="/admin/news"
-                        className={(isActive) =>
-                          isActive ?  'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
+                        className={({ isActive }) =>
+                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
                         }
                       >
-                        {" "}
+                        <i class="fa-sharp fa-solid fa-newspaper pr-5"></i>
                         News & Article{" "}
                       </NavLink>
                     </span>
@@ -371,17 +338,14 @@ function Sidebar() {
                   class="menu-item menu-accordion here show"
                 >
                   <span class="menu-link">
-                    <span class="menu-icon">
-                      <i class="fa-regular fa-headset"></i>
-                    </span>
                     <span class="menu-title">
                       <NavLink
                         to="/admin/support"
-                        className={(isActive) =>
+                        className={({ isActive }) =>
                           isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
                         }
                       >
-                        {" "}
+                        <i class="fa-regular fa-headset pr-5"></i>
                         Contact Us{" "}
                       </NavLink>
                     </span>

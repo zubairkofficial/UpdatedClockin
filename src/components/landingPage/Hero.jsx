@@ -34,7 +34,8 @@ const Hero = ({ secondImage, thirdImage1, thirdImage2, thirdImage3 ,currentConte
             <div className="container mx-auto">
                 <AnimatedText>
                     <h2 className="text-text font-bold text-center py-8 sm:py-10 md:py-12 lg:py-16 text-xl lg:text-4xl">
-                        Our Application Features
+                    {currentContent[`feature-1`] || 'Our Application Features'}
+                        
                     </h2>
                 </AnimatedText>
                 <div>

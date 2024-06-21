@@ -22,6 +22,7 @@ const HomePage = ({ background, heading, subheading }) => {
     "hero-1": "",
     "hero-2": "",
     "hero-3": "",
+    "hero-4": "",
     "second-1": "",
     "second-2": "",
     "second-3": "",
@@ -82,6 +83,8 @@ const HomePage = ({ background, heading, subheading }) => {
       "hero-1",
       "hero-2",
       "hero-3",
+      "hero-4",
+      "feature-1",
       "second-1",
       "second-2",
       "second-3",
@@ -158,7 +161,9 @@ const HomePage = ({ background, heading, subheading }) => {
               <div className="lg:w-1/2 w-full lg:pl-16 sm:pl-0 lg:pt-9 lg:order-1 order-2 text-center lg:text-left">
                 <AnimatedText>
                   <p className="lg:text-lg sm:text-l text-text dark:text-gray-700 mb-2">
-                    Here's the app for you
+                  {currentContent[`hero-4`] ||
+                    "Here's the app for you"}
+                    
                   </p>
                   <h1 className="text-[2.5rem] lg:text-[4rem] font-bold text-text leading-tight mb-12 lg:mb-0">
                     {currentContent[`hero-1`] ||

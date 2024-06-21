@@ -10,7 +10,7 @@ class Helpers {
   static authUser = JSON.parse(localStorage.getItem('user')) ?? {};
 
   static serverImage = (name) => {
-    return `${this.basePath}/uploads/${name}`;
+    return `${this.basePath}/storage/${name}`;
   }
 
   static authHeaders = {

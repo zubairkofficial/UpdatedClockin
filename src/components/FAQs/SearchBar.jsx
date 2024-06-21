@@ -10,6 +10,7 @@ const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleSearch = () => {
+    searchQuery.filter('edit')
     console.log(`Searching for: ${searchQuery}`);
   };
 

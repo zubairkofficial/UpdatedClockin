@@ -154,11 +154,11 @@ function FeatureSection() {
                 ) : (
                     <div>
                         {listSection ? (
-                            <div className="card mb-5 mb-xl-8 bg-slate-200">
+                            <div className="card mb-5 mb-xl-8 bg-slate-200" style={{marginTop:"-4%" }}>
                                 <div className="card-header border-0 pt-5">
-                                    <h3 className="card-title align-items-start flex-column">
-                                        <span className="card-label fw-bold fs-3 mb-1">Application Features</span>
-                                    </h3>
+                                    <h1 className="card-title align-items-start flex-column">
+                                        <h1 className="card-label fw-bold fs-3 mb-1">Application Features</h1>
+                                    </h1>
                                     <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a feature">
                                         <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => { setListSection(false); resetForm(); setUpdateMode(false); }}>
                                             <i className="fa-light fa-plus"></i> New Feature
