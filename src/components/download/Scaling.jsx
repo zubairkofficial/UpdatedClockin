@@ -12,7 +12,7 @@ import Helpers from '../../Config/Helpers'
 
 const Scaling = () => {
     const { isLightMode } = useContext(ThemeContext);
-    const [currentImages, setCurrentImages] = useState({ 'download-1': '' });
+    const [currentImages, setCurrentImages] = useState({ 'download-1': '' , 'download-2' : ''});
     const [currentContent, setCurrentContent] = useState({
       "plan-1": "",
       "plan-2": "",
@@ -53,6 +53,7 @@ const Scaling = () => {
     useEffect(() => {
         fetchContent();
         fetchImage('download', '1');
+        fetchImage('download', '2');
     }, [isLightMode]);
     return (
         <>
@@ -68,7 +69,7 @@ const Scaling = () => {
                 <div className='hidden lg:flex justify-center items-center container mx-auto'>
                     <div className='w-1/2'>
                         <img className='max-w-none hidden lg:block' src={`${Helpers.basePath}${currentImages[`download-1`]}` ? '/assets/laptopmockup.png' : ''} alt='laptopMockup' />
-                        <img className='max-w-none block lg:hidden' src="assets/downloadsection.png" alt='laptopMockup' />
+                        <img className='max-w-none block lg:hidden' src={`${Helpers.basePath}${currentImages[`download-2`]}` ? '/assets/downloadsection.png.png' : ''} alt='laptopMockup' />
 
                     </div>
                     <div className='hidden lg:block w-1/2 pl-[110px] '>
@@ -78,7 +79,7 @@ const Scaling = () => {
                     </div>
                 </div>
                 <div className='ml-[-10%] flex justify-center lg:hidden '>
-                    <img className='max-w-none block lg:hidden ' src={isLightMode ? 'assets/downloadsection.png' : 'assets/lightdownload.png'} alt='laptopMockup' />
+                    <img className='max-w-none block lg:hidden ' src={isLightMode ? `${Helpers.basePath}${currentImages[`download-2`]}` : 'assets/lightdownload.png'} alt='laptopMockup' />
                 </div>
             </div>
             <div className='block lg:hidden bg-background text-text text-center py-10 px-10'>

@@ -6,11 +6,13 @@ import axios from 'axios';
 import SecondSection from './Sections/SecondSection.js';
 import ThirdSection from './Sections/ThirdSection.js';
 import FooterSection from './Sections/FooterSection.js';
+import Loader from './../../layouts/Loader.js'
 import DownloadSection from './Sections/DownloadSection.js';
 import DownloadScreen from './DownloadScreen.jsx';
 const HomeScreen = () => {
     const { isLightMode, setIsLightMode } = useContext(ThemeContext);
-    const [currentImages, setCurrentImages] = useState({ 'hero-1': '', 'hero-2': '', 'second-1': '', 'second-2': '' ,'third-1' : '' , 'third-2' : '','third-3' : '' ,'footer-1' : '','download-1' : ''});
+    const [isLoading, setIsLoading] = useState(false)
+    const [currentImages, setCurrentImages] = useState({ 'hero-1': '', 'hero-2': '', 'second-1': '', 'second-2': '', 'third-1': '', 'third-2': '', 'third-3': '', 'footer-1': '', 'download-1': '' });
 
     const handleImageChange = async (e, section, id) => {
         const selectedImage = e.target.files[0];
@@ -38,12 +40,15 @@ const HomeScreen = () => {
     };
 
     const fetchImage = async (section, id) => {
+        setIsLoading(true)
         try {
             const mode = section.startsWith('second') ? 'dark' : (isLightMode ? 'dark' : 'light');
             const response = await axios.get(`${Helpers.apiUrl}get-image/${section}-${id}/${mode}`);
             const imageUrl = response.data.image_url;
             setCurrentImages(prev => ({ ...prev, [`${section}-${id}`]: imageUrl }));
+            setIsLoading(false)
         } catch (error) {
+            setIsLoading(false)
             console.log('error in fetching data');
         }
     };
@@ -57,60 +62,67 @@ const HomeScreen = () => {
         fetchImage('third', '2');
         fetchImage('third', '3');
         fetchImage('footer', '1');
-        fetchImage('download' , '1');
+        fetchImage('download', '1');
     }, [isLightMode]);
 
     return (
         <>
             <div id="kt_app_wrapper" className="app-wrapper flex-column flex-row-fluid">
                 <Sidebar />
-                <h1 className="font-bold ml-10 my-5">Hero Section</h1>
-                <div className="lg:block ml-[35%] lg:mr-[13%] md:mr-[20%]">
-                    <div className="relative p-4">
-                        <button
-                            className={`absolute top-0 left-0 w-[5.5rem] rounded-lg text-[#000000] py-3 font-[0.5rem] text-xs lg:text-base
+                {isLoading ? (
+                    <Loader />
+                ) : (
+
+                    <div>
+                        <h1 className="font-bold ml-10 my-5">Hero Section</h1>
+                        <div className="lg:block ml-[35%] lg:mr-[13%] md:mr-[20%]">
+                            <div className="relative p-4">
+                                <button
+                                    className={`absolute top-0 left-0 w-[5.5rem] rounded-lg text-[#000000] py-3 font-[0.5rem] text-xs lg:text-base
                                 ${isLightMode ? 'bg-secondary z-10 ' : 'bg-[#FF7A50] font-bold z-10 lg:w-[8rem] w-[6rem]'}`}
-                            onClick={() => setIsLightMode(true)}
-                        >
-                            Light {!isLightMode ? 'Mode' : ''}
-                        </button>
-                        <button
-                            className={`absolute top-0 left-6 rounded-xl text-text ml-12 py-3 text-xs lg:text-base
-                                ${isLightMode ? 'bg-background font-bold z-20 lg:w-[8rem] w-[6rem] mr[5%]' : 'bg-[#EAEAEA] z-20 w-[5.5rem] lg:ml-[5.5rem] ml-[3.5rem]'}`}
-                            onClick={() => setIsLightMode(false)}
-                        >
-                            Dark {isLightMode ? 'Mode' : ''}
-                        </button>
-                    </div>
-                </div>
-                <div className="flex justify-start m-10">
-                    <div className="flex flex-wrap gap-5">
-                        {['1', '2'].map(id => (
-                            <div key={id} className="p-5 bg-pinkbackground rounded-xl shadow-sm relative flex-1">
-                                <label
-                                    htmlFor={`image-upload-hero-${id}`}
-                                    className="absolute top-0 left-0 p-1 bg-white bg-opacity-75 rounded-full cursor-pointer"
-                                    style={{ transform: "translate(-50%, -50%)" }}
+                                    onClick={() => setIsLightMode(true)}
                                 >
-                                    <i className="fa fa-pencil" style={{ color: "black" }}></i>
-                                </label>
-                                <input
-                                    id={`image-upload-hero-${id}`}
-                                    type="file"
-                                    className="hidden"
-                                    onChange={(e) => handleImageChange(e, 'hero', id)}
-                                />
-                                <img src={currentImages[`hero-${id}`] ? `${Helpers.basePath}${currentImages[`hero-${id}`]}` : '/assets/f7.png'} className="w-80" />
+                                    Light {!isLightMode ? 'Mode' : ''}
+                                </button>
+                                <button
+                                    className={`absolute top-0 left-6 rounded-xl text-text ml-12 py-3 text-xs lg:text-base
+                                ${isLightMode ? 'bg-background font-bold z-20 lg:w-[8rem] w-[6rem] mr[5%]' : 'bg-[#EAEAEA] z-20 w-[5.5rem] lg:ml-[5.5rem] ml-[3.5rem]'}`}
+                                    onClick={() => setIsLightMode(false)}
+                                >
+                                    Dark {isLightMode ? 'Mode' : ''}
+                                </button>
                             </div>
-                        ))}
+                        </div>
+                        <div className="flex justify-start m-10">
+                            <div className="flex flex-wrap gap-5">
+                                {['1', '2'].map(id => (
+                                    <div key={id} className="p-5 bg-pinkbackground rounded-xl shadow-sm relative flex-1">
+                                        <label
+                                            htmlFor={`image-upload-hero-${id}`}
+                                            className="absolute top-0 left-0 p-1 bg-white bg-opacity-75 rounded-full cursor-pointer"
+                                            style={{ transform: "translate(-50%, -50%)" }}
+                                        >
+                                            <i className="fa fa-pencil" style={{ color: "black" }}></i>
+                                        </label>
+                                        <input
+                                            id={`image-upload-hero-${id}`}
+                                            type="file"
+                                            className="hidden"
+                                            onChange={(e) => handleImageChange(e, 'hero', id)}
+                                        />
+                                        <img src={currentImages[`hero-${id}`] ? `${Helpers.basePath}${currentImages[`hero-${id}`]}` : '/assets/f7.png'} className="w-80" />
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        <h1 className="font-bold ml-10 my-5">Second Section</h1>
+                        <SecondSection handleImageChange={handleImageChange} currentImages={currentImages} />
+                        <h1 className="font-bold ml-10 my-5">Third Section</h1>
+                        <ThirdSection handleImageChange={handleImageChange} currentImages={currentImages} />
+                        <h1 className="font-bold ml-10 my-5">Footer Section</h1>
+                        <FooterSection handleImageChange={handleImageChange} currentImages={currentImages} />
                     </div>
-                </div>
-                <h1 className="font-bold ml-10 my-5">Second Section</h1>
-                <SecondSection handleImageChange={handleImageChange} currentImages={currentImages} />
-                <h1 className="font-bold ml-10 my-5">Third Section</h1>
-                <ThirdSection handleImageChange={handleImageChange} currentImages={currentImages} />
-                <h1 className="font-bold ml-10 my-5">Footer Section</h1>
-                <FooterSection handleImageChange={handleImageChange} currentImages={currentImages} />
+                )}
             </div>
         </>
     );

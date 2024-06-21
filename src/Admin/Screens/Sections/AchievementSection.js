@@ -4,9 +4,12 @@ import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import axios from 'axios'
+
+import Loader from './../../../layouts/Loader.js'
 import Helpers from '../../../Config/Helpers'
 function AchievementSection() {
     const [achievements, setAchievement] = useState([]);
+    const [isLoading , setIsLoading] = useState(false)
     const [listSection, setListSection] = useState(true);
     const [formData, setFormData] = useState({
         review: '',
@@ -20,10 +23,13 @@ function AchievementSection() {
     const [currentAchievementId, setCurrentAchievementId] = useState(null);
 
     const getAchievements = async () => {
+        setIsLoading(true)
         try {
             const response = await axios.get(`${Helpers.apiUrl}achievements/show`);
             setAchievement(response.data.data);
+            setIsLoading(false)
         } catch (error) {
+            setIsLoading(false)
             console.log("error in fetching data", error);
         }
     };
@@ -158,6 +164,10 @@ function AchievementSection() {
         <div>
             <div id="kt_app_wrapper" className="app-wrapper flex-column flex-row-fluid">
                 <Sidebar />
+                {isLoading ? (
+                    <Loader/>
+                ):(
+                  <div>
                 {listSection ? (
                     <div className="card mb-5 mb-xl-8 bg-slate-200">
                         <div className="card-header border-0 pt-5">
@@ -308,7 +318,9 @@ function AchievementSection() {
                             </form>
                         </div>
                     </div>
-                )}
+                )}  
+                </div>
+            )}
             </div>
         </div>
     )

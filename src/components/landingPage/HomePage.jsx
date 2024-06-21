@@ -32,21 +32,49 @@ const HomePage = ({ background, heading, subheading }) => {
     "fifth-1": "",
     "fifth-2": "",
   });
-  const fetchImage = async (section, id) => {
-    setLoading(true)
+  // const fetchImage = async (section, id) => {
+  //   setLoading(true)
+  //   try {
+  //     const mode =
+  //       section === "hero" ? (isLightMode ? "dark" : "light") : "dark";
+  //     const response = await axios.get(
+  //       `${Helpers.apiUrl}get-image/${section}-${id}/${mode}`
+  //     );
+  //     console.log("ref", response);
+  //     const imageUrl = response.data.image_url;
+  //     setCurrentImages((prev) => ({ ...prev, [`${section}-${id}`]: imageUrl }));
+  //     setLoading(false)
+  //   } catch (error) {
+  //     setLoading(false)
+  //     console.log("error in fetching data", error);
+  //   }
+  // };
+  const fetchImages = async () => {
+    setLoading(true);
+    const sections = [
+      { section: "hero", id: "1" },
+      { section: "hero", id: "2" },
+      { section: "second", id: "1" },
+      { section: "third", id: "1" },
+      { section: "third", id: "2" },
+      { section: "third", id: "3" },
+    ];
+    const mode = isLightMode ? "dark" : "light";
     try {
-      const mode =
-        section === "hero" ? (isLightMode ? "dark" : "light") : "dark";
-      const response = await axios.get(
-        `${Helpers.apiUrl}get-image/${section}-${id}/${mode}`
+      const imagePromises = sections.map(({ section, id }) =>
+        axios.get(`${Helpers.apiUrl}get-image/${section}-${id}/${mode}`)
       );
-      console.log("ref", response);
-      const imageUrl = response.data.image_url;
-      setCurrentImages((prev) => ({ ...prev, [`${section}-${id}`]: imageUrl }));
-      setLoading(false)
+      const responses = await Promise.all(imagePromises);
+      const newImages = {};
+      responses.forEach((response, index) => {
+        const { section, id } = sections[index];
+        newImages[`${section}-${id}`] = response.data.image_url;
+      });
+      setCurrentImages(newImages);
     } catch (error) {
-      setLoading(false)
-      console.log("error in fetching data", error);
+      console.log("Error in fetching images", error);
+    } finally {
+      setLoading(false);
     }
   };
   const fetchContent = async () => {
@@ -90,12 +118,7 @@ const HomePage = ({ background, heading, subheading }) => {
   };
 
   useEffect(() => {
-    fetchImage("hero", "1");
-    fetchImage("hero", "2");
-    fetchImage("second", "1");
-    fetchImage("third", "1");
-    fetchImage("third", "2");
-    fetchImage("third", "3");
+    fetchImages();
     fetchContent();
   }, [isLightMode]);
   return (

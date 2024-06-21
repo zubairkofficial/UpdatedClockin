@@ -70,7 +70,7 @@ function Sidebar() {
                       <NavLink
                         to="/admin/dashboard"
                         className={({ isActive }) =>
-                          isActive ? "menu-link" : "menu-link"
+                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
                         }
                       >
                         Dashboard
@@ -87,7 +87,7 @@ function Sidebar() {
                 </div>
                 <div
                   data-kt-menu-trigger="click"
-                  class="menu-item menu-accordion"
+                  class="menu-item here show menu-accordion"
                 >
                   <span class="menu-link">
                     <span class="menu-icon">
@@ -97,28 +97,27 @@ function Sidebar() {
                       <NavLink
                         to="/admin/home"
                         className={(isActive) =>
-                          isActive ? "menu-link" : "menu-link"
+                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
                         }
                       >
-                        {" "}
-                        Home Screen{" "}
+                        Home Screen
                       </NavLink>
                     </span>
                   </span>
                 </div>
                 <div
                   data-kt-menu-trigger="click"
-                  class="menu-item menu-accordion"
+                  class="menu-item here show menu-accordion"
                 >
                   <span class="menu-link">
                     <span class="menu-icon">
-                      <i class="fa-sharp fa-regular fa-browser"></i>
+                      <i class="fa-light fa-download"></i>
                     </span>
                     <span class="menu-title">
                       <NavLink
                         to="/admin/download"
                         className={(isActive) =>
-                          isActive ? "menu-link" : "menu-link"
+                          isActive ?  'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
                         }
                       >
                         {" "}
@@ -137,17 +136,17 @@ function Sidebar() {
                 </div>
                 <div
                   data-kt-menu-trigger="click"
-                  class="menu-item menu-accordion"
+                  class="menu-item menu-accordion here show"
                 >
                   <span class="menu-link">
                     <span class="menu-icon">
-                      <i class="fa-sharp fa-regular fa-browser"></i>
+                      <i class="fa-solid fa-shield-check"></i>
                     </span>
                     <span class="menu-title">
                       <NavLink
                         to="/admin/feature"
                         className={(isActive) =>
-                          isActive ? "menu-link" : "menu-link"
+                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
                         }
                       >
                         {" "}
@@ -158,17 +157,17 @@ function Sidebar() {
                 </div>
                 <div
                   data-kt-menu-trigger="click"
-                  class="menu-item menu-accordion"
+                  class="menu-item menu-accordion here show"
                 >
                   <span class="menu-link">
                     <span class="menu-icon">
-                      <i class="fa-sharp fa-regular fa-browser"></i>
+                      <i class="fa-solid fa-badge-check"></i>
                     </span>
                     <span class="menu-title">
                       <NavLink
                         to="/admin/achievements"
                         className={(isActive) =>
-                          isActive ? "menu-link" : "menu-link"
+                          isActive ?  'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
                         }
                       >
                         {" "}
@@ -179,17 +178,17 @@ function Sidebar() {
                 </div>
                 <div
                   data-kt-menu-trigger="click"
-                  class="menu-item menu-accordion"
+                  class="menu-item menu-accordion here show"
                 >
                   <span class="menu-link">
                     <span class="menu-icon">
-                      <i class="fa-sharp fa-regular fa-browser"></i>
+                      <i class="fa-solid fa-circle-dollar"></i>
                     </span>
                     <span class="menu-title">
                       <NavLink
                         to="/admin/plans"
                         className={(isActive) =>
-                          isActive ? "menu-link" : "menu-link"
+                          isActive ?  'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
                         }
                       >
                         {" "}
@@ -208,17 +207,17 @@ function Sidebar() {
                 </div>
                 <div
                   data-kt-menu-trigger="click"
-                  class="menu-item menu-accordion"
+                  class="menu-item menu-accordion here show"
                 >
                   <span class="menu-link">
                     <span class="menu-icon">
-                      <i class="fa-sharp fa-regular fa-browser"></i>
+                      <i class="fa-solid fa-house-blank"></i>
                     </span>
                     <span class="menu-title">
                       <NavLink
                         to="/admin/content"
                         className={(isActive) =>
-                          isActive ? "menu-link" : "menu-link"
+                          isActive ?  'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
                         }
                       >
                         {" "}
@@ -231,17 +230,17 @@ function Sidebar() {
 
                 <div
                   data-kt-menu-trigger="click"
-                  class="menu-item menu-accordion"
+                  class="menu-item menu-accordion here show"
                 >
                   <span class="menu-link">
                     <span class="menu-icon">
-                      <i class="fa-sharp fa-regular fa-browser"></i>
+                      <i class="fa-sharp fa-solid fa-chart-simple"></i>
                     </span>
                     <span class="menu-title">
                       <NavLink
                         to="/admin/stat"
                         className={(isActive) =>
-                          isActive ? "menu-link" : "menu-link"
+                          isActive ?  'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
                         }
                       >
                         {" "}
@@ -254,17 +253,17 @@ function Sidebar() {
 
                 <div
                   data-kt-menu-trigger="click"
-                  class="menu-item menu-accordion"
+                  class="menu-item menu-accordion here show"
                 >
                   <span class="menu-link">
                     <span class="menu-icon">
-                      <i class="fa-sharp fa-regular fa-browser"></i>
+                      <i class="fa-duotone fa-link-simple"></i>
                     </span>
                     <span class="menu-title">
                       <NavLink
                         to="/admin/footer"
                         className={(isActive) =>
-                          isActive ? "menu-link" : "menu-link"
+                          isActive ?  'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
                         }
                       >
                         {" "}
@@ -283,17 +282,17 @@ function Sidebar() {
                 </div>
                 <div
                   data-kt-menu-trigger="click"
-                  class="menu-item menu-accordion"
+                  class="menu-item menu-accordion here show"
                 >
                   <span class="menu-link">
                     <span class="menu-icon">
-                      <i class="fa-sharp fa-regular fa-browser"></i>
+                      <i class="fa-light fa-download"></i>
                     </span>
                     <span class="menu-title">
                       <NavLink
                         to="/admin/downloadsection"
                         className={(isActive) =>
-                          isActive ? "menu-link" : "menu-link"
+                          isActive ?  'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
                         }
                       >
                         {" "}
@@ -312,17 +311,17 @@ function Sidebar() {
                 </div>
                 <div
                   data-kt-menu-trigger="click"
-                  class="menu-item menu-accordion"
+                  class="menu-item menu-accordion here show"
                 >
                   <span class="menu-link">
                     <span class="menu-icon">
-                      <i class="fa-sharp fa-regular fa-browser"></i>
+                      <i class="fa-solid fa-square-question"></i>
                     </span>
                     <span class="menu-title">
                       <NavLink
                         to="/admin/faqs"
                         className={(isActive) =>
-                          isActive ? "menu-link" : "menu-link"
+                          isActive ?  'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
                         }
                       >
                         {" "}
@@ -331,8 +330,6 @@ function Sidebar() {
                     </span>
                   </span>
                 </div>
-
-
                 <div class="menu-item pt-5">
                   <div class="menu-content">
                     <span class="menu-heading fw-bold text-uppercase fs-7">
@@ -342,17 +339,17 @@ function Sidebar() {
                 </div>
                 <div
                   data-kt-menu-trigger="click"
-                  class="menu-item menu-accordion"
+                  class="menu-item menu-accordion here show"
                 >
                   <span class="menu-link">
                     <span class="menu-icon">
-                      <i class="fa-sharp fa-regular fa-browser"></i>
+                      <i class="fa-sharp fa-solid fa-newspaper"></i>
                     </span>
                     <span class="menu-title">
                       <NavLink
                         to="/admin/news"
                         className={(isActive) =>
-                          isActive ? "menu-link" : "menu-link"
+                          isActive ?  'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
                         }
                       >
                         {" "}
@@ -371,17 +368,17 @@ function Sidebar() {
                 </div>
                 <div
                   data-kt-menu-trigger="click"
-                  class="menu-item menu-accordion"
+                  class="menu-item menu-accordion here show"
                 >
                   <span class="menu-link">
                     <span class="menu-icon">
-                      <i class="fa-sharp fa-regular fa-browser"></i>
+                      <i class="fa-regular fa-headset"></i>
                     </span>
                     <span class="menu-title">
                       <NavLink
                         to="/admin/support"
                         className={(isActive) =>
-                          isActive ? "menu-link" : "menu-link"
+                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
                         }
                       >
                         {" "}
@@ -390,21 +387,6 @@ function Sidebar() {
                     </span>
                   </span>
                 </div>
-                {/* <div class="menu-item pt-5">
-                  <div class="menu-content">
-                    <span class="menu-heading fw-bold text-uppercase fs-7">
-                      Apps
-                    </span>
-                  </div>
-                </div>
-                <div class="menu-item">
-                  <a class="menu-link" href="/admin/home">
-                    <span class="menu-icon">
-                      <i class="fa-regular fa-calendar-days"></i>
-                    </span>
-                    <span class="menu-title">Calendar</span>
-                  </a>
-                </div> */}
               </div>
             </div>
           </div>

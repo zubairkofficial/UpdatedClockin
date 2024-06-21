@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react'
 import Sidebar from '../../Components/Sidebar'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import Loader from './../../../layouts/Loader.js'
 import Helpers from '../../../Config/Helpers'
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 function NewsPageSection() {
   const [news, setnews] = useState([]);
+  const [isLoading, setIsLoading] = useState(false)
   const [listSection, setListSection] = useState(true);
   const [formData, setFormData] = useState({
     title: '',
@@ -19,10 +21,13 @@ function NewsPageSection() {
   const [currentNewsId, setCurrentNewsId] = useState(null);
 
   const getnews = async () => {
+    setIsLoading(true)
     try {
       const response = await axios.get(`${Helpers.apiUrl}news/show`);
       setnews(response.data.data);
+      setIsLoading(false)
     } catch (error) {
+      setIsLoading(false)
       console.log("error in fetching data", error);
     }
   };
@@ -148,6 +153,10 @@ function NewsPageSection() {
     <div>
       <div id="kt_app_wrapper" className="app-wrapper flex-column flex-row-fluid">
         <Sidebar />
+        {isLoading ? (
+          <Loader/>
+        ) : (
+          <div>
         {listSection ? (
           <div className="card mb-5 mb-xl-8 bg-slate-200">
             <div className="card-header border-0 pt-5">
@@ -298,7 +307,8 @@ function NewsPageSection() {
               </form>
             </div>
           </div>
-        )}
+        )}</div>
+      )}
       </div>
     </div>
   )

@@ -36,6 +36,13 @@
   --hover-color: #FF4500;
   /* Add other variables as needed */
 }
+.menu-link.active {
+  color: var(--text-color);
+}
+
+.menu-link.active .menu-icon i {
+  color: var(--text-color);
+}
 
 [data-theme="dark"] {
   --background-color: #ffffff;
@@ -140,17 +147,16 @@ body {
 
 /* Styles for the active pagination bullet */
 .swiper-pagination-bullet-active {
-  background: #FF7A50 !important; /* Active bullet background, bright orange */
+  background: #FF7A50 !important; 
   width: 8px !important;
   height: 8px !important;
 }
 
 /* Adjusting the position of the pagination itself */
 .swiper-pagination {
-  position: relative !important; /* If setting to 'relative' directly in CSS */
-  margin-top: 30px !important; /* Adjust this value to position the pagination as needed */
+  position: relative !important;
+  margin-top: 30px !important; 
 }
-/* Add this to your CSS file or within a <style> tag */
 
 
 

@@ -7,11 +7,8 @@ import Helpers from '../Config/Helpers';
 const Footer = () => {
   const { isLightMode } = useContext(ThemeContext);
   const [currentImages, setCurrentImages] = useState({ 'footer-1': '' });
-  const [showPrivacy, setShowPrivacy] = useState(false);
-  const [showTerms, setShowTerms] = useState(false);
-  const [showContact, setShowContact] = useState(false);
-  const [showNewsletter, setShowNewsletter] = useState(false);
   const [footer, setFooter] = useState([]);
+  const [openDropdown, setOpenDropdown] = useState(null);
 
   useEffect(() => {
     fetchFooter();
@@ -21,6 +18,7 @@ const Footer = () => {
     try {
       const response = await axios.get(`${Helpers.apiUrl}footer/show`);
       setFooter(response.data.data);
+      console.log(response.data.data)
     } catch (error) {
       console.error('Error fetching footer', error);
     }
@@ -41,7 +39,13 @@ const Footer = () => {
     fetchImage('1');
   }, [isLightMode]);
 
-
+  const toggleDropdown = (id) => {
+    if (openDropdown === id) {
+      setOpenDropdown(null);
+    } else {
+      setOpenDropdown(id);
+    }
+  };
   return (
     <>
       <div className="py-12 px-8 bg-cover bg-center bg-no-repeat h-auto w-full bg-pinkbackground" style={{ backgroundImage: `url(${isLightMode ? 'assets/bg1.png' : 'assets/bg2.png'})` }}>
@@ -55,8 +59,7 @@ const Footer = () => {
           </div>
           {/* Privacy Section */}
           {footer.map(footer => (
-
-            <div className="flex flex-col gap-y-4 text-text">
+            <div className="lg:flex flex-col text-text hidden">
               <a href="privacy"><h2 className="font-bold text-[#FF7A50] hidden lg:block">{footer.menu}</h2></a>
               {JSON.parse(footer.submenu).map((item, index) => (
                 <div key={index} className="flex items-center mb-2">
@@ -65,7 +68,7 @@ const Footer = () => {
               ))}
             </div>
           ))}
-          <div className="flex flex-col text-white">
+          <div className="lg:flex flex-col text-white hidden">
             <a href="newsletter"><h2 className="font-bold text-[#FF7A50] pb-6 hidden lg:block">Newsletter</h2></a>
             <form className="flex items-center w-full">
               <div className="relative w-full flex">
@@ -91,74 +94,23 @@ const Footer = () => {
         </div>
         <div className="lg:hidden">
           {/* Mobile view dropdowns */}
-          <div className="  mt-6">
-            <button onClick={() => setShowPrivacy(!showPrivacy)} className="w-full text-left py-3 font-bold text-[#FF7A50] flex justify-between">
-              Privacy <i class="fa-regular fa-chevron-down text-[#696969]"></i>
-            </button>
-            {showPrivacy && (
-              <div className="pl-4">
-                <h3 className="text-[#ADB1B1]">Torquatos nostros?</h3>
-                <h3 className="text-[#ADB1B1]">Certe, inquam</h3>
-                <h3 className="text-[#ADB1B1]">Torquatos nostros?</h3>
-                <h3 className="text-[#ADB1B1]">Certe, inquam</h3>
-              </div>
-            )}
-          </div>
-          <div className="border-t border-[#5f5f5f2a] mt-6">
-            <button onClick={() => setShowTerms(!showTerms)} className="w-full text-left py-3 font-bold text-[#FF7A50] flex justify-between">
-              Terms & Conditions <i class="fa-regular fa-chevron-down text-[#696969]"></i>
-            </button>
-            {showTerms && (
-              <div className="pl-4">
-                <h3 className="text-[#ADB1B1]">Torquatos nostros?</h3>
-                <h3 className="text-[#ADB1B1]">Certe, inquam</h3>
-                <h3 className="text-[#ADB1B1]">Torquatos nostros?</h3>
-                <h3 className="text-[#ADB1B1]">Certe, inquam</h3>
-              </div>
-            )}
-          </div>
-          <div className="border-t border-[#5f5f5f2a] mt-6">
-            <button onClick={() => setShowContact(!showContact)} className="w-full text-left py-3 flex justify-between font-bold text-[#FF7A50]">
-              Contact <i class="fa-regular fa-chevron-down text-[#696969]"></i>
-            </button>
-            {showContact && (
-              <div className="pl-4">
-                <h3 className="text-[#ADB1B1]">Torquatos nostros?</h3>
-                <h3 className="text-[#ADB1B1]">Certe, inquam</h3>
-                <h3 className="text-[#ADB1B1]">Torquatos nostros?</h3>
-                <h3 className="text-[#ADB1B1]">Certe, inquam</h3>
-              </div>
-            )}
-          </div>
-          <div className="border-t border-[#5f5f5f2a] mt-6">
-            <button onClick={() => setShowNewsletter(!showNewsletter)} className="w-full text-left py-3 font-bold text-[#FF7A50] flex justify-between">
-              Newsletter <i class="fa-regular fa-chevron-down text-[#696969]"></i>
-            </button>
-            {showNewsletter && (
-              <div className="pl-4">
-                <form className="flex items-center w-full mb-4">
-                  <div className="relative w-full flex">
-                    <input
-                      className="rounded-l-full px-5 p-2 bg-inputcolor text-white text-sm"
-                      type="email"
-                      placeholder="Your email here"
-                    />
-                    <button
-                      className="text-white bg-[#FF7A50] rounded-r-full px-5 py-2 text-sm"
-                      type="submit"
-                    >
-                      Send
-                    </button>
+
+          <div className="mt-6">
+          {footer.map((footerItem, idx) => (
+            <div key={idx}>
+              <button onClick={() => toggleDropdown(idx)} className="w-full text-left py-3 font-bold text-[#FF7A50] flex justify-between">
+                {footerItem.menu} <i className="fa-regular fa-chevron-down text-[#696969]"></i>
+              </button>
+              {openDropdown === idx && (
+                JSON.parse(footerItem.submenu).map((item, index) => (
+                  <div className="pl-4" key={index}>
+                    <h3 className="text-[#ADB1B1]">{item.name}</h3>
                   </div>
-                </form>
-                <div className="flex items-center gap-x-8 mt-8 text-[#FF8B42]">
-                  <i className="fa-brands fa-instagram"></i>
-                  <i className="fa-brands fa-twitter"></i>
-                  <i className="fa-brands fa-facebook"></i>
-                </div>
-              </div>
-            )}
-          </div>
+                ))
+              )}
+            </div>
+          ))}
+        </div>
         </div>
         <hr className="w-full border-t-1 border-[#4747476b] mt-20" />
         <br />
