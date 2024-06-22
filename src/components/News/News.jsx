@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import JustHeader from '../download/JustHeader'
 import Header from '../../layouts/Header';
 import { ThemeContext } from '../../layouts/ThemeContext';
@@ -8,6 +8,9 @@ import Cards from './Cards';
 
 function News() {
   const { isLightMode } = useContext(ThemeContext);
+  useEffect(() => {
+    document.title = "News & Article | ClockIn"
+  })
   return (
     <>
       <div className='bg-cover bg-center bg-no-repeat h-auto w-full' style={{ backgroundImage: `url(${isLightMode ? 'assets/bg1.png' : 'assets/bg2.png'})` }}>

@@ -31,7 +31,8 @@ import HomePageContent from "./Admin/Screens/Content/HomePageContent.js";
 import FooterSection from "./Admin/Screens/Content/FooterSection.js";
 import StatSectionContent from "./Admin/Screens/Content/StatSectionContent.js";
 import DownloadPageContent from "./Admin/Screens/Content/DownloadPageContent.js";
-import Helpers from "./Config/Helpers.js";
+import { LoadingProvider } from './layouts/LoadingContext';
+import Helpers from "./layouts/LoadingContext";
 import axios from "axios";
 
 const router = createBrowserRouter([
@@ -151,26 +152,29 @@ function App() {
   // }, []);
 
   return (
-    <ImageProvider>
-      <ThemeProvider>
-        <div>
-          <div class="d-flex flex-column flex-root app-root" id="kt_app_root">
-            <div
-              class="app-page  flex-column flex-column-fluid "
-              id="kt_app_page"
-            >
-              {/* {loading ? ( */}
+    // <LoadingProvider>
+      // <Loader />
+      // <ImageProvider>
+        <ThemeProvider>
+          <div>
+            <div class="d-flex flex-column flex-root app-root" id="kt_app_root">
+              <div
+                class="app-page  flex-column flex-column-fluid "
+                id="kt_app_page"
+              >
+                {/* {loading ? ( */}
                 {/* <Loader /> */}
-              {/* ) : ( */}
+                {/* ) : ( */}
                 <Layout>
                   <RouterProvider router={router} />
                 </Layout>
-              {/* )} */}
+                {/* )} */}
+              </div>
             </div>
           </div>
-        </div>
-      </ThemeProvider>
-    </ImageProvider>
+        </ThemeProvider>
+      // </ImageProvider>
+    // </LoadingProvider>
   );
 }
 

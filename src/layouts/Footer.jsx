@@ -10,9 +10,6 @@ const Footer = () => {
   const [footer, setFooter] = useState([]);
   const [openDropdown, setOpenDropdown] = useState(null);
 
-  useEffect(() => {
-    fetchFooter();
-  }, []);
 
   const fetchFooter = async () => {
     try {
@@ -37,6 +34,7 @@ const Footer = () => {
 
   useEffect(() => {
     fetchImage('1');
+    fetchFooter();
   }, [isLightMode]);
 
   const toggleDropdown = (id) => {

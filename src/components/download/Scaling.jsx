@@ -54,6 +54,7 @@ const Scaling = () => {
         fetchContent();
         fetchImage('download', '1');
         fetchImage('download', '2');
+        document.title = "Donwload | ClockIn"
     }, [isLightMode]);
     return (
         <>

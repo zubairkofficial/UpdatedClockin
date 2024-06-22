@@ -10,7 +10,9 @@ import FifthSectionContent from "./FifthSectionContent";
 import SixthPageContent from "./SixthPageContent";
 import PlanSectionContent from "./PlanSectionContent";
 import FeatureSectionContent from "./FeatureSectionContent";
+import AchievementSectionContent from "./AchievementSectionContent";
 function HomePageContent() {
+  
   const [currentContent, setCurrentContent] = useState({
     "hero-1": "",
     "hero-2": "",
@@ -30,6 +32,8 @@ function HomePageContent() {
     "sixth-2": "",
     "plan-1": "",
     "plan-2": "",
+    "achievement-1": "",
+    "achievement-2": "",
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentSection, setCurrentSection] = useState("");
@@ -71,6 +75,8 @@ function HomePageContent() {
       "sixth-2",
       "plan-1",
       "plan-2",
+      "achievement-1",
+      "achievement-2",
     ];
     try {
       const fetchedContent = {};
@@ -212,6 +218,11 @@ function HomePageContent() {
       <SixthPageContent currentContent={currentContent} openModal={openModal} />
       <h1 className="font-bold ml-10 my-5">Plan Section</h1>
       <PlanSectionContent
+        currentContent={currentContent}
+        openModal={openModal}
+      />
+      <h1 className="font-bold ml-10 my-5">Achievements Section</h1>
+      <AchievementSectionContent
         currentContent={currentContent}
         openModal={openModal}
       />

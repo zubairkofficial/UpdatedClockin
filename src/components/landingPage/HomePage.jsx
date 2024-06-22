@@ -33,23 +33,6 @@ const HomePage = ({ background, heading, subheading }) => {
     "fifth-1": "",
     "fifth-2": "",
   });
-  // const fetchImage = async (section, id) => {
-  //   setLoading(true)
-  //   try {
-  //     const mode =
-  //       section === "hero" ? (isLightMode ? "dark" : "light") : "dark";
-  //     const response = await axios.get(
-  //       `${Helpers.apiUrl}get-image/${section}-${id}/${mode}`
-  //     );
-  //     console.log("ref", response);
-  //     const imageUrl = response.data.image_url;
-  //     setCurrentImages((prev) => ({ ...prev, [`${section}-${id}`]: imageUrl }));
-  //     setLoading(false)
-  //   } catch (error) {
-  //     setLoading(false)
-  //     console.log("error in fetching data", error);
-  //   }
-  // };
   const fetchImages = async () => {
     setLoading(true);
     const sections = [
@@ -71,6 +54,7 @@ const HomePage = ({ background, heading, subheading }) => {
         const { section, id } = sections[index];
         newImages[`${section}-${id}`] = response.data.image_url;
       });
+      console.log("imageres", responses);
       setCurrentImages(newImages);
     } catch (error) {
       console.log("Error in fetching images", error);
@@ -79,51 +63,55 @@ const HomePage = ({ background, heading, subheading }) => {
     }
   };
   const fetchContent = async () => {
+    setLoading(true);
     const sections = [
-      "hero-1",
-      "hero-2",
-      "hero-3",
-      "hero-4",
-      "feature-1",
-      "second-1",
-      "second-2",
-      "second-3",
-      "third-1",
-      "third-2",
-      "fourth-1",
-      "fourth-2",
-      "fifth-1",
-      "fifth-2",
-      "sixth-1",
-      "sixth-2",
-      "plan-1",
-      "plan-2",
+      { section: "hero", id: "1" },
+      { section: "hero", id: "2" },
+      { section: "hero", id: "3" },
+      { section: "hero", id: "4" },
+      { section: "feature", id: "1" },
+      { section: "second", id: "1" },
+      { section: "second", id: "2" },
+      { section: "second", id: "3" },
+      { section: "third", id: "1" },
+      { section: "third", id: "2" },
+      { section: "fourth", id: "1" },
+      { section: "fourth", id: "2" },
+      { section: "fifth", id: "1" },
+      { section: "fifth", id: "2" },
+      { section: "sixth", id: "1" },
+      { section: "sixth", id: "2" },
+      { section: "plan", id: "1" },
+      { section: "plan", id: "2" },
+      { section: "achievement", id: "1" },
+      { section: "achievement", id: "2" },
     ];
     try {
-      setLoading(true)
-      const fetchedContent = {};
-      await Promise.all(
-        sections.map(async (section) => {
-          const response = await axios.get(
-            `${Helpers.apiUrl}content/show/${section}`
-          );
-          if (response.data.data) {
-            fetchedContent[section] = response.data.data.content;
-          }
-        })
+      const contentPromises = sections.map(({ section, id }) =>
+        axios.get(`${Helpers.apiUrl}content/show/${section}-${id}`)
       );
+      const responses = await Promise.all(contentPromises);
+      const fetchedContent = {};
+      responses.forEach((response, index) => {
+        const { section, id } = sections[index];
+        if (response.data.data) {
+          fetchedContent[`${section}-${id}`] = response.data.data.content;
+        }
+      });
       setCurrentContent(fetchedContent);
-      setLoading(false)
+      console.log("text", responses);
     } catch (error) {
-      setLoading(false)
       console.log("Error in fetching data", error);
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
     fetchImages();
     fetchContent();
-  }, [isLightMode]);
+    document.title = "Home | ClockIn";
+  }, []);
   return (
     <>
       {loading ? (
@@ -161,9 +149,7 @@ const HomePage = ({ background, heading, subheading }) => {
               <div className="lg:w-1/2 w-full lg:pl-16 sm:pl-0 lg:pt-9 lg:order-1 order-2 text-center lg:text-left">
                 <AnimatedText>
                   <p className="lg:text-lg sm:text-l text-text dark:text-gray-700 mb-2">
-                  {currentContent[`hero-4`] ||
-                    "Here's the app for you"}
-                    
+                    {currentContent[`hero-4`] || "Here's the app for you"}
                   </p>
                   <h1 className="text-[2.5rem] lg:text-[4rem] font-bold text-text leading-tight mb-12 lg:mb-0">
                     {currentContent[`hero-1`] ||
@@ -173,11 +159,11 @@ const HomePage = ({ background, heading, subheading }) => {
                 <AnimatedText>
                   <div className="mt-4 flex-col lg:flex-row gap-4 lg:block hidden">
                     <button className="bg-primary hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300">
-                      {currentContent[`hero-2`] || 'Try it free'}
+                      {currentContent[`hero-2`] || "Try it free"}
                     </button>
                     <button className="group bg-transparent border border-primary text-text dark:text-black hover:bg-white hover:text-primary font-bold py-2 px-6 rounded-2xl transition duration-300 ml-3">
                       <i className="fa-solid fa-play mr-2 text-text group-hover:text-primary transition duration-300"></i>
-                      {currentContent[`hero-3`] || 'Show me the demo'}
+                      {currentContent[`hero-3`] || "Show me the demo"}
                     </button>
                   </div>
                 </AnimatedText>

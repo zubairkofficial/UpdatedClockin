@@ -1,26 +1,27 @@
 import React, { useEffect, useState } from 'react';
-
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 import 'swiper/css';
-// import 'swiper/swiper-bundle.min.css';
 import 'swiper/css/pagination';
 import AnimatedText from '../../layouts/AnimatedText';
 import { useScroll } from 'framer-motion';
 import axios from 'axios';
 import Helpers from '../../Config/Helpers';
-function FaqsCards() {
+function FaqsCards({searchQuery}) {
     const [faqs, setFaq] = useState([])
     const getFaq = async () => {
         const response = await axios.get(`${Helpers.apiUrl}faqs/show`);
         setFaq(response.data.data);
     }
+    // searchQuery.filter()
     useEffect(() => {
         getFaq();
     }, [])
-    const chunkedfaqs = Helpers.chunkArray(faqs, 4);
+    const filteredFaqs = faqs.filter( faq =>
+        faq.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        faq.description.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+    const chunkedfaqs = Helpers.chunkArray(filteredFaqs, 4);
     return (
         <div className='bg-lightpink py-12'>
             <AnimatedText>

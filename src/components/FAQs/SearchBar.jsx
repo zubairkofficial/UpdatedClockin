@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import JustHeader from '../download/JustHeader'
 import FaqsCards from './FaqsCards';
 import Header from '../../layouts/Header';
@@ -7,10 +7,13 @@ import Footer from '../../layouts/Footer';
 import AnimatedText from '../../layouts/AnimatedText';
 
 const SearchBar = () => {
+  useEffect ( () => {
+    document.title = "FAQs | ClockIn"
+  })
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleSearch = () => {
-    searchQuery.filter('edit')
+    // searchQuery.filter('edit')
     console.log(`Searching for: ${searchQuery}`);
   };
 
@@ -62,7 +65,7 @@ const SearchBar = () => {
         </div>
       </div>
       <div>
-        <FaqsCards />
+        <FaqsCards searchQuery={searchQuery} />
         <Footer />
       </div>
     </>

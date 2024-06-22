@@ -12,15 +12,21 @@ import AnimatedText from "../../layouts/AnimatedText";
 import FeatureCard from "./FeatureCard";
 import Helpers from "../../Config/Helpers";
 import axios from "axios";
-const Hero = ({ secondImage, thirdImage1, thirdImage2, thirdImage3 ,currentContent}) => {
+import { useLoading } from "../../layouts/LoadingContext";
+const Hero = ({ secondImage, thirdImage1, thirdImage2, thirdImage3, currentContent }) => {
     const [feature, setFeatures] = useState([])
+    // const { startLoading, stopLoading } = useLoading();
     const getFeatures = async () => {
+        // startLoading()
         try {
             const response = await axios.get(`${Helpers.apiUrl}getfeature`);
             console.log('response', response);
             setFeatures(response.data.data);
         } catch (error) {
             console.log("error in fetching data", error);
+        }
+        finally {
+            // stopLoading();
         }
     };
 
@@ -34,8 +40,8 @@ const Hero = ({ secondImage, thirdImage1, thirdImage2, thirdImage3 ,currentConte
             <div className="container mx-auto">
                 <AnimatedText>
                     <h2 className="text-text font-bold text-center py-8 sm:py-10 md:py-12 lg:py-16 text-xl lg:text-4xl">
-                    {currentContent[`feature-1`] || 'Our Application Features'}
-                        
+                        {currentContent[`feature-1`] || 'Our Application Features'}
+
                     </h2>
                 </AnimatedText>
                 <div>
@@ -94,12 +100,12 @@ const Hero = ({ secondImage, thirdImage1, thirdImage2, thirdImage3 ,currentConte
                             {currentContent[`second-1`] || 'Why we are the best & customers choose us'}
                         </h2>
                         <p className="text-text mb-4 md:mb-8">
-                        {currentContent[`second-2`] || 'Efficiency personalized. Clients choose us for seamless time tracking and unparalleled results.'}
+                            {currentContent[`second-2`] || 'Efficiency personalized. Clients choose us for seamless time tracking and unparalleled results.'}
                         </p>
                         <button className="mt-4 md:mt-8 lg:mt-12 bg-[#FF7A50] hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-xl transition duration-300">
-                        
-                        {currentContent[`second-3`] || 'Learn more'}                   
-                         </button>
+
+                            {currentContent[`second-3`] || 'Learn more'}
+                        </button>
                     </div>
                     <img
                         src={`${Helpers.basePath}${secondImage}` ? '/assets/f7.png' : ''}
@@ -118,10 +124,10 @@ const Hero = ({ secondImage, thirdImage1, thirdImage2, thirdImage3 ,currentConte
                 currentContent={currentContent}
             />
             <AnimatedText>
-                <Plan currentContent={currentContent}/>
+                <Plan currentContent={currentContent} />
             </AnimatedText>
             <AnimatedText>
-                <Achievements />
+                <Achievements currentContent={currentContent}/>
             </AnimatedText>
             <Footer />
         </section>

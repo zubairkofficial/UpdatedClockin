@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Helpers from "../../Config/Helpers";
 
 const AskQuestionForm = () => {
@@ -37,6 +37,9 @@ const AskQuestionForm = () => {
       image: null
     })
   }
+  useEffect( () =>{
+    document.title = "Support | ClockIn"
+  })
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-pinkbackground ">
       <div className="w-full max-w-[85%] bg-pinkbackground lg:p-8 p-4 rounded-xl shadow-2xl mt-[-25%] lg:mt-[-15%]">

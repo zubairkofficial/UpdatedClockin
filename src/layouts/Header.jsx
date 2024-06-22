@@ -24,8 +24,8 @@ const Header = ({ logourl }) => {
   };
 
   useEffect(() => {
-    fetchImage('1');
-    fetchImage('2');
+    // fetchImage('1');
+    // fetchImage('2');
   }, [isLightMode]);
 
 
