@@ -174,6 +174,7 @@ function NewsPageSection() {
                 <table className="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
                   <thead>
                     <tr className="fw-bold text-muted">
+                    <th className="min-w-10px">#</th>
                       <th className="min-w-70px">Image</th>
                       <th className="min-w-150px">Title</th>
                       <th className="min-w-150px">Description</th>
@@ -182,8 +183,9 @@ function NewsPageSection() {
                     </tr>
                   </thead>
                   <tbody>
-                    {news.map(news => (
+                    {news.map((news,index) => (
                       <tr key={news.id}>
+                      <td>{index+1}</td>
                         <td>
                           <div className="d-flex align-items-center">
                             <div className="symbol symbol-45px me-5 bg-pinkbackground p-2">

@@ -114,9 +114,9 @@ const HomePage = ({ background, heading, subheading }) => {
   }, []);
   return (
     <>
-      {loading ? (
-        <Loader />
-      ) : (
+      {/* {loading ? ( */}
+        {/* <Loader /> */}
+      {/* ) : ( */}
         <div
           className="bg-cover bg-center bg-no-repeat h-screen w-full relative"
           style={{
@@ -178,7 +178,7 @@ const HomePage = ({ background, heading, subheading }) => {
             currentContent={currentContent}
           />
         </div>
-      )}
+      {/* )} */}
     </>
   );
 };

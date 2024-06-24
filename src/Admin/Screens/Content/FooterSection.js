@@ -159,14 +159,16 @@ function FooterSection() {
                                 <table className="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
                                     <thead>
                                         <tr className="fw-bold text-muted">
+                                        <th className="min-w-10px">#</th>
                                             <th className="min-w-150px">Menu</th>
                                             <th className="min-w-150px">Submenu</th>
                                             <th className="min-w-100px text-end">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {footer.map(footer => (
+                                        {footer.map((footer,index) => (
                                             <tr key={footer.id}>
+                                            <td>{index+1}</td>
                                                 <td>{footer.menu}</td>
                                                 <td>
                                                     {JSON.parse(footer.submenu).map((item, index) => (

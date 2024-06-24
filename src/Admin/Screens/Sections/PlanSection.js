@@ -181,6 +181,7 @@ const PlanSection = () => {
                                         <table className="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
                                             <thead>
                                                 <tr className="fw-bold text-muted">
+                                                <th className="min-w-10px">#</th>
                                                     <th className="min-w-150px">Name</th>
                                                     <th className="min-w-150px">Price</th>
                                                     <th className="min-w-150px">Employee</th>
@@ -191,8 +192,9 @@ const PlanSection = () => {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {plans.map(plan => (
+                                                {plans.map((plan,index) => (
                                                     <tr key={plan.id}>
+                                                    <td>{index+1}</td>
                                                         <td>{plan.name}</td>
                                                         <td>{plan.price}</td>
                                                         <td>{plan.employee}</td>

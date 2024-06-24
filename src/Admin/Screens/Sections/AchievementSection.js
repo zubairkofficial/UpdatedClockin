@@ -159,7 +159,6 @@ function AchievementSection() {
             console.log("error in updating Achievement", error);
         }
     };
-    
     return (
         <div>
             <div id="kt_app_wrapper" className="app-wrapper flex-column flex-row-fluid">
@@ -185,6 +184,7 @@ function AchievementSection() {
                                 <table className="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
                                     <thead>
                                         <tr className="fw-bold text-muted">
+                                            <th className="min-w-10px">#</th>
                                             <th className="min-w-100px">Brand Logo</th>
                                             <th className="min-w-150px">Review</th>
                                             <th className="min-w-150px">User Image</th>
@@ -193,11 +193,12 @@ function AchievementSection() {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {achievements.map(achievement => (
+                                    {achievements.map((achievement, index) => (
                                             <tr key={achievement.id}>
+                                                <td>{index+1}</td>
                                                 <td>
                                                     <div className="d-flex align-items-center">
-                                                        <div className="symbol symbol-45px me-5 bg-pinkbackground p-2">
+                                                        <div className="symbol symbol-60px me-5 bg-pinkbackground p-2">
                                                             <img src={`${Helpers.basePath}/storage/${achievement.brand_logo}`} alt="" />
                                                         </div>
                                                     </div>

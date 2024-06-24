@@ -36,7 +36,7 @@ class Dashboard extends Component {
           <div className="d-flex">
             <div className="app p-3">
               <div className="row">
-                <h1 className="ml-3">Users Visited</h1>
+                <h1 className="ml-3">Weekly Users Visited</h1>
                 <div className="mixed-chart">
                   <Chart
                     options={this.state.options}
@@ -48,7 +48,7 @@ class Dashboard extends Component {
               </div>
             </div>
             <div>
-              <h1 className="ml-3">Users Visited</h1>
+              <h1 className="ml-3">Monthly Users Visited</h1>
               <Chart
                 className="m-3"
                 options={this.state.options}

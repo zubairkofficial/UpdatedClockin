@@ -27,6 +27,7 @@ function SupportSection() {
                             <table className="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
                                 <thead>
                                     <tr className="fw-bold text-muted">
+                                    <th className="min-w-10px">#</th>
                                         <th className="min-w-50px">Image</th>
                                         <th className="min-w-150px">Subject</th>
                                         <th className="min-w-150px">Email</th>
@@ -34,12 +35,13 @@ function SupportSection() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {questions.map(question => (
+                                    {questions.map((question,index) => (
                                         <tr key={question.id}>
+                                        <td>{index+1}</td>
                                             <td>
                                                 <div className="d-flex align-items-center">
                                                     <div className="symbol symbol-45px me-5 bg-pinkbackground p-2">
-                                                        <img src={`${Helpers.serverImage}`} alt="" />
+                                                        <img src={`${Helpers.basePath}/storage/${question.image}`} alt="" />
                                                     </div>
                                                 </div>
                                             </td>

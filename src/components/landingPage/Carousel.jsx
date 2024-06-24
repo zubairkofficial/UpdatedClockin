@@ -52,7 +52,7 @@ export default function Carousel({achievements}) {
                 />
                 <div className="lg:px-6 px-2 lg:py-4 py-1">
                   <p className="text-gray-400 lg:text-base text-sm">
-                    {achievement.review}”
+                    {achievement.review}
                   </p>
                   <div className="pt-5 flex items-start justify-start">
                     <img

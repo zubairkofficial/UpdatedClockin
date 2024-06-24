@@ -123,6 +123,7 @@ function StatSectionContent() {
                             <table className="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
                                 <thead>
                                     <tr className="fw-bold text-muted">
+                                    <th className="min-w-10px">#</th>
                                         <th className="min-w-150px">Total Task</th>
                                         <th className="min-w-150px">Completed Task</th>
                                         <th className="min-w-150px">Remaining Task</th>
@@ -131,8 +132,9 @@ function StatSectionContent() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {stat.map(stat => (
+                                    {stat.map((stat,index) => (
                                         <tr key={stat.id}>
+                                        <td>{index+1}</td>
                                             <td>{stat.total_task}</td>
                                             <td>{stat.task_completed}</td>
                                             <td>{stat.remaining_task}</td>

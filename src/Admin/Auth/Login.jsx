@@ -48,15 +48,16 @@ function Login() {
                     <div class="bg-body d-flex flex-column flex-center rounded-4 w-md-600px p-10">
                         <div class="d-flex flex-center flex-column align-items-stretch h-lg-100 w-md-400px">
                             <div class="d-flex flex-center flex-column flex-column-fluid pb-15 pb-lg-20">
+                            <img src='/assets/blacklogo.png'/>
 
                                 <form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" onSubmit={handleSubmit}>
-                                    <div class="text-center mb-11">
+                                    {/* <div class="text-center mb-11">
                                         <h1 class="text-gray-900 fw-bolder mb-3">
-                                            Sign In
+                                            
                                         </h1>
-                                    </div>
+                                    </div> */}
                                     <div class="separator separator-content my-14">
-                                        <span class="w-125px text-gray-500 fw-semibold fs-7">Email</span>
+                                        <span class="w-125px text-gray-500 fw-semibold fs-7">Sign In</span>
                                     </div>
                                     <div class="fv-row mb-8">
                                         <input type="text" placeholder="Email" name="email" autocomplete="off" class="form-control bg-transparent" value={email} onChange={(e) => setEmail(e.target.value)} />

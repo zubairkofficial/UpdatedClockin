@@ -161,6 +161,7 @@ function DownloadPageContent() {
                                 <table className="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
                                     <thead>
                                         <tr className="fw-bold text-muted">
+                                        <th className="min-w-10px">#</th>
                                             <th className="min-w-150px">Heading</th>
                                             <th className="min-w-150px">Sub Heading</th>
                                             <th className="min-w-150px">Version</th>
@@ -168,8 +169,9 @@ function DownloadPageContent() {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {download.map(download => (
+                                        {download.map((download,index) => (
                                             <tr key={download.id}>
+                                            <td>{index+1}</td>
                                                 <td>{download.heading}</td>
                                                 <td>{download.subheading}</td>
                                                 <td>
@@ -250,7 +252,7 @@ function DownloadPageContent() {
                                             <button
                                                 type="button"
                                                 onClick={() => removeFeature(index)}
-                                                className="bg-red-500 text-white p-2 rounded"
+                                                className="bg-orange-500 text-white p-2 rounded"
                                             >
                                                 Remove
                                             </button>
@@ -259,7 +261,7 @@ function DownloadPageContent() {
                                     <button
                                         type="button"
                                         onClick={addFeature}
-                                        className="bg-blue-500 text-white p-2 rounded"
+                                        className="bg-orange-500 text-white p-2 rounded"
                                     >
                                         Add Submenu
                                     </button>

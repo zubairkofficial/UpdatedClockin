@@ -16,7 +16,7 @@ const PlanCard = ({ isSubscription }) => {
   const fetchPlans = async () => {
     const response = await axios.get(`${Helpers.apiUrl}plans/show`)
     setPlans(response.data.data)
-    console.log('plans', response);
+    console.log('plans', response)
   }
   useEffect(() => {
     fetchPlans()
@@ -56,7 +56,10 @@ const PlanCard = ({ isSubscription }) => {
 
      
         <SwiperSlide key={plan.id}>
-          <div className="bg-pinkbackground rounded-tr-3xl rounded-bl-3xl rounded-tl-none rounded-br-none p-6 max-w-sm lg:w-full sm:w-full mx-8 my-5 text-white shadow-xl flex flex-col items-center">
+          <div className="relative bg-pinkbackground rounded-tr-3xl rounded-bl-3xl rounded-tl-none rounded-br-none p-6 max-w-sm lg:w-full sm:w-full mx-8 my-5 text-white shadow-xl flex flex-col items-center">
+          {/* <div className="absolute top-6 left-9 transform -translate-x-1/2 -translate-y-1/2 bg-[#FF8B42] text-white px-5 py-1 rounded-tr-3xl rounded-br-3xl font-semibold shadow-md">
+              Best
+            </div> */}
             <h3 className={`${isLightMode ? 'text-[#ffffff]' : 'text-[#FF8B42]'} font-semibold m-5`}>{plan.name}</h3>
             <p className="text-3xl font-bold mb-8 text-[#FF8B42]">${plan.price}</p>
             <hr className="border-[#81818146] w-full border-t-1 mb-6" />
@@ -86,7 +89,7 @@ const PlanCard = ({ isSubscription }) => {
               Choose Plan
             </button>
 
-            <p className="text-gray-400 text-xs text-center">Lorem Ipsum is simply dummy text</p>
+            {/* <p className="text-gray-400 text-xs text-center">Lorem Ipsum is simply dummy text</p> */}
           </div>
         </SwiperSlide>
       ))}

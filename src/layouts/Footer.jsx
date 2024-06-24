@@ -71,7 +71,7 @@ const Footer = () => {
             <form className="flex items-center w-full">
               <div className="relative w-full flex">
                 <input
-                  className="rounded-l-full px-5 p-2 bg-inputcolor text-white text-sm hidden lg:block"
+                  className="rounded-l-full px-5 p-2 bg-inputcolor text-white text-sm hidden lg:block outline-none"
                   type="email"
                   placeholder="Your email here"
                 />

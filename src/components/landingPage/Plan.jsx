@@ -63,7 +63,9 @@ const Plan = ({ className , currentContent}) => {
     <div className={`${className}`}>
       <div className={`bg-pinkbackground`}>
         <h2 className='text-center text-[#FF8B42] text-2xl pt-12 font-semibold'>{currentContent["plan-1"] || "Pick the perfect Plan"}</h2>
-        <p className='text-center text-gray-400 pt-6 p-5 justify-center'>{currentContent["plan-2"] || "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex rem accusantium adipisci nemo et nihil, tenetur explicabo at, veritatis incidunt quos utvelit nam? Voluptas id natus dolor ad accusamus."}</p>
+        <div className='flex justify-center'>
+        <p className='text-center text-gray-400 pt-6 p-5 w-1/2'>{currentContent["plan-2"] || "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex rem accusantium adipisci nemo et nihil, tenetur explicabo at, veritatis incidunt quos utvelit nam? Voluptas id natus dolor ad accusamus."}</p>
+        </div>
       </div>
       {/* switch buttons */}
       <div className='flex justify-center pt-12 pb-8 bg-pinkbackground'>

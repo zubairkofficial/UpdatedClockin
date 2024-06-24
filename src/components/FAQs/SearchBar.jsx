@@ -7,7 +7,7 @@ import Footer from '../../layouts/Footer';
 import AnimatedText from '../../layouts/AnimatedText';
 
 const SearchBar = () => {
-  useEffect ( () => {
+  useEffect(() => {
     document.title = "FAQs | ClockIn"
   })
   const [searchQuery, setSearchQuery] = useState('');
