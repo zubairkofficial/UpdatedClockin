@@ -152,7 +152,7 @@ function StatSectionContent() {
                     </div>
                 </div>
             ) : (
-                <div className="card mb-5 mb-xl-8 bg-slate-200">
+                <div className="card mb-5 mb-xl-8 bg-slate-200" style={{ marginTop: "-4%" }}>
                     <div className="card-header border-0 pt-5">
                         <h3 className="card-title align-items-start flex-column">
                             <span className="card-label fw-bold fs-3 mb-1">{isEditing ? 'Update Stat' : 'Add New Stat'}</span>

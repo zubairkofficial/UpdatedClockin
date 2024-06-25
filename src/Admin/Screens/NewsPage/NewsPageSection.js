@@ -84,8 +84,8 @@ function NewsPageSection() {
             cancelButtonText: "No, cancel!",
             reverseButtons: true,
             customClass: {
-                confirmButton: "btn btn-success",
-                cancelButton: "btn btn-primary"
+                confirmButton: "px-3 py-2  text-green-100 bg-red-500 rounded-lg",
+                cancelButton: "px-3 py-2  text-green-100 mr-3 bg-green-500 rounded-lg"
             },
             buttonsStyling: false
         }).then((result) => {

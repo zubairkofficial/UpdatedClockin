@@ -122,8 +122,8 @@ const PlanSection = () => {
             cancelButtonText: "No, cancel!",
             reverseButtons: true,
             customClass: {
-                confirmButton: "btn btn-success",
-                cancelButton: "btn btn-primary"
+                confirmButton: "px-3 py-2  text-green-100 bg-red-500 rounded-lg",
+                cancelButton: "px-3 py-2  text-green-100 mr-3 bg-green-500 rounded-lg"
             },
             buttonsStyling: false
         }).then((result) => {
@@ -165,7 +165,7 @@ const PlanSection = () => {
                 ) : (
                     <div>
                         {listSection ? (
-                            <div className="card mb-5 mb-xl-8 bg-slate-200" style={{marginTop:"-4%" }}>
+                            <div className="card mb-5 mb-xl-8 bg-slate-200" style={{ marginTop: "-4%" }}>
                                 <div className="card-header border-0 pt-5">
                                     <h3 className="card-title align-items-start flex-column">
                                         <span className="card-label fw-bold fs-3 mb-1">Plans</span>
@@ -181,7 +181,7 @@ const PlanSection = () => {
                                         <table className="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
                                             <thead>
                                                 <tr className="fw-bold text-muted">
-                                                <th className="min-w-10px">#</th>
+                                                    <th className="min-w-10px">#</th>
                                                     <th className="min-w-150px">Name</th>
                                                     <th className="min-w-150px">Price</th>
                                                     <th className="min-w-150px">Employee</th>
@@ -192,9 +192,9 @@ const PlanSection = () => {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {plans.map((plan,index) => (
+                                                {plans.map((plan, index) => (
                                                     <tr key={plan.id}>
-                                                    <td>{index+1}</td>
+                                                        <td>{index + 1}</td>
                                                         <td>{plan.name}</td>
                                                         <td>{plan.price}</td>
                                                         <td>{plan.employee}</td>
@@ -349,7 +349,7 @@ const PlanSection = () => {
                                         <div className="mb-3">
                                             <label htmlFor="offline_mode" className="form-label mr-5">Offline Mode</label>
                                             <input
-                                            className='pl-5'
+                                                className='pl-5'
                                                 type="checkbox"
                                                 id="offline_mode"
                                                 name="offline_mode"

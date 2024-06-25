@@ -8,7 +8,8 @@ import axios from "axios";
 import Helpers from "../../Config/Helpers";
 import Loader from "../../layouts/Loader";
 const HomePage = ({ background, heading, subheading }) => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [feature, setFeatures] = useState([])
   const { isLightMode } = useContext(ThemeContext);
   const [currentImages, setCurrentImages] = useState({
     "hero-1": "",
@@ -34,7 +35,7 @@ const HomePage = ({ background, heading, subheading }) => {
     "fifth-2": "",
   });
   const fetchImages = async () => {
-    setLoading(true);
+    // setLoading(true);
     const sections = [
       { section: "hero", id: "1" },
       { section: "hero", id: "2" },
@@ -59,11 +60,10 @@ const HomePage = ({ background, heading, subheading }) => {
     } catch (error) {
       console.log("Error in fetching images", error);
     } finally {
-      setLoading(false);
+      // setLoading(false);
     }
   };
   const fetchContent = async () => {
-    setLoading(true);
     const sections = [
       { section: "hero", id: "1" },
       { section: "hero", id: "2" },
@@ -86,20 +86,31 @@ const HomePage = ({ background, heading, subheading }) => {
       { section: "achievement", id: "1" },
       { section: "achievement", id: "2" },
     ];
-    try {
-      const contentPromises = sections.map(({ section, id }) =>
+
+    const MAX_CONCURRENT_REQUESTS = 5; // Limit the number of concurrent requests
+
+    const fetchChunk = async (chunk) => {
+      const chunkPromises = chunk.map(({ section, id }) =>
         axios.get(`${Helpers.apiUrl}content/show/${section}-${id}`)
       );
-      const responses = await Promise.all(contentPromises);
-      const fetchedContent = {};
-      responses.forEach((response, index) => {
-        const { section, id } = sections[index];
-        if (response.data.data) {
-          fetchedContent[`${section}-${id}`] = response.data.data.content;
-        }
-      });
+      const chunkResponses = await Promise.all(chunkPromises);
+      return chunkResponses;
+    };
+
+    try {
+      let fetchedContent = {};
+      for (let i = 0; i < sections.length; i += MAX_CONCURRENT_REQUESTS) {
+        const chunk = sections.slice(i, i + MAX_CONCURRENT_REQUESTS);
+        const chunkResponses = await fetchChunk(chunk);
+        chunkResponses.forEach((response, index) => {
+          const { section, id } = chunk[index];
+          if (response.data.data) {
+            fetchedContent[`${section}-${id}`] = response.data.data.content;
+          }
+        });
+      }
       setCurrentContent(fetchedContent);
-      console.log("text", responses);
+      console.log("Fetched content:", fetchedContent);
     } catch (error) {
       console.log("Error in fetching data", error);
     } finally {
@@ -107,16 +118,81 @@ const HomePage = ({ background, heading, subheading }) => {
     }
   };
 
+  // const fetchContent = async () => {
+  //   // setLoading(true);
+  //   const sections = [
+  //     { section: "hero", id: "1" },
+  //     { section: "hero", id: "2" },
+  //     { section: "hero", id: "3" },
+  //     { section: "hero", id: "4" },
+  //     { section: "feature", id: "1" },
+  //     { section: "second", id: "1" },
+  //     { section: "second", id: "2" },
+  //     { section: "second", id: "3" },
+  //     { section: "third", id: "1" },
+  //     { section: "third", id: "2" },
+  //     { section: "fourth", id: "1" },
+  //     { section: "fourth", id: "2" },
+  //     { section: "fifth", id: "1" },
+  //     { section: "fifth", id: "2" },
+  //     { section: "sixth", id: "1" },
+  //     { section: "sixth", id: "2" },
+  //     { section: "plan", id: "1" },
+  //     { section: "plan", id: "2" },
+  //     { section: "achievement", id: "1" },
+  //     { section: "achievement", id: "2" },
+  //   ];
+  //   try {
+  //     const contentPromises = sections.map(({ section, id }) =>
+  //       axios.get(`${Helpers.apiUrl}content/show/${section}-${id}`)
+  //     );
+  //     const responses = await Promise.all(contentPromises);
+  //     const fetchedContent = {};
+  //     responses.forEach((response, index) => {
+  //       const { section, id } = sections[index];
+  //       if (response.data.data) {
+  //         fetchedContent[`${section}-${id}`] = response.data.data.content;
+  //       }
+  //     });
+  //     setCurrentContent(fetchedContent);
+  //     console.log("text", responses);
+  //   } catch (error) {
+  //     console.log("Error in fetching data", error);
+  //   } finally {
+  //     // setLoading(false);
+  //   }
+  // };
+  const getFeatures = async () => {
+    // setLoading(true)
+    try {
+      const response = await axios.get(`${Helpers.apiUrl}getfeature`);
+      console.log('feature', response);
+      setFeatures(response.data.data);
+      setLoading(false)
+    } catch (error) {
+      console.log("error in fetching data", error);
+      // setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    fetchImages();
-    fetchContent();
+    const fetchData = async () => {
+      await Promise.all([fetchContent(), fetchImages(), getFeatures()]);
+      setLoading(false);
+    };
+    fetchData();
     document.title = "Home | ClockIn";
-  }, []);
+  }, [isLightMode]);
+  // useEffect(() => {
+  //   fetchImages();
+  //   fetchContent();
+  //   document.title = "Home | ClockIn";
+  // }, []);
   return (
     <>
-      {/* {loading ? ( */}
-        {/* <Loader /> */}
-      {/* ) : ( */}
+      {loading ? (
+        <Loader />
+      ) : (
         <div
           className="bg-cover bg-center bg-no-repeat h-screen w-full relative"
           style={{
@@ -176,9 +252,10 @@ const HomePage = ({ background, heading, subheading }) => {
             thirdImage2={currentImages["third-2"]}
             thirdImage3={currentImages["third-3"]}
             currentContent={currentContent}
+            feature={feature}
           />
         </div>
-      {/* )} */}
+      )}
     </>
   );
 };

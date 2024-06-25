@@ -67,7 +67,7 @@ function Sidebar() {
                       <NavLink
                         to="/admin/dashboard"
                         className={({ isActive }) =>
-                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
+                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-white hover:text-primary'
                         }
                       >
                         <i class="fa-solid fa-house pr-5"></i>
@@ -111,7 +111,7 @@ function Sidebar() {
                       <NavLink
                         to="/admin/download"
                         className={({ isActive }) =>
-                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
+                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-white hover:text-primary'
                         }
                       >
                         <i class="fa-light fa-download pr-5"></i>
@@ -137,7 +137,7 @@ function Sidebar() {
                       <NavLink
                         to="/admin/feature"
                         className={({ isActive }) =>
-                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
+                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-white hover:text-primary'
                         }
                       >
                         <i class="fa-solid fa-shield-check pr-5"></i>
@@ -155,7 +155,7 @@ function Sidebar() {
                       <NavLink
                         to="/admin/achievements"
                         className={({ isActive }) =>
-                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
+                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-white hover:text-primary'
                         }
                       >
                         <i class="fa-solid fa-badge-check pr-5"></i>
@@ -173,7 +173,7 @@ function Sidebar() {
                       <NavLink
                         to="/admin/plans"
                         className={({ isActive }) =>
-                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
+                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-white hover:text-primary'
                         }
                       >
                         <i class="fa-solid fa-circle-dollar pr-5"></i>
@@ -199,7 +199,7 @@ function Sidebar() {
                       <NavLink
                         to="/admin/content"
                         className={({ isActive }) =>
-                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
+                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-white hover:text-primary'
                         }
                       >
                         <i class="fa-solid fa-house-blank pr-5"></i>
@@ -219,7 +219,7 @@ function Sidebar() {
                       <NavLink
                         to="/admin/stat"
                         className={({ isActive }) =>
-                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
+                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-white hover:text-primary'
                         }
                       >
                         <i class="fa-sharp fa-solid fa-chart-simple pr-5"></i>
@@ -239,7 +239,7 @@ function Sidebar() {
                       <NavLink
                         to="/admin/footer"
                         className={({ isActive }) =>
-                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
+                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-white hover:text-primary'
                         }
                       >
                         <i class="fa-duotone fa-link-simple pr-5"></i>
@@ -265,7 +265,7 @@ function Sidebar() {
                       <NavLink
                         to="/admin/downloadsection"
                         className={({ isActive }) =>
-                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
+                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-white hover:text-primary'
                         }
                       >
                         <i class="fa-light fa-download pr-5"></i>
@@ -291,7 +291,7 @@ function Sidebar() {
                       <NavLink
                         to="/admin/faqs"
                         className={({ isActive }) =>
-                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
+                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-white hover:text-primary'
                         }
                       >
                         <i class="fa-solid fa-square-question pr-5"></i>
@@ -316,7 +316,7 @@ function Sidebar() {
                       <NavLink
                         to="/admin/news"
                         className={({ isActive }) =>
-                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
+                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-white hover:text-primary'
                         }
                       >
                         <i class="fa-sharp fa-solid fa-newspaper pr-5"></i>
@@ -342,7 +342,7 @@ function Sidebar() {
                       <NavLink
                         to="/admin/support"
                         className={({ isActive }) =>
-                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'
+                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-white hover:text-primary'
                         }
                       >
                         <i class="fa-regular fa-headset pr-5"></i>

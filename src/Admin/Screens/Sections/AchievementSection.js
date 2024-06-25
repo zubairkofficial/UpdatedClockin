@@ -101,8 +101,8 @@ function AchievementSection() {
             cancelButtonText: "No, cancel!",
             reverseButtons: true,
             customClass: {
-                confirmButton: "btn btn-success",
-                cancelButton: "btn btn-primary"
+                confirmButton: "px-3 py-2  text-green-100 bg-red-500 rounded-lg",
+                cancelButton: "px-3 py-2  text-green-100 mr-3 bg-green-500 rounded-lg"
             },
             buttonsStyling: false
         }).then((result) => {
@@ -234,7 +234,7 @@ function AchievementSection() {
                         </div>
                     </div>
                 ) : (
-                    <div className="card mb-5 mb-xl-8 bg-slate-200">
+                    <div className="card mb-5 mb-xl-8 bg-slate-200" style={{ marginTop: "-4%" }}>
                         <div className="card-header border-0 pt-5">
                             <h3 className="card-title align-items-start flex-column">
                                 <span className="card-label fw-bold fs-3 mb-1">{updateMode ? 'Update Achievement' : 'Add New Achievement'}</span>

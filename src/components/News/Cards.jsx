@@ -58,7 +58,7 @@ function Cards() {
                                         <p className="text-text mb-3 text-sm">
                                         {truncateText(news.description, 10)}
                                         </p>
-                                        <Link to={`/news/${news.slug}`} className='bg-primary hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300 '>Read more</Link>
+                                        <Link to={`/news/${news.slug}`} className='bg-primary text-text dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300 '>Read more</Link>
                                     </div>
                                 </div>
                             </SwiperSlide>

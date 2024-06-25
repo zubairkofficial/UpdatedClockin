@@ -97,7 +97,7 @@ const DashboardComp = ({
               style={{ borderRadius: "35px" }}
             >
               <h1 className="text-white lg:text-5xl text-xl pb-8 font-bold">
-                {currentContent["sixth-1" || "Try Clockin today!"]}
+                {currentContent["sixth-1"] || "Try Clockin today!"}
               </h1>
               <p className="text-white lg:text-3xl text-sm pb-16">
                 {currentContent["sixth-2"] || "Uncover Your Productivity Potential with Discover Time Tracking Software."}

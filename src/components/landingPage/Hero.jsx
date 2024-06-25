@@ -13,29 +13,34 @@ import FeatureCard from "./FeatureCard";
 import Helpers from "../../Config/Helpers";
 import axios from "axios";
 import { useLoading } from "../../layouts/LoadingContext";
-const Hero = ({ secondImage, thirdImage1, thirdImage2, thirdImage3, currentContent }) => {
-    const [feature, setFeatures] = useState([])
+import Loader from "../../layouts/Loader";
+const Hero = ({ secondImage, thirdImage1, thirdImage2, thirdImage3, currentContent ,feature }) => {
+    // const [feature, setFeatures] = useState([])
+    const [loading, setLoading] = useState(false)
     // const { startLoading, stopLoading } = useLoading();
-    const getFeatures = async () => {
-        // startLoading()
-        try {
-            const response = await axios.get(`${Helpers.apiUrl}getfeature`);
-            console.log('response', response);
-            setFeatures(response.data.data);
-        } catch (error) {
-            console.log("error in fetching data", error);
-        }
-        finally {
-            // stopLoading();
-        }
-    };
+    // const getFeatures = async () => {
+    //     setLoading(true)
+    //     try {
+    //         const response = await axios.get(`${Helpers.apiUrl}getfeature`);
+    //         console.log('feature', response);
+    //         setFeatures(response.data.data);
+    //         setLoading(false)
+    //     } catch (error) {
+    //         console.log("error in fetching data", error);
+    //         setLoading(false);
+    //     }
+    // };
 
     useEffect(() => {
-        getFeatures();
+        // getFeatures();
     }, []);
     const chunkedFeatures = Helpers.chunkArray(feature, 3);
 
     return (
+        <>
+        {/* {loading ? ( */}
+            {/* <Loader /> */}
+          {/* ) : ( */}
         <section className="bg-pinkbackground mt-8">
             <div className="container mx-auto">
                 <AnimatedText>
@@ -131,6 +136,8 @@ const Hero = ({ secondImage, thirdImage1, thirdImage2, thirdImage3, currentConte
             </AnimatedText>
             <Footer />
         </section>
+    {/* )} */}
+        </>
     );
 };
 
