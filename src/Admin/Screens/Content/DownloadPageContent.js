@@ -6,10 +6,12 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 function DownloadPageContent() {
     const [download, setdownload] = useState([]);
+    const [loading, setLoading] = useState(false)
     const [formData, setFormData] = useState({
         heading: '',
         subheading: '',
-        version: [{ name: '' }],
+        // file: null,
+        version: [{ name: '', file: null }],
     });
     const [isEditing, setIsEditing] = useState(false);
     const [currentPlanId, setCurrentPlanId] = useState(null);
@@ -35,7 +37,15 @@ function DownloadPageContent() {
             [name]: value
         });
     };
-
+    const handleImageChange = (index, e) => {
+        const file = e.target.files[0];
+        const version = [...formData.version];
+        version[index].file = file;
+        setFormData({ ...formData, version });
+      };
+    // const handleImageChange = (e) => {
+    //     setFormData({ ...formData, file: e.target.files[0] });
+    // };
     const handleFeatureChange = (index, e) => {
         const { name, value } = e.target;
         const version = [...formData.version];
@@ -46,7 +56,7 @@ function DownloadPageContent() {
     const addFeature = () => {
         setFormData({
             ...formData,
-            version: [...formData.version, { name: '', link: '' }]
+            version: [...formData.version, { name: '', file: null }]
         });
     };
 
@@ -57,11 +67,20 @@ function DownloadPageContent() {
     };
 
     const handleSubmit = async (e) => {
+        setLoading(true)
         e.preventDefault();
-        const data = {
-            ...formData,
-            version: JSON.stringify(formData.version)
-        };
+        const data = new FormData();
+        data.append('heading', formData.heading);
+        data.append('subheading', formData.subheading);
+        formData.version.forEach((item,index)=> {
+            data.append(`version[${index}][name]`,item.name);
+            if(item.file){
+                data.append(`version[${index}][file]`,item.file)
+            }
+        })
+        // data.append('file', formData.file);
+        // data.append('version', JSON.stringify(formData.version));
+
         try {
             if (isEditing) {
                 await axios.post(`${Helpers.apiUrl}download/update/${currentPlanId}`, data);
@@ -72,8 +91,10 @@ function DownloadPageContent() {
             resetForm();
             setListSection(true);
             Helpers.toast("success", 'Download Saved Successfully');
+            setLoading(false)
         } catch (error) {
             console.error('Error saving plan', error);
+            setLoading(false)
         }
     };
 
@@ -135,6 +156,7 @@ function DownloadPageContent() {
         setFormData({
             heading: '',
             subheading: '',
+            file: '',
             version: [{ name: '' }]
         });
         setIsEditing(false);
@@ -145,7 +167,7 @@ function DownloadPageContent() {
             <div id="kt_app_wrapper" className="app-wrapper flex-column flex-row-fluid">
                 <Sidebar />
                 {listSection ? (
-                    <div className="card mb-5 mb-xl-8 bg-slate-200" style={{marginTop:"-4%" }}>
+                    <div className="card mb-5 mb-xl-8 bg-slate-200" style={{ marginTop: "-4%" }}>
                         <div className="card-header border-0 pt-5">
                             <h3 className="card-title align-items-start flex-column">
                                 <span className="card-label fw-bold fs-3 mb-1">Download Page Content</span>
@@ -161,7 +183,7 @@ function DownloadPageContent() {
                                 <table className="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
                                     <thead>
                                         <tr className="fw-bold text-muted">
-                                        <th className="min-w-10px">#</th>
+                                            <th className="min-w-10px">#</th>
                                             <th className="min-w-150px">Heading</th>
                                             <th className="min-w-150px">Sub Heading</th>
                                             <th className="min-w-150px">Version</th>
@@ -169,9 +191,9 @@ function DownloadPageContent() {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {download.map((download,index) => (
+                                        {download.map((download, index) => (
                                             <tr key={download.id}>
-                                            <td>{index+1}</td>
+                                                <td>{index + 1}</td>
                                                 <td>{download.heading}</td>
                                                 <td>{download.subheading}</td>
                                                 <td>
@@ -237,6 +259,10 @@ function DownloadPageContent() {
                                         placeholder='Enter Subheading'
                                     />
                                 </div>
+                                {/* <div className="mb-3">
+                                    <label htmlFor="file" className="form-label">Upload File</label>
+
+                                </div> */}
                                 <div className="mb-3">
                                     <label className="form-label">Version</label>
                                     {formData.version.map((item, index) => (
@@ -248,6 +274,15 @@ function DownloadPageContent() {
                                                 onChange={(e) => handleFeatureChange(index, e)}
                                                 className="form-control mr-2"
                                                 placeholder="Name"
+                                            />
+                                            <input
+                                                type="file"
+                                                className="form-control"
+                                                id={`file-${index}`}
+                                                name="file"
+                                                // value={formData.file}
+                                                onChange={(e)=> handleImageChange(index,e)}
+                                                // required
                                             />
                                             <button
                                                 type="button"
@@ -266,7 +301,7 @@ function DownloadPageContent() {
                                         Add Submenu
                                     </button>
                                 </div>
-                                <button type="submit" className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300">{isEditing ? 'Update download' : 'Add download'}</button>
+                                <button type="submit" className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300"> {loading ? 'Please wait...' : (isEditing ? 'Update download' : 'Add download')}</button>
                             </form>
                         </div>
                     </div>
