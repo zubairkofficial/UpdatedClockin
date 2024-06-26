@@ -68,7 +68,7 @@ const Plan = ({ className , currentContent}) => {
         </div>
       </div>
       {/* switch buttons */}
-      <div className='flex justify-center pt-12 pb-8 bg-pinkbackground'>
+      <div className='flex justify-center pb-8 bg-pinkbackground'>
         <div className='flex items-center p-5'>
           <button
             className={`transition-all duration-300 ease-in-out text-xs lg:text-base

@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
-import DownloadSection from './Sections/DownloadSection'
-import Sidebar from '../Components/Sidebar'
+import DownloadSection from '../Sections/DownloadSection.js'
+import Sidebar from '../../Components/Sidebar.jsx'
 import axios from 'axios';
-import Helpers from '../../Config/Helpers';
-import Loader from './../../layouts/Loader.js'
-import { ThemeContext } from '../../layouts/ThemeContext';
+import Helpers from '../../../Config/Helpers.js';
+import Loader from '../../../layouts/Loader.js'
+import { ThemeContext } from '../../../layouts/ThemeContext.js';
 
 function DownloadScreen() {
     const [currentImages, setCurrentImages] = useState({ 'download-1' : '' , 'download-2' : ''});
@@ -21,7 +21,7 @@ function DownloadScreen() {
     const handleUpdate = async (image, section, id) => {
         const formData = new FormData();
         formData.append('image_path', image);
-        formData.append('mode', section.startsWith('download') ? 'dark' : (isLightMode ? 'dark' : 'light'));
+        formData.append('mode', section.startsWith('second') ? 'dark' : (isLightMode ? 'dark' : 'light'));
         formData.append('section', `${section}-${id}`);
         try {
             const response = await axios.post(`${Helpers.apiUrl}upload-image`, formData, {
@@ -30,29 +30,36 @@ function DownloadScreen() {
                 }
             });
             Helpers.toast("success", "Updated Successfully");
-            fetchImage(section, id);
+            fetchImages(section, id);
         } catch (error) {
             console.log("error", "Error in uploading file");
         }
     };
 
-    const fetchImage = async (section, id) => {
-        setIsLoading(true)
+    const fetchImages = async () => {
+        const sections = [
+            { section: "download", id: "1" },
+            { section: "download", id: "2" },
+        ];
+        const mode = isLightMode ? "dark" : "light";
         try {
-            const mode = section.startsWith('download') ? 'dark' : (isLightMode ? 'dark' : 'light');
-            const response = await axios.get(`${Helpers.apiUrl}get-image/${section}-${id}/${mode}`);
-            const imageUrl = response.data.image_url;
-            setCurrentImages(prev => ({ ...prev, [`${section}-${id}`]: imageUrl }));
-            setIsLoading(false)
+            const response = await axios.post(`${Helpers.apiUrl}get-image`, {
+                sections: sections.map(s => `${s.section}-${s.id}`),
+                mode
+            });
+            const newImages = {};
+            response.data.images.forEach(image => {
+                newImages[image.section] = image.image_url;
+            });
+            console.log("imageres", response.data.images);
+            setCurrentImages(newImages);
         } catch (error) {
-            setIsLoading(false)
-            console.log('error in fetching data');
+            console.error("Error in fetching images", error);
         }
     };
 
     useEffect(() => {
-        fetchImage('download' , '1');
-        fetchImage('download' , '2');
+        fetchImages();
     }, [isLightMode]);
     return (
         <div>

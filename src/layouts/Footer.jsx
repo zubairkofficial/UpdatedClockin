@@ -21,19 +21,31 @@ const Footer = () => {
     }
   };
 
-  const fetchImage = async (id) => {
+  const fetchImage = async () => {
+    const sections = [
+        { section: "footer", id: "1" },
+        { section: "footer", id: "2" },
+    ];
+    const mode = isLightMode ? "dark" : "light";
     try {
-      const response = await axios.get(`${Helpers.apiUrl}get-image/footer-${id}/${isLightMode ? 'dark' : 'light'}`);
-      const imageUrl = response.data.image_url;
-      setCurrentImages(prev => ({ ...prev, [`footer-${id}`]: imageUrl }));
-      // updateImage(`hero-${id}`, imageUrl); 
+        const response = await axios.post(`${Helpers.apiUrl}get-image`, {
+            sections: sections.map(s => `${s.section}-${s.id}`),
+            mode
+        });
+        const newImages = {};
+        response.data.images.forEach(image => {
+            newImages[image.section] = image.image_url;
+        });
+        console.log("imageres", response.data.images);
+        setCurrentImages(newImages);
     } catch (error) {
-      console.log('error in fetching data');
+        console.error("Error in fetching images", error);
     }
-  };
+};
+
 
   useEffect(() => {
-    fetchImage('1');
+    fetchImage();
     fetchFooter();
   }, [isLightMode]);
 
@@ -61,7 +73,7 @@ const Footer = () => {
               <a href="privacy"><h2 className="font-bold text-[#FF7A50] hidden lg:block">{footer.menu}</h2></a>
               {JSON.parse(footer.submenu).map((item, index) => (
                 <div key={index} className="flex items-center mb-2">
-                  <h3 className="text-[#ADB1B1] hidden lg:block">{item.name}</h3>
+                  <a href={`//${item.link}`} target='_blank' className="text-[#ADB1B1] hidden lg:block">{item.name}</a>
                 </div>
               ))}
             </div>

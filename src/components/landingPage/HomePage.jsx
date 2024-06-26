@@ -35,135 +35,56 @@ const HomePage = ({ background, heading, subheading }) => {
     "fifth-2": "",
   });
   const fetchImages = async () => {
-    // setLoading(true);
     const sections = [
-      { section: "hero", id: "1" },
-      { section: "hero", id: "2" },
-      { section: "second", id: "1" },
-      { section: "third", id: "1" },
-      { section: "third", id: "2" },
-      { section: "third", id: "3" },
+        { section: "hero", id: "1" },
+        { section: "hero", id: "2" },
+        { section: "second", id: "1" },
+        { section: "third", id: "1" },
+        { section: "third", id: "2" },
+        { section: "third", id: "3" },
     ];
     const mode = isLightMode ? "dark" : "light";
     try {
-      const imagePromises = sections.map(({ section, id }) =>
-        axios.get(`${Helpers.apiUrl}get-image/${section}-${id}/${mode}`)
-      );
-      const responses = await Promise.all(imagePromises);
-      const newImages = {};
-      responses.forEach((response, index) => {
-        const { section, id } = sections[index];
-        newImages[`${section}-${id}`] = response.data.image_url;
-      });
-      console.log("imageres", responses);
-      setCurrentImages(newImages);
-    } catch (error) {
-      console.log("Error in fetching images", error);
-    } finally {
-      // setLoading(false);
-    }
-  };
-  const fetchContent = async () => {
-    const sections = [
-      { section: "hero", id: "1" },
-      { section: "hero", id: "2" },
-      { section: "hero", id: "3" },
-      { section: "hero", id: "4" },
-      { section: "feature", id: "1" },
-      { section: "second", id: "1" },
-      { section: "second", id: "2" },
-      { section: "second", id: "3" },
-      { section: "third", id: "1" },
-      { section: "third", id: "2" },
-      { section: "fourth", id: "1" },
-      { section: "fourth", id: "2" },
-      { section: "fifth", id: "1" },
-      { section: "fifth", id: "2" },
-      { section: "sixth", id: "1" },
-      { section: "sixth", id: "2" },
-      { section: "plan", id: "1" },
-      { section: "plan", id: "2" },
-      { section: "achievement", id: "1" },
-      { section: "achievement", id: "2" },
-    ];
-
-    const MAX_CONCURRENT_REQUESTS = 5; // Limit the number of concurrent requests
-
-    const fetchChunk = async (chunk) => {
-      const chunkPromises = chunk.map(({ section, id }) =>
-        axios.get(`${Helpers.apiUrl}content/show/${section}-${id}`)
-      );
-      const chunkResponses = await Promise.all(chunkPromises);
-      return chunkResponses;
-    };
-
-    try {
-      let fetchedContent = {};
-      for (let i = 0; i < sections.length; i += MAX_CONCURRENT_REQUESTS) {
-        const chunk = sections.slice(i, i + MAX_CONCURRENT_REQUESTS);
-        const chunkResponses = await fetchChunk(chunk);
-        chunkResponses.forEach((response, index) => {
-          const { section, id } = chunk[index];
-          if (response.data.data) {
-            fetchedContent[`${section}-${id}`] = response.data.data.content;
-          }
+        const response = await axios.post(`${Helpers.apiUrl}get-image`, {
+            sections: sections.map(s => `${s.section}-${s.id}`),
+            mode
         });
-      }
+        const newImages = {};
+        response.data.images.forEach(image => {
+            newImages[image.section] = image.image_url;
+        });
+        console.log("imageres", response.data.images);
+        setCurrentImages(newImages);
+    } catch (error) {
+        console.error("Error in fetching images", error);
+    }
+};
+
+
+  const fetchContent = async () => {
+    try {
+      const response = await axios.get(`${Helpers.apiUrl}content/show`);
+      const fetchedContent = {};
+      const sections = [
+        "hero-1", "hero-2", "hero-3", "hero-4", "feature-1",
+        "second-1", "second-2", "second-3", "third-1", "third-2",
+        "fourth-1", "fourth-2", "fifth-1", "fifth-2", "sixth-1",
+        "sixth-2", "plan-1", "plan-2", "achievement-1", "achievement-2"
+      ];
+      sections.forEach(section => {
+        const content = response.data.data.find(item => item.section === section);
+        if (content) {
+          fetchedContent[section] = content.content;
+        }
+      });
+      console.log("coi", fetchedContent);
       setCurrentContent(fetchedContent);
-      console.log("Fetched content:", fetchedContent);
     } catch (error) {
       console.log("Error in fetching data", error);
-    } finally {
-      setLoading(false);
     }
   };
 
-  // const fetchContent = async () => {
-  //   // setLoading(true);
-  //   const sections = [
-  //     { section: "hero", id: "1" },
-  //     { section: "hero", id: "2" },
-  //     { section: "hero", id: "3" },
-  //     { section: "hero", id: "4" },
-  //     { section: "feature", id: "1" },
-  //     { section: "second", id: "1" },
-  //     { section: "second", id: "2" },
-  //     { section: "second", id: "3" },
-  //     { section: "third", id: "1" },
-  //     { section: "third", id: "2" },
-  //     { section: "fourth", id: "1" },
-  //     { section: "fourth", id: "2" },
-  //     { section: "fifth", id: "1" },
-  //     { section: "fifth", id: "2" },
-  //     { section: "sixth", id: "1" },
-  //     { section: "sixth", id: "2" },
-  //     { section: "plan", id: "1" },
-  //     { section: "plan", id: "2" },
-  //     { section: "achievement", id: "1" },
-  //     { section: "achievement", id: "2" },
-  //   ];
-  //   try {
-  //     const contentPromises = sections.map(({ section, id }) =>
-  //       axios.get(`${Helpers.apiUrl}content/show/${section}-${id}`)
-  //     );
-  //     const responses = await Promise.all(contentPromises);
-  //     const fetchedContent = {};
-  //     responses.forEach((response, index) => {
-  //       const { section, id } = sections[index];
-  //       if (response.data.data) {
-  //         fetchedContent[`${section}-${id}`] = response.data.data.content;
-  //       }
-  //     });
-  //     setCurrentContent(fetchedContent);
-  //     console.log("text", responses);
-  //   } catch (error) {
-  //     console.log("Error in fetching data", error);
-  //   } finally {
-  //     // setLoading(false);
-  //   }
-  // };
   const getFeatures = async () => {
-    // setLoading(true)
     try {
       const response = await axios.get(`${Helpers.apiUrl}getfeature`);
       console.log('feature', response);
@@ -171,7 +92,6 @@ const HomePage = ({ background, heading, subheading }) => {
       setLoading(false)
     } catch (error) {
       console.log("error in fetching data", error);
-      // setLoading(false);
     }
   };
 
@@ -183,11 +103,6 @@ const HomePage = ({ background, heading, subheading }) => {
     fetchData();
     document.title = "Home | ClockIn";
   }, [isLightMode]);
-  // useEffect(() => {
-  //   fetchImages();
-  //   fetchContent();
-  //   document.title = "Home | ClockIn";
-  // }, []);
   return (
     <>
       {loading ? (
@@ -209,15 +124,16 @@ const HomePage = ({ background, heading, subheading }) => {
                     <div key={id}>
                       <img
                         src={
-                          `${Helpers.basePath}${currentImages[`hero-${id}`]}`
-                            ? isLightMode
+                          currentImages[`hero-${id}`]
+                            ? `${Helpers.basePath}${currentImages[`hero-${id}`]}`
+                            : isLightMode
                               ? "assets/clock-illustration.png"
                               : "assets/whiteclock.png"
-                            : ""
                         }
                         alt="Clock Illustration"
                         className="lg:static max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg ml-[6%] lg:ml-[0]"
                       />
+
                     </div>
                   ))}
                 </AnimatedText>

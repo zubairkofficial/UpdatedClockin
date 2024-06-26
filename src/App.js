@@ -18,8 +18,8 @@ import Signup from "./Admin/Auth/Signup.jsx";
 import Dashboard from "./Admin/Screens/Dashboard.jsx";
 import ProtectedRoute from "./auth/ProtectedRoute.js";
 import News from "./components/News/News.jsx";
-import HomeScreen from "./Admin/Screens/HomeScreen.jsx";
-import DownloadScreen from "./Admin/Screens/DownloadScreen.jsx";
+import HomeScreen from "./Admin/Screens/Images/HomeScreen.jsx";
+import DownloadScreen from "./Admin/Screens/Images/DownloadScreen.jsx";
 import FeatureSection from "./Admin/Screens/Sections/FeatureSection.js";
 import FAQSection from "./Admin/Screens/FAQPage/FAQSection.js";
 import AchievementSection from "./Admin/Screens/Sections/AchievementSection.js";
@@ -132,29 +132,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  // const [loading, setLoading] = useState(true);
-  // const fetchData = async () => {
-  //   try {
-  //     const promises = [
-  //       axios.get(`${Helpers.apiUrl}plans/show`),
-  //       axios.get(`${Helpers.apiUrl}achievements/show`),
-  //       axios.get(`${Helpers.apiUrl}getfeature`),
-  //     ];
-  //     await Promise.all(promises);
-  //     setLoading(false);
-  //   } catch (error) {
-  //     console.error('Error fetching data', error);
-  //     setLoading(false);
-  //   }
-  // };
-  // useEffect(() => {
-  //   // fetchData()
-  // }, []);
-
   return (
-    // <LoadingProvider>
-      // <Loader />
-      // <ImageProvider>
         <ThemeProvider>
           <div>
             <div class="d-flex flex-column flex-root app-root" id="kt_app_root">
@@ -162,19 +140,13 @@ function App() {
                 class="app-page  flex-column flex-column-fluid "
                 id="kt_app_page"
               >
-                {/* {loading ? ( */}
-                {/* <Loader /> */}
-                {/* ) : ( */}
                 <Layout>
                   <RouterProvider router={router} />
                 </Layout>
-                {/* )} */}
               </div>
             </div>
           </div>
         </ThemeProvider>
-      // </ImageProvider>
-    // </LoadingProvider>
   );
 }
 

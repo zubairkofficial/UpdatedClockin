@@ -12,19 +12,40 @@ const Header = ({ logourl }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   // const { images } = useImages();
 
-  const fetchImage = async (id) => {
+  // const fetchImage = async (id) => {
+  //   try {
+  //     const response = await axios.get(`${Helpers.apiUrl}get-image/hero-${id}/${isLightMode ? 'dark' : 'light'}`);
+  //     const imageUrl = response.data.image_url;
+  //     setCurrentImages(prev => ({ ...prev, [`hero-${id}`]: imageUrl }));
+  //     // updateImage(`hero-${id}`, imageUrl); 
+  //   } catch (error) {
+  //     console.log('error in fetching data');
+  //   }
+  // };
+  const fetchImage = async () => {
+    const sections = [
+        { section: "hero", id: "1" },
+    ];
+    const mode = isLightMode ? "dark" : "light";
     try {
-      const response = await axios.get(`${Helpers.apiUrl}get-image/hero-${id}/${isLightMode ? 'dark' : 'light'}`);
-      const imageUrl = response.data.image_url;
-      setCurrentImages(prev => ({ ...prev, [`hero-${id}`]: imageUrl }));
-      // updateImage(`hero-${id}`, imageUrl); 
+        const response = await axios.post(`${Helpers.apiUrl}get-image`, {
+            sections: sections.map(s => `${s.section}-${s.id}`),
+            mode
+        });
+        const newImages = {};
+        response.data.images.forEach(image => {
+            newImages[image.section] = image.image_url;
+        });
+        console.log("imageres", response.data.images);
+        setCurrentImages(newImages);
     } catch (error) {
-      console.log('error in fetching data');
+        console.error("Error in fetching images", error);
     }
-  };
+};
+
 
   useEffect(() => {
-    // fetchImage('1');
+    fetchImage();
     // fetchImage('2');
   }, [isLightMode]);
 
@@ -42,7 +63,13 @@ const Header = ({ logourl }) => {
           </div>
           {['1'].map(id => (
             <a href="/">
-              <img src={`${Helpers.basePath}${currentImages[`hero-${id}`]}` ? (isLightMode ? 'assets/logo.png' : 'assets/blacklogo.png') : ''} alt="Logo" className="h-5 lg:h-12 lg:mb-0 ml-4 lg:ml-0" />
+              <img src={
+                          currentImages[`hero-${id}`]
+                            ? `${Helpers.basePath}${currentImages[`hero-${id}`]}`
+                            : isLightMode
+                              ? "assets/logo.png"
+                              : "assets/blacklogo.png"
+                        } alt="Logo" className="h-5 lg:h-12 lg:mb-0 ml-4 lg:ml-0" />
             </a>
           ))}
         </div>

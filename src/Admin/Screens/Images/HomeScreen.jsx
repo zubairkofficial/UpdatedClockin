@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react'
-import Sidebar from '../Components/Sidebar'
-import { ThemeContext } from './../../layouts/ThemeContext.js';
-import Helpers from '../../Config/Helpers';
+import Sidebar from '../../Components/Sidebar.jsx'
+import { ThemeContext } from '../../../layouts/ThemeContext.js';
+import Helpers from '../../../Config/Helpers.js';
 import axios from 'axios';
-import SecondSection from './Sections/SecondSection.js';
-import ThirdSection from './Sections/ThirdSection.js';
-import FooterSection from './Sections/FooterSection.js';
-import Loader from './../../layouts/Loader.js'
-import DownloadSection from './Sections/DownloadSection.js';
+import SecondSection from '../Sections/SecondSection.js';
+import ThirdSection from '../Sections/ThirdSection.js';
+import FooterSection from '../Sections/FooterSection.js';
+import Loader from '../../../layouts/Loader.js'
+import DownloadSection from '../Sections/DownloadSection.js';
 import DownloadScreen from './DownloadScreen.jsx';
 const HomeScreen = () => {
     const { isLightMode, setIsLightMode } = useContext(ThemeContext);
@@ -33,7 +33,7 @@ const HomeScreen = () => {
                 }
             });
             Helpers.toast("success", "Updated Successfully");
-            fetchImage(section, id);
+            fetchImages(section, id);
         } catch (error) {
             console.log("error", "Error in uploading file");
         }
@@ -47,22 +47,45 @@ const HomeScreen = () => {
             const imageUrl = response.data.image_url;
             setCurrentImages(prev => ({ ...prev, [`${section}-${id}`]: imageUrl }));
             setIsLoading(false)
+            console.log("iamg",response)
         } catch (error) {
             setIsLoading(false)
             console.log('error in fetching data');
         }
     };
 
+    const fetchImages = async () => {
+        const sections = [
+            { section: "hero", id: "1" },
+            { section: "hero", id: "2" },
+            { section: "second", id: "1" },
+            { section: "third", id: "1" },
+            { section: "third", id: "2" },
+            { section: "third", id: "3" },
+            { section: "footer", id: "1" },
+            { section: "footer", id: "2" },
+            { section: "download", id: "1" },
+            { section: "download", id: "2" },
+        ];
+        const mode = isLightMode ? "dark" : "light";
+        try {
+            const response = await axios.post(`${Helpers.apiUrl}get-image`, {
+                sections: sections.map(s => `${s.section}-${s.id}`),
+                mode
+            });
+            const newImages = {};
+            response.data.images.forEach(image => {
+                newImages[image.section] = image.image_url;
+            });
+            console.log("imageres", response.data.images);
+            setCurrentImages(newImages);
+        } catch (error) {
+            console.error("Error in fetching images", error);
+        }
+    };
+    
     useEffect(() => {
-        fetchImage('hero', '1');
-        fetchImage('hero', '2');
-        fetchImage('second', '1');
-        fetchImage('second', '2');
-        fetchImage('third', '1');
-        fetchImage('third', '2');
-        fetchImage('third', '3');
-        fetchImage('footer', '1');
-        fetchImage('download', '1');
+        fetchImages();
     }, [isLightMode]);
 
     return (

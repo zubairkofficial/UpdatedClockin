@@ -6,6 +6,7 @@ import Helpers from '../../../Config/Helpers'
 import Swal from 'sweetalert2';
 import Loader from './../../../layouts/Loader.js'
 import withReactContent from 'sweetalert2-react-content';
+import FAQHeading from './FAQHeading.js'
 function FAQSection() {
   const [faqs, setfaqs] = useState([]);
   const [listSection, setListSection] = useState(true);
@@ -286,6 +287,7 @@ function FAQSection() {
         )}
         </div>
       )}
+      <FAQHeading/>
       </div>
     </div>
   )

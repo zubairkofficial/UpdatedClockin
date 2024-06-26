@@ -12,48 +12,54 @@ import Helpers from '../../Config/Helpers'
 
 const Scaling = () => {
     const { isLightMode } = useContext(ThemeContext);
-    const [currentImages, setCurrentImages] = useState({ 'download-1': '' , 'download-2' : ''});
+    const [currentImages, setCurrentImages] = useState({ 'download-1': '', 'download-2': '' });
     const [currentContent, setCurrentContent] = useState({
-      "plan-1": "",
-      "plan-2": "",
+        "plan-1": "",
+        "plan-2": "",
     });
-    const fetchImage = async (section, id) => {
+    const fetchImages = async () => {
+        const sections = [
+            { section: "download", id: "1" },
+            { section: "download", id: "2" },
+        ];
+        const mode = isLightMode ? "dark" : "light";
         try {
-            const mode = section === 'download' ? (isLightMode ? 'dark' : 'light') : 'dark';
-            const response = await axios.get(`${Helpers.apiUrl}get-image/${section}-${id}/${mode}`);
-            const imageUrl = response.data.image_url;
-            setCurrentImages(prev => ({ ...prev, [`${section}-${id}`]: imageUrl }));
+            const response = await axios.post(`${Helpers.apiUrl}get-image`, {
+                sections: sections.map(s => `${s.section}-${s.id}`),
+                mode
+            });
+            const newImages = {};
+            response.data.images.forEach(image => {
+                newImages[image.section] = image.image_url;
+            });
+            console.log("imageres", response.data.images);
+            setCurrentImages(newImages);
         } catch (error) {
-            console.log('error in fetching data', error);
+            console.error("Error in fetching images", error);
         }
     };
     const fetchContent = async () => {
-        const sections = [
-          "plan-1",
-          "plan-2",
-        ];
         try {
+          const response = await axios.get(`${Helpers.apiUrl}content/show`);
           const fetchedContent = {};
-          await Promise.all(
-            sections.map(async (section) => {
-              const response = await axios.get(
-                `${Helpers.apiUrl}content/show/${section}`
-              );
-              if (response.data.data) {
-                fetchedContent[section] = response.data.data.content;
-              }
-            })
-          );
+          const sections = [
+           "plan-1", "plan-2", "download-1", "download-2"
+          ];
+          sections.forEach(section => {
+            const content = response.data.data.find(item => item.section === section);
+            if (content) {
+              fetchedContent[section] = content.content;
+            }
+          });
+          console.log("coi", fetchedContent);
           setCurrentContent(fetchedContent);
         } catch (error) {
           console.log("Error in fetching data", error);
         }
       };
-    
     useEffect(() => {
         fetchContent();
-        fetchImage('download', '1');
-        fetchImage('download', '2');
+        fetchImages();
         document.title = "Donwload | ClockIn"
     }, [isLightMode]);
     return (
@@ -62,15 +68,25 @@ const Scaling = () => {
                 <Header />
                 <AnimatedText>
                     <div className='text-text text-center pt-[5rem]'>
-                        <h3 className='font-semibold lg:text-3xl text-2xl'>Scaling Your Team</h3>
-                        <h2 className='font-bold lg:text-7xl text-5xl pt-2'>With Clockin</h2>
+                        <h3 className='font-semibold lg:text-3xl text-2xl'>{currentContent ['download-1'] || "Scaling Your Team"}</h3>
+                        <h2 className='font-bold lg:text-7xl text-5xl pt-2'>{currentContent ['download-2'] || "With Clockin"}</h2>
                     </div>
                 </AnimatedText>
 
                 <div className='hidden lg:flex justify-center items-center container mx-auto'>
                     <div className='w-1/2'>
-                        <img className='max-w-none hidden lg:block' src={`${Helpers.basePath}${currentImages[`download-1`]}` ? '/assets/laptopmockup.png' : ''} alt='laptopMockup' />
-                        <img className='max-w-none block lg:hidden' src={`${Helpers.basePath}${currentImages[`download-2`]}` ? '/assets/downloadsection.png.png' : ''} alt='laptopMockup' />
+                        <img className='max-w-none hidden lg:block' src={
+                            currentImages[`download-1`]
+                                ? `${Helpers.basePath}${currentImages[`download-1`]}`
+                                : "/assets/laptopmockup.png"
+                        }
+                            alt='laptopMockup' />
+                        <img className='max-w-none block lg:hidden' src={
+                            currentImages[`download-2`]
+                                ? `${Helpers.basePath}${currentImages[`download-2`]}`
+                                : "/assets/downloadsection.png"
+                        }
+                            alt='laptopMockup' />
 
                     </div>
                     <div className='hidden lg:block w-1/2 pl-[110px] '>
@@ -101,7 +117,7 @@ const Scaling = () => {
                 </div>
             </div>
             <div className=''>
-                <Plan className='hidden lg:block' currentContent={currentContent}/>
+                <Plan className='hidden lg:block' currentContent={currentContent} />
                 <Footer />
             </div>
         </>

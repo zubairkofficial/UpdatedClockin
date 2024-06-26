@@ -56,45 +56,28 @@ function HomePageContent() {
   };
 
   const fetchContent = async () => {
-    const sections = [
-      "hero-1",
-      "hero-2",
-      "hero-3",
-      "hero-4",
-      "feature-1",
-      "second-1",
-      "second-2",
-      "second-3",
-      "third-1",
-      "third-2",
-      "fourth-1",
-      "fourth-2",
-      "fifth-1",
-      "fifth-2",
-      "sixth-1",
-      "sixth-2",
-      "plan-1",
-      "plan-2",
-      "achievement-1",
-      "achievement-2",
-    ];
     try {
-      const fetchedContent = {};
-      await Promise.all(
-        sections.map(async (section) => {
-          const response = await axios.get(
-            `${Helpers.apiUrl}content/show/${section}`
-          );
-          if (response.data.data) {
-            fetchedContent[section] = response.data.data.content;
-          }
-        })
-      );
-      setCurrentContent(fetchedContent);
+        const response = await axios.get(`${Helpers.apiUrl}content/show`);
+        const fetchedContent = {};
+        const sections = [
+            "hero-1", "hero-2", "hero-3", "hero-4", "feature-1",
+            "second-1", "second-2", "second-3", "third-1", "third-2",
+            "fourth-1", "fourth-2", "fifth-1", "fifth-2", "sixth-1",
+            "sixth-2", "plan-1", "plan-2", "achievement-1", "achievement-2"
+        ];
+        sections.forEach(section => {
+            const content = response.data.data.find(item => item.section === section);
+            if (content) {
+                fetchedContent[section] = content.content;
+            }
+        });
+        console.log("coi", fetchedContent);
+        setCurrentContent(fetchedContent);
     } catch (error) {
-      console.log("Error in fetching data", error);
+        console.log("Error in fetching data", error);
     }
-  };
+};
+
 
   useEffect(() => {
     fetchContent();

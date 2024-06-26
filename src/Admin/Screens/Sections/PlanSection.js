@@ -270,6 +270,7 @@ const PlanSection = () => {
                                                 id="name"
                                                 name="name"
                                                 value={formData.name}
+                                                placeholder='Enter Plan Name'
                                                 onChange={handleChange}
                                                 required
                                             />
@@ -282,6 +283,7 @@ const PlanSection = () => {
                                                 id="price"
                                                 name="price"
                                                 value={formData.price}
+                                                placeholder='Enter price'
                                                 onChange={handleChange}
                                                 required
                                             />
@@ -293,6 +295,7 @@ const PlanSection = () => {
                                                 className="form-control"
                                                 id="employee"
                                                 name="employee"
+                                                placeholder='Enter Employee'
                                                 value={formData.employee}
                                                 onChange={handleChange}
                                                 required
@@ -307,6 +310,7 @@ const PlanSection = () => {
                                                 name="tasks"
                                                 value={formData.tasks}
                                                 onChange={handleChange}
+                                                placeholder='Enter task'
                                                 required
                                             />
                                         </div>

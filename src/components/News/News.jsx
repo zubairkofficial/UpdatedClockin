@@ -21,7 +21,6 @@ function News() {
         {/* seacrh input field */}
         <div className='flex items-center justify-center pb-8'>
           <div className=" px-4 flex justify-center items-center w-[80%] lg:w-[45%] rounded-full" style={{ height: '5rem' }}>
-
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ const DashboardComp = ({
   thirdImage3,
   currentContent,
 }) => {
- 
+
   return (
     <>
       <div className="h-full bg-pinkbackground py-16 pt-7 pr-0 lg:pr-14 bg-orangelinewithicons bg-cover bgimage container mx-auto ">
@@ -25,16 +25,17 @@ const DashboardComp = ({
                       ? `${Helpers.basePath}${thirdImage1}`
                       : "/assets/dashboard 1.png"
                   }
+
                   alt="dashboard one"
                   className="w-[70] h-auto lg:ml-[5rem] sm:ml-0 z-10"
                 />
               </div>
               <div className="w-full md:w-1/2 lg:pl-20 sm:pl-0 lg:pb-32 pb-0 text-center lg:text-left ">
                 <h2 className="text-text font-bold lg:text-3xl text-2xl pt-10 lg:pt-0">
-                    {currentContent[`third-1`] || 'Reclaim Countless hours with efficient time tracking.'}
+                  {currentContent[`third-1`] || 'Reclaim Countless hours with efficient time tracking.'}
                 </h2>
                 <p className="text-gray-400 pt-6">
-                    {currentContent[`third-2`] || "Clockin's intuitive UI and user-centric time tracking enabled companies to slash timesheet admin by 80%."}
+                  {currentContent[`third-2`] || "Clockin's intuitive UI and user-centric time tracking enabled companies to slash timesheet admin by 80%."}
                 </p>
               </div>
             </div>
@@ -47,10 +48,10 @@ const DashboardComp = ({
           <div className="flex flex-wrap justify-between items-center px-4  lg:mt-[5rem] mt-[0.5rem] ">
             <div className="w-full md:w-1/2 lg:pl-[5rem] sm:pl-0 lg:order-1 order-2 text-center lg:text-left">
               <h2 className="text-text font-bold text-2xl lg:text-3xl pt-10 lg:pt-0">
-                  {currentContent[`fourth-1`] || 'Efficiently oversee your list of employees.'}
+                {currentContent[`fourth-1`] || 'Efficiently oversee your list of employees.'}
               </h2>
               <p className="text-gray-400 pt-6">
-                  {currentContent[`fourth-2`] || 'Simplify employee management: track attendance, tasks, and schdeules seamlessly.'}
+                {currentContent[`fourth-2`] || 'Simplify employee management: track attendance, tasks, and schdeules seamlessly.'}
               </p>
             </div>
             <div className="w-full md:w-1/2 lg:pl-20 sm:pl-0 lg:pb-32 pb-0  lg:order-2 order-1">
@@ -84,14 +85,14 @@ const DashboardComp = ({
                 {currentContent[`fifth-1`] || 'Efficiently Task Handling'}
               </h2>
               <p className="text-gray-400 pt-6">
-                  {currentContent[`fifth-2`] || 'Experience seamless task management that enhances productivity. Our platform empowers you to effortlessly create, assign, and track tasks, ensuring efficient collaboration and goal achievement.'}
+                {currentContent[`fifth-2`] || 'Experience seamless task management that enhances productivity. Our platform empowers you to effortlessly create, assign, and track tasks, ensuring efficient collaboration and goal achievement.'}
               </p>
             </div>
           </div>
         </AnimatedText>
         <AnimatedText>
           <div className="w-full h-auto ">
-          
+
             <div
               className="relative bg-cover bg-center backimage lg:mt-40 mt-10 lg:ml-16 ml-4 mr-4 lg:py-28 py-14 lg:px-16 px-4 mx-2 lg:m-0"
               style={{ borderRadius: "35px" }}

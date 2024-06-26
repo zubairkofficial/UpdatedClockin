@@ -5,17 +5,42 @@ import Header from '../../layouts/Header';
 import { ThemeContext } from '../../layouts/ThemeContext';
 import Footer from '../../layouts/Footer';
 import AnimatedText from '../../layouts/AnimatedText';
+import axios from 'axios';
+import Helpers from '../../Config/Helpers';
 
 const SearchBar = () => {
+  const [currentContent, setCurrentContent] = useState({
+    "faq-1": "",
+});
   useEffect(() => {
     document.title = "FAQs | ClockIn"
-  })
+    fetchContent()
+  },[])
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleSearch = () => {
     // searchQuery.filter('edit')
     console.log(`Searching for: ${searchQuery}`);
   };
+  const fetchContent = async () => {
+    try {
+        const response = await axios.get(`${Helpers.apiUrl}content/show`);
+        const fetchedContent = {};
+        const sections = [
+            "faq-1",
+        ];
+        sections.forEach(section => {
+            const content = response.data.data.find(item => item.section === section);
+            if (content) {
+                fetchedContent[section] = content.content;
+            }
+        });
+        console.log("coi", fetchedContent);
+        setCurrentContent(fetchedContent);
+    } catch (error) {
+        console.log("Error in fetching data", error);
+    }
+};
 
   const handleInputChange = (event) => {
     setSearchQuery(event.target.value);
@@ -34,7 +59,7 @@ const SearchBar = () => {
         <Header />
         <div className='py-5 mt-10'>
           {/* <AnimatedText>   */}
-          <h2 className='text-text font-semibold text-3xl pt-8 text-center'>How Can We Help You?</h2>
+          <h2 className='text-text font-semibold text-3xl pt-8 text-center'>{currentContent['faq-1'] || "How Can We Help You?"}</h2>
           {/* </AnimatedText>  */}
         </div>
         {/* seacrh input field */}

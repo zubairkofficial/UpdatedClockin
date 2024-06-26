@@ -4,6 +4,7 @@ import axios from 'axios';
 import Sidebar from '../../Components/Sidebar';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import DownloadPageHeading from './DownloadPageHeading';
 function DownloadPageContent() {
     const [download, setdownload] = useState([]);
     const [loading, setLoading] = useState(false)
@@ -73,7 +74,7 @@ function DownloadPageContent() {
         data.append('heading', formData.heading);
         data.append('subheading', formData.subheading);
         formData.version.forEach((item,index)=> {
-            data.append(`version[${index}][name]`,item.name);
+            data.append(`version[${index}][name]`,item.name)
             if(item.file){
                 data.append(`version[${index}][file]`,item.file)
             }
@@ -306,6 +307,7 @@ function DownloadPageContent() {
                         </div>
                     </div>
                 )}
+                <DownloadPageHeading/>
             </div>
         </div>
     )
