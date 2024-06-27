@@ -164,7 +164,7 @@ function NewsPageSection() {
                 <span className="card-label fw-bold fs-3 mb-1">Application news</span>
               </h3>
               <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a News">
-                <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => { setListSection(false); setUpdateMode(false); resetForm() }}>
+                <button className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => { setListSection(false); setUpdateMode(false); resetForm() }} style={{color:"white"}} >
                   <i className="fa-light fa-plus"></i> New news
                 </button>
               </div>
@@ -232,13 +232,13 @@ function NewsPageSection() {
             </div>
           </div>
         ) : (
-          <div className="card mb-5 mb-xl-8 bg-slate-200">
+          <div className="card mb-5 mb-xl-8 bg-slate-200" style={{marginTop:"-4%" }}>
             <div className="card-header border-0 pt-5">
               <h3 className="card-title align-items-start flex-column">
                 <span className="card-label fw-bold fs-3 mb-1">{updateMode ? 'Update News' : 'Add New News'}</span>
               </h3>
               <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to go back">
-                <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => setListSection(true)}>
+                <button className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => setListSection(true)} style={{color:"white"}} >
                   <i className="fa fa-arrow-left"></i> Back
                 </button>
               </div>
@@ -290,7 +290,7 @@ function NewsPageSection() {
                     type="file"
                     className="form-control"
                     id="image"
-                    name="image"
+                    name="image" 
                     onChange={handleImageChange}
                     required={!updateMode} // Make it required only in add mode
                   />
@@ -305,7 +305,7 @@ function NewsPageSection() {
                     </div>
                   )}
                 </div>
-                <button type="submit" className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300">Submit</button>
+                <button type="submit" className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" style={{color:"white"}} >Submit</button>
               </form>
             </div>
           </div>

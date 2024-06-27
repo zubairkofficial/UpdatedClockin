@@ -162,7 +162,7 @@ function FAQSection() {
                 <span className="card-label fw-bold fs-3 mb-1">Application faqs</span>
               </h3>
               <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a faq">
-                <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => { setListSection(false); setUpdateMode(false); resetForm() }}>
+                <button className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => { setListSection(false); setUpdateMode(false); resetForm() }} style={{color:"white"}} >
                   <i className="fa-light fa-plus"></i> New FAQS
                 </button>
               </div>
@@ -218,6 +218,7 @@ function FAQSection() {
                 </table>
               </div>
             </div>
+            <FAQHeading/>
           </div>
         ) : (
           <div className="card mb-5 mb-xl-8 bg-slate-200" style={{ marginTop: "-4%" }}>
@@ -226,7 +227,7 @@ function FAQSection() {
                 <span className="card-label fw-bold fs-3 mb-1">{updateMode ? 'Update FAQ' : 'Add New FAQ'}</span>
               </h3>
               <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to go back">
-                <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => setListSection(true)}>
+                <button className="bg-[#FF7A50] hover:bg-hover font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => setListSection(true)} style={{color:"white"}} >
                   <i className="fa fa-arrow-left"></i> Back
                 </button>
               </div>
@@ -280,14 +281,13 @@ function FAQSection() {
                     </div>
                   )}
                 </div>
-                <button type="submit" className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300">Submit</button>
+                <button type="submit" className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" style={{color:"white"}} >Submit</button>
               </form>
             </div>
           </div>
         )}
         </div>
       )}
-      <FAQHeading/>
       </div>
     </div>
   )

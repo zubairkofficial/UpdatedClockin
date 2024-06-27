@@ -149,7 +149,7 @@ function FooterSection() {
                                 <span className="card-label fw-bold fs-3 mb-1">Footer</span>
                             </h3>
                             <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a Footer">
-                                <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => { resetForm(); setListSection(false); }}>
+                                <button className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" style={{color:"white"}}  onClick={() => { resetForm(); setListSection(false); }}>
                                     <i className="fa-light fa-plus"></i> New Footer
                                 </button>
                             </div>
@@ -200,7 +200,7 @@ function FooterSection() {
                                 <span className="card-label fw-bold fs-3 mb-1">{isEditing ? 'Update Footer' : 'Add New Footer'}</span>
                             </h3>
                             <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to go back">
-                                <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => setListSection(true)}>
+                                <button className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" style={{color:"white"}}  onClick={() => setListSection(true)}>
                                     <i className="fa fa-arrow-left"></i> Back
                                 </button>
                             </div>
@@ -242,7 +242,8 @@ function FooterSection() {
                                             <button
                                                 type="button"
                                                 onClick={() => removeFeature(index)}
-                                                className="bg-orange-500 text-white p-2 rounded"
+                                                className="bg-orange-500  p-2 rounded"
+                                                style={{color:"white"}} 
                                             >
                                                 Remove
                                             </button>
@@ -251,12 +252,13 @@ function FooterSection() {
                                     <button
                                         type="button"
                                         onClick={addFeature}
-                                        className="bg-orange-500 text-white p-2 rounded"
+                                        className="bg-orange-500  p-2 rounded"
+                                        style={{color:"white"}} 
                                     >
                                         Add Submenu
                                     </button>
                                 </div>
-                                <button type="submit" className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300">{isEditing ? 'Update Footer' : 'Add Footer'}</button>
+                                <button type="submit" className="bg-[#FF7A50] hover:bg-hover  font-bold py-2 px-6 rounded-xl transition duration-300" style={{color:"white"}} >{isEditing ? 'Update Footer' : 'Add Footer'}</button>
                             </form>
                         </div>
                     </div>

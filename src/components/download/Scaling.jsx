@@ -9,9 +9,11 @@ import { ThemeContext } from '../../layouts/ThemeContext';
 import AnimatedText from '../../layouts/AnimatedText'
 import axios from 'axios'
 import Helpers from '../../Config/Helpers'
+import Loader from '../../layouts/Loader'
 
 const Scaling = () => {
     const { isLightMode } = useContext(ThemeContext);
+    const [loading, setLoading] = useState(true);
     const [currentImages, setCurrentImages] = useState({ 'download-1': '', 'download-2': '' });
     const [currentContent, setCurrentContent] = useState({
         "plan-1": "",
@@ -57,13 +59,25 @@ const Scaling = () => {
           console.log("Error in fetching data", error);
         }
       };
-    useEffect(() => {
-        fetchContent();
-        fetchImages();
-        document.title = "Donwload | ClockIn"
-    }, [isLightMode]);
+      useEffect(() => {
+        const fetchData = async () => {
+          await Promise.all([fetchContent(), fetchImages()]);
+          setLoading(false);
+        };
+        fetchData();
+        document.title = "Download | ClockIn";
+      }, [isLightMode]);
+    // useEffect(() => {
+    //     fetchContent();
+    //     fetchImages();
+    //     document.title = "Donwload | ClockIn"
+    // }, [isLightMode]);
     return (
         <>
+        {loading ? (
+            <Loader/>
+        ): (
+           <div>
             <div className='bg-footerBg bg-cover bg-center bg-no-repeat h-auto w-full ' style={{ backgroundImage: `url(${isLightMode ? 'assets/bg1.png' : 'assets/bg2.png'})` }}>
                 <Header />
                 <AnimatedText>
@@ -119,7 +133,9 @@ const Scaling = () => {
             <div className=''>
                 <Plan className='hidden lg:block' currentContent={currentContent} />
                 <Footer />
+            </div> 
             </div>
+        )}
         </>
     )
 }

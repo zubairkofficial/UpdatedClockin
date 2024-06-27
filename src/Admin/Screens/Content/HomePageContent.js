@@ -110,8 +110,9 @@ function HomePageContent() {
                   "Here's the app for you"}
               </p>
               <button
-                className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
+                className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
                 onClick={() => openModal(`hero-${id}`)}
+                style={{color:"white"}} 
               >
                 Edit
               </button>
@@ -127,8 +128,9 @@ function HomePageContent() {
                   "Track Time, Maximize Productivity"}
               </h1>
               <button
-                className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
+                className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
                 onClick={() => openModal(`hero-${id}`)}
+                style={{color:"white"}} 
               >
                 Edit
               </button>
@@ -145,8 +147,9 @@ function HomePageContent() {
                 {currentContent[`hero-${id}`] || "Try it free"}
               </p>
               <button
-                className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
+                className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
                 onClick={() => openModal(`hero-${id}`)}
+                style={{color:"white"}} 
               >
                 Edit
               </button>
@@ -162,8 +165,9 @@ function HomePageContent() {
                 {currentContent[`hero-${id}`] || "Show me the demo"}
               </p>
               <button
-                className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
+                className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
                 onClick={() => openModal(`hero-${id}`)}
+                style={{color:"white"}} 
               >
                 Edit
               </button>

@@ -8,16 +8,8 @@ import AnimatedText from '../../layouts/AnimatedText';
 import axios from 'axios';
 import Helpers from '../../Config/Helpers';
 
-function Cards() {
-    const [news, setNews] = useState([])
-    const getNews = async () => {
-        const response = await axios.get(`${Helpers.apiUrl}news/show`);
-        setNews(response.data.data)
-    }
-    useEffect(() => {
-        getNews()
-    }, [])
-    const chunkedNews = Helpers.chunkArray(news, 4);
+function Cards({chunkedNews}) {
+    
     const truncateText = (text, wordLimit) => {
         return text.split(' ').slice(0, wordLimit).join(' ') + '...';
     };

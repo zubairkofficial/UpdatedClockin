@@ -14,13 +14,15 @@ function EditModal({ isOpen, onClose, section, content, handleChange, handleSubm
                 />
                 <div className="mt-4 flex justify-end space-x-2">
                     <button
-                        className="bg-gray-500 text-white py-2 px-4 rounded"
+                        className="bg-gray-500  py-2 px-4 rounded"
+                        style={{color:"white"}} 
                         onClick={onClose}
                     >
                         Cancel
                     </button>
                     <button
-                        className="bg-[#FF7A50] text-white py-2 px-4 rounded"
+                        className="bg-[#FF7A50]  py-2 px-4 rounded"
+                        style={{color:"white"}} 
                         onClick={() => handleSubmit(content, section)}
                     >
                         Save

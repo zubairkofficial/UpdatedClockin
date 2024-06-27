@@ -14,8 +14,9 @@ function FifthSectionContent({currentContent , defaultContent,openModal}) {
                                {currentContent[`fifth-${id}`] || "Efficiently Task Handling" }
                             </h1>
                             <button
-                                className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
+                                className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
                                 onClick={() => openModal(`fifth-${id}`)}
+                                style={{color:"white"}} 
                             >
                                 Edit
                             </button>
@@ -30,8 +31,9 @@ function FifthSectionContent({currentContent , defaultContent,openModal}) {
                                {currentContent[`fifth-${id}`] || "Experience seamless task management that enhances productivity. Our platform empowers you to effortlessly create, assign, and track tasks, ensuring efficient collaboration and goal achievement." }
                             </p>
                             <button
-                                className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
+                                className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
                                 onClick={() => openModal(`fifth-${id}`)}
+                                style={{color:"white"}} 
                             >
                                 Edit
                             </button>

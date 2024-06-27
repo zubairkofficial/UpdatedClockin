@@ -14,8 +14,9 @@ function FeatureSectionContent({currentContent ,openModal}) {
                                {currentContent[`feature-${id}`] || "Our Application Features" }
                             </h1>
                             <button
-                                className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
+                                className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
                                 onClick={() => openModal(`feature-${id}`)}
+                                style={{color:"white"}} 
                             >
                                 Edit
                             </button>

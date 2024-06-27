@@ -27,7 +27,7 @@ function Sidebar() {
             <img
               alt="Logo"
               src="/assets/logo.png"
-              class="h-35px app-sidebar-logo-default"
+              class="h-51px app-sidebar-logo-default"
               style={{ marginTop: "7%" }}
             />
 

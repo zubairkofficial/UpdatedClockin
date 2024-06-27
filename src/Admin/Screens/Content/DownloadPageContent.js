@@ -168,13 +168,14 @@ function DownloadPageContent() {
             <div id="kt_app_wrapper" className="app-wrapper flex-column flex-row-fluid">
                 <Sidebar />
                 {listSection ? (
+                    <div>
                     <div className="card mb-5 mb-xl-8 bg-slate-200" style={{ marginTop: "-4%" }}>
                         <div className="card-header border-0 pt-5">
                             <h3 className="card-title align-items-start flex-column">
                                 <span className="card-label fw-bold fs-3 mb-1">Download Page Content</span>
                             </h3>
                             <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a download">
-                                <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => { resetForm(); setListSection(false); }}>
+                                <button className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" style={{color:"white"}}  onClick={() => { resetForm(); setListSection(false); }}>
                                     <i className="fa-light fa-plus"></i> New download
                                 </button>
                             </div>
@@ -220,14 +221,17 @@ function DownloadPageContent() {
                             </div>
                         </div>
                     </div>
+                    <DownloadPageHeading/>
+                    </div>
                 ) : (
+                    <div>
                     <div className="card mb-5 mb-xl-8 bg-slate-200" style={{ marginTop: "-4%" }}>
                         <div className="card-header border-0 pt-5">
                             <h3 className="card-title align-items-start flex-column">
                                 <span className="card-label fw-bold fs-3 mb-1">{isEditing ? 'Update download' : 'Add New download'}</span>
                             </h3>
                             <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to go back">
-                                <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => setListSection(true)}>
+                                <button className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" style={{color:"white"}}  onClick={() => setListSection(true)}>
                                     <i className="fa fa-arrow-left"></i> Back
                                 </button>
                             </div>
@@ -288,7 +292,8 @@ function DownloadPageContent() {
                                             <button
                                                 type="button"
                                                 onClick={() => removeFeature(index)}
-                                                className="bg-orange-500 text-white p-2 rounded"
+                                                className="bg-orange-500  p-2 rounded"
+                                                style={{color:"white"}} 
                                             >
                                                 Remove
                                             </button>
@@ -297,17 +302,19 @@ function DownloadPageContent() {
                                     <button
                                         type="button"
                                         onClick={addFeature}
-                                        className="bg-orange-500 text-white p-2 rounded"
+                                        className="bg-orange-500  p-2 rounded"
+                                        style={{color:"white"}} 
                                     >
                                         Add Submenu
                                     </button>
                                 </div>
-                                <button type="submit" className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300"> {loading ? 'Please wait...' : (isEditing ? 'Update download' : 'Add download')}</button>
+                                <button type="submit" className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" style={{color:"white"}} > {loading ? 'Please wait...' : (isEditing ? 'Update download' : 'Add download')}</button>
                             </form>
                         </div>
                     </div>
+                
+                </div>
                 )}
-                <DownloadPageHeading/>
             </div>
         </div>
     )

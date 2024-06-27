@@ -14,8 +14,9 @@ function SixthPageContent({ currentContent, defaultContent, openModal }) {
                                 {currentContent[`sixth-${id}`] || "Try Clockin today!"}
                             </h1>
                             <button
-                                className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
+                                className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
                                 onClick={() => openModal(`sixth-${id}`)}
+                                style={{color:"white"}} 
                             >
                                 Edit
                             </button>
@@ -30,8 +31,9 @@ function SixthPageContent({ currentContent, defaultContent, openModal }) {
                                 {currentContent[`sixth-${id}`] || "Uncover Your Productivity Potential with Discover Time Tracking Software."}
                             </p>
                             <button
-                                className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
+                                className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
                                 onClick={() => openModal(`sixth-${id}`)}
+                                style={{color:"white"}} 
                             >
                                 Edit
                             </button>

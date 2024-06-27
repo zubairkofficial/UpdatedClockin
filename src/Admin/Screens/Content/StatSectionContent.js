@@ -107,13 +107,13 @@ function StatSectionContent() {
         <div id="kt_app_wrapper" className="app-wrapper flex-column flex-row-fluid">
             <Sidebar />
             {listSection ? (
-                <div className="card mb-5 mb-xl-8 bg-slate-200" style={{marginTop:"-4%" }}>
+                <div className="card mb-5 mb-xl-8 bg-slate-200" style={{ marginTop: "-4%" }}>
                     <div className="card-header border-0 pt-5">
                         <h3 className="card-title align-items-start flex-column">
                             <span className="card-label fw-bold fs-3 mb-1">Stat</span>
                         </h3>
                         <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a stat">
-                            <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => { resetForm(); setListSection(false); }}>
+                            <button className="bg-[#FF7A50] hover:bg-hover dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" style={{color:"white"}}  onClick={() => { resetForm(); setListSection(false); }}>
                                 <i className="fa-light fa-plus"></i> New Stat
                             </button>
                         </div>
@@ -123,7 +123,7 @@ function StatSectionContent() {
                             <table className="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
                                 <thead>
                                     <tr className="fw-bold text-muted">
-                                    <th className="min-w-10px">#</th>
+                                        <th className="min-w-10px">#</th>
                                         <th className="min-w-150px">Total Task</th>
                                         <th className="min-w-150px">Completed Task</th>
                                         <th className="min-w-150px">Remaining Task</th>
@@ -132,9 +132,9 @@ function StatSectionContent() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {stat.map((stat,index) => (
+                                    {stat.map((stat, index) => (
                                         <tr key={stat.id}>
-                                        <td>{index+1}</td>
+                                            <td>{index + 1}</td>
                                             <td>{stat.total_task}</td>
                                             <td>{stat.task_completed}</td>
                                             <td>{stat.remaining_task}</td>
@@ -158,7 +158,7 @@ function StatSectionContent() {
                             <span className="card-label fw-bold fs-3 mb-1">{isEditing ? 'Update Stat' : 'Add New Stat'}</span>
                         </h3>
                         <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to go back">
-                            <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => setListSection(true)}>
+                            <button className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => setListSection(true)} style={{color:"white"}} >
                                 <i className="fa fa-arrow-left"></i> Back
                             </button>
                         </div>
@@ -240,7 +240,8 @@ function StatSectionContent() {
                                         <button
                                             type="button"
                                             onClick={() => removeFeature(index)}
-                                            className="bg-red-500 text-white p-2 rounded"
+                                            className="bg-orange-500  p-2 rounded"
+                                            style={{color:"white"}} 
                                         >
                                             Remove
                                         </button>
@@ -249,12 +250,13 @@ function StatSectionContent() {
                                 <button
                                     type="button"
                                     onClick={addFeature}
-                                    className="bg-blue-500 text-white p-2 rounded"
+                                    className="bg-orange-500  p-2 rounded"
+                                    style={{color:"white"}} 
                                 >
                                     Add Submenu
                                 </button>
                             </div>
-                            <button type="submit" className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300">{isEditing ? 'Update Stat' : 'Add Stat'}</button>
+                            <button type="submit" className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" style={{color:"white"}} >{isEditing ? 'Update Stat' : 'Add Stat'}</button>
                         </form>
                     </div>
                 </div>

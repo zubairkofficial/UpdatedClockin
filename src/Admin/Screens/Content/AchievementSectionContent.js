@@ -14,8 +14,9 @@ function AchievementSectionContent({ currentContent, defaultContent, openModal }
                                 {currentContent[`achievement-${id}`] || "Our Achievements From Clients"}
                             </h1>
                             <button
-                                className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
+                                className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
                                 onClick={() => openModal(`achievement-${id}`)}
+                                style={{color:"white"}} 
                             >
                                 Edit
                             </button>
@@ -30,8 +31,9 @@ function AchievementSectionContent({ currentContent, defaultContent, openModal }
                                 {currentContent[`achievement-${id}`] || "Optimized productivity, streamlined tasks and improved efficiency with our innovative time tracker software."}
                             </p>
                             <button
-                                className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
+                                className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
                                 onClick={() => openModal(`achievement-${id}`)}
+                                style={{color:"white"}} 
                             >
                                 Edit
                             </button>

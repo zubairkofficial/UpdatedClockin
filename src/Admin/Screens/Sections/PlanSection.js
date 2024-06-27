@@ -170,7 +170,7 @@ const PlanSection = () => {
                                     <h3 className="card-title align-items-start flex-column">
                                         <span className="card-label fw-bold fs-3 mb-1">Plans</span>
                                     </h3>
-                                    <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a Plan">
+                                    <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a Plan" style={{color:"white"}} >
                                         <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => { resetForm(); setListSection(false); }}>
                                             <i className="fa-light fa-plus"></i> New Plan
                                         </button>
@@ -224,12 +224,12 @@ const PlanSection = () => {
                                 </div>
                             </div>
                         ) : (
-                            <div className="card mb-5 mb-xl-8 bg-slate-200">
+                            <div className="card mb-5 mb-xl-8 bg-slate-200" style={{marginTop:"-4%" }}>
                                 <div className="card-header border-0 pt-5">
                                     <h3 className="card-title align-items-start flex-column">
                                         <span className="card-label fw-bold fs-3 mb-1">{isEditing ? 'Update Plan' : 'Add New Plan'}</span>
                                     </h3>
-                                    <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to go back">
+                                    <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to go back" style={{color:"white"}} >
                                         <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => setListSection(true)}>
                                             <i className="fa fa-arrow-left"></i> Back
                                         </button>
@@ -336,7 +336,8 @@ const PlanSection = () => {
                                                     <button
                                                         type="button"
                                                         onClick={() => removeFeature(index)}
-                                                        className="bg-orange-500 text-white p-2 rounded"
+                                                        className="bg-orange-500  p-2 rounded"
+                                                        style={{color:"white"}} 
                                                     >
                                                         Remove
                                                     </button>
@@ -345,7 +346,8 @@ const PlanSection = () => {
                                             <button
                                                 type="button"
                                                 onClick={addFeature}
-                                                className="bg-orange-500 text-white p-2 rounded"
+                                                className="bg-orange-500  p-2 rounded"
+                                                style={{color:"white"}} 
                                             >
                                                 Add Feature
                                             </button>
@@ -354,14 +356,14 @@ const PlanSection = () => {
                                             <label htmlFor="offline_mode" className="form-label mr-5">Offline Mode</label>
                                             <input
                                                 className='pl-5'
-                                                type="checkbox"
+                                                type="checkbox" 
                                                 id="offline_mode"
                                                 name="offline_mode"
                                                 checked={formData.offline_mode}
                                                 onChange={handleChange}
                                             />
                                         </div>
-                                        <button type="submit" className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300">{isEditing ? 'Update Plan' : 'Add Plan'}</button>
+                                        <button type="submit" className="bg-[#FF7A50] hover:bg-hover font-bold py-2 px-6 rounded-xl transition duration-300" style={{color:"white"}} >{isEditing ? 'Update Plan' : 'Add Plan'}</button>
                                     </form>
                                 </div>
                             </div>

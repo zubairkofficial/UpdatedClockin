@@ -173,7 +173,7 @@ function AchievementSection() {
                             <h3 className="card-title align-items-start flex-column">
                                 <span className="card-label fw-bold fs-3 mb-1">Our Achievements</span>
                             </h3>
-                            <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a Achievements">
+                            <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a Achievements" style={{color:"white"}} >
                                 <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => { setListSection(false); setUpdateMode(false); resetForm() }}>
                                     <i className="fa-light fa-plus"></i> New Achievements
                                 </button>
@@ -239,7 +239,7 @@ function AchievementSection() {
                             <h3 className="card-title align-items-start flex-column">
                                 <span className="card-label fw-bold fs-3 mb-1">{updateMode ? 'Update Achievement' : 'Add New Achievement'}</span>
                             </h3>
-                            <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to go back">
+                            <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to go back" style={{color:"white"}} >
                                 <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => setListSection(true)}>
                                     <i className="fa fa-arrow-left"></i> Back
                                 </button>
@@ -315,7 +315,7 @@ function AchievementSection() {
                                         </div>
                                     )}
                                 </div>
-                                <button type="submit" className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300">Submit</button>
+                                <button type="submit" className="bg-[#FF7A50] hover:bg-hover font-bold py-2 px-6 rounded-xl transition duration-300" style={{color:"white"}} >Submit</button>
                             </form>
                         </div>
                     </div>
