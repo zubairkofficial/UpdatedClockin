@@ -47,7 +47,7 @@ const HomeScreen = () => {
             const imageUrl = response.data.image_url;
             setCurrentImages(prev => ({ ...prev, [`${section}-${id}`]: imageUrl }));
             setIsLoading(false)
-            console.log("iamg",response)
+            // console.log("iamg",response)
         } catch (error) {
             setIsLoading(false)
             console.log('error in fetching data');
@@ -77,7 +77,7 @@ const HomeScreen = () => {
             response.data.images.forEach(image => {
                 newImages[image.section] = image.image_url;
             });
-            console.log("imageres", response.data.images);
+            // console.log("imageres", response.data.images);
             setCurrentImages(newImages);
         } catch (error) {
             console.error("Error in fetching images", error);

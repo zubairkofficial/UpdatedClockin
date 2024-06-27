@@ -16,7 +16,7 @@ const PlanCard = ({ isSubscription }) => {
   const fetchPlans = async () => {
     const response = await axios.get(`${Helpers.apiUrl}plans/show`)
     setPlans(response.data.data)
-    console.log('plans', response)
+    // console.log('plans', response)
   }
   useEffect(() => {
     fetchPlans()

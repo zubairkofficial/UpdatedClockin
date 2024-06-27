@@ -30,7 +30,7 @@ const Stats = () => {
     const getstat = async () => {
         const response = await axios.get(`${Helpers.apiUrl}stat/show`);
         setStat(response.data.data);
-        console.log("stat", response);
+        // console.log("stat", response);
     };
     useEffect(() => {
         getstat();

@@ -23,7 +23,7 @@ const AskQuestionForm = () => {
         headers: { 'content-Type': 'multipart/form-data' }
       })
       Helpers.toast("success", response.data.success)
-      console.log("success", response.data.success)
+      // console.log("success", response.data.success)
       resetForm()
     } catch (error) {
       console.log('Error saving data', error)

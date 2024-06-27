@@ -51,7 +51,7 @@ function DownloadScreen() {
             response.data.images.forEach(image => {
                 newImages[image.section] = image.image_url;
             });
-            console.log("imageres", response.data.images);
+            // console.log("imageres", response.data.images);
             setCurrentImages(newImages);
         } catch (error) {
             console.error("Error in fetching images", error);

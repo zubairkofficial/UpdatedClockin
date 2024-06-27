@@ -53,7 +53,7 @@ const HomePage = ({ background, heading, subheading }) => {
         response.data.images.forEach(image => {
             newImages[image.section] = image.image_url;
         });
-        console.log("imageres", response.data.images);
+        // console.log("imageres", response.data.images);
         setCurrentImages(newImages);
     } catch (error) {
         console.error("Error in fetching images", error);
@@ -77,7 +77,7 @@ const HomePage = ({ background, heading, subheading }) => {
           fetchedContent[section] = content.content;
         }
       });
-      console.log("coi", fetchedContent);
+      // console.log("coi", fetchedContent);
       setCurrentContent(fetchedContent);
     } catch (error) {
       console.log("Error in fetching data", error);
@@ -87,7 +87,7 @@ const HomePage = ({ background, heading, subheading }) => {
   const getFeatures = async () => {
     try {
       const response = await axios.get(`${Helpers.apiUrl}getfeature`);
-      console.log('feature', response);
+      // console.log('feature', response);
       setFeatures(response.data.data);
       setLoading(false)
     } catch (error) {

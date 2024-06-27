@@ -15,7 +15,7 @@ const Footer = () => {
     try {
       const response = await axios.get(`${Helpers.apiUrl}footer/show`);
       setFooter(response.data.data);
-      console.log(response.data.data)
+      // console.log(response.data.data)
     } catch (error) {
       console.error('Error fetching footer', error);
     }
@@ -23,25 +23,25 @@ const Footer = () => {
 
   const fetchImage = async () => {
     const sections = [
-        { section: "footer", id: "1" },
-        { section: "footer", id: "2" },
+      { section: "footer", id: "1" },
+      { section: "footer", id: "2" },
     ];
     const mode = isLightMode ? "dark" : "light";
     try {
-        const response = await axios.post(`${Helpers.apiUrl}get-image`, {
-            sections: sections.map(s => `${s.section}-${s.id}`),
-            mode
-        });
-        const newImages = {};
-        response.data.images.forEach(image => {
-            newImages[image.section] = image.image_url;
-        });
-        console.log("imageres", response.data.images);
-        setCurrentImages(newImages);
+      const response = await axios.post(`${Helpers.apiUrl}get-image`, {
+        sections: sections.map(s => `${s.section}-${s.id}`),
+        mode
+      });
+      const newImages = {};
+      response.data.images.forEach(image => {
+        newImages[image.section] = image.image_url;
+      });
+      // console.log("imageres", response.data.images);
+      setCurrentImages(newImages);
     } catch (error) {
-        console.error("Error in fetching images", error);
+      console.error("Error in fetching images", error);
     }
-};
+  };
 
 
   useEffect(() => {
@@ -106,21 +106,21 @@ const Footer = () => {
           {/* Mobile view dropdowns */}
 
           <div className="mt-6">
-          {footer.map((footerItem, idx) => (
-            <div key={idx}>
-              <button onClick={() => toggleDropdown(idx)} className="w-full text-left py-3 font-bold text-[#FF7A50] flex justify-between">
-                {footerItem.menu} <i className="fa-regular fa-chevron-down text-[#696969]"></i>
-              </button>
-              {openDropdown === idx && (
-                JSON.parse(footerItem.submenu).map((item, index) => (
-                  <div className="pl-4" key={index}>
-                    <h3 className="text-[#ADB1B1]">{item.name}</h3>
-                  </div>
-                ))
-              )}
-            </div>
-          ))}
-        </div>
+            {footer.map((footerItem, idx) => (
+              <div key={idx}>
+                <button onClick={() => toggleDropdown(idx)} className="w-full text-left py-3 font-bold text-[#FF7A50] flex justify-between">
+                  {footerItem.menu} <i className="fa-regular fa-chevron-down text-[#696969]"></i>
+                </button>
+                {openDropdown === idx && (
+                  JSON.parse(footerItem.submenu).map((item, index) => (
+                    <div className="pl-4" key={index}>
+                      <h3 className="text-[#ADB1B1]">{item.name}</h3>
+                    </div>
+                  ))
+                )}
+              </div>
+            ))}
+          </div>
         </div>
         <hr className="w-full border-t-1 border-[#4747476b] mt-20" />
         <br />

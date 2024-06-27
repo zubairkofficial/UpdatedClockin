@@ -51,7 +51,7 @@ const Scaling = () => {
               fetchedContent[section] = content.content;
             }
           });
-          console.log("coi", fetchedContent);
+        //   console.log("coi", fetchedContent);
           setCurrentContent(fetchedContent);
         } catch (error) {
           console.log("Error in fetching data", error);

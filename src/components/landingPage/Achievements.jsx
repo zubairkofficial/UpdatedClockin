@@ -9,7 +9,7 @@ const App = ({currentContent}) => {
     try {
       const response = await axios.get(`${Helpers.apiUrl}achievements/show`);
       setAchievement(response.data.data);
-      console.log('ache', response);
+      // console.log('ache', response);
     } catch (error) {
       console.log("error in fetching data", error);
     }
