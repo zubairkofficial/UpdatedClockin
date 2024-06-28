@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 /* theme.css */
 /* :root {
   --background-color: #ffffff;
@@ -20,20 +20,20 @@
 } */
 :root {
   --background-color: #222626;
-  --pinkbackground-color: #2C3131;
-  --inputcolor-color : #464B4B;
-  --lightpink-color : #222626;
-  --imagebgcolor-color : #464B4B;
-  --subsbgcolor-color : #1A1C1C;
-  --faqmainbg-color : #222626;
-  --substextcolor : #FF7A50;
-  --secondsubsbgcolor-color : #464B4B;
-  --secondsubstextcolor-color : #5A5C5E;
+  --pinkbackground-color: #2c3131;
+  --inputcolor-color: #464b4b;
+  --lightpink-color: #222626;
+  --imagebgcolor-color: #464b4b;
+  --subsbgcolor-color: #1a1c1c;
+  --faqmainbg-color: #222626;
+  --substextcolor: #ff7a50;
+  --secondsubsbgcolor-color: #464b4b;
+  --secondsubstextcolor-color: #5a5c5e;
   --text-color: #ffffff;
-  --primary-color: #FF7A50;
-  --faqbg-color: #2C3131;
-  --secondary-color: #464B4B;
-  --hover-color: #FF4500;
+  --primary-color: #ff7a50;
+  --faqbg-color: #2c3131;
+  --secondary-color: #464b4b;
+  --hover-color: #ff4500;
   /* Add other variables as needed */
 }
 .menu-link.active {
@@ -46,19 +46,19 @@
 
 [data-theme="dark"] {
   --background-color: #ffffff;
-  --pinkbackground-color: #FFF5F1;
-  --inputcolor-color : #EAEAEA;
-  --lightpink-color : #FFF9F8;
-  --imagebgcolor-color : #F8F5F4;
+  --pinkbackground-color: #fff5f1;
+  --inputcolor-color: #eaeaea;
+  --lightpink-color: #fff9f8;
+  --imagebgcolor-color: #f8f5f4;
   --text-color: #000000;
-  --primary-color: #FF7A50;
-  --faqbg-color: #FFF9F8;
-  --secondary-color: #464B4B;
+  --primary-color: #ff7a50;
+  --faqbg-color: #fff9f8;
+  --secondary-color: #464b4b;
   --hover-color: #orange-700;
-  --subsbgcolor-color : #FF8B42;
-  --substextcolor : #fff8f6;
-  --secondsubsbgcolor-color : #EAEAEA;
-  --secondsubstextcolor-color : #5A5C5E;
+  --subsbgcolor-color: #ff8b42;
+  --substextcolor: #fff8f6;
+  --secondsubsbgcolor-color: #eaeaea;
+  --secondsubstextcolor-color: #5a5c5e;
   /* Add other variables as needed */
 }
 body {
@@ -77,17 +77,17 @@ body {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
-*{
+* {
   font-family: "Montserrat", sans-serif;
   transition: 0.1s;
 }
-.backimage{
-  background: url('/public/assets/org.png');
+.backimage {
+  background: url("/public/assets/org.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
-.bg-orangelinewithicons{
+.bg-orangelinewithicons {
   background-size: 60%;
   background-repeat: no-repeat;
   background-position: 40% top;
@@ -102,13 +102,13 @@ body {
 
 .carousel-card {
   flex: 0 0 auto;
-  width: 300px;  
+  width: 300px;
   scroll-snap-align: start;
-  background: #2C3131;
+  background: #2c3131;
   color: white;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .controls button {
@@ -147,7 +147,7 @@ body {
 
 /* Styles for the active pagination bullet */
 .swiper-pagination-bullet-active {
-  background: #FF7A50 !important; 
+  background: #ff7a50 !important;
   width: 8px !important;
   height: 8px !important;
 }
@@ -155,24 +155,20 @@ body {
 /* Adjusting the position of the pagination itself */
 .swiper-pagination {
   position: relative !important;
-  margin-top: 30px !important; 
+  margin-top: 30px !important;
 }
 
-
-
-@media(max-width:800px){
-  .mycard{
+@media (max-width: 800px) {
+  .mycard {
     margin: 5%;
   }
-  .mycarousal{
+  .mycarousal {
     margin: 5%;
   }
-  .bgimage{
+  .bgimage {
     background: none;
   }
 }
-
-
 
 /* CSS Loader */
 
@@ -180,35 +176,53 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   width: 55px;
   aspect-ratio: 1;
-  --g1:conic-gradient(from  90deg at 3px  3px ,#0000 90deg,#FF7A50 0);
-  --g2:conic-gradient(from -90deg at 22px 22px,#0000 90deg,#FF7A50 0);
-  background:var(--g1),var(--g1),var(--g1), var(--g2),var(--g2),var(--g2);
+  --g1: conic-gradient(from 90deg at 3px 3px, #0000 90deg, #ff7a50 0);
+  --g2: conic-gradient(from -90deg at 22px 22px, #0000 90deg, #ff7a50 0);
+  background: var(--g1), var(--g1), var(--g1), var(--g2), var(--g2), var(--g2);
   background-size: 25px 25px;
   background-repeat: no-repeat;
   /* background: black; */
   animation: l7 1.5s infinite;
 }
 @keyframes l7 {
-  0%   {background-position:0    0   ,0 100%,100% 100% }
-  25%  {background-position:100% 0   ,0 100%,100% 100% }
-  50%  {background-position:100% 0   ,0 0   ,100% 100% }
-  75%  {background-position:100% 0   ,0 0   ,0    100% }
-  100% {background-position:100% 100%,0 0   ,0    100% }
+  0% {
+    background-position: 0 0, 0 100%, 100% 100%;
+  }
+  25% {
+    background-position: 100% 0, 0 100%, 100% 100%;
+  }
+  50% {
+    background-position: 100% 0, 0 0, 100% 100%;
+  }
+  75% {
+    background-position: 100% 0, 0 0, 0 100%;
+  }
+  100% {
+    background-position: 100% 100%, 0 0, 0 100%;
+  }
 }
 .myslide {
   display: flex !important;
   height: auto !important;
 }
 
-.swiper-slide {
+.myslide1 {
   display: flex !important;
+  height: auto !important;
 }
-@media(max-width:500px){
-  
-.swiper-slide {
-  display: block !important ;
-}
+
+/* .swiper-slide {
+  display: flex !important;
+} */
+@media (max-width: 500px) {
+  .myslide {
+    display: block !important ;
+  }
+
+  /* .myslide1 {
+  display: block !important;
+} */
 }

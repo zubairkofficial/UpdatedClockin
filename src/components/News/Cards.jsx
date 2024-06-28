@@ -40,7 +40,7 @@ function Cards({chunkedNews}) {
                         style={{ position: 'relative', margin: '2%', padding: '1%' }}
                     >
                         {newsChunk.map((news, index) => (
-                            <SwiperSlide key={index} className="flex myslide">
+                            <SwiperSlide key={index} className="flex myslide1">
                                 <div className="max-w-xs w-full rounded-3xl overflow-hidden shadow-xl bg-faqbg card ">
                                     <div className="w-full  rounded-t-3xl overflow-hidden flex-shrink-0">
                                         <img className='w-full h-full object-cover' src={`${Helpers.basePath}/storage/${news.image}`} alt={news.title} />

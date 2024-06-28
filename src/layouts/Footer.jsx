@@ -9,6 +9,11 @@ const Footer = () => {
   const [currentImages, setCurrentImages] = useState({ 'footer-1': '' });
   const [footer, setFooter] = useState([]);
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const toggleDropdown1 = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
 
 
   const fetchFooter = async () => {
@@ -107,19 +112,77 @@ const Footer = () => {
 
           <div className="mt-6">
             {footer.map((footerItem, idx) => (
-              <div key={idx}>
-                <button onClick={() => toggleDropdown(idx)} className="w-full text-left py-3 font-bold text-[#FF7A50] flex justify-between">
+              <div key={footerItem.id || idx}>
+                <button
+                  onClick={() => toggleDropdown(idx)}
+                  className="w-full text-left py-3 font-bold text-[#FF7A50] flex justify-between"
+                >
                   {footerItem.menu} <i className="fa-regular fa-chevron-down text-[#696969]"></i>
                 </button>
                 {openDropdown === idx && (
-                  JSON.parse(footerItem.submenu).map((item, index) => (
-                    <div className="pl-4" key={index}>
-                      <h3 className="text-[#ADB1B1]">{item.name}</h3>
-                    </div>
-                  ))
+                  <div className="pl-4">
+                    {(() => {
+                      try {
+                        const submenuItems = JSON.parse(footerItem.submenu);
+                        return submenuItems.map((item, index) => (
+                          <div className="pl-4" key={item.id || index}>
+                            {/* <h3 className="text-[#ADB1B1]">{item.name}</h3> */}
+                            {/* If you need links, use the following: */}
+                            <a
+                              href={`//${item.link}`}
+                              target='_blank'
+                              rel='noopener noreferrer'
+                              className="text-[#ADB1B1]"
+                            >
+                              {item.name}
+                            </a>
+                          </div>
+                        ));
+                      } catch (e) {
+                        console.error("Invalid JSON in submenu:", footerItem.submenu);
+                        return null;
+                      }
+                    })()}
+                  </div>
                 )}
               </div>
             ))}
+            <div className="lg:hidden flex-col text-white flex ">
+            <button
+                  onClick={() => toggleDropdown1()}
+                  className="w-full text-left py-3 font-bold text-[#FF7A50] flex justify-between"
+                >
+                  Newsletter <i className="fa-regular fa-chevron-down text-[#696969]"></i>
+                </button>
+              {/* <a href="#newsletter" onClick={toggleDropdown1}>
+                <h2 className="font-bold text-[#FF7A50] pb-6 lg:hidden">Newsletter</h2>
+                <i className="fa-regular fa-chevron-down text-[#696969]"></i>
+              </a> */}
+              {isDropdownOpen && (
+                <div className="lg:hidden">
+                  <form className="flex items-center w-full">
+                    <div className="relative w-full flex">
+                      <input
+                        className="rounded-l-full px-5 p-2 bg-inputcolor text-white text-sm outline-none"
+                        type="email"
+                        placeholder="Your email here"
+                      />
+                      <button
+                        className="text-white bg-[#FF7A50] rounded-r-full px-5 py-2 text-sm"
+                        type="submit"
+                      >
+                        Send
+                      </button>
+                    </div>
+                  </form>
+                  <div className="flex items-center gap-x-8 mt-8 text-[#FF8B42]">
+                    <i className="fa-brands fa-instagram"></i>
+                    <i className="fa-brands fa-twitter"></i>
+                    <i className="fa-brands fa-facebook"></i>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
         <hr className="w-full border-t-1 border-[#4747476b] mt-20" />

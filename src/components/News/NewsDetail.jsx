@@ -6,16 +6,23 @@ import Header from '../../layouts/Header';
 import { ThemeContext } from '../../layouts/ThemeContext';
 import { Link, NavLink } from "react-router-dom";
 import Footer from '../../layouts/Footer';
+import Loader from '../../layouts/Loader';
 
 function NewsDetail() {
     const { isLightMode } = useContext(ThemeContext);
     const { slug } = useParams();
     const [newsDetail, setNewsDetail] = useState(null);
     const [recentNews, setRecentNews] = useState([]);
+    const [loading , setLoading] = useState(true)
 
     useEffect(() => {
-        getNewsDetail();
-        getRecentNews();
+        const fetchData = async () => {
+            await Promise.all([getNewsDetail(),getRecentNews()])
+            setLoading(false);
+        } 
+        fetchData()
+        // getNewsDetail();
+        // getRecentNews();
     }, [slug]);
 
     const getNewsDetail = async () => {
@@ -30,6 +37,10 @@ function NewsDetail() {
 
     return (
         <>
+        {loading ? (
+            <Loader/>
+        ): (
+            <div>
             <div className='bg-cover bg-center bg-no-repeat h-auto w-full' style={{ backgroundImage: `url(${isLightMode ? '/assets/bg1.png' : '/assets/bg2.png'})` }}>
                 <Header />
                 <div className='py-5 mt-10'>
@@ -61,6 +72,8 @@ function NewsDetail() {
                     </div>
                 </div>
             <Footer />
+            </div>
+        )}
         </>
     );
 }

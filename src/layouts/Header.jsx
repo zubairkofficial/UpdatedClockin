@@ -24,24 +24,24 @@ const Header = ({ logourl }) => {
   // };
   const fetchImage = async () => {
     const sections = [
-        { section: "hero", id: "1" },
+      { section: "hero", id: "1" },
     ];
     const mode = isLightMode ? "dark" : "light";
     try {
-        const response = await axios.post(`${Helpers.apiUrl}get-image`, {
-            sections: sections.map(s => `${s.section}-${s.id}`),
-            mode
-        });
-        const newImages = {};
-        response.data.images.forEach(image => {
-            newImages[image.section] = image.image_url;
-        });
-        // console.log("imageres", response.data.images);
-        setCurrentImages(newImages);
+      const response = await axios.post(`${Helpers.apiUrl}get-image`, {
+        sections: sections.map(s => `${s.section}-${s.id}`),
+        mode
+      });
+      const newImages = {};
+      response.data.images.forEach(image => {
+        newImages[image.section] = image.image_url;
+      });
+      // console.log("imageres", response.data.images);
+      setCurrentImages(newImages);
     } catch (error) {
-        console.error("Error in fetching images", error);
+      console.error("Error in fetching images", error);
     }
-};
+  };
 
 
   useEffect(() => {
@@ -64,12 +64,12 @@ const Header = ({ logourl }) => {
           {['1'].map(id => (
             <a href="/">
               <img src={
-                          currentImages[`hero-${id}`]
-                            ? `${Helpers.basePath}${currentImages[`hero-${id}`]}`
-                            : isLightMode
-                              ? "assets/logo.png"
-                              : "assets/blacklogo.png"
-                        } alt="Logo" className="h-5 lg:h-12 lg:mb-0 ml-4 lg:ml-0" />
+                currentImages[`hero-${id}`]
+                  ? `${Helpers.basePath}${currentImages[`hero-${id}`]}`
+                  : isLightMode
+                    ? "assets/logo.png"
+                    : "assets/blacklogo.png"
+              } alt="Logo" className="h-5 lg:h-12 lg:mb-0 ml-4 lg:ml-0" />
             </a>
           ))}
         </div>
@@ -147,7 +147,18 @@ const Header = ({ logourl }) => {
               </svg>
             </button>
             <nav className="mt-16">
-              <a href="/"><img src={isLightMode ? 'assets/logo.png' : 'assets/blacklogo.png'} alt="Logo" className="h-5 lg:h-12 lg:mb-0 ml-4 lg:ml-0 pl-5" /></a>
+              {['1'].map(id => (
+                <a href="/">
+                  <img src={
+                    currentImages[`hero-${id}`]
+                      ? `${Helpers.basePath}${currentImages[`hero-${id}`]}`
+                      : isLightMode
+                        ? "assets/logo.png"
+                        : "assets/blacklogo.png"
+                  } alt="Logo" className="h-5 lg:h-12 lg:mb-0 ml-4 lg:ml-0 pl-5" />
+                </a>
+              ))}
+              {/* <a href="/"><img src={isLightMode ? 'assets/logo.png' : 'assets/blacklogo.png'} alt="Logo" className="h-5 lg:h-12 lg:mb-0 ml-4 lg:ml-0 pl-5" /></a> */}
               <ul className="flex flex-col space-y-5 px-10 pt-8">
                 <li>
                   <NavLink
@@ -184,6 +195,15 @@ const Header = ({ logourl }) => {
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Support
+                  </NavLink>
+                </li>
+                <li>
+
+                  <NavLink
+                    to="/news"
+                    className={({ isActive }) => isActive ? 'text-orange-500 hover:text-orange-500' : 'text-text hover:text-primary'}
+                  >
+                    News & Article
                   </NavLink>
                 </li>
               </ul>

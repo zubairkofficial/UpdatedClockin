@@ -48,7 +48,7 @@ function FaqsCards({searchQuery}) {
                         style={{ position: 'relative', margin: '2%', padding: '1%' }}
                     >
                         {faqChunk.map((faq, index) => (
-                            <SwiperSlide className="flex myslide" key={index}>
+                            <SwiperSlide className="flex myslide1" key={index}>
                                 <div className="max-w-xs w-full rounded-3xl overflow-hidden shadow-xl bg-faqbg card">
                                     <div className="w-20 h-20 bg-imagebgcolor rounded-full ml-6 mt-6 flex-shrink-0">
                                         <img className='px-4 py-4' src={`${Helpers.basePath}/storage/${faq.image}`} alt="activity-tracker" />

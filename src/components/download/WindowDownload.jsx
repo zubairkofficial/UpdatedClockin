@@ -21,16 +21,17 @@ const WindowDownload = () => {
     };
     const handleDownload = async (filePath) => {
         try {
-            const response = await axios.get(`${Helpers.apiUrl}download/download-file?path=${filePath}`, {
-                responseType: 'blob',
-            });
-            const url = window.URL.createObjectURL(new Blob([response.data]));
-            const link = document.createElement('a');
-            link.href = url;
-            link.setAttribute('download', filePath.split('/').pop());
-            document.body.appendChild(link);
-            link.click();
-            link.remove();
+            // const response = await axios.get(`${Helpers.apiUrl}download/download-file?path=${filePath}`, {
+            //     responseType: 'blob',
+            // });
+            // const url = window.URL.createObjectURL(new Blob([response.data]));
+            // const link = document.createElement('a');
+            // link.href = url;
+            // link.setAttribute('download', filePath.split('/').pop());
+            // document.body.appendChild(link);
+            // link.click();
+            // link.remove();
+            window.open(`${Helpers.apiUrl}download/download-file?path=${filePath}`, "_blank");
         } catch (error) {
             console.error('Error downloading file:', error);
         }
