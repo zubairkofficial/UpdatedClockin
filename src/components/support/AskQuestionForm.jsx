@@ -42,7 +42,7 @@ const AskQuestionForm = () => {
   })
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-pinkbackground ">
-      <div className="w-full max-w-[85%] bg-pinkbackground lg:p-8 p-4 rounded-xl shadow-2xl mt-[-25%] lg:mt-[-15%]">
+      <div className="w-full max-w-[85%] bg-pinkbackground lg:p-8 p-4 rounded-xl shadow-2xl mt-[-15%] lg:mt-[-15%]">
         <div className="p-6">
           <h2 className="text-text text-2xl">Ask your Question</h2>
           <p className="text-gray-500 py-2 text-sm">
