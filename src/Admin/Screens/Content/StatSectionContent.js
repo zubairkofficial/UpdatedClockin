@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Helpers from '../../../Config/Helpers';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 import Sidebar from '../../Components/Sidebar';
 
 function StatSectionContent() {
@@ -42,6 +44,49 @@ function StatSectionContent() {
         const content = [...formData.content];
         content[index][name] = value;
         setFormData({ ...formData, content });
+    };
+
+    const handleDelete = async (id) => {
+        try {
+            await axios.get(`${Helpers.apiUrl}stat/delete/${id}`);
+            fetchStat();
+            // alert('Stat deleted successfully');
+        } catch (error) {
+            console.error('Error deleting Stat', error);
+        }
+    };
+    const MySwal = withReactContent(Swal);
+
+    const deletePlan = (id) => {
+        MySwal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "No, cancel!",
+            reverseButtons: true,
+            customClass: {
+                confirmButton: "px-3 py-2  text-green-100 bg-red-500 rounded-lg",
+                cancelButton: "px-3 py-2  text-green-100 mr-3 bg-green-500 rounded-lg"
+            },
+            buttonsStyling: false
+        }).then((result) => {
+            if (result.isConfirmed) {
+                handleDelete(id);
+                MySwal.fire({
+                    title: "Deleted!",
+                    text: "Your data has been deleted.",
+                    icon: "success"
+                });
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                MySwal.fire({
+                    title: "Cancelled",
+                    text: "Your data is safe :)",
+                    icon: "error"
+                });
+            }
+        });
     };
 
     const addFeature = () => {
@@ -143,6 +188,9 @@ function StatSectionContent() {
                                                 <button onClick={() => handleEdit(stat)} className="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
                                                     <i className="fa-light fa-pencil"></i>
                                                 </button>
+                                                <button onClick={() => deletePlan(stat.id)} className="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+                                                                <i className="fa-light fa-trash"></i>
+                                                            </button>
                                             </td>
                                         </tr>
                                     ))}
@@ -161,6 +209,7 @@ function StatSectionContent() {
                             <button className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => setListSection(true)} style={{color:"white"}} >
                                 <i className="fa fa-arrow-left"></i> Back
                             </button>
+                            
                         </div>
                     </div>
                     <div className="card-body py-3 m-5 bg-gray-100 rounded">

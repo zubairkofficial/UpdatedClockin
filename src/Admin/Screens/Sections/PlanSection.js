@@ -15,7 +15,7 @@ const PlanSection = () => {
         tasks: '',
         planFeatures: [{ feature: '', included: false }],
         plan_type: '',
-        offline_mode: '',
+        offline_mode: false,
     });
     const [isEditing, setIsEditing] = useState(false);
     const [currentPlanId, setCurrentPlanId] = useState(null);
@@ -41,7 +41,7 @@ const PlanSection = () => {
         const { name, value, type, checked } = e.target;
         setFormData({
             ...formData,
-            [name]: type === 'checkbox' ? (checked ? '1' : '0') : value
+            [name]: type === 'checkbox' ? checked : value
         });
     };
 
@@ -105,7 +105,7 @@ const PlanSection = () => {
         try {
             await axios.get(`${Helpers.apiUrl}plans/delete/${id}`);
             fetchPlans();
-            alert('Plan deleted successfully');
+            // alert('Plan deleted successfully');
         } catch (error) {
             console.error('Error deleting plan', error);
         }

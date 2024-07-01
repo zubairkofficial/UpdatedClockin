@@ -114,7 +114,7 @@ function DownloadPageContent() {
         try {
             await axios.get(`${Helpers.apiUrl}download/delete/${id}`);
             fetchdownload();
-            alert('Download deleted successfully');
+            // alert('Download deleted successfully');
         } catch (error) {
             console.error('Error deleting plan', error);
         }
