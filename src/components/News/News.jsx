@@ -1,9 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
-import JustHeader from '../download/JustHeader'
 import Header from '../../layouts/Header';
 import { ThemeContext } from '../../layouts/ThemeContext';
 import Footer from '../../layouts/Footer';
-import AnimatedText from '../../layouts/AnimatedText';
 import Cards from './Cards';
 import Loader from '../../layouts/Loader';
 import Helpers from '../../Config/Helpers';

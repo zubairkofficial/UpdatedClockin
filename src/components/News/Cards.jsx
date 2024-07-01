@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { Link, NavLink } from "react-router-dom";
+import React from 'react';
+import { Link,  } from "react-router-dom";
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import AnimatedText from '../../layouts/AnimatedText';
-import axios from 'axios';
 import Helpers from '../../Config/Helpers';
 
 function Cards({chunkedNews}) {

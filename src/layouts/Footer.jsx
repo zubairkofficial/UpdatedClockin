@@ -68,7 +68,18 @@ const Footer = () => {
           <div className="flex flex-col items-center mb-6 md:mb-0">
             {['1'].map(id => (
               <a href="/">
-                <img src={`${Helpers.basePath}${currentImages[`footer-${id}`]}` || (isLightMode ? 'assets/logo.png' : 'assets/blacklogo.png')} alt="Logo" className="h-12 mb-6 " />
+                <img
+                  src={
+                    currentImages[`footer-${id}`]
+                      ? `${Helpers.basePath}${currentImages[`footer-${id}`]}`
+                      : isLightMode
+                        ? 'assets/logo.png'
+                        : 'assets/blacklogo.png'
+                  }
+                  alt="Logo"
+                  className="h-12 mb-6"
+                />
+
               </a>
             ))}
           </div>
@@ -148,12 +159,12 @@ const Footer = () => {
               </div>
             ))}
             <div className="lg:hidden flex-col text-white flex ">
-            <button
-                  onClick={() => toggleDropdown1()}
-                  className="w-full text-left py-3 font-bold text-[#FF7A50] flex justify-between"
-                >
-                  Newsletter <i className="fa-regular fa-chevron-down text-[#696969]"></i>
-                </button>
+              <button
+                onClick={() => toggleDropdown1()}
+                className="w-full text-left py-3 font-bold text-[#FF7A50] flex justify-between"
+              >
+                Newsletter <i className="fa-regular fa-chevron-down text-[#696969]"></i>
+              </button>
               {/* <a href="#newsletter" onClick={toggleDropdown1}>
                 <h2 className="font-bold text-[#FF7A50] pb-6 lg:hidden">Newsletter</h2>
                 <i className="fa-regular fa-chevron-down text-[#696969]"></i>

@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import Helpers from '../../Config/Helpers';
 import Header from '../../layouts/Header';
 import { ThemeContext } from '../../layouts/ThemeContext';
-import { Link, NavLink } from "react-router-dom";
 import Footer from '../../layouts/Footer';
 import Loader from '../../layouts/Loader';
 

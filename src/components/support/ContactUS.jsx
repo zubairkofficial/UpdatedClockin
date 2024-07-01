@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import JustHeader from '../download/JustHeader'
 import AskQuestionForm from './AskQuestionForm'
 import Header from '../../layouts/Header'
 
