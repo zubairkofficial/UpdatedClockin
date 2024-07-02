@@ -79,7 +79,7 @@ body {
 } */
 * {
   font-family: "Montserrat", sans-serif;
-  transition: 0.1s;
+  /* transition: 0.1s; */
 }
 .backimage {
   background: url("/public/assets/org.png");
