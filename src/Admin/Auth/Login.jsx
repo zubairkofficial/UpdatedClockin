@@ -3,6 +3,7 @@ import HelmetWrapper from '../../Config/HelmetWrapper';
 import Helpers from '../../Config/Helpers';
 import axios from 'axios';
 import Loader from '../../layouts/Loader'; // Adjust the import as needed
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -15,7 +16,7 @@ function Login() {
         "/assets/login.jpg",
         "/assets/blacklogo.png"
     ];
-
+    const navigate = useNavigate()
     useEffect(() => {
         const handleImageLoad = () => {
             setLoadedImagesCount((prevCount) => prevCount + 1);
@@ -46,7 +47,8 @@ function Login() {
             Helpers.setItem('user', response.data.user, true);
             Helpers.setItem('token', response.data.token);
             Helpers.toast('success', 'Login Successful');
-            window.location.href = '/admin/dashboard';
+            // window.location.href = '/admin/dashboard';
+            navigate('/admin/dashboard')
         } catch (error) {
             Helpers.toast('error', error.response.data.error);
             console.error('Error logging in:', error);

@@ -10,18 +10,6 @@ const Header = ({ logourl }) => {
   const { isLightMode, setIsLightMode } = useContext(ThemeContext);
   const [currentImages, setCurrentImages] = useState({ 'hero-1': '', 'hero-2': '' });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // const { images } = useImages();
-
-  // const fetchImage = async (id) => {
-  //   try {
-  //     const response = await axios.get(`${Helpers.apiUrl}get-image/hero-${id}/${isLightMode ? 'dark' : 'light'}`);
-  //     const imageUrl = response.data.image_url;
-  //     setCurrentImages(prev => ({ ...prev, [`hero-${id}`]: imageUrl }));
-  //     // updateImage(`hero-${id}`, imageUrl); 
-  //   } catch (error) {
-  //     console.log('error in fetching data');
-  //   }
-  // };
   const fetchImage = async () => {
     const sections = [
       { section: "hero", id: "1" },
@@ -36,7 +24,6 @@ const Header = ({ logourl }) => {
       response.data.images.forEach(image => {
         newImages[image.section] = image.image_url;
       });
-      // console.log("imageres", response.data.images);
       setCurrentImages(newImages);
     } catch (error) {
       console.error("Error in fetching images", error);
@@ -46,7 +33,6 @@ const Header = ({ logourl }) => {
 
   useEffect(() => {
     fetchImage();
-    // fetchImage('2');
   }, [isLightMode]);
 
 
