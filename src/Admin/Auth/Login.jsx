@@ -13,7 +13,7 @@ function Login() {
     const [loadedImagesCount, setLoadedImagesCount] = useState(0);
 
     const imagesToLoad = [
-        "/assets/login.jpg",
+        "/assets/log.jpg",
         "/assets/blacklogo.png"
     ];
     const navigate = useNavigate()
