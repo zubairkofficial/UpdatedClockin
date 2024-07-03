@@ -54,7 +54,9 @@ function NewsDetail() {
                                     <div className="bg-pinkbackground rounded-lg shadow-lg p-6 mb-8">
                                         <img className="w-full h-64 object-cover rounded-lg mb-6" src={`${Helpers.basePath}/storage/${newsDetail.image}`} alt={newsDetail.title} />
                                         <h1 className="text-2xl font-bold mb-4">{newsDetail.title}</h1>
-                                        <p className="text-text">{newsDetail.description}</p>
+                                        <p className="text-text ckeditor-output" dangerouslySetInnerHTML={{ __html : newsDetail.description}}>
+                                        </p>
+                                        {/* {newsDetail.description} */}
                                     </div>
                                 )}
                             </div>

@@ -46,9 +46,9 @@ function Cards({chunkedNews}) {
                                     </div>
                                     <div className="px-6 py-4 flex-grow pb-5">
                                         <div className="font-bold text-lg mb-4 text-text mt-2">{news.title}</div>
-                                        <p className="text-text mb-3 text-sm">
-                                        {truncateText(news.description, 10)}
-                                        </p>
+                                        {/* <p className="text-text mb-3 text-sm" dangerouslySetInnerHTML={{ __html : news.description}}>
+                                        </p> */}
+                                        {/* {truncateText(news.description, 10)} */}
                                         <Link to={`/news/${news.slug}`} className='bg-primary text-text dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300 '>Read more</Link>
                                     </div>
                                 </div>

@@ -22,7 +22,7 @@ function TermPage() {
             setLoading(false);
         };
         fetchData();
-        document.title = "Term & Policy | ClockIn";
+        document.title = "Term & Condition | ClockIn";
     }, []);
     
     return (
@@ -37,7 +37,7 @@ function TermPage() {
                     >
                         <Header />
                         <div className='py-5 mt-10'>
-                            <h2 className='text-text font-semibold text-3xl pt-8 text-center'>Term & Policy</h2>
+                            <h2 className='text-text font-semibold text-3xl pt-8 text-center'>Term & Condition</h2>
                         </div>
                     </div>
                     <div className='container mx-auto my-10 pl-20  '>

@@ -140,7 +140,7 @@ const Footer = () => {
                             {/* <h3 className="text-[#ADB1B1]">{item.name}</h3> */}
                             {/* If you need links, use the following: */}
                             <a
-                              href={`//${item.link}`}
+                              href={`${item.link}`}
                               target='_blank'
                               rel='noopener noreferrer'
                               className="text-[#ADB1B1]"

@@ -20,7 +20,23 @@ function PrivacyPageContent() {
     });
     const [updateMode, setUpdateMode] = useState(false);
     const [currentPrivacyId, setCurrentPrivacyId] = useState(null);
+    const [selectedPrivacy, setSelectedPrivacy] = useState(null);
 
+    const truncateContent = (content, wordLimit) => {
+        const words = content.split(' ');
+        if (words.length > wordLimit) {
+            return words.slice(0, wordLimit).join(' ') + '...';
+        }
+        return content;
+    };
+
+    const openModal = (privacyItem) => {
+        setSelectedPrivacy(privacyItem);
+    };
+
+    const closeModal = () => {
+        setSelectedPrivacy(null);
+    };
     const getprivacy = async () => {
         setIsLoading(true)
         try {

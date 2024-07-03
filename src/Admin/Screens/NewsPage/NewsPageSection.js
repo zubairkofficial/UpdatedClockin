@@ -6,6 +6,7 @@ import Loader from './../../../layouts/Loader.js'
 import Helpers from '../../../Config/Helpers'
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import CKEditorComponent from '../Privacy/CKEditorComponent.js'
 function NewsPageSection() {
   const [news, setnews] = useState([]);
   const [isLoading, setIsLoading] = useState(false)
@@ -40,7 +41,9 @@ function NewsPageSection() {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-
+  const handleInputChange1 = (value) => {
+    setFormData({ ...formData, description: value });
+};
   const handleImageChange = (e) => {
     setFormData({ ...formData, image: e.target.files[0] });
   };
@@ -200,7 +203,7 @@ function NewsPageSection() {
                           <div className="d-flex flex-column w-100 me-2">
                             <div className="d-flex flex-start ">
                               <span className="text-muted me-2 fs-7 fw-bold">
-                                <p>{news.description}</p>
+                                <p dangerouslySetInnerHTML={{ __html: news.description }}></p>
                               </span>
                             </div>
                           </div>
@@ -273,7 +276,12 @@ function NewsPageSection() {
                 </div>
                 <div className="mb-3">
                   <label htmlFor="paragraph" className="form-label">Description</label>
-                  <textarea
+                  <CKEditorComponent
+                                                value={formData.description}
+                                                onChange={handleInputChange1}
+                                                name="description"
+                                            />
+                  {/* <textarea
                     className="form-control"
                     id="paragraph"
                     name="description"
@@ -282,7 +290,7 @@ function NewsPageSection() {
                     onChange={handleInputChange}
                     placeholder='Enter Description'
                     required
-                  ></textarea>
+                  ></textarea> */}
                 </div>
                 <div className="mb-3">
                   <label htmlFor="image" className="form-label">Image</label>

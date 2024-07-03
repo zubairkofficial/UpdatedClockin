@@ -215,11 +215,9 @@ function TermPageContent() {
                                                 onChange={handleInputChange}
                                             />
                                         </div>
-<div className='text-right'>
-
-
-                                        <button type="submit" className="bg-[#FF7A50] hover:bg-hover font-bold py-2 px-6 rounded-xl transition duration-300" style={{ color: "white" }} >{isbuttonLoading ? 'Please wait ..' : 'Submit'}</button>
-</div>
+                                        <div className='text-right'>
+                                            <button type="submit" className="bg-[#FF7A50] hover:bg-hover font-bold py-2 px-6 rounded-xl transition duration-300" style={{ color: "white" }} >{isbuttonLoading ? 'Please wait ..' : 'Submit'}</button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
