@@ -258,7 +258,10 @@ function FooterSection() {
                                         Add Submenu
                                     </button>
                                 </div>
+                                <div className='text-right'>
+
                                 <button type="submit" className="bg-[#FF7A50] hover:bg-hover  font-bold py-2 px-6 rounded-xl transition duration-300" style={{color:"white"}} >{isEditing ? 'Update Footer' : 'Add Footer'}</button>
+                                </div>
                             </form>
                         </div>
                     </div>

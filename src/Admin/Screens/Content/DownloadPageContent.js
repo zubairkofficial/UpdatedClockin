@@ -308,7 +308,10 @@ function DownloadPageContent() {
                                         Add Submenu
                                     </button>
                                 </div>
+                                <div className='text-right'>
+
                                 <button type="submit" className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" style={{color:"white"}} > {loading ? 'Please wait...' : (isEditing ? 'Update download' : 'Add download')}</button>
+                                </div>
                             </form>
                         </div>
                     </div>

@@ -305,7 +305,10 @@ function StatSectionContent() {
                                     Add Submenu
                                 </button>
                             </div>
-                            <button type="submit" className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" style={{color:"white"}} >{isEditing ? 'Update Stat' : 'Add Stat'}</button>
+                            <div className='text-right'>
+
+                            <button type="submit" className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300 text-right" style={{color:"white"}} >{isEditing ? 'Update Stat' : 'Add Stat'}</button>
+                            </div>
                         </form>
                     </div>
                 </div>

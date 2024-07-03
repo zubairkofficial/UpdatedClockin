@@ -10,7 +10,9 @@ import Helpers from '../../../Config/Helpers'
 function FeatureSection() {
     const [features, setFeatures] = useState([]);
     const [listSection, setListSection] = useState(true);
+    
     const [isLoading, setIsLoading] = useState(false)
+    const [isbuttonLoading, setIsbuttonLoading] = useState(false)
     const [formData, setFormData] = useState({
         heading: '',
         paragraph: '',
@@ -51,15 +53,17 @@ function FeatureSection() {
         form.append('heading', formData.heading);
         form.append('paragraph', formData.paragraph);
         form.append('image', formData.image);
-
+        setIsbuttonLoading(true)
         try {
             const response = await axios.post(`${Helpers.apiUrl}addfeature`, form, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
+            setIsbuttonLoading(false)
             getFeatures();
             setListSection(true);
         } catch (error) {
             console.log("error in adding feature", error);
+            setIsbuttonLoading(false)
         }
     };
 
@@ -278,7 +282,9 @@ function FeatureSection() {
                                                 </div>
                                             )}
                                         </div>
-                                        <button type="submit" className="bg-[#FF7A50] hover:bg-hover  font-bold py-2 px-6 rounded-xl transition duration-300" style={{color:"white"}} >Submit</button>
+                                        <div className='text-right'>
+                                        <button type="submit" className="bg-[#FF7A50] hover:bg-hover  font-bold py-2 px-6 rounded-xl transition duration-300 text-right" style={{color:"white"}} >{isbuttonLoading ? 'Please wait ...' :  'Submit'}</button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>

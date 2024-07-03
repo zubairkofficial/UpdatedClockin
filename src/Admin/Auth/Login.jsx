@@ -67,7 +67,7 @@ function Login() {
             <div className="d-flex flex-column flex-lg-row flex-column-fluid">
                 <div className="d-flex flex-lg-row-fluid">
                     <div className="d-flex flex-column flex-center pb-0 pb-lg-10 p-10 w-100">
-                        <img className="theme-light-show mx-auto mw-100 w-150px w-lg-300px mb-10" src="/assets/login.jpg" alt="" />
+                        <img className="theme-light-show mx-auto mw-100 w-150px w-lg-300px mb-10" src="/assets/log.jpg" alt="" />
                         <h1 className="text-gray-800 fs-2qx fw-bold text-center mb-7">Sign In to ClockIn</h1>
                         <div className="text-gray-600 fs-base text-center fw-semibold px-8">
                             Time tracker software boosts organization, productivity, and offers valuable insights into your time management. Align you personally with time management Ideal for hourly billing professionals & multitasking project.

@@ -351,6 +351,60 @@ function Sidebar() {
                     </span>
                   </span>
                 </div>
+
+                <div class="menu-item pt-5">
+                  <div class="menu-content">
+                    <span class="menu-heading fw-bold text-uppercase fs-7">
+                      Privacy Page
+                    </span>
+                  </div>
+                </div>
+                <div
+                  data-kt-menu-trigger="click"
+                  class="menu-item menu-accordion here show"
+                >
+                  <span class="menu-link">
+                    <span class="menu-title">
+                      <NavLink
+                        to="/admin/privacy"
+                        className={({ isActive }) =>
+                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-white hover:text-primary'
+                        }
+                      >
+                        <i class="fa-solid fa-shield-halved pr-5"></i>
+                        Privacy & Policy{" "}
+                      </NavLink>
+                    </span>
+                  </span>
+                </div>
+
+
+                <div class="menu-item pt-5">
+                  <div class="menu-content">
+                    <span class="menu-heading fw-bold text-uppercase fs-7">
+                      Term Page
+                    </span>
+                  </div>
+                </div>
+                <div
+                  data-kt-menu-trigger="click"
+                  class="menu-item menu-accordion here show"
+                >
+                  <span class="menu-link">
+                    <span class="menu-title">
+                      <NavLink
+                        to="/admin/term"
+                        className={({ isActive }) =>
+                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-white hover:text-primary'
+                        }
+                      >
+                        <i class="fa-solid fa-question pr-5"></i> 
+                        Term & Condition{" "}
+                      </NavLink>
+                    </span>
+                  </span>
+                </div>
+
               </div>
             </div>
           </div>

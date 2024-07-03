@@ -34,6 +34,10 @@ import DownloadPageContent from "./Admin/Screens/Content/DownloadPageContent.js"
 import { LoadingProvider } from './layouts/LoadingContext';
 import Helpers from "./layouts/LoadingContext";
 import axios from "axios";
+import PrivacyPageContent from "./Admin/Screens/Privacy/PrivacyPageContent.js";
+import PrivacyPolicy from "./components/Privacy/PrivacyPolicy.js";
+import TermPageContent from "./Admin/Screens/Privacy/TermPageContent.js";
+import TermPage from "./components/Term/TermPage.js";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +59,14 @@ const router = createBrowserRouter([
   {
     path: "/news",
     element: <News />,
+  },
+  {
+    path: "/privacy",
+    element: <PrivacyPolicy />,
+  },
+  {
+    path: "/term",
+    element: <TermPage />,
   },
   {
     path: "/news/:slug",
@@ -120,6 +132,14 @@ const router = createBrowserRouter([
   {
     path: "/admin/footer",
     element: <ProtectedRoute element={<FooterSection />} />,
+  },
+  {
+    path: "/admin/privacy",
+    element: <ProtectedRoute element={<PrivacyPageContent />} />,
+  },
+  {
+    path: "/admin/term",
+    element: <ProtectedRoute element={<TermPageContent />} />,
   },
   {
     path: "/admin/stat",

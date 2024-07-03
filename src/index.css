@@ -226,3 +226,17 @@ body {
   display: block !important;
 } */
 }
+
+.ckeditor-output h1 {
+  font-size: 40px;
+}
+
+.ckeditor-output h2 {
+  font-size: 35px;
+  font-weight: bolder;
+}
+.ckeditor-output h3 {
+  font-size: 32px;
+  padding: 1rem 0;
+  font-weight: bolder;
+}
