@@ -14,12 +14,19 @@ const CKEditorComponent = ({ value, onChange }) => {
         setEditorData(data);
         onChange(data);
     };
-
+    const editorConfiguration = {
+        toolbar: [
+            'heading', '|',
+            'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote',
+            '|', 'undo', 'redo'
+        ]
+    };
     return (
         <div className="form-control">
             <CKEditor
                 editor={ClassicEditor}
                 data={editorData}
+                config={editorConfiguration}
                 onChange={handleEditorChange}
             />
         </div>

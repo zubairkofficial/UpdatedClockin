@@ -42,6 +42,7 @@ function Sidebar() {
           <div id="kt_app_sidebar_menu_wrapper" class="app-sidebar-wrapper">
             <div
               id="kt_app_sidebar_menu_scroll"
+              style={{height: "calc(100vh - 170px)"}}
               class="scroll-y my-5 mx-3"
               data-kt-scroll="true"
               data-kt-scroll-activate="true"
@@ -50,7 +51,7 @@ function Sidebar() {
               data-kt-scroll-wrappers="#kt_app_sidebar_menu"
               data-kt-scroll-offset="5px"
               data-kt-scroll-save-state="true"
-              style={{ height: "428px" }}
+              // style={{ height: "428px" }}
             >
               <div
                 class="menu menu-column menu-rounded menu-sub-indention fw-semibold fs-6"

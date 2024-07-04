@@ -48,7 +48,7 @@ const Stats = () => {
                             <img
                                 src={isLightMode ? "assets/card1.png" : "assets/card1 1.png"}
                                 alt="card1"
-                                className="w-full lg:pl-[90px] sm:pl[0px]"
+                                className="w-full lg:pl-[90px] sm:pl[0px] pt-[10%]"
                             />
                             <img
                                 src={

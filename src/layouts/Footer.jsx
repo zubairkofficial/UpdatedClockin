@@ -86,7 +86,7 @@ const Footer = () => {
           {/* Privacy Section */}
           {footer.map(footer => (
             <div className="lg:flex flex-col text-text hidden">
-              <a href="#"><h2 className="font-bold text-[#FF7A50] hidden lg:block">{footer.menu}</h2></a>
+              <a href="#"><h2 className="font-bold text-[#FF7A50] hidden lg:block mb-3">{footer.menu}</h2></a>
               {JSON.parse(footer.submenu).map((item, index) => (
                 <div key={index} className="flex items-center mb-2">
                   <a href={`${item.link}`}  className="text-[#ADB1B1] hidden lg:block">{item.name}</a>

@@ -7,9 +7,9 @@ import Loader from '../../../layouts/Loader.js'
 import { ThemeContext } from '../../../layouts/ThemeContext.js';
 
 function DownloadScreen() {
-    const [currentImages, setCurrentImages] = useState({ 'download-1' : '' , 'download-2' : ''});
+    const [currentImages, setCurrentImages] = useState({ 'download-1': '', 'download-2': '' });
     const { isLightMode, setIsLightMode } = useContext(ThemeContext);
-    const [isLoading , setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
 
     const handleImageChange = async (e, section, id) => {
         const selectedImage = e.target.files[0];
@@ -66,58 +66,85 @@ function DownloadScreen() {
             <div id="kt_app_wrapper" className="app-wrapper flex-column flex-row-fluid">
                 <Sidebar />
                 {isLoading ? (
-                    <Loader/>
-                ):(
+                    <Loader />
+                ) : (
 
-                <div style={{marginTop:"-4%" }}>
-                <h1 className="font-bold ml-10 my-5">Download Section</h1>
-                <div className="flex justify-start m-10">
-                    <div className="flex flex-wrap gap-5">
-                        {['1'].map(id => (
-                            <div key={id} className="p-5 bg-pinkbackground rounded-xl shadow-sm relative flex-1">
-                                <label
-                                    htmlFor={`image-upload-download-${id}`}
-                                    className="absolute top-0 left-0 p-1 bg-white bg-opacity-75 rounded-full cursor-pointer"
-                                    style={{ transform: "translate(-50%, -50%)" }}
-                                >
-                                    <i className="fa fa-pencil" style={{ color: "black" }}></i>
-                                </label>
-                                <input
-                                    id={`image-upload-download-${id}`}
-                                    type="file"
-                                    className="hidden"
-                                    onChange={(e) => handleImageChange(e, 'download', id)}
-                                />
-                                <img src={currentImages[`download-${'1'}`] ? `${Helpers.basePath}${currentImages[`download-${'1'}`]}` : '/assets/laptopmockup.png'} className="w-80" />
+                    <div style={{ marginTop: "-4%" }}>
+                        <div className='d-flex align-items-center justify-between'>
+                            <h1 className="font-bold ml-10 my-5">Download Section</h1>
+                            <div className="lg:block ml-[35%] lg:mr-[13%] md:mr-[20%]">
+                                <div className="relative p-4">
+                                    <button
+                                        className={`absolute top-0 left-0 w-[5.5rem] rounded-lg text-[#000000] py-3 font-[0.5rem] text-xs lg:text-base
+                                ${isLightMode ? 'bg-secondary z-10 ' : 'bg-[#FF7A50] font-bold z-10 lg:w-[8rem] w-[6rem]'}`}
+                                        onClick={() => setIsLightMode(false)}
+                                    >
+                                        Light {!isLightMode ? 'Mode' : ''}
+                                    </button>
+                                    <button
+                                        className={`absolute top-0 left-6 rounded-xl text-text ml-12 py-3 text-xs lg:text-base
+                                ${isLightMode ? 'bg-background font-bold z-20 lg:w-[8rem] w-[6rem] mr[5%]' : 'bg-[#EAEAEA] z-20 w-[5.5rem] lg:ml-[5.5rem] ml-[3.5rem]'}`}
+                                        onClick={() => setIsLightMode(true)}
+                                    >
+                                        Dark {isLightMode ? 'Mode' : ''}
+                                    </button>
+                                </div>
                             </div>
-                        ))}
-                    </div>
-                </div>
-                <h1 className="font-bold ml-10 my-5">Mobile View</h1>
-                <div className="flex justify-start m-10">
-                    <div className="flex flex-wrap gap-5">
-                        {['2'].map(id => (
-                            <div key={id} className="p-5 bg-pinkbackground rounded-xl shadow-sm relative flex-1">
-                                <label
-                                    htmlFor={`image-upload-download-${id}`}
-                                    className="absolute top-0 left-0 p-1 bg-white bg-opacity-75 rounded-full cursor-pointer"
-                                    style={{ transform: "translate(-50%, -50%)" }}
-                                >
-                                    <i className="fa fa-pencil" style={{ color: "black" }}></i>
-                                </label>
-                                <input
-                                    id={`image-upload-download-${id}`}
-                                    type="file"
-                                    className="hidden"
-                                    onChange={(e) => handleImageChange(e, 'download', id)}
-                                />
-                                <img src={currentImages[`download-${'2'}`] ? `${Helpers.basePath}${currentImages[`download-${'2'}`]}` : '/assets/laptopmockup.png'} className="w-80" />
+                        </div>
+                        <div className="flex justify-start m-10">
+                            <div className="flex flex-wrap gap-5">
+                                {['1'].map(id => (
+                                    <div key={id} className="p-5 bg-pinkbackground rounded-xl shadow-sm relative flex-1">
+                                        <label
+                                            htmlFor={`image-upload-download-${id}`}
+                                            className="absolute top-0 left-0 p-1 bg-white bg-opacity-75 rounded-full cursor-pointer"
+                                            style={{ transform: "translate(-50%, -50%)" }}
+                                        >
+                                            <i className="fa fa-pencil" style={{ color: "black" }}></i>
+                                        </label>
+                                        <input
+                                            id={`image-upload-download-${id}`}
+                                            type="file"
+                                            className="hidden"
+                                            onChange={(e) => handleImageChange(e, 'download', id)}
+                                        />
+                                        <img src={currentImages[`download-${'1'}`] ? `${Helpers.basePath}${currentImages[`download-${'1'}`]}` : '/assets/laptopmockup.png'} className="w-80" />
+                                    </div>
+                                ))}
                             </div>
-                        ))}
+                        </div>
+                        <h1 className="font-bold ml-10 my-5">Mobile View</h1>
+                        <div className="flex justify-start m-10">
+                            <div className="flex flex-wrap gap-5">
+                                {['2'].map(id => (
+                                    <div key={id} className="p-5 bg-pinkbackground rounded-xl shadow-sm relative flex-1">
+                                        <label
+                                            htmlFor={`image-upload-download-${id}`}
+                                            className="absolute top-0 left-0 p-1 bg-white bg-opacity-75 rounded-full cursor-pointer"
+                                            style={{ transform: "translate(-50%, -50%)" }}
+                                        >
+                                            <i className="fa fa-pencil" style={{ color: "black" }}></i>
+                                        </label>
+                                        <input
+                                            id={`image-upload-download-${id}`}
+                                            type="file"
+                                            className="hidden"
+                                            onChange={(e) => handleImageChange(e, 'download', id)}
+                                        />
+                                        <img
+                                            src={
+                                                currentImages[`download-${id}`]
+                                                    ? `${Helpers.basePath}${currentImages[`download-${id}`]}`
+                                                    : isLightMode
+                                                        ? "/assets/downloadsection.png"
+                                                        : "/assets/lightdownload.png"
+                                            } className="w-80" />
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
-                </div>
-                </div>
-            )}
+                )}
             </div>
         </div>
     )

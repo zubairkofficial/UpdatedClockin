@@ -149,9 +149,9 @@ const HomePage = ({ background, heading, subheading }) => {
                 </AnimatedText>
                 <AnimatedText>
                   <div className="mt-4 flex-col lg:flex-row gap-4 lg:block hidden">
-                    <button className="bg-primary hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300">
+                    <a href="/download" className="bg-primary hover:bg-hover text-white dark:text-black font-bold py-3 px-6 rounded-2xl transition duration-300">
                       {currentContent[`hero-2`] || "Try it free"}
-                    </button>
+                    </a>
                     <button className="group bg-transparent border border-primary text-text dark:text-black hover:bg-white hover:text-primary font-bold py-2 px-6 rounded-2xl transition duration-300 ml-3">
                       <i className="fa-solid fa-play mr-2 text-text group-hover:text-primary transition duration-300"></i>
                       {currentContent[`hero-3`] || "Show me the demo"}

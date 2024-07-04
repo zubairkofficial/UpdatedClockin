@@ -180,7 +180,7 @@ function NewsPageSection() {
                     <th className="min-w-10px">#</th>
                       <th className="min-w-70px">Image</th>
                       <th className="min-w-150px">Title</th>
-                      <th className="min-w-150px">Description</th>
+                      {/* <th className="min-w-150px">Description</th> */}
                       <th className="min-w-150px">Slug</th>
                       <th className="min-w-100px text-end">Actions</th>
                     </tr>
@@ -199,7 +199,7 @@ function NewsPageSection() {
                         <td>
                           <a href="#" className="text-gray-900 fw-bold text-hover-primary d-block fs-6">{news.title}</a>
                         </td>
-                        <td className="">
+                        {/* <td className="">
                           <div className="d-flex flex-column w-100 me-2">
                             <div className="d-flex flex-start ">
                               <span className="text-muted me-2 fs-7 fw-bold">
@@ -207,7 +207,7 @@ function NewsPageSection() {
                               </span>
                             </div>
                           </div>
-                        </td>
+                        </td> */}
                         <td className="">
                           <div className="d-flex flex-column w-100 me-2">
                             <div className="d-flex flex-start ">

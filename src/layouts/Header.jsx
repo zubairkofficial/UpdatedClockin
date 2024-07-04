@@ -110,14 +110,14 @@ const Header = ({ logourl }) => {
             <button
               className={`absolute top-0 left-0 w-[5.5rem]  rounded-lg text-[#f2f5f5] py-3 font-[0.5rem] text-xs lg:text-base
                           ${isLightMode ? 'bg-secondary z-10 ' : 'bg-[#FF7A50] font-bold z-10 lg:w-[8rem] w-[6rem] ml-[-21%]'}`}
-              onClick={() => setIsLightMode(true)}
+              onClick={() => setIsLightMode(false)}
             >
               Light {!isLightMode ? 'Mode' : ''}
             </button>
             <button
               className={`absolute top-0 left-6  rounded-xl text-text ml-12 py-3 text-xs lg:text-base
                           ${isLightMode ? 'bg-background font-bold z-20 lg:w-[8rem] w-[6rem] mr[5%]' : 'bg-[#EAEAEA] z-20 w-[5.5rem] lg:ml-[5.5rem] ml-[3.5rem]'}`}
-              onClick={() => setIsLightMode(false)}
+              onClick={() => setIsLightMode(true)}
             >
               Dark {isLightMode ? 'Mode' : ''}
             </button>
