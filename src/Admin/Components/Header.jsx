@@ -79,7 +79,7 @@ function Header() {
                   data-kt-menu-placement="bottom-start"
                   class="menu-item here show menu-here-bg menu-lg-down-accordion me-0 me-lg-2"
                 >
-                  <a href="#" className="mt-4 md:mt-8 lg:mt-12 bg-[#FF7A50] hover:bg-orange-700  font-bold py-2 px-4 rounded-xl transition duration-300" style={{color:"white"}}>Dashboard</a>
+                  <a href="#" className="mt-4 md:mt-8 lg:mt-12 bg-[#FF7A50] hover:bg-orange-700  font-bold py-2 px-4 rounded-xl duration-300" style={{color:"white"}}>Dashboard</a>
                   {/* <span class="menu-link">
                     <span class="menu-title">Dashboards</span>
                     <span class="menu-arrow d-lg-none"></span>

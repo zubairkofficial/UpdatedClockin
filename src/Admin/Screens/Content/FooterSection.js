@@ -149,7 +149,7 @@ function FooterSection() {
                                 <span className="card-label fw-bold fs-3 mb-1">Footer</span>
                             </h3>
                             <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a Footer">
-                                <button className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" style={{color:"white"}}  onClick={() => { resetForm(); setListSection(false); }}>
+                                <button className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-xl  duration-300" style={{color:"white"}}  onClick={() => { resetForm(); setListSection(false); }}>
                                     <i className="fa-light fa-plus"></i> New Footer
                                 </button>
                             </div>
@@ -200,7 +200,7 @@ function FooterSection() {
                                 <span className="card-label fw-bold fs-3 mb-1">{isEditing ? 'Update Footer' : 'Add New Footer'}</span>
                             </h3>
                             <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to go back">
-                                <button className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" style={{color:"white"}}  onClick={() => setListSection(true)}>
+                                <button className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-xl  duration-300" style={{color:"white"}}  onClick={() => setListSection(true)}>
                                     <i className="fa fa-arrow-left"></i> Back
                                 </button>
                             </div>
@@ -260,7 +260,7 @@ function FooterSection() {
                                 </div>
                                 <div className='text-right'>
 
-                                <button type="submit" className="bg-[#FF7A50] hover:bg-hover  font-bold py-2 px-6 rounded-xl transition duration-300" style={{color:"white"}} >{isEditing ? 'Update Footer' : 'Add Footer'}</button>
+                                <button type="submit" className="bg-[#FF7A50] hover:bg-hover  font-bold py-2 px-6 rounded-xl  duration-300" style={{color:"white"}} >{isEditing ? 'Update Footer' : 'Add Footer'}</button>
                                 </div>
                             </form>
                         </div>

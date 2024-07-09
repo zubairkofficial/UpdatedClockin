@@ -14,9 +14,9 @@ const ContactUS = () => {
         <Header />
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-center  sm:py-8 md:py-20">
           <AnimatedText>
-            <h2 className='text-text font-bold text-4xl pb-20 text-center pt-[5rem] lg:pt-[0rem]'>
+            <h1 className='text-text font-bold text-4xl pb-20 text-center pt-[5rem] lg:pt-[0rem]'>
               Contact Us
-            </h2>
+            </h1>
           </AnimatedText>
         </div>
       </div>

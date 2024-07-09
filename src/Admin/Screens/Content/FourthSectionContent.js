@@ -14,7 +14,7 @@ function FourthSectionContent({currentContent , defaultContent,openModal}) {
                                {currentContent[`fourth-${id}`] || "Efficiently oversee your list of employees." }
                             </h1>
                             <button
-                                className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
+                                className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-2xl  duration-300"
                                 onClick={() => openModal(`fourth-${id}`)}
                                 style={{color:"white"}} 
                             >
@@ -31,7 +31,7 @@ function FourthSectionContent({currentContent , defaultContent,openModal}) {
                                {currentContent[`fourth-${id}`] || "Simplify employee management: track attendance, tasks, and schdeules seamlessly." }
                             </p>
                             <button
-                                className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
+                                className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-2xl  duration-300"
                                 onClick={() => openModal(`fourth-${id}`)}
                                 style={{color:"white"}} 
                             >

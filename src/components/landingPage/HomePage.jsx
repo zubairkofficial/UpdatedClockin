@@ -131,7 +131,7 @@ const HomePage = ({ background, heading, subheading }) => {
           <meta name="description" content={seoData.description} />
           <meta name="keywords" content={seoData.keywords} />
           <link rel="canonical" href={seoData.canonical} />
-          <meta property="og:title" content="Insert Your Title Here" />
+          {/* <meta property="og:title" content="Insert Your Title Here" /> */}
           {Array.isArray(seoData.og) && seoData.og.map((ogTag, index) => (
             <meta key={index} property={`og:${ogTag.property}`} content={ogTag.content} />
           ))}

@@ -14,7 +14,7 @@ function SecondSectionContent({currentContent , defaultContent,openModal}) {
                                {currentContent[`second-${id}`] || "Why we are the best & customers choose us" }
                             </h1>
                             <button
-                                className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
+                                className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-2xl  duration-300"
                                 onClick={() => openModal(`second-${id}`)}
                                 style={{color:"white"}} 
                             >
@@ -31,7 +31,7 @@ function SecondSectionContent({currentContent , defaultContent,openModal}) {
                                {currentContent[`second-${id}`] || "Efficiency personalized. Clients choose us for seamless time tracking and unparalleled results." }
                             </p>
                             <button
-                                className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
+                                className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-2xl  duration-300"
                                 onClick={() => openModal(`second-${id}`)}
                                 style={{color:"white"}} 
                             >
@@ -48,7 +48,7 @@ function SecondSectionContent({currentContent , defaultContent,openModal}) {
                                {currentContent[`second-${id}`] || "Learn more" }
                             </p>
                             <button
-                                className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-2xl transition duration-300"
+                                className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-2xl  duration-300"
                                 onClick={() => openModal(`second-${id}`)}
                                 style={{color:"white"}} 
                             >

@@ -167,7 +167,7 @@ function NewsPageSection() {
                 <span className="card-label fw-bold fs-3 mb-1">Application news</span>
               </h3>
               <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a News">
-                <button className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => { setListSection(false); setUpdateMode(false); resetForm() }} style={{color:"white"}} >
+                <button className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-xl  duration-300" onClick={() => { setListSection(false); setUpdateMode(false); resetForm() }} style={{color:"white"}} >
                   <i className="fa-light fa-plus"></i> New news
                 </button>
               </div>
@@ -241,7 +241,7 @@ function NewsPageSection() {
                 <span className="card-label fw-bold fs-3 mb-1">{updateMode ? 'Update News' : 'Add New News'}</span>
               </h3>
               <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to go back">
-                <button className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => setListSection(true)} style={{color:"white"}} >
+                <button className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-xl  duration-300" onClick={() => setListSection(true)} style={{color:"white"}} >
                   <i className="fa fa-arrow-left"></i> Back
                 </button>
               </div>
@@ -315,7 +315,7 @@ function NewsPageSection() {
                 </div>
                 <div className='text-right'>
 
-                <button type="submit" className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" style={{color:"white"}} >Submit</button>
+                <button type="submit" className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-xl  duration-300" style={{color:"white"}} >Submit</button>
                 </div>
               </form>
             </div>

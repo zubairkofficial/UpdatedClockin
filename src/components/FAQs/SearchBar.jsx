@@ -105,7 +105,7 @@ const SearchBar = () => {
             <Header />
             <div className='py-5 mt-10'>
               {/* <AnimatedText>   */}
-              <h2 className='text-text font-semibold text-3xl pt-8 text-center'>{currentContent['faq-1'] || "How Can We Help You?"}</h2>
+              <h1 className='text-text font-semibold text-3xl pt-8 text-center'>{currentContent['faq-1'] || "How Can We Help You?"}</h1>
               {/* </AnimatedText>  */}
             </div>
             {/* seacrh input field */}

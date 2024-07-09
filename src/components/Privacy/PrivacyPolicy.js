@@ -52,7 +52,7 @@ function PrivacyPolicy() {
                     >
                         <Header />
                         <div className='py-5 mt-10'>
-                            <h2 className='text-text font-semibold text-3xl pt-8 text-center'>Privacy & Policy</h2>
+                            <h1 className='text-text font-semibold text-3xl pt-8 text-center'>Privacy & Policy</h1>
                         </div>
                     </div>
                     <div className='container mx-auto my-10 pl-20  '>

@@ -137,7 +137,7 @@ function SEOScreen() {
                             <span className="card-label fw-bold fs-3 mb-1">SEO</span>
                         </h3>
                         <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a Achievements" style={{ color: "white" }} >
-                            <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300" onClick={() => { setListSection(false); setUpdateMode(false); resetForm() }}>
+                            <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl  duration-300" onClick={() => { setListSection(false); setUpdateMode(false); resetForm() }}>
                                 <i className="fa-light fa-plus"></i> New SEO
                             </button>
                         </div>
