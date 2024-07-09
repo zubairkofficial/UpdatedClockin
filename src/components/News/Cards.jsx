@@ -36,20 +36,20 @@ function Cards({chunkedNews}) {
                         navigation
                         scrollbar={{ draggable: true }}
                         className="mySwiper"
-                        style={{ position: 'relative', margin: '2%', padding: '1%' }}
+                        style={{ position: 'relative', margin: '3%', padding: '1%' }}
                     >
                         {newsChunk.map((news, index) => (
                             <SwiperSlide key={index} className="flex myslide1">
-                                <div className="max-w-xs w-full rounded-3xl overflow-hidden shadow-xl bg-faqbg card ">
-                                    <div className="w-full  rounded-t-3xl overflow-hidden flex-shrink-0">
-                                        <img className='w-full h-full object-cover' src={`${Helpers.basePath}/storage/${news.image}`} alt={news.title} />
+                                <div className="max-w-xs w-full rounded-xl overflow-hidden shadow-xl bg-faqbg card flex-fill">
+                                    <div className="w-full  rounded-t-xl overflow-hidden flex-shrink-2">
+                                        <img className='w-full h-[30vh] object-cover' src={`${Helpers.basePath}/storage/${news.image}`} alt={news.title} />
                                     </div>
-                                    <div className="px-6 py-4 flex-grow pb-5">
-                                        <div className="font-bold text-lg mb-4 text-text mt-2">{news.title}</div>
+                                    <div className="px-3 py-4 flex-grow pb-5">
+                                        <div className="font-bold text mb-4 text-text mt-2">{truncateText(news.title , 5)}</div>
                                         {/* <p className="text-text mb-3 text-sm" dangerouslySetInnerHTML={{ __html : news.description}}>
                                         </p> */}
                                         {/* {truncateText(news.description, 10)} */}
-                                        <Link to={`/news/${news.slug}`} className='bg-primary text-text dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300 '>Read more</Link>
+                                        <Link to={`/news/${news.slug}`} className='bg-primary text-text dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300 mt-auto'>Read more</Link>
                                     </div>
                                 </div>
                             </SwiperSlide>

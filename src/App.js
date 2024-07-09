@@ -38,6 +38,8 @@ import PrivacyPageContent from "./Admin/Screens/Privacy/PrivacyPageContent.js";
 import PrivacyPolicy from "./components/Privacy/PrivacyPolicy.js";
 import TermPageContent from "./Admin/Screens/Privacy/TermPageContent.js";
 import TermPage from "./components/Term/TermPage.js";
+import SEOScreen from "./Admin/Screens/SEOPage/SEOScreen.jsx";
+import { SEOProvider } from "./Config/SEOContext.js";
 
 const router = createBrowserRouter([
   {
@@ -149,10 +151,15 @@ const router = createBrowserRouter([
     path: "/admin/downloadsection",
     element: <ProtectedRoute element={<DownloadPageContent />} />,
   },
+  {
+    path: "/admin/seo",
+    element: <ProtectedRoute element={<SEOScreen />} />,
+  },
 ]);
 
 function App() {
   return (
+    <SEOProvider>
         <ThemeProvider>
           <div>
             <div class="d-flex flex-column flex-root app-root" id="kt_app_root">
@@ -167,6 +174,7 @@ function App() {
             </div>
           </div>
         </ThemeProvider>
+        </SEOProvider>
   );
 }
 

@@ -1,6 +1,8 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Helpers from "../../Config/Helpers";
+import { SEOContext } from "../../Config/SEOContext";
+import { Helmet } from "react-helmet";
 
 const AskQuestionForm = () => {
   const [formData, setFormData] = useState({
@@ -37,10 +39,38 @@ const AskQuestionForm = () => {
       image: null
     })
   }
-  useEffect( () =>{
-    document.title = "Support | ClockIn"
-  })
+  
+  const { seoData, fetchSEOData } = useContext(SEOContext);
+  useEffect(() => {
+    fetchSEOData('Support');
+    document.title = "Contact Us | ClockIn";
+  }, []);
+  
+  useEffect(() => {
+    if (seoData && seoData.schema_markup) {
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.text = seoData.schema_markup;
+      document.body.appendChild(script);
+
+      return () => {
+        document.body.removeChild(script);
+      };
+    }
+  }, [seoData]);
   return (
+    <>
+     {seoData && (
+      <Helmet>
+        {/* <title>{seoData.title}</title> */}
+        <meta name="description" content={seoData.description} />
+        <meta name="keywords" content={seoData.keywords} />
+        <link rel="canonical" href={seoData.canonical} />
+        {Array.isArray(seoData.og) && seoData.og.map((ogTag, index) => (
+            <meta key={index} property={`og:${ogTag.property}`} content={ogTag.content} />
+          ))}
+      </Helmet>
+    )}
     <div className="flex flex-col items-center justify-center min-h-screen bg-pinkbackground ">
       <div className="w-full max-w-[85%] bg-pinkbackground lg:p-8 p-4 rounded-xl shadow-2xl mt-[-15%] lg:mt-[-15%]">
         <div className="p-6">
@@ -115,6 +145,7 @@ const AskQuestionForm = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

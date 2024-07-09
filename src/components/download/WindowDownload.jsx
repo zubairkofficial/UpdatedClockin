@@ -21,16 +21,6 @@ const WindowDownload = () => {
     };
     const handleDownload = async (filePath) => {
         try {
-            // const response = await axios.get(`${Helpers.apiUrl}download/download-file?path=${filePath}`, {
-            //     responseType: 'blob',
-            // });
-            // const url = window.URL.createObjectURL(new Blob([response.data]));
-            // const link = document.createElement('a');
-            // link.href = url;
-            // link.setAttribute('download', filePath.split('/').pop());
-            // document.body.appendChild(link);
-            // link.click();
-            // link.remove();
             window.open(`${Helpers.apiUrl}download/download-file?path=${filePath}`, "_blank");
         } catch (error) {
             console.error('Error downloading file:', error);
@@ -57,7 +47,12 @@ const WindowDownload = () => {
                         <div className="relative inline-flex items-center bg-[#FF7A50] rounded-2xl pr-5">
                             <select
                                 className="appearance-none bg-transparent border-none py-3 px-3 pr-8 leading-tight text-white focus:outline-none"
-                                onChange={(e) => handleDownload(`/public/${e.target.value}`)}
+                                onChange={(e) => {
+                                    const selectedValue = e.target.value;
+                                    if (selectedValue) {
+                                        handleDownload(`/public/${selectedValue}`);
+                                    }
+                                }}
                             >
                                 <option value="" className="text-black">
                                     Select Version & Download
@@ -68,6 +63,7 @@ const WindowDownload = () => {
                                     </option>
                                 ))}
                             </select>
+
                             <span className="absolute inset-y-0 right-0 flex items-center pr-1 pointer-events-none">
                                 <span className="bg-[lightgray] h-5 w-px"></span>
                                 <i className="fa-solid fa-chevron-down pl-3 pr-2 text-white"></i>

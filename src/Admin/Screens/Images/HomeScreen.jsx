@@ -120,7 +120,7 @@ const HomeScreen = () => {
                         </div>
                         <div className="flex justify-start m-10">
                             <div className="flex flex-wrap gap-5">
-                                {['1',].map(id => (
+                                {['1'].map(id => (
                                     <div key={id} className="p-5 bg-pinkbackground rounded-xl shadow-sm relative flex-1 flex items-center justify-center">
                                         <label
                                             htmlFor={`image-upload-hero-${id}`}

@@ -8,6 +8,8 @@ import AnimatedText from '../../layouts/AnimatedText';
 import axios from 'axios';
 import Helpers from '../../Config/Helpers';
 import Loader from '../../layouts/Loader';
+import { SEOContext } from '../../Config/SEOContext';
+import { Helmet } from 'react-helmet';
 
 const SearchBar = () => {
   const { isLightMode } = useContext(ThemeContext);
@@ -15,8 +17,27 @@ const SearchBar = () => {
     "faq-1": "",
   });
   const [loading, setLoading] = useState(true);
+  
+  const { seoData, fetchSEOData } = useContext(SEOContext);
+  useEffect(() => {
+    fetchSEOData('FAQs');
+  }, []);
+  
+  useEffect(() => {
+    if (seoData && seoData.schema_markup) {
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.text = seoData.schema_markup;
+      document.body.appendChild(script);
+
+      return () => {
+        document.body.removeChild(script);
+      };
+    }
+  }, [seoData]);
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true)
       await Promise.all([fetchContent()]);
       setLoading(false);
     };
@@ -65,6 +86,17 @@ const SearchBar = () => {
 
   return (
     <>
+     {seoData && (
+        <Helmet>
+          {/* <title>{seoData.title}</title> */}
+          <meta name="description" content={seoData.description} />
+          <meta name="keywords" content={seoData.keywords} />
+          <link rel="canonical" href={seoData.canonical} />
+          {Array.isArray(seoData.og) && seoData.og.map((ogTag, index) => (
+            <meta key={index} property={`og:${ogTag.property}`} content={ogTag.content} />
+          ))}
+        </Helmet>
+      )}
       {loading ? (
         <Loader />
       ) : (

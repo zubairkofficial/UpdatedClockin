@@ -28,6 +28,8 @@
     "react-router-dom": "^6.23.0",
     "react-scripts": "5.0.1",
     "react-social-icons": "^6.16.0",
+    "react-tag-input": "^6.10.2",
+    "react-tagsinput": "^3.20.3",
     "sort-by": "^1.2.0",
     "sweetalert2": "^11.12.0",
     "sweetalert2-react-content": "^5.0.7",

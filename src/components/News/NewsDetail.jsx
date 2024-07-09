@@ -16,6 +16,7 @@ function NewsDetail() {
 
     useEffect(() => {
         const fetchData = async () => {
+            setLoading(true);
             await Promise.all([getNewsDetail(), getRecentNews()])
             setLoading(false);
         }

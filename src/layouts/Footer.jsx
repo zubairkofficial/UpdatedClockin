@@ -89,7 +89,14 @@ const Footer = () => {
               <a href="#"><h2 className="font-bold text-[#FF7A50] hidden lg:block mb-3">{footer.menu}</h2></a>
               {JSON.parse(footer.submenu).map((item, index) => (
                 <div key={index} className="flex items-center mb-2">
-                  <a href={`${item.link}`}  className="text-[#ADB1B1] hidden lg:block">{item.name}</a>
+                  <a
+                    href={`${item.link.startsWith('http://') || item.link.startsWith('https://') ? '' : '/'}${item.link}`}
+                    className="text-[#ADB1B1] hidden lg:block"
+                  >
+                    {item.name}
+                  </a>
+
+
                 </div>
               ))}
             </div>
@@ -140,8 +147,8 @@ const Footer = () => {
                             {/* <h3 className="text-[#ADB1B1]">{item.name}</h3> */}
                             {/* If you need links, use the following: */}
                             <a
-                              href={`${item.link}`}
-                              target='_blank'
+                              href={`${item.link.startsWith('http://') || item.link.startsWith('https://') ? '' : '/'}${item.link}`}
+                              // target='_blank'
                               rel='noopener noreferrer'
                               className="text-[#ADB1B1]"
                             >

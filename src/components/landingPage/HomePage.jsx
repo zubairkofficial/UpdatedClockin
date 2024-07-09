@@ -4,6 +4,9 @@ import ToggleColorMode from "./ToggleColorMode";
 import Hero from "./Hero";
 import { ThemeContext } from "../../layouts/ThemeContext";
 import AnimatedText from "../../layouts/AnimatedText";
+import { Helmet } from 'react-helmet';
+// import { SEOContext } from '../../context/SEOContext';
+import { SEOContext } from "../../Config/SEOContext";
 import axios from "axios";
 import Helpers from "../../Config/Helpers";
 import Loader from "../../layouts/Loader";
@@ -96,14 +99,44 @@ const HomePage = ({ background, heading, subheading }) => {
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       await Promise.all([fetchContent(), fetchImages(), getFeatures()]);
       setLoading(false);
     };
     fetchData();
     document.title = "Home | ClockIn";
   }, [isLightMode]);
+  const { seoData, fetchSEOData } = useContext(SEOContext);
+
+  useEffect(() => {
+    fetchSEOData('Home');
+  }, []);
+  useEffect(() => {
+    if (seoData && seoData.schema_markup) {
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.text = seoData.schema_markup;
+      document.body.appendChild(script);
+
+      return () => {
+        document.body.removeChild(script);
+      };
+    }
+  }, [seoData]);
   return (
     <>
+    {seoData && (
+        <Helmet>
+          {/* <title>{seoData.title}</title> */}
+          <meta name="description" content={seoData.description} />
+          <meta name="keywords" content={seoData.keywords} />
+          <link rel="canonical" href={seoData.canonical} />
+          <meta property="og:title" content="Insert Your Title Here" />
+          {Array.isArray(seoData.og) && seoData.og.map((ogTag, index) => (
+            <meta key={index} property={`og:${ogTag.property}`} content={ogTag.content} />
+          ))}
+        </Helmet>
+      )}
       {loading ? (
         <Loader />
       ) : (
