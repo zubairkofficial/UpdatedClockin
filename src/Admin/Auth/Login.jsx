@@ -14,30 +14,13 @@ function Login() {
     const [isHelmetWrapperReady, setIsHelmetWrapperReady] = useState(false);
   
 
+    const navigate = useNavigate()
     const imagesToLoad = [
         "/assets/log.jpg",
         "/assets/blacklogo.png"
-    ];
-    const navigate = useNavigate()
-    // useEffect(() => {
-    //     const handleImageLoad = () => {
-    //         setLoadedImagesCount((prevCount) => prevCount + 1);
-    //     };
-
-    //     imagesToLoad.forEach(src => {
-    //         const img = new Image();
-    //         img.src = src;
-    //         img.onload = handleImageLoad;
-    //         img.onerror = handleImageLoad;
-    //     });
-    // }, []);
+      ];
     
-    // useEffect(() => {
-    //     if (loadedImagesCount === imagesToLoad.length) {
-    //         setPageLoading(false);
-    //     }
-    // }, [loadedImagesCount]);
-    useEffect(() => {
+      useEffect(() => {
         const handleImageLoad = () => {
           setLoadedImagesCount((prevCount) => prevCount + 1);
         };
@@ -51,24 +34,13 @@ function Login() {
       }, []);
     
       useEffect(() => {
-        if (loadedImagesCount === imagesToLoad.length) {
-          setPageLoading(false);
-        }
-      }, [loadedImagesCount]);
-    
-      useEffect(() => {
-        // Load HelmetWrapper first
-        setIsHelmetWrapperReady(true);
-    
-        // Delay loading Tailwind CSS for 100 milliseconds
+        // Show loader for 5 seconds
         const timer = setTimeout(() => {
-        //   loadTailwindCSS();
-        }, 300);
+          setPageLoading(false);
+        }, 5000); // 5000 milliseconds = 5 seconds
     
-        return () => clearTimeout(timer);
+        return () => clearTimeout(timer); // Cleanup the timer
       }, []);
-    
-
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -91,13 +63,13 @@ function Login() {
         }
     };
 
-    if (pageLoading) {
-        return <Loader />;
-    }
 
     return (
         <div>
-           {isHelmetWrapperReady && <HelmetWrapper />}
+           <HelmetWrapper />
+           {pageLoading ? (
+        <Loader />
+      ) : (
             <div className="d-flex flex-column flex-lg-row flex-column-fluid">
                 <div className="d-flex flex-lg-row-fluid">
                     <div className="d-flex flex-column flex-center pb-0 pb-lg-10 p-10 w-100">
@@ -145,6 +117,7 @@ function Login() {
                     </div>
                 </div>
             </div>
+        )}
         </div>
     );
 }
