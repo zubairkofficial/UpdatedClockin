@@ -11,30 +11,63 @@ function Login() {
     const [isLoading, setLoading] = useState(false);
     const [pageLoading, setPageLoading] = useState(true);
     const [loadedImagesCount, setLoadedImagesCount] = useState(0);
+    const [isHelmetWrapperReady, setIsHelmetWrapperReady] = useState(false);
+  
 
     const imagesToLoad = [
         "/assets/log.jpg",
         "/assets/blacklogo.png"
     ];
     const navigate = useNavigate()
+    // useEffect(() => {
+    //     const handleImageLoad = () => {
+    //         setLoadedImagesCount((prevCount) => prevCount + 1);
+    //     };
+
+    //     imagesToLoad.forEach(src => {
+    //         const img = new Image();
+    //         img.src = src;
+    //         img.onload = handleImageLoad;
+    //         img.onerror = handleImageLoad;
+    //     });
+    // }, []);
+    
+    // useEffect(() => {
+    //     if (loadedImagesCount === imagesToLoad.length) {
+    //         setPageLoading(false);
+    //     }
+    // }, [loadedImagesCount]);
     useEffect(() => {
         const handleImageLoad = () => {
-            setLoadedImagesCount((prevCount) => prevCount + 1);
+          setLoadedImagesCount((prevCount) => prevCount + 1);
         };
-
-        imagesToLoad.forEach(src => {
-            const img = new Image();
-            img.src = src;
-            img.onload = handleImageLoad;
-            img.onerror = handleImageLoad;
-        });
-    }, []);
     
-    useEffect(() => {
+        imagesToLoad.forEach(src => {
+          const img = new Image();
+          img.src = src;
+          img.onload = handleImageLoad;
+          img.onerror = handleImageLoad;
+        });
+      }, []);
+    
+      useEffect(() => {
         if (loadedImagesCount === imagesToLoad.length) {
-            setPageLoading(false);
+          setPageLoading(false);
         }
-    }, [loadedImagesCount]);
+      }, [loadedImagesCount]);
+    
+      useEffect(() => {
+        // Load HelmetWrapper first
+        setIsHelmetWrapperReady(true);
+    
+        // Delay loading Tailwind CSS for 100 milliseconds
+        const timer = setTimeout(() => {
+        //   loadTailwindCSS();
+        }, 300);
+    
+        return () => clearTimeout(timer);
+      }, []);
+    
 
 
     const handleSubmit = async (event) => {
@@ -64,7 +97,7 @@ function Login() {
 
     return (
         <div>
-            <HelmetWrapper />
+           {isHelmetWrapperReady && <HelmetWrapper />}
             <div className="d-flex flex-column flex-lg-row flex-column-fluid">
                 <div className="d-flex flex-lg-row-fluid">
                     <div className="d-flex flex-column flex-center pb-0 pb-lg-10 p-10 w-100">
