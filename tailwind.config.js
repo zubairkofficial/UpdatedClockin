@@ -16,6 +16,7 @@ module.exports = {
       colors: {
         background: 'var(--background-color)',
         pinkbackground: 'var(--pinkbackground-color)',
+        planbackground: 'var(--planbackground-color)',
         inputcolor: 'var(--inputcolor-color)',
         imagebgcolor: 'var(--imagebgcolor-color)',
         subsbgcolor: 'var(--subsbgcolor-color)',

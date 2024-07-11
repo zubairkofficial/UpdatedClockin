@@ -169,7 +169,7 @@ function PrivacyPageContent() {
                                         <span className="card-label fw-bold fs-3 mb-1">Our privacy</span>
                                     </h3>
                                     <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a privacy" style={{ color: "white" }} >
-                                        <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl  duration-300" onClick={() => { setListSection(false); setUpdateMode(false); resetForm() }}>
+                                        <button className="bg-[#FF7A50]  text-white dark:text-black font-bold py-2 px-6 rounded-xl  duration-300" onClick={() => { setListSection(false); setUpdateMode(false); resetForm() }}>
                                             <i className="fa-light fa-plus"></i> New privacy
                                         </button>
                                     </div>
@@ -216,7 +216,7 @@ function PrivacyPageContent() {
                                         <span className="card-label fw-bold fs-3 mb-1">{updateMode ? 'Update Privacy' : 'Add New Privacy'}</span>
                                     </h3>
                                     <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to go back" style={{ color: "white" }} >
-                                        <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl  duration-300" onClick={() => setListSection(true)}>
+                                        <button className="bg-[#FF7A50]  text-white dark:text-black font-bold py-2 px-6 rounded-xl  duration-300" onClick={() => setListSection(true)}>
                                             <i className="fa fa-arrow-left"></i> Back
                                         </button>
                                     </div>
@@ -234,7 +234,7 @@ function PrivacyPageContent() {
 
                                         <div className='text-right'>
 
-                                        <button type="submit" className="bg-[#FF7A50] hover:bg-hover font-bold py-2 px-6 rounded-xl  duration-300" style={{ color: "white" }} >{isbuttonLoading ? 'Please wait ..' : 'Submit'}</button>
+                                        <button type="submit" className="bg-[#FF7A50]  font-bold py-2 px-6 rounded-xl  duration-300" style={{ color: "white" }} >{isbuttonLoading ? 'Please wait ..' : 'Submit'}</button>
                                         </div>
                                     </form>
                                 </div>

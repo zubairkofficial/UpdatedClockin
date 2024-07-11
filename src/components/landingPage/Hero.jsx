@@ -83,7 +83,9 @@ const Hero = ({ secondImage, thirdImage1, thirdImage2, thirdImage3, currentConte
                                     style={{ position: "relative" }}
                                 >
                                     {featureChunk.map((feature, index) => (
-                                        <SwiperSlide key={index}>
+                                        <SwiperSlide key={index} 
+                                            style={{paddingBottom:'4%'}} 
+                                            >
                                             <FeatureCard
                                                 href={feature.href}
                                                 imgSrc={`${Helpers.basePath}/storage/${feature.image}`}
@@ -99,7 +101,7 @@ const Hero = ({ secondImage, thirdImage1, thirdImage2, thirdImage3, currentConte
                 </div>
 
                 <AnimatedText>
-                    <div className="flex flex-col lg:flex-row justify-between items-center px-8 md:px-16 lg:px-[160px] py-8 container mx-auto">
+                    <div className="flex flex-col lg:flex-row justify-between items-center px-8 md:px-16 lg:px-[160px] py-8 container mx-auto mt-5">
                         <div className="text-center lg:text-left lg:order-1 order-2">
                             <h2 className="text-text font-bold lg:text-4xl text-2xl mb-4 lg:mb-8">
                                 {currentContent[`second-1`] || 'Why we are the best & customers choose us'}

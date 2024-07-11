@@ -23,7 +23,7 @@ function FaqsCards({searchQuery}) {
     )
     const chunkedfaqs = Helpers.chunkArray(filteredFaqs, 4);
     return (
-        <div className='bg-lightpink py-12'>
+        <div className='bg-lightpink py-12 container mx-auto rounded-3xl'>
             <AnimatedText>
                 {chunkedfaqs.map((faqChunk, chunkIndex) => (
                     <Swiper
@@ -45,11 +45,11 @@ function FaqsCards({searchQuery}) {
                         navigation
                         scrollbar={{ draggable: true }}
                         className="mySwiper"
-                        style={{ position: 'relative', margin: '2%', padding: '1%' }}
+                        style={{ position: 'relative', padding: '2%' }}
                     >
                         {faqChunk.map((faq, index) => (
                             <SwiperSlide className="flex myslide1" key={index}>
-                                <div className="max-w-xs w-full rounded-3xl overflow-hidden shadow-xl bg-faqbg card">
+                                <div className="max-w-xs w-full rounded-2xl overflow-hidden cardshadow bg-faqbg card">
                                     <div className="w-20 h-20 bg-imagebgcolor rounded-full ml-6 mt-6 flex-shrink-0">
                                         <img className='px-4 py-4' src={`${Helpers.basePath}/storage/${faq.image}`} alt="activity-tracker" />
                                     </div>

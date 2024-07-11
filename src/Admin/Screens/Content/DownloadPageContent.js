@@ -175,7 +175,7 @@ function DownloadPageContent() {
                                 <span className="card-label fw-bold fs-3 mb-1">Download Page Content</span>
                             </h3>
                             <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a download">
-                                <button className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-xl  duration-300" style={{color:"white"}}  onClick={() => { resetForm(); setListSection(false); }}>
+                                <button className="bg-[#FF7A50]  dark:text-black font-bold py-2 px-6 rounded-xl  duration-300" style={{color:"white"}}  onClick={() => { resetForm(); setListSection(false); }}>
                                     <i className="fa-light fa-plus"></i> New download
                                 </button>
                             </div>
@@ -231,7 +231,7 @@ function DownloadPageContent() {
                                 <span className="card-label fw-bold fs-3 mb-1">{isEditing ? 'Update download' : 'Add New download'}</span>
                             </h3>
                             <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to go back">
-                                <button className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-xl  duration-300" style={{color:"white"}}  onClick={() => setListSection(true)}>
+                                <button className="bg-[#FF7A50]  dark:text-black font-bold py-2 px-6 rounded-xl  duration-300" style={{color:"white"}}  onClick={() => setListSection(true)}>
                                     <i className="fa fa-arrow-left"></i> Back
                                 </button>
                             </div>
@@ -310,7 +310,7 @@ function DownloadPageContent() {
                                 </div>
                                 <div className='text-right'>
 
-                                <button type="submit" className="bg-[#FF7A50] hover:bg-hover  dark:text-black font-bold py-2 px-6 rounded-xl  duration-300" style={{color:"white"}} > {loading ? 'Please wait...' : (isEditing ? 'Update download' : 'Add download')}</button>
+                                <button type="submit" className="bg-[#FF7A50]   dark:text-black font-bold py-2 px-6 rounded-xl  duration-300" style={{color:"white"}} > {loading ? 'Please wait...' : (isEditing ? 'Update download' : 'Add download')}</button>
                                 </div>
                             </form>
                         </div>

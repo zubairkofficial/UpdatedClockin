@@ -37,33 +37,70 @@ const HomePage = ({ background, heading, subheading }) => {
     "fifth-1": "",
     "fifth-2": "",
   });
-  const fetchImages = async () => {
-    const sections = [
-        { section: "hero", id: "1" },
-        { section: "hero", id: "2" },
-        { section: "second", id: "1" },
-        { section: "third", id: "1" },
-        { section: "third", id: "2" },
-        { section: "third", id: "3" },
-    ];
-    const mode = isLightMode ? "dark" : "light";
-    try {
-        const response = await axios.post(`${Helpers.apiUrl}get-image`, {
-            sections: sections.map(s => `${s.section}-${s.id}`),
-            mode
-        });
-        const newImages = {};
-        response.data.images.forEach(image => {
-            newImages[image.section] = image.image_url;
-        });
-        // console.log("imageres", response.data.images);
-        setCurrentImages(newImages);
-    } catch (error) {
-        console.error("Error in fetching images", error);
-    }
+//   const fetchImages = async () => {
+//     const sections = [
+//         { section: "hero", id: "1" },
+//         { section: "hero", id: "2" },
+//         { section: "second", id: "1" },
+//         { section: "third", id: "1" },
+//         { section: "third", id: "2" },
+//         { section: "third", id: "3" },
+//     ];
+//     const mode = isLightMode ? "dark" : "light";
+//     try {
+//         const response = await axios.post(`${Helpers.apiUrl}get-image`, {
+//             sections: sections.map(s => `${s.section}-${s.id}`),
+//             mode
+//         });
+//         const newImages = {};
+//         response.data.images.forEach(image => {
+//             newImages[image.section] = image.image_url;
+//         });
+//         // console.log("imageres", response.data.images);
+//         setCurrentImages(newImages);
+//     } catch (error) {
+//         console.error("Error in fetching images", error);
+//     }
+// };
+const fetchImages = async () => {
+  const sections = [
+    { section: "hero", id: "1" },
+    { section: "hero", id: "2" },
+    { section: "second", id: "1" },
+    { section: "third", id: "1" },
+    { section: "third", id: "2" },
+    { section: "third", id: "3" },
+  ];
+  const mode = isLightMode ? "dark" : "light";
+
+  try {
+    const response = await axios.post(`${Helpers.apiUrl}get-image`, {
+      sections: sections.map((s) => `${s.section}-${s.id}`),
+      mode,
+    });
+
+    const newImages = {};
+    response.data.images.forEach((image) => {
+      newImages[image.section] = image.image_url;
+    });
+
+    await Promise.all(
+      Object.values(newImages).map(
+        (src) =>
+          new Promise((resolve) => {
+            const img = new Image();
+            img.src = src;
+            img.onload = resolve;
+            img.onerror = resolve; // Resolve even if the image fails to load
+          })
+      )
+    );
+
+    setCurrentImages(newImages);
+  } catch (error) {
+    console.error("Error in fetching images", error);
+  }
 };
-
-
   const fetchContent = async () => {
     try {
       const response = await axios.get(`${Helpers.apiUrl}content/show`);
@@ -100,12 +137,22 @@ const HomePage = ({ background, heading, subheading }) => {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
+      // Clear current images to avoid showing outdated images
+      setCurrentImages({
+        "hero-1": "",
+        "hero-2": "",
+        "second-1": "",
+        "third-1": "",
+        "third-2": "",
+        "third-3": "",
+      });
       await Promise.all([fetchContent(), fetchImages(), getFeatures()]);
       setLoading(false);
     };
     fetchData();
     document.title = "Home | ClockIn";
   }, [isLightMode]);
+  
   const { seoData, fetchSEOData } = useContext(SEOContext);
 
   useEffect(() => {

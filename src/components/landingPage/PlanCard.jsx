@@ -56,7 +56,7 @@ const PlanCard = ({ isSubscription }) => {
 
 
             <SwiperSlide key={plan.id} className="flex myslide">
-              <div className="relative bg-pinkbackground rounded-tr-3xl rounded-bl-3xl rounded-tl-none rounded-br-none p-6 max-w-sm lg:w-full sm:w-full mx-8 my-5 text-white shadow-xl flex flex-col items-center">
+              <div className="relative bg-planbackground rounded-tr-3xl rounded-bl-3xl rounded-tl-none rounded-br-none p-6 max-w-sm lg:w-full sm:w-full mx-8 my-5 text-white cardshadow flex flex-col items-center planshadow">
                 {/* <div className="absolute top-6 left-9 transform -translate-x-1/2 -translate-y-1/2 bg-[#FF8B42] text-white px-5 py-1 rounded-tr-3xl rounded-br-3xl font-semibold shadow-md">
               Best
             </div> */}
@@ -82,7 +82,7 @@ const PlanCard = ({ isSubscription }) => {
                       {feature.included ? <span className="text-green-500">✔</span> : <span className="text-red-500">✖</span>}
                     </div>
                   ))}
-                  {plan.offline_mode === '1' ? <div className='flex justify-center text-[#FF8B42] font-bold pt-5'>Offline</div> : ''}
+                  {plan.offline_mode ? <div className='flex justify-center text-[#FF8B42] font-bold pt-5'>Offline</div> : ''}
                 </div>
 
                 <button className="bg-orange-500 text-white rounded-full px-6 py-2 font-semibold hover:bg-orange-600 transition-colors mb-6">

@@ -14,7 +14,7 @@ function Cards({chunkedNews}) {
     };
     return (
         <>
-            <div className='bg-lightpink py-12'>
+            <div className='bg-lightpink py-12 container mx-auto rounded-3xl'>
             <AnimatedText>
                 {chunkedNews.map((newsChunk, chunkIndex) => (
                     <Swiper
@@ -36,20 +36,20 @@ function Cards({chunkedNews}) {
                         navigation
                         scrollbar={{ draggable: true }}
                         className="mySwiper"
-                        style={{ position: 'relative', margin: '3%', padding: '1%' }}
+                        style={{ position: 'relative', padding: '2%' }}
                     >
                         {newsChunk.map((news, index) => (
                             <SwiperSlide key={index} className="flex myslide1">
-                                <div className="max-w-xs w-full rounded-xl overflow-hidden shadow-xl bg-faqbg card flex-fill">
-                                    <div className="w-full  rounded-t-xl overflow-hidden flex-shrink-2">
+                                <div className="max-w-xs w-full rounded-lg overflow-hidden cardshadow bg-faqbg card flex-fill">
+                                    <div className="w-full  rounded-t-lg overflow-hidden flex-shrink-2">
                                         <img className='w-full h-[30vh] object-cover' src={`${Helpers.basePath}/storage/${news.image}`} alt={news.title} />
                                     </div>
-                                    <div className="px-3 py-4 flex-grow pb-5">
+                                    <div className="px-5 py-4 flex-grow pb-5">
                                         <div className="font-bold text mb-4 text-text mt-2">{truncateText(news.title , 5)}</div>
                                         {/* <p className="text-text mb-3 text-sm" dangerouslySetInnerHTML={{ __html : news.description}}>
                                         </p> */}
                                         {/* {truncateText(news.description, 10)} */}
-                                        <Link to={`/news/${news.slug}`} className='bg-primary text-text dark:text-black font-bold py-2 px-6 rounded-xl transition duration-300 mt-auto'>Read more</Link>
+                                        <Link to={`/news/${news.slug}`} className='bg-primary text-white font-bold py-2 px-6 rounded-xl transition duration-300 mt-auto'>Read more</Link>
                                     </div>
                                 </div>
                             </SwiperSlide>

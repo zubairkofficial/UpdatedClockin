@@ -164,7 +164,7 @@ function FeatureSection() {
                                         <h1 className="card-label fw-bold fs-3 mb-1">Application Features</h1>
                                     </h1>
                                     <div className="card-toolbar" style={{color:"white"}} data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a feature">
-                                        <button className="bg-[#FF7A50] hover:bg-hover text-white font-bold py-2 px-6 rounded-xl  duration-300" onClick={() => { setListSection(false); resetForm(); setUpdateMode(false); }}>
+                                        <button className="bg-[#FF7A50]  text-white font-bold py-2 px-6 rounded-xl  duration-300" onClick={() => { setListSection(false); resetForm(); setUpdateMode(false); }}>
                                             <i className="fa-light fa-plus"></i> New Feature
                                         </button>
                                     </div>
@@ -228,7 +228,7 @@ function FeatureSection() {
                                         <span className="card-label fw-bold fs-3 mb-1">{updateMode ? 'Update Feature' : 'Add New Feature'}</span>
                                     </h3>
                                     <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to go back" style={{color:"white"}} >
-                                        <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl  duration-300" onClick={() => setListSection(true)} >
+                                        <button className="bg-[#FF7A50]  text-white dark:text-black font-bold py-2 px-6 rounded-xl  duration-300" onClick={() => setListSection(true)} >
                                             <i className="fa fa-arrow-left"></i> Back
                                         </button>
                                     </div>
@@ -283,7 +283,7 @@ function FeatureSection() {
                                             )}
                                         </div>
                                         <div className='text-right'>
-                                        <button type="submit" className="bg-[#FF7A50] hover:bg-hover  font-bold py-2 px-6 rounded-xl  duration-300 text-right" style={{color:"white"}} >{isbuttonLoading ? 'Please wait ...' :  'Submit'}</button>
+                                        <button type="submit" className="bg-[#FF7A50]   font-bold py-2 px-6 rounded-xl  duration-300 text-right" style={{color:"white"}} >{isbuttonLoading ? 'Please wait ...' :  'Submit'}</button>
                                         </div>
                                     </form>
                                 </div>

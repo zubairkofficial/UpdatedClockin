@@ -97,7 +97,7 @@ const HomeScreen = () => {
                 ) : (
 
                     <div style={{ marginTop: "-4%" }}>
-                        <div className='d-flex align-items-center justify-between'>
+                        <div className='d-flex align-items-center justify-between mr-6'>
                             <h1 className="font-bold ml-10 my-5">Hero Section</h1>
                             <div className="lg:block ml-[35%] lg:mr-[13%] md:mr-[20%]">
                                 <div className="relative p-4">

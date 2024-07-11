@@ -21,6 +21,7 @@
 :root {
   --background-color: #222626;
   --pinkbackground-color: #2c3131;
+  --planbackground-color: #2c3131;
   --inputcolor-color: #464b4b;
   --lightpink-color: #222626;
   --imagebgcolor-color: #464b4b;
@@ -47,6 +48,7 @@
 [data-theme="dark"] {
   --background-color: #ffffff;
   --pinkbackground-color: #fff5f1;
+  --planbackground-color: #f7f7f7e5;
   --inputcolor-color: #eaeaea;
   --lightpink-color: #fff9f8;
   --imagebgcolor-color: #f8f5f4;
@@ -80,6 +82,11 @@ body {
 * {
   font-family: "Montserrat", sans-serif;
   /* transition: 0.1s; */
+}
+.cardshadow{
+  -webkit-box-shadow: 0.5px 0 14px 1px rgba(26, 26, 26, 0.49);
+  -moz-box-shadow: 0.5px 0 14px 1px rgba(26, 26, 26, 0.49);
+  box-shadow: 0.5px 0 14px 1px rgba(26, 26, 26, 0.49);
 }
 .backimage {
   background: url("/public/assets/org.png");

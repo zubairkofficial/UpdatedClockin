@@ -84,9 +84,9 @@ const Stats = () => {
                                     </svg>
 
                                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-                                        <h1 className="text-3xl lg:text-7xl font-bold text-text">
+                                        <h2 className="text-3xl lg:text-7xl font-bold text-text">
                                             {stat.total_task}
-                                        </h1>
+                                        </h2>
                                         <h3 className="text-text lg:text-3xl text-xl">
                                             Total Task
                                         </h3>
@@ -105,7 +105,7 @@ const Stats = () => {
                     </div>
 
                     <div className="sm:pl-5 sm:pr-15 lg:pl-16 md:pl-12 lg:pr-14 md:pr-10 mt-16 lg:mr-16 md:mr-12 sm:mr-5 p-[5%] w-[100%] lg:w-[40%]">
-                        <h1 className="text-3xl text-text font-bold">{stat.heading}</h1>
+                        <h2 className="text-3xl text-text font-bold">{stat.heading}</h2>
                         {JSON.parse(stat.content).map((item, index) => (
                             <div className="mt-4" key={index}>
                                 <p className="text-[#FF7A50] font-semibold">

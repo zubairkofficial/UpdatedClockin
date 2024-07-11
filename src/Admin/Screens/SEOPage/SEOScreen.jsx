@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Sidebar from '../../Components/Sidebar'
 import axios from 'axios';
 import Helpers from '../../../Config/Helpers';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 import SEOForm from './SEOForm';
 
 function SEOScreen() {
@@ -116,6 +118,39 @@ function SEOScreen() {
             console.error('Error deleting SEO content:', error);
         }
     };
+    const MySwal = withReactContent(Swal);
+
+    const deleteSEO = (id) => {
+        MySwal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "No, cancel!",
+            reverseButtons: true,
+            customClass: {
+                confirmButton: "px-3 py-2  text-green-100 bg-red-500 rounded-lg",
+                cancelButton: "px-3 py-2  text-green-100 mr-3 bg-green-500 rounded-lg"
+            },
+            buttonsStyling: false
+        }).then((result) => {
+            if (result.isConfirmed) {
+                handleDelete(id);
+                MySwal.fire({
+                    title: "Deleted!",
+                    text: "Your data has been deleted.",
+                    icon: "success"
+                });
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                MySwal.fire({
+                    title: "Cancelled",
+                    text: "Your data is safe :)",
+                    icon: "error"
+                });
+            }
+        });
+    };
     const resetForm = () => {
         setFormData({
             title: '',
@@ -137,7 +172,7 @@ function SEOScreen() {
                             <span className="card-label fw-bold fs-3 mb-1">SEO</span>
                         </h3>
                         <div className="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a Achievements" style={{ color: "white" }} >
-                            <button className="bg-[#FF7A50] hover:bg-hover text-white dark:text-black font-bold py-2 px-6 rounded-xl  duration-300" onClick={() => { setListSection(false); setUpdateMode(false); resetForm() }}>
+                            <button className="bg-[#FF7A50]  text-white dark:text-black font-bold py-2 px-6 rounded-xl  duration-300" onClick={() => { setListSection(false); setUpdateMode(false); resetForm() }}>
                                 <i className="fa-light fa-plus"></i> New SEO
                             </button>
                         </div>
@@ -165,7 +200,7 @@ function SEOScreen() {
                                                         <button className="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" onClick={() => handleEdit(seo)}>
                                                             <i className="fas fa-pencil-alt"></i>
                                                         </button>
-                                                        <button className="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" onClick={() => handleDelete(seo.id)}>
+                                                        <button className="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" onClick={() => deleteSEO(seo.id)}>
                                                             <i className="fas fa-trash-alt"></i>
                                                         </button>
                                                     </div>
