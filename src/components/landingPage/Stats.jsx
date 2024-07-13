@@ -38,9 +38,10 @@ const Stats = () => {
     return (
         // <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-lightpink py-16 ">
         <>
+        <div className="bg-lightpink">
             {stat.map((stat) => (
                 <div
-                    className="lg:flex block justify-around bg-lightpink py-16 container mx-auto rounded-xl w-full "
+                    className="lg:flex block justify-around  py-16 container mx-auto rounded-xl w-full "
                     key={stat.id}
                 >
                     <div className="flex justify-around">
@@ -125,6 +126,7 @@ const Stats = () => {
                     </div>
                 </div>
             ))}
+            </div>
         </>
     );
 };

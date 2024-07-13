@@ -40,7 +40,7 @@ function Cards({chunkedNews}) {
                     >
                         {newsChunk.map((news, index) => (
                             <SwiperSlide key={index} className="flex myslide1">
-                                <div className="max-w-xs w-full rounded-lg overflow-hidden cardshadow bg-faqbg card flex-fill">
+                                <div className="max-w-xs w-full rounded-lg overflow-hidden shadow-md bg-faqbg card flex-fill">
                                     <div className="w-full  rounded-t-lg overflow-hidden flex-shrink-2">
                                         <img className='w-full h-[30vh] object-cover' src={`${Helpers.basePath}/storage/${news.image}`} alt={news.title} />
                                     </div>

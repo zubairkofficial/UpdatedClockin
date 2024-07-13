@@ -206,7 +206,7 @@ const Footer = () => {
         <hr className="w-full border-t-1 border-[#4747476b] mt-20" />
         <br />
         <div className="pt-20 w-full">
-          <p className={`${isLightMode ? 'text-[#ffffff]' : 'text-[#242424]'} font-thin text-center`} style={{ fontSize: "0.8rem" }}>
+          <p className={`${isLightMode ? 'text-[#646464]' : 'text-[#242424]'} font-thin text-center`} style={{ fontSize: "0.8rem" }}>
             Designed by ClockIn. All Rights Reserved.
           </p>
         </div>

@@ -12,7 +12,8 @@ const DashboardComp = ({
 
   return (
     <>
-      <div className="h-full bg-pinkbackground py-16 pt-7 pr-0 lg:pr-14 bg-orangelinewithicons bg-cover bgimage container mx-auto ">
+    <div className="bg-pinkbackground">
+      <div className="h-full  py-16 pt-7 pr-0 lg:pr-14 bg-orangelinewithicons bg-cover bgimage container mx-auto ">
         {/* dashboard 1 */}
         <AnimatedText>
           {/* {['1','2','3'].map(id => ( */}
@@ -124,6 +125,7 @@ const DashboardComp = ({
             </div>
           </div>
         </AnimatedText>
+      </div>
       </div>
     </>
   );

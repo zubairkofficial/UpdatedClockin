@@ -13,7 +13,7 @@ import Helpers from "../../Config/Helpers";
 export default function Carousel({achievements}) {
   return (
     <>
-      <div className="mt-16 flex gap-x-12 items-center justify-center m-5 lg:ml-6 sm:mx-5 ">
+      <div className="mt-16  m-5 lg:ml-6 sm:mx-5 ">
         <Swiper
           modules={[Navigation, Pagination, Scrollbar]}
           breakpoints={{
@@ -43,8 +43,8 @@ export default function Carousel({achievements}) {
           style={{ position: 'relative' }}
         >
           {achievements.map(achievement  => (
-            <SwiperSlide style={{ position: 'relative' }} key={achievement.id}>
-              <div className=" lg:max-w-sm sm:w-full mx-5 rounded-lg shadow-lg bg-background lg:p-2 p-1">
+            <SwiperSlide style={{ position: 'relative' }} key={achievement.id} className="flex myslide1">
+              <div className=" lg:max-w-sm sm:w-full mx-5 rounded-lg shadow-md flex-fill bg-achcard lg:p-2 p-1">
                 <img
                   className="lg:pl-8 pl-2 pt-2"
                   src={`${Helpers.basePath}/storage/${achievement.brand_logo}`}

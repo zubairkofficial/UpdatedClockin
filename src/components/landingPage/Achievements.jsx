@@ -18,7 +18,8 @@ const App = ({currentContent}) => {
     getAchievements();
 }, []);
   return (
-    <div className="bg-pinkbackground pb-12 pt-3  container mx-auto px-0">
+    <div className='bg-achbackground'>
+    <div className=" pb-12 pt-3  container mx-auto px-0">
       <div className=''>
         <h2 className='text-center text-orange-600 text-2xl pt-12 font-semibold '>{currentContent['achievement-1'] || "Our Achievements From Clients"}</h2>
         <div className='flex justify-center'>
@@ -27,6 +28,7 @@ const App = ({currentContent}) => {
         </div>
       </div>
       <Carousel achievements={achievements} />
+    </div>
     </div>
   );
 };

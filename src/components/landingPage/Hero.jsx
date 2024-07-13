@@ -41,8 +41,9 @@ const Hero = ({ secondImage, thirdImage1, thirdImage2, thirdImage3, currentConte
             {/* {loading ? ( */}
             {/* <Loader /> */}
             {/* ) : ( */}
-            <section className="bg-pinkbackground mt-8">
-                <div className="container mx-auto">
+            <section className=" mt-8">
+            <div className="bg-featurebackground">
+                <div className=" container mx-auto">
                     <AnimatedText>
                         <h2 className="text-text font-bold text-center py-8 sm:py-10 md:py-12 lg:py-16 text-xl lg:text-4xl">
                             {currentContent[`feature-1`] || 'Our Application Features'}
@@ -99,9 +100,10 @@ const Hero = ({ secondImage, thirdImage1, thirdImage2, thirdImage3, currentConte
                         </AnimatedText>
                     </div>
                 </div>
-
+</div>
                 <AnimatedText>
-                    <div className="flex flex-col lg:flex-row justify-between items-center px-8 md:px-16 lg:px-[160px] py-8 container mx-auto mt-5">
+                <div className="bg-pinkbackground">
+                    <div className="flex flex-col lg:flex-row justify-between items-center px-8 md:px-16 lg:px-[160px] py-8 container mx-auto pt-5  w-full">
                         <div className="text-center lg:text-left lg:order-1 order-2">
                             <h2 className="text-text font-bold lg:text-4xl text-2xl mb-4 lg:mb-8">
                                 {currentContent[`second-1`] || 'Why we are the best & customers choose us'}
@@ -123,6 +125,7 @@ const Hero = ({ secondImage, thirdImage1, thirdImage2, thirdImage3, currentConte
                             alt="whyus"
                             className="mt-8 lg:mt-0 max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg lg:order-2 order-1"
                         />
+                    </div>
                     </div>
                 </AnimatedText>
                 <AnimatedText>
