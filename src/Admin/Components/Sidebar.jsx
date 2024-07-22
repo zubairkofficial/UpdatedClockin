@@ -80,6 +80,31 @@ function Sidebar() {
                 <div class="menu-item pt-5">
                   <div class="menu-content">
                     <span class="menu-heading fw-bold text-uppercase fs-7">
+                      New Page Section
+                    </span>
+                  </div>
+                </div>
+                <div
+                  data-kt-menu-trigger="click"
+                  class="menu-item here show menu-accordion"
+                >
+                  <span class="menu-link">
+                    <span class="menu-title">
+                      <NavLink
+                        to="/admin/newpage"
+                        className={({ isActive }) =>
+                          isActive ? 'text-orange-500 hover:text-orange-500' : 'text-white hover:text-primary'
+                        }
+                      >
+                        <i className="fa-solid fa-plus pr-5"></i>
+                        New Page
+                      </NavLink>
+                    </span>
+                  </span>
+                </div>
+                <div class="menu-item pt-5">
+                  <div class="menu-content">
+                    <span class="menu-heading fw-bold text-uppercase fs-7">
                       Images
                     </span>
                   </div>

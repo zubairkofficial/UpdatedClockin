@@ -40,6 +40,9 @@ import TermPageContent from "./Admin/Screens/Privacy/TermPageContent.js";
 import TermPage from "./components/Term/TermPage.js";
 import SEOScreen from "./Admin/Screens/SEOPage/SEOScreen.jsx";
 import { SEOProvider } from "./Config/SEOContext.js";
+import NewPageScreen from "./Admin/Screens/Newpage/NewPageScreen.js";
+import OptionSidebar from "./Admin/Screens/Newpage/OptionSidebar.js";
+import DndContext from "./layouts/DndContext.js";
 
 const router = createBrowserRouter([
   {
@@ -155,11 +158,16 @@ const router = createBrowserRouter([
     path: "/admin/seo",
     element: <ProtectedRoute element={<SEOScreen />} />,
   },
+  {
+    path: "/admin/newpage",
+    element: <ProtectedRoute element={<OptionSidebar />} />,
+  },
 ]);
 
 function App() {
   return (
-    <SEOProvider>
+    <DndContext>
+      <SEOProvider>
         <ThemeProvider>
           <div>
             <div class="d-flex flex-column flex-root app-root" id="kt_app_root">
@@ -174,7 +182,8 @@ function App() {
             </div>
           </div>
         </ThemeProvider>
-        </SEOProvider>
+      </SEOProvider >
+    </DndContext >
   );
 }
 

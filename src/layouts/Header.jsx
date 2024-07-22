@@ -109,7 +109,7 @@ const Header = ({ logourl }) => {
           <div className="relative p-4">
             <button
               className={`absolute top-0 left-0 w-[5.5rem]  rounded-lg text-[#f2f5f5] py-3 font-[0.5rem] text-xs lg:text-base
-                          ${isLightMode ? 'bg-secondary z-10 ' : 'bg-[#FF7A50] font-bold z-10 lg:w-[8rem] w-[6rem] ml-[-21%]'}`}
+                          ${isLightMode ? 'bg-secondary ' : 'bg-[#FF7A50] font-bold z-10 lg:w-[8rem] w-[6rem] ml-[-21%]'}`}
               onClick={() => setIsLightMode(false)}
             >
               Light {!isLightMode ? 'Mode' : ''}
