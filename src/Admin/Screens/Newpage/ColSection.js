@@ -2,14 +2,15 @@ import React, { useState } from 'react'
 import RowSection from './RowSection';
 import DndContext from '../../../layouts/DndContext';
 
-const ColSection = ({ section, onRemove ,headingStyle}) => {
+const ColSection = ({ section, onRemove ,headingStyle ,colorStyle , padding , margin , align ,imagesize}) => {
   const [rows, setRows] = useState([]);
 
   const handleRow = (numRows) => {
     const newRows = Array.from({ length: numRows }, (_, index) => ({
       id: Date.now() + index,
-      heading: false,
-      image: false,
+      heading: '',
+      image: '',
+      headingStyle : ''
     }));
     setRows([...rows, ...newRows]);
   };
@@ -57,7 +58,7 @@ const ColSection = ({ section, onRemove ,headingStyle}) => {
               </div>
             </>
           ) : (
-            <RowSection rows={rows} onRemoveRow={handleRemoveRow} onDropItem={handleDropItem}  headingStyle={headingStyle}/>
+            <RowSection rows={rows} onRemoveRow={handleRemoveRow} onDropItem={handleDropItem}  headingStyle={headingStyle} colorStyle={colorStyle} padding={padding} margin={margin} align={align} imagesize={imagesize}/>
           )}
         </div>
       </DndContext>

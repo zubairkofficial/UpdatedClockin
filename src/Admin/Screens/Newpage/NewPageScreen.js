@@ -3,7 +3,7 @@ import ColSection from './ColSection'
 import Header from "../../../layouts/Header";
 import { ThemeContext } from '../../../layouts/ThemeContext';
 
-function NewPageScreen({ heading, click, container, handleContainer ,headingStyle }) {
+function NewPageScreen({ heading, click, container, handleContainer ,headingStyle,colorStyle ,padding ,margin ,align , imagesize}) {
 
     const { isLightMode } = useContext(ThemeContext);
     const [sections, setSections] = useState([]);
@@ -33,6 +33,11 @@ function NewPageScreen({ heading, click, container, handleContainer ,headingStyl
                         section={section}
                         onRemove={() => handleRemoveSection(section.id)}
                         headingStyle={headingStyle}
+                        colorStyle={colorStyle}
+                        padding={padding}
+                        align={align}
+                        margin={margin}
+                        imagesize={imagesize}
                     />
                 ))}
                 <div className={`mt-10 relative rounded border-gray-300 ${container ? '' : 'hidden'} `} style={{ border: 'dashed', borderWidth: '1px' }}>

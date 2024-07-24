@@ -12,6 +12,12 @@ function OptionSidebar({ type }) {
     const [heading, setHeading] = useState(false)
     const [style, setStyle] = useState(true)
     const [headingStyle, setHeadingStyle] = useState('');
+    const [colorStyle , setColorStyle] = useState('')
+    const [padding, setPadding] = useState({ top: 0, right: 0, bottom: 0, left: 0 });
+    const [margin, setMargin] = useState({ top: 0, right: 0, bottom: 0, left: 0 });
+    const [align, setAlign] = useState('left');
+    const [imagesize , setImageSize] = useState({width: 0 , height: 0})
+
 
     const handleSection = () => {
         setStyle(!style)
@@ -72,9 +78,9 @@ function OptionSidebar({ type }) {
                                 <DraggableImage type="image" />
                             </div>
                         </>
-                        : <StyleSidebar  onHeadingChange={setHeadingStyle}/>}
+                        : <StyleSidebar  onHeadingChange={setHeadingStyle} setColorStyle={setColorStyle} setPadding={setPadding} setMargin={setMargin} setAlign={setAlign} setImageSize={setImageSize}/>}
                 </div>
-                <NewPageScreen heading={heading} click={handleClick} container={container} handleContainer={handleContainer} headingStyle={headingStyle} />
+                <NewPageScreen heading={heading} click={handleClick} container={container} handleContainer={handleContainer} headingStyle={headingStyle} colorStyle={colorStyle} padding={padding} margin={margin} align={align} imagesize={imagesize}/>
             </div>
         </>
     )
