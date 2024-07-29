@@ -2,26 +2,36 @@ import React, { useState } from 'react'
 import RowSection from './RowSection';
 import DndContext from '../../../layouts/DndContext';
 
-const ColSection = ({ section, onRemove ,headingStyle ,colorStyle , padding , margin , align ,imagesize}) => {
+const ColSection = ({ section, onRemove, headingStyle, colorStyle, padding, margin, align, imagesize, imageradius ,selectedElement,
+  setSelectedElement }) => {
   const [rows, setRows] = useState([]);
+  const [selectedRow, setSelectedRow] = useState(null);
+  const [selectedItemType, setSelectedItemType] = useState(null);
 
   const handleRow = (numRows) => {
     const newRows = Array.from({ length: numRows }, (_, index) => ({
       id: Date.now() + index,
       heading: '',
       image: '',
-      headingStyle : ''
+      card: '',
+      button: '',
+      headingStyle: ''
     }));
     setRows([...rows, ...newRows]);
   };
 
   const handleRemoveRow = (id) => {
-    setRows(rows.filter(row => row.id !== id));
+    setRows(rows.filter((row) => row.id !== id));
   };
 
   const handleDropItem = (item, id) => {
-    setRows(rows.map(row => {
+    setRows(rows.map((row) => {
       if (row.id === id) {
+        // Check if the item type already exists in the row
+        if (row[item.type]) {
+          console.log(`${item.type} already exists in this row.`);
+          return row; // Return the row unchanged
+        }
         return { ...row, [item.type]: true };
       }
       return row;
@@ -58,7 +68,8 @@ const ColSection = ({ section, onRemove ,headingStyle ,colorStyle , padding , ma
               </div>
             </>
           ) : (
-            <RowSection rows={rows} onRemoveRow={handleRemoveRow} onDropItem={handleDropItem}  headingStyle={headingStyle} colorStyle={colorStyle} padding={padding} margin={margin} align={align} imagesize={imagesize}/>
+            <RowSection rows={rows} onRemoveRow={handleRemoveRow} onDropItem={handleDropItem} headingStyle={headingStyle} colorStyle={colorStyle} padding={padding} margin={margin} align={align} imagesize={imagesize} imageradius={imageradius} selectedRow={selectedRow} selectedItemType={selectedItemType} selectedElement={selectedElement}
+        setSelectedElement={setSelectedElement}/>
           )}
         </div>
       </DndContext>

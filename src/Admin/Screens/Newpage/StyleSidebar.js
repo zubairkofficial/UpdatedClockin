@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import ImageStylebar from './ImageStylebar'
 
-function StyleSidebar({ onHeadingChange, setColorStyle, setPadding, setMargin, setAlign ,setImageSize}) {
+function StyleSidebar({ onHeadingChange, setColorStyle, setPadding, setMargin, setAlign ,setImageSize ,setImageRadius , selectedElement}) {
     const [headingStyle, setHeadingStyle] = useState(false)
 
     const handleHeadingStyle = () => {
@@ -36,11 +37,15 @@ function StyleSidebar({ onHeadingChange, setColorStyle, setPadding, setMargin, s
     const onAlignChange = (event) => {
         setAlign(event.currentTarget.dataset.align);
     };
+    const onRadiusChange = (event) => {
+        setImageRadius(event.target.value);
+    };
     return (
         <div>
+            {selectedElement && (
             <div>
                 <span className='text-md font-bold cursor-pointer' onClick={handleHeadingStyle}><i class="fa-sharp fa-solid fa-caret-down mr-3 mt-3"></i> Heading Style</span>
-                {headingStyle ?
+                {/* {headingStyle ? */}
                     <>
                         <h3 className='mt-5 font-semibold'>Select a Heading</h3>
                         <select className='px-5 py-2 w-full mt-4 outline-none rounded shadow-sm' onChange={handleChange}>
@@ -49,6 +54,8 @@ function StyleSidebar({ onHeadingChange, setColorStyle, setPadding, setMargin, s
                             <option className='h2' value='h2'>Heading 2</option>
                             <option className='h3' value='h3'>Heading 3</option>
                         </select>
+                        <h3 className='mt-5 font-semibold'>Enter Content</h3>
+                        <textarea className='w-full mt-2 shadow-sm rounded p-3 outline-none' placeholder='Enter Content Here'  cols='50' rows='4' ></textarea>
 
                         <h3 className='mt-5 font-semibold'>Select a Color</h3>
                         <input type='color' className='mt-4 cursor-pointer ' onChange={onColorChange} value='red' />
@@ -76,19 +83,27 @@ function StyleSidebar({ onHeadingChange, setColorStyle, setPadding, setMargin, s
                             <button className='p-2 m-2 rounded shadow-sm w-full' onClick={onAlignChange} data-align='right'><i class="fa-solid fa-align-right"></i></button>
                         </div>
                     </>
-                    : '' }   
+                   {/* Comment is here : '' }    */}
             </div>
-            <span className='text-md font-bold'><i class="fa-sharp fa-solid fa-caret-down mr-3 mt-3"></i> Image Style</span>
+        )}
+            <ImageStylebar onRadiusChange={onRadiusChange} onSizeChange={onSizeChange}/>
+            {/* <span className='text-md font-bold'><i class="fa-sharp fa-solid fa-caret-down mr-3 mt-3"></i> Image Style</span>
             <div className='flex justify-between w-full mt-5'>
                 <div className='w-full'>
                     <label className='font-bold'>Width : </label>
-                    <input type='number' className='p-2 m-2 rounded shadow-sm w-[50%] outline-none' placeholder='50px' onChange={onSizeChange} data-side='width'/>
+                    <input type='number' className='p-2 m-2 rounded shadow-sm w-[50%] outline-none' placeholder='50%' onChange={onSizeChange} data-side='width'/>
                 </div>
                 <div className='w-full'>
                     <label className='font-bold'>Height : </label>
-                    <input type='number' placeholder='50px' className='p-2 m-2 rounded shadow-sm w-[50%] outline-none' onChange={onSizeChange} data-side='height'/>
+                    <input type='number' placeholder='50%' className='p-2 m-2 rounded shadow-sm w-[50%] outline-none' onChange={onSizeChange} data-side='height'/>
                 </div>
             </div>
+            <div className='flex justify-between w-full mt-5'>
+                <div className='w-full'>
+                    <label className='font-bold'>Border Radius : </label>
+                    <input type='number' className='p-2 m-2 rounded shadow-sm w-[50%] outline-none' placeholder='0px' onChange={onRadiusChange}/>
+                </div>
+            </div> */}
         </div>
     )
 }
