@@ -128,7 +128,7 @@
 //                 src='/assets/image.png'
 //                 className='w-[20%] text-center'
 //                 onClick={handleImageClick}
-                
+
 //               />
 //             }
 //           </div>
@@ -185,7 +185,7 @@
 // };
 
 // export default RowSection;
-import React from 'react';
+import React, { useContext } from 'react';
 import DroppableColumn from './DroppableColumn';
 
 const RowSection = ({
@@ -193,6 +193,7 @@ const RowSection = ({
   onRemoveRow,
   onDropItem,
   headingStyle,
+  heading,
   colorStyle,
   padding,
   margin,
@@ -204,17 +205,19 @@ const RowSection = ({
 }) => {
   return (
     <div className='mt-2 flex flex-col'>
-      {rows.map(row => (
-        <div key={row.id} className='flex flex-row'>
+      {rows.map((row , rowIndex) => (
+        <div key={row.id} className='flex flex-row my-8 relative '>
           {row.columns.map((column, index) => (
             <DroppableColumn
               key={index}
               rowId={row.id}
               columnIndex={index}
-              item={column}
-              onDropItem={onDropItem}
+              rowIndex={rowIndex}
+              item={column} // Ensure column is correctly passed
               headingStyle={headingStyle}
+              heading={heading}
               colorStyle={colorStyle}
+              onDropItem={onDropItem}
               padding={padding}
               margin={margin}
               align={align}
@@ -225,13 +228,45 @@ const RowSection = ({
             />
           ))}
           <button
-            className='bg-red-500 text-white'
+            className='bg-slate-200 m-1 absolute top-1 right-1 px-2 bg-opacity-75 rounded-full cursor-pointer'
             onClick={() => onRemoveRow(row.id)}
+            style={{ transform: 'translate(-50%,-80%)' }}
           >
-            Remove Row
+            <i className="fa-solid fa-xmark" style={{ color: 'black' }} ></i>
           </button>
         </div>
       ))}
+      {/* {rows.map((row, rowIndex) => (
+        <div key={row.id} className="flex flex-row my-8 relative">
+          {row.columns.map((column, columnIndex) => (
+            <DroppableColumn
+                key={columnIndex}
+                rowIndex={rowIndex}
+                columnIndex={columnIndex}
+                item={column}
+                headingStyle={headingStyle}
+                heading={heading}
+                colorStyle={colorStyle}
+                onDropItem={onDropItem}
+                padding={padding}
+                margin={margin}
+                align={align}
+                imagesize={imagesize}
+                imageradius={imageradius}
+                selectedElement={selectedElement}
+                setSelectedElement={setSelectedElement}
+              />
+            ))}
+          <button
+            className="bg-slate-200 m-1 absolute top-1 right-1 px-2 bg-opacity-75 rounded-full cursor-pointer"
+            onClick={() => onRemoveRow(row.id)}
+            style={{ transform: 'translate(-50%,-80%)' }}
+          >
+            <i className="fa-solid fa-xmark" style={{ color: 'black' }}></i>
+          </button>
+        </div>
+      ))} */}
+
     </div>
   );
 };

@@ -1,11 +1,13 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { useDrop } from 'react-dnd';
-
+import React, { useRef, useState, useEffect } from "react";
+import { useDrop } from "react-dnd";
+import HeadingComponent from "./NewPageContent/HeadingComponent";
+import { usePage } from "../../../layouts/PageContext";
+import { useRowColumnContext } from "../../../layouts/RowColumnContext";
 const DroppableColumn = ({
   rowId,
   columnIndex,
+  rowIndex,
   item,
-  onDropItem,
   headingStyle,
   colorStyle,
   padding,
@@ -13,53 +15,181 @@ const DroppableColumn = ({
   align,
   imagesize,
   imageradius,
+  onDropItem,
   selectedElement,
-  setSelectedElement
+  setSelectedElement,
+  
 }) => {
-  const [{ isOver }, drop] = useDrop(() => ({
+
+  const [{ isOver }, drop] = useDrop({
     accept: 'ITEM',
     drop: (draggedItem) => onDropItem(draggedItem, rowId, columnIndex),
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
     }),
-  }), [onDropItem, rowId, columnIndex]);
+  });
+
+
+  const [selectedFile, setSelectedFile] = useState();
+  const [preview, setPreview] = useState();
+  const fileInputRef = useRef(null);
+  const { width, height } = imagesize;
+  const { formData, setFormData } = usePage();
+  const [rows, setRows] = useState(formData.rows);
+  const { top, right, left, bottom } = padding;
+  const { top: topm, right: rightm, left: leftm, bottom: bottomm } = margin;
+  const { setRowColumnData } = useRowColumnContext();
+
+  useEffect(() => {
+        setRowColumnData({ rowIndex, columnIndex });
+    }, [rowIndex, columnIndex, setRowColumnData]);
+
+  useEffect(() => {
+    if (!selectedFile) {
+      setPreview(undefined);
+      return;
+    }
+    const objectUrl = URL.createObjectURL(selectedFile);
+    setPreview(objectUrl);
+    return () => URL.revokeObjectURL(objectUrl);
+  }, [selectedFile]);
+
+  const onSelectFile = (e) => {
+    if (!e.target.files || e.target.files.length === 0) {
+      setSelectedFile(undefined);
+      return;
+    }
+    const file = e.target.files[0];
+    setSelectedFile(file);
+
+    // Update formData with the selected file
+    const rows = [...formData.rows];
+    rows[rowIndex].columns[columnIndex].content = file;
+    setFormData({ ...formData, rows });
+  };
+
+  const handleImageClick = () => {
+    fileInputRef.current.click();
+  };
+
+  const handleClick = (rowId) => {
+    setSelectedElement(rowId);
+  };
+
+
+  const handleFeatureChange = (rowIndex, columnIndex, e) => {
+    const { name, value } = e.target;
+    const updatedRows = [...rows];
+    updatedRows[rowIndex].columns[columnIndex][name] = value;
+    setRows(updatedRows);
+    setFormData({ ...formData, rows: updatedRows });
+    console.log('Updated formData:', { ...formData, rows: updatedRows });
+  };
+
+
+  const isSelected = selectedElement === rowId;
 
   return (
     <div
       ref={drop}
-      className={`flex-1 p-2 border ${isOver ? 'bg-blue-200' : 'bg-white'}`}
-      onClick={() => setSelectedElement(rowId)}
+      className={`flex-1 p-2 ${isOver ? 'bg-blue-200' : 'bg-none'} ${isSelected ? 'selected-style' : ''} rounded h-full`}
+      style={{ border: 'dashed', borderWidth: '1px', borderColor: 'white' }}
+      onClick={handleClick}
     >
       {item ? (
-        item.type === 'heading' ? (
-          <h2 style={{ ...headingStyle, color: colorStyle }}>{item.content}</h2>
-        ) : item.type === 'image' ? (
-          <img
-            src={item.src}
-            alt="Dropped item"
-            style={{
-              width: `${imagesize.width}%`,
-              height: `${imagesize.height}%`,
-              borderRadius: `${imageradius}px`
-            }}
-          />
-        ) : item.type === 'card' ? (
-          <input
-            type='text'
-            placeholder='Enter heading text'
-            style={{
-              ...headingStyle,
-              color: colorStyle,
-              padding,
-              margin,
-              textAlign: align
-            }}
-          />
-        ) : item.type === 'button' ? (
-          <button className='btn bg-black text-white'>{item.content}</button>
-        ) : null
+        <>
+          {item.type === 'heading' && (
+            <input
+              type="text"
+              className={`w-full h-full outline-none ${headingStyle} `}
+              placeholder="Enter heading text"
+              // onChange={(e) => handleFeatureChange(columnIndex, e)}
+              // name="content"
+              // value={formData.content}
+              onChange={(e) => handleFeatureChange(rowIndex, columnIndex, e)}
+              name="content"
+              value={item.content}
+              style={{
+                color: colorStyle,
+                padding: `${top}px ${right}px ${bottom}px ${left}px`,
+                margin: `${topm}px ${rightm}px ${bottomm}px ${leftm}px`,
+                textAlign: align,
+                background: 'none',
+              }}
+            />
+          )}
+          {item.type === 'image' && (
+            <>
+              <input
+                type="file"
+                className="hidden"
+                onChange={onSelectFile}
+                ref={fileInputRef}
+              />
+              {preview ? (
+                <img
+                  src={preview}
+                  className="cursor-pointer"
+                  style={{
+                    width: `${width}%`,
+                    height: `${height}%`,
+                    borderRadius: `${imageradius}px`,
+                    padding: `${top}px ${right}px ${bottom}px ${left}px`,
+                    margin: `${topm}px ${rightm}px ${bottomm}px ${leftm}px`,
+                  }}
+                  onClick={handleImageClick}
+                />
+              ) : (
+                <img
+                  src="/assets/image.png"
+                  className="w-[20%] text-center cursor-pointer mx-auto invert"
+                  onClick={handleImageClick}
+                  style={{
+                    padding: `${top}px ${right}px ${bottom}px ${left}px`,
+                    margin: `${topm}px ${rightm}px ${bottomm}px ${leftm}px`,
+                  }}
+                />
+              )}
+            </>
+          )}
+          {item.type === 'textarea' && (
+            <textarea
+              placeholder="Enter Free Text Here"
+              className="w-full outline-none "
+              onChange={(e) => handleFeatureChange(rowIndex, columnIndex, e)}
+              name="content"
+              value={item.content}
+              style={{
+                padding: `${top}px ${right}px ${bottom}px ${left}px`,
+                margin: `${topm}px ${rightm}px ${bottomm}px ${leftm}px`,
+                background: 'none',
+                color: 'white'
+              }}
+            ></textarea>
+          )}
+          {item.type === 'button' && (
+            <input
+              type="text"
+              className="bg-[#FF7A50] outline-none text-center font-bold py-2 px-4 rounded-xl transition duration-300"
+              placeholder="Enter Button Text Here"
+              onChange={(e) => handleFeatureChange(rowIndex, columnIndex, e)}
+              name="content"
+              value={item.content}
+              style={{
+                padding: `${top}px ${right}px ${bottom}px ${left}px`,
+                margin: `${topm}px ${rightm}px ${bottomm}px ${leftm}px`,
+                color: 'white',
+              }}
+            />
+          )}
+        </>
       ) : (
-        <div className="flex items-center justify-center h-full text-gray-500">Drop Here</div>
+        <div
+          className="flex items-center justify-center h-full"
+          style={{ color: 'white' }}
+        >
+          Drop Here
+        </div>
       )}
     </div>
   );

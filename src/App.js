@@ -8,7 +8,7 @@ import Header from "./layouts/Header";
 import Loader from "./layouts/Loader.js";
 import SearchBar from "./components/FAQs/SearchBar.jsx";
 import { ThemeProvider } from "../src/layouts/ThemeContext.js";
-import { ImageProvider } from '../src/layouts/ImageContext.js';
+import { ImageProvider } from "../src/layouts/ImageContext.js";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./Layout";
 import ContactUS from "./components/support/ContactUS.jsx";
@@ -31,7 +31,7 @@ import HomePageContent from "./Admin/Screens/Content/HomePageContent.js";
 import FooterSection from "./Admin/Screens/Content/FooterSection.js";
 import StatSectionContent from "./Admin/Screens/Content/StatSectionContent.js";
 import DownloadPageContent from "./Admin/Screens/Content/DownloadPageContent.js";
-import { LoadingProvider } from './layouts/LoadingContext';
+import { LoadingProvider } from "./layouts/LoadingContext";
 import Helpers from "./layouts/LoadingContext";
 import axios from "axios";
 import PrivacyPageContent from "./Admin/Screens/Privacy/PrivacyPageContent.js";
@@ -43,6 +43,9 @@ import { SEOProvider } from "./Config/SEOContext.js";
 import NewPageScreen from "./Admin/Screens/Newpage/NewPageScreen.js";
 import OptionSidebar from "./Admin/Screens/Newpage/OptionSidebar.js";
 import DndContext from "./layouts/DndContext.js";
+import { PageProvider } from "./layouts/PageContext.js";
+import { RowColumnProvider } from "./layouts/RowColumnContext.js";
+import PreviewScreen from "./Admin/Screens/Newpage/Preview/PreviewScreen.js";
 
 const router = createBrowserRouter([
   {
@@ -162,28 +165,39 @@ const router = createBrowserRouter([
     path: "/admin/newpage",
     element: <ProtectedRoute element={<OptionSidebar />} />,
   },
+  {
+    path: "/preview/newpage/:page_id",
+    element: <PreviewScreen />,
+  },
 ]);
 
 function App() {
   return (
-    <DndContext>
-      <SEOProvider>
-        <ThemeProvider>
-          <div>
-            <div class="d-flex flex-column flex-root app-root" id="kt_app_root">
-              <div
-                class="app-page  flex-column flex-column-fluid "
-                id="kt_app_page"
-              >
-                <Layout>
-                  <RouterProvider router={router} />
-                </Layout>
+    <RowColumnProvider>
+      <DndContext>
+        <SEOProvider>
+          <ThemeProvider>
+            <PageProvider>
+              <div>
+                <div
+                  class="d-flex flex-column flex-root app-root"
+                  id="kt_app_root"
+                >
+                  <div
+                    class="app-page  flex-column flex-column-fluid "
+                    id="kt_app_page"
+                  >
+                    <Layout>
+                      <RouterProvider router={router} />
+                    </Layout>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </ThemeProvider>
-      </SEOProvider >
-    </DndContext >
+            </PageProvider>
+          </ThemeProvider>
+        </SEOProvider>
+      </DndContext>
+    </RowColumnProvider>
   );
 }
 

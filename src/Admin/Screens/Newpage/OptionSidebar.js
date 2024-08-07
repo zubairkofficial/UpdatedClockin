@@ -8,20 +8,21 @@ import DraggableImage from './Buttons/DraggableImage';
 import StyleSidebar from './StyleSidebar';
 import DraggableCard from './Buttons/DraggableCard';
 import DragabbleSingleButton from './Buttons/DragabbleSingleButton';
+import DraggableTextArea from './Buttons/DraggableTextArea';
 
 function OptionSidebar({ type }) {
     const [container, setContainer] = useState(false)
     const [heading, setHeading] = useState(false)
     const [style, setStyle] = useState(true)
     const [headingStyle, setHeadingStyle] = useState('');
-    const [colorStyle, setColorStyle] = useState('')
+    const [colorStyle, setColorStyle] = useState('white')
     const [padding, setPadding] = useState({ top: 0, right: 0, bottom: 0, left: 0 });
     const [margin, setMargin] = useState({ top: 0, right: 0, bottom: 0, left: 0 });
     const [align, setAlign] = useState('center');
     const [imagesize, setImageSize] = useState({ width: 50, height: 50 })
     const [imageradius, setImageRadius] = useState({ radius: 0 })
     const [selectedElement, setSelectedElement] = useState(null);
-
+    // console.log('margin',margin)
     const handleSection = () => {
         setStyle(!style)
     }
@@ -49,7 +50,7 @@ function OptionSidebar({ type }) {
 
                     <div className='flex justify-around'>
                         <h3 className={`mt-5 text-center font-bold mb-5 cursor-pointer bg-slate-100 p-5 rounded ${style ? 'border-2' : ''}`} onClick={handleSection} >Elements</h3>
-                        <h3 className={`mt-5 text-center font-bold mb-5 cursor-pointer bg-slate-100 p-5 rounded ${style ? '' : 'border-2'}`} >Style</h3>
+                        <h3 className={`mt-5 text-center font-bold mb-5 cursor-pointer bg-slate-100 p-5 rounded ${style ? '' : 'border-2'}`} onClick={handleSection}>Style</h3>
                     </div>
                     <hr />
                     {style ?
@@ -79,11 +80,15 @@ function OptionSidebar({ type }) {
                                 }} />
                             </div>
                             <div className='flex justify-around align-items-center'>
-                                <DraggableCard type="card" />
+                                {/* <DraggableCard type="card" /> */}
+                                <DraggableTextArea type="textarea" />
                                 <DragabbleSingleButton type="button" />
                             </div>
+                            {/* <div className='flex justify-around align-items-center'>
+                                <DraggableTextArea type="textarea" />
+                            </div> */}
                         </>
-                        : <StyleSidebar onHeadingChange={setHeadingStyle} setColorStyle={setColorStyle} setPadding={setPadding} setMargin={setMargin} setAlign={setAlign} setImageSize={setImageSize} setImageRadius={setImageRadius} selectedElement={selectedElement} />}
+                        : <StyleSidebar onHeadingChange={setHeadingStyle} setColorStyle={setColorStyle} setPadding={setPadding} setMargin={setMargin} setAlign={setAlign} setImageSize={setImageSize} setImageRadius={setImageRadius} selectedElement={selectedElement} rowIndex={0}/>}
                 </div>
                 <NewPageScreen heading={heading} click={handleClick} container={container} handleContainer={handleContainer} headingStyle={headingStyle} colorStyle={colorStyle} padding={padding} margin={margin} align={align} imagesize={imagesize} imageradius={imageradius} selectedElement={selectedElement}
                     setSelectedElement={setSelectedElement} />
