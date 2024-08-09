@@ -28,6 +28,15 @@ const DroppableColumn = ({
       isOver: !!monitor.isOver(),
     }),
   });
+  const handleDrop = (e) => {
+    e.preventDefault();
+    const data = JSON.parse(e.dataTransfer.getData('text/plain'));
+    onDropItem(data, rowId, columnIndex);
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+  };
 
 
   const [selectedFile, setSelectedFile] = useState();
@@ -63,32 +72,39 @@ const DroppableColumn = ({
     setSelectedFile(file);
 
     // Update formData with the selected file
-    const rows = [...formData.rows];
-    rows[rowIndex].columns[columnIndex].content = file;
-    setFormData({ ...formData, rows });
+    const updatedRows = [...formData.rows];
+    updatedRows[rowIndex].columns[columnIndex].content = file;
+    setFormData({ ...formData, rows : updatedRows });
   };
 
   const handleImageClick = () => {
     fileInputRef.current.click();
   };
 
-  const handleClick = (rowId) => {
-    setSelectedElement(rowId);
+  const handleClick = () => {
+    setSelectedElement({ rowIndex, columnIndex });
   };
-
+  
 
   const handleFeatureChange = (rowIndex, columnIndex, e) => {
     const { name, value } = e.target;
-    const updatedRows = [...rows];
+    const updatedRows = [...formData.rows];
     updatedRows[rowIndex].columns[columnIndex][name] = value;
-    setRows(updatedRows);
     setFormData({ ...formData, rows: updatedRows });
     console.log('Updated formData:', { ...formData, rows: updatedRows });
   };
 
+  // const handleFeatureChange = (rowIndex, columnIndex, e) => {
+  //   const { name, value } = e.target;
+  //   const updatedRows = [...rows];
+  //   updatedRows[rowIndex].columns[columnIndex][name] = value;
+  //   setRows(updatedRows);
+  //   setFormData({ ...formData, rows: updatedRows });
+  //   console.log('Updated formData:', { ...formData, rows: updatedRows });
+  // };
 
-  const isSelected = selectedElement === rowId;
-
+  const isSelected = selectedElement.rowIndex === rowIndex && selectedElement.columnIndex === columnIndex;
+  // console.log(selectedElement)
   return (
     <div
       ref={drop}
@@ -98,22 +114,19 @@ const DroppableColumn = ({
     >
       {item ? (
         <>
-          {item.type === 'heading' && (
+        {item.type === 'heading' && (
             <input
               type="text"
-              className={`w-full h-full outline-none ${headingStyle} `}
+              className={`w-full h-full outline-none ${item.style.headingStyle}`}
               placeholder="Enter heading text"
-              // onChange={(e) => handleFeatureChange(columnIndex, e)}
-              // name="content"
-              // value={formData.content}
               onChange={(e) => handleFeatureChange(rowIndex, columnIndex, e)}
               name="content"
               value={item.content}
               style={{
-                color: colorStyle,
-                padding: `${top}px ${right}px ${bottom}px ${left}px`,
-                margin: `${topm}px ${rightm}px ${bottomm}px ${leftm}px`,
-                textAlign: align,
+                color: item.style.color || '', 
+                padding: `${item.style.padding.top}px ${item.style.padding.right}px ${item.style.padding.bottom}px ${item.style.padding.left}px`,
+                margin: `${item.style.margin.top}px ${item.style.margin.right}px ${item.style.margin.bottom}px ${item.style.margin.left}px`,
+                textAlign: item.style.alignment,
                 background: 'none',
               }}
             />
@@ -131,11 +144,12 @@ const DroppableColumn = ({
                   src={preview}
                   className="cursor-pointer"
                   style={{
-                    width: `${width}%`,
-                    height: `${height}%`,
-                    borderRadius: `${imageradius}px`,
-                    padding: `${top}px ${right}px ${bottom}px ${left}px`,
-                    margin: `${topm}px ${rightm}px ${bottomm}px ${leftm}px`,
+                    width: `${item.style.size.width}%`,
+                height: `${item.style.size.height}%`,
+                borderRadius: `${item.style.radius}px`,
+                    padding: `${item.style.padding.top}px ${item.style.padding.right}px ${item.style.padding.bottom}px ${item.style.padding.left}px`,
+                margin: `${item.style.margin.top}px ${item.style.margin.right}px ${item.style.margin.bottom}px ${item.style.margin.left}px`,
+                    textAlign: item.style.alignment,
                   }}
                   onClick={handleImageClick}
                 />
@@ -160,11 +174,18 @@ const DroppableColumn = ({
               name="content"
               value={item.content}
               style={{
-                padding: `${top}px ${right}px ${bottom}px ${left}px`,
-                margin: `${topm}px ${rightm}px ${bottomm}px ${leftm}px`,
+                color: item.style.color || 'white', 
+                padding: `${item.style.padding.top}px ${item.style.padding.right}px ${item.style.padding.bottom}px ${item.style.padding.left}px`,
+                margin: `${item.style.margin.top}px ${item.style.margin.right}px ${item.style.margin.bottom}px ${item.style.margin.left}px`,
+                textAlign: item.style.alignment,
                 background: 'none',
-                color: 'white'
               }}
+              // style={{
+              //   padding: `${top}px ${right}px ${bottom}px ${left}px`,
+              //   margin: `${topm}px ${rightm}px ${bottomm}px ${leftm}px`,
+              //   background: 'none',
+              //   color: 'white'
+              // }}
             ></textarea>
           )}
           {item.type === 'button' && (
@@ -176,9 +197,10 @@ const DroppableColumn = ({
               name="content"
               value={item.content}
               style={{
-                padding: `${top}px ${right}px ${bottom}px ${left}px`,
-                margin: `${topm}px ${rightm}px ${bottomm}px ${leftm}px`,
-                color: 'white',
+                color: item.style.color || 'white', 
+                padding: `${item.style.padding.top}px ${item.style.padding.right}px ${item.style.padding.bottom}px ${item.style.padding.left}px`,
+                margin: `${item.style.margin.top}px ${item.style.margin.right}px ${item.style.margin.bottom}px ${item.style.margin.left}px`,
+                textAlign: item.style.alignment,
               }}
             />
           )}

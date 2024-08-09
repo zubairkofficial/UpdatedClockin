@@ -21,7 +21,7 @@ function OptionSidebar({ type }) {
     const [align, setAlign] = useState('center');
     const [imagesize, setImageSize] = useState({ width: 50, height: 50 })
     const [imageradius, setImageRadius] = useState({ radius: 0 })
-    const [selectedElement, setSelectedElement] = useState(null);
+    const [selectedElement, setSelectedElement] = useState({ rowIndex: null, columnIndex: null });
     // console.log('margin',margin)
     const handleSection = () => {
         setStyle(!style)
@@ -55,7 +55,6 @@ function OptionSidebar({ type }) {
                     <hr />
                     {style ?
                         <>
-
                             <span className='text-md font-bold'><i class="fa-sharp fa-solid fa-caret-down mr-3 mt-3"></i> Layout</span>
                             <div className='flex justify-around align-items-center mb-4'>
                                 <div className='mt-8 border-2 border-gray-500 w-[50%] text-center m-1 shadow-sm'>

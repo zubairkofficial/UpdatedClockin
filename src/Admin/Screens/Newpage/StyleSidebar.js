@@ -11,14 +11,67 @@ function StyleSidebar({ onHeadingChange, setColorStyle, setPadding, setMargin, s
         setHeadingStyle(!headingStyle)
     }
 
+    // const handleChange = (event) => {
+    //     onHeadingChange(event.target.value)
+    // }
+    // const handleChange = (event) => {
+    //     onHeadingChange(event.target.value);
+    //     const { value } = event.target;
+    //     const rows = [...formData.rows];
+    //     if (rows[rowColumnData.rowIndex] && rows[rowColumnData.rowIndex].columns[rowColumnData.columnIndex]) {
+    //       rows[rowColumnData.rowIndex].columns[rowColumnData.columnIndex].style.headingStyle = value;
+    //       setFormData({ ...formData, rows });
+    //       console.log('Updated formData with heading style:', { ...formData, rows });
+    //     } else {
+    //       console.error(`Row at index ${rowColumnData.rowIndex} or column at index ${rowColumnData.columnIndex} does not exist.`);
+    //     }
+    //   };
+    
+    // const handleChange = (event) => {
+    //     onHeadingChange(event.target.value);
+    //     const { value } = event.target;
+    //     const rows = [...formData.rows];
+    //     if (rows[selectedElement.rowIndex] && rows[selectedElement.rowIndex].columns[selectedElement.columnIndex]) {
+    //       rows[selectedElement.rowIndex].columns[selectedElement.columnIndex].style.headingStyle = value;
+    //       setFormData({ ...formData, rows });
+    //       console.log('Updated formData with heading style:', { ...formData, rows });
+    //     } else {
+    //       console.error(`Row at index ${selectedElement.rowIndex} or column at index ${selectedElement.columnIndex} does not exist.`);
+    //     }
+    //   };
     const handleChange = (event) => {
-        onHeadingChange(event.target.value)
-        // setFormData(event.target.value)
-    }
+        const { value } = event.target;
+    
+        if (selectedElement.rowIndex !== null && selectedElement.columnIndex !== null) {
+          const rows = [...formData.rows];
+          if (rows[selectedElement.rowIndex] && rows[selectedElement.rowIndex].columns[selectedElement.columnIndex]) {
+            // Update the headingStyle for the selected element
+            rows[selectedElement.rowIndex].columns[selectedElement.columnIndex].style.headingStyle = value;
+            setFormData({ ...formData, rows });
+            console.log('Updated formData with heading style:', { ...formData, rows });
+          } else {
+            console.error(`Row at index ${selectedElement.rowIndex} or column at index ${selectedElement.columnIndex} does not exist.`);
+          }
+        } else {
+          console.error('Selected element indices are not set correctly.');
+        }
+      };
+
     const onColorChange = (event) => {
-        setColorStyle(event.target.value)
-        // setFormData(event.target.value)
-    }
+        const { value } = event.target;
+        setColorStyle(value); // Update the frontend state
+    
+        const rows = [...formData.rows];
+        if (rows[selectedElement.rowIndex] && rows[selectedElement.rowIndex].columns[selectedElement.columnIndex]) {
+            // Update the color in the formData for the selected element
+            rows[selectedElement.rowIndex].columns[selectedElement.columnIndex].style.color = value;
+            setFormData({ ...formData, rows });
+            console.log('Updated formData with color style:', { ...formData, rows });
+        } else {
+            console.error(`Row at index ${selectedElement.rowIndex} or column at index ${selectedElement.columnIndex} does not exist.`);
+        }
+    };
+    
 
     // const onPaddingChange = (event) => {
     // const { value, dataset } = event.target;
@@ -32,42 +85,101 @@ function StyleSidebar({ onHeadingChange, setColorStyle, setPadding, setMargin, s
     const columnIndex = rowColumnData.columnIndex;
 
     const onPaddingChange = (event) => {
-        console.log('Current rowIndex:', rowColumnData.rowIndex);
-        console.log('Current columnIndex:', rowColumnData.columnIndex);
         const { value, dataset } = event.target;
+        const side = dataset.side;
+    
         setPadding((prevPadding) => ({
             ...prevPadding,
-            [dataset.side]: parseInt(value, 10) || 0,
-        }))
+            [side]: parseInt(value, 10) || 0,
+        }));
+    
         const rows = [...formData.rows];
-        if (rows[rowColumnData.rowIndex] && rows[rowColumnData.rowIndex].columns[rowColumnData.columnIndex]) {
-            rows[rowColumnData.rowIndex].columns[rowColumnData.columnIndex].style.padding[dataset.side] = parseInt(value, 10) || 0;
+        if (rows[selectedElement.rowIndex] && rows[selectedElement.rowIndex].columns[selectedElement.columnIndex]) {
+            // Update the padding in the formData for the selected element
+            rows[selectedElement.rowIndex].columns[selectedElement.columnIndex].style.padding[side] = parseInt(value, 10) || 0;
             setFormData({ ...formData, rows });
             console.log('Updated formData with padding:', { ...formData, rows });
         } else {
-            console.error(`Row at index ${rowColumnData.rowIndex} or column at index ${rowColumnData.columnIndex} does not exist.`);
+            console.error(`Row at index ${selectedElement.rowIndex} or column at index ${selectedElement.columnIndex} does not exist.`);
         }
     };
+
+    
     const onMarginChange = (event) => {
         const { value, dataset } = event.target;
+        const side = dataset.side;
+    
         setMargin((prevMargin) => ({
             ...prevMargin,
-            [dataset.side]: parseInt(value, 10) || 0,
-        }))
-    }
+            [side]: parseInt(value, 10) || 0,
+        }));
+    
+        const rows = [...formData.rows];
+        if (rows[selectedElement.rowIndex] && rows[selectedElement.rowIndex].columns[selectedElement.columnIndex]) {
+            // Update the margin in the formData for the selected element
+            rows[selectedElement.rowIndex].columns[selectedElement.columnIndex].style.margin[side] = parseInt(value, 10) || 0;
+            setFormData({ ...formData, rows });
+            console.log('Updated formData with margin:', { ...formData, rows });
+        } else {
+            console.error(`Row at index ${selectedElement.rowIndex} or column at index ${selectedElement.columnIndex} does not exist.`);
+        }
+    };
+    
     const onSizeChange = (event) => {
         const { value, dataset } = event.target;
+        const side = dataset.side;
+    
         setImageSize((prevSize) => ({
             ...prevSize,
-            [dataset.side]: parseInt(value, 10) || 0,
-        }))
-    }
+            [side]: parseInt(value, 10) || 0,
+        }));
+    
+        const rows = [...formData.rows];
+        if (rows[selectedElement.rowIndex] && rows[selectedElement.rowIndex].columns[selectedElement.columnIndex]) {
+            // Update the size in the formData for the selected element
+            rows[selectedElement.rowIndex].columns[selectedElement.columnIndex].style.size[side] = parseInt(value, 10) || 0;
+            setFormData({ ...formData, rows });
+            console.log('Updated formData with size:', { ...formData, rows });
+        } else {
+            console.error(`Row at index ${selectedElement.rowIndex} or column at index ${selectedElement.columnIndex} does not exist.`);
+        }
+    };
+    
+      
+    // const onAlignChange = (event) => {
+    //     setAlign(event.currentTarget.dataset.align);
+    // };
     const onAlignChange = (event) => {
-        setAlign(event.currentTarget.dataset.align);
+        const alignment = event.currentTarget.dataset.align;
+        setAlign(alignment); // Update the frontend state
+    
+        const rows = [...formData.rows];
+        if (rows[selectedElement.rowIndex] && rows[selectedElement.rowIndex].columns[selectedElement.columnIndex]) {
+            // Update the alignment in the formData for the selected element
+            rows[selectedElement.rowIndex].columns[selectedElement.columnIndex].style.alignment = alignment;
+            setFormData({ ...formData, rows });
+            console.log('Updated formData with alignment:', { ...formData, rows });
+        } else {
+            console.error(`Row at index ${selectedElement.rowIndex} or column at index ${selectedElement.columnIndex} does not exist.`);
+        }
     };
+    
+      
     const onRadiusChange = (event) => {
-        setImageRadius(event.target.value);
+        const radius = parseInt(event.target.value, 10) || 0;
+        setImageRadius(radius); // Update the frontend state
+    
+        const rows = [...formData.rows];
+        if (rows[selectedElement.rowIndex] && rows[selectedElement.rowIndex].columns[selectedElement.columnIndex]) {
+            // Update the radius in the formData for the selected element
+            rows[selectedElement.rowIndex].columns[selectedElement.columnIndex].style.radius = radius;
+            setFormData({ ...formData, rows });
+            console.log('Updated formData with radius:', { ...formData, rows });
+        } else {
+            console.error(`Row at index ${selectedElement.rowIndex} or column at index ${selectedElement.columnIndex} does not exist.`);
+        }
     };
+    
     return (
         <div>
             {/* {selectedElement && ( */}
